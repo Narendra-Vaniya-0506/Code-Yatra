@@ -94,7 +94,7 @@ const Navbar = () => {
           listStyle: 'none',
           margin: 0,
           padding: 0,
-          marginLeft: 'auto'
+          marginLeft: isMobile ? '0' : 'auto'
         }}>
           {user && <li><Link to="/profile" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Profile</Link></li>}
           <li><Link to="/" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
