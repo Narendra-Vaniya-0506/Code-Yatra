@@ -1,38 +1,288 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Add this CSS to the existing styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-left {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #0f172a;
+  margin-right: 2rem;
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: #2563eb;
+  margin-right: 5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.search-bar {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.9rem;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-btn {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: black;
+}
+
+.nav-btn:hover {
+  background: #f3f4f6;
+}
+
+.nav-btn.primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+.nav-btn.primary:hover {
+  background: #1d4ed8;
+}
+
+.icon-btn {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #111827;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: black;
+}
+
+.icon-btn:hover {
+  background: #f3f4f6;
+}
+
+/* Dark mode styles */
+.dark .navbar {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+.dark .logo {
+  color: #f1f5f9;
+}
+
+.dark .logo-icon {
+  color: #3b82f6;
+}
+
+.dark .nav-links a {
+  color: #cbd5e1;
+}
+
+.dark .nav-links a:hover {
+  color: #3b82f6;
+}
+
+.dark .nav-right .search-bar {
+  background-color: #334155;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+.dark .nav-btn {
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+.dark .nav-btn:hover {
+  background: #475569;
+}
+
+.dark .nav-btn.primary {
+  background: #3b82f6;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dark .nav-btn.primary:hover {
+  background: #2563eb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dark .icon-btn {
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+.dark .icon-btn:hover {
+  background: #475569;
+}
+
+
+/* ---------- Home Page ---------- */
+.home-wrapper {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+.breadcrumb {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.3;
+}
+.description {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+.tag {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+.highlight {
+  color: #3b82f6;
+}
+.card {
+  background: #1e293b;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+.thumbnail {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.card-desc {
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+}
+.btn-enroll {
+  width: 100%;
+  padding: 0.8rem;
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-enroll:hover {
+  background: #2563eb;
+}
+
+/* ---------- Learn Section ---------- */
+.learn-section {
+  padding: 3rem 1rem;
+}
+.learn-box {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 2rem;
+}
+.section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #f1f5f9;
+}
+.learn-box li {
+  color: #cbd5e1;
+}
+
+/* ---------- Course Page ---------- */
+.course-container {
+  padding: 2rem;
+  background: #0f172a;
+  color: #f1f5f9;
+  min-height: 100vh;
+}
+
+/* ---------- Video Page ---------- */
+.video-container {
+  padding: 2rem;
+  background: #0f172a;
+  color: #f1f5f9;
+  min-height: 100vh;
+}
+
+/* Global dark mode styles */
+.dark {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.dark main, .dark section, .dark div, .dark footer {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}
+
+.dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark a, .dark li {
+  color: #f1f5f9;
+}
+
+.dark button, .dark input, .dark select, .dark textarea {
+  background-color: #334155;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+.dark button:hover, .dark input:hover, .dark select:hover, .dark textarea:hover {
+  background-color: #475569;
+  color: #f1f5f9;
 }
