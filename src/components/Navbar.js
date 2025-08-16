@@ -10,10 +10,15 @@ const Navbar = () => {
   const handleLogout = () => {
     logout();
     navigate('/');
+    setMenuOpen(false);
   };
 
   const handleGoBack = () => {
     navigate(-1); // Go back to previous page
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
@@ -36,22 +41,23 @@ const Navbar = () => {
           >
             Code Yatra
           </Link>
-
-          <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-            {user && <li><Link to="/profile">Profile</Link></li>}
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/lessons">Code lessons</Link></li>
-            <li><Link to="/Studyabroad">Studyabroad</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-          </ul>
         </div>
+
+        {/* Desktop Links */}
+        <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          {user && <li><Link to="/profile" onClick={closeMenu}>Profile</Link></li>}
+          <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+          <li><Link to="/lessons" onClick={closeMenu}>Code lessons</Link></li>
+          <li><Link to="/Studyabroad" onClick={closeMenu}>Studyabroad</Link></li>
+          <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
+        </ul>
 
         {/* Right Section */}
         <div className="nav-right">
           {!user ? (
             <>
-              <button className="outline-btn" onClick={() => navigate("/login")}>Login</button>
-              <button className="gradient-btn" onClick={() => navigate("/signup")}>Signup</button>
+              <button className="outline-btn" onClick={() => { navigate("/login"); closeMenu(); }}>Login</button>
+              <button className="gradient-btn" onClick={() => { navigate("/signup"); closeMenu(); }}>Signup</button>
             </>
           ) : (
             <button className="logout-btn" onClick={handleLogout}>Logout</button>
@@ -59,14 +65,14 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger Menu (mobile only) */}
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        <button className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
           <span></span>
           <span></span>
           <span></span>
         </button>
       </nav>
 
-      {/* Inline CSS for Navbar */}
+      {/* Inline CSS */}
       <style>{`
         .navbar {
           display: flex;
@@ -79,6 +85,8 @@ const Navbar = () => {
           position: sticky;
           top: 0;
           z-index: 1000;
+          width: 100%;
+          height: 60px;
         }
 
         .nav-left {
@@ -185,6 +193,7 @@ const Navbar = () => {
           background: transparent;
           border: none;
           cursor: pointer;
+          z-index: 1100;
         }
         .hamburger span {
           width: 25px;
@@ -194,19 +203,29 @@ const Navbar = () => {
           transition: all 0.3s ease;
         }
 
+        /* Rotate animation when open */
+        .hamburger.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+
         /* Mobile Styles */
         @media (max-width: 768px) {
           .nav-links {
             display: none;
             position: absolute;
             top: 60px;
-            right: 15px;
+            left: 0;
             flex-direction: column;
-            background: rgba(44,62,80,0.95);
+            background: rgba(44,62,80,0.98);
             padding: 1rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            width: 200px;
+            width: 100%;
+            text-align: center;
           }
           .nav-links.open {
             display: flex;
