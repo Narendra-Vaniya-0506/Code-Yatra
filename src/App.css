@@ -37,6 +37,9 @@ body {
 /* Navbar Styles */
 .navbar {
   flex-wrap: wrap; /* Allow wrapping for mobile */
+  padding: 1rem; /* Adjust padding for better spacing */
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  flex-wrap: wrap; /* Allow wrapping for mobile */
   display: flex;
   justify-content: space-between;
   align-items: center;
