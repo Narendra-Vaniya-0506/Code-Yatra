@@ -13,10 +13,7 @@ const Navbar = () => {
     logout();
     navigate('/');
   };
-
-  const handleGoBack = () => {
-    navigate(-1); // Go back to previous page
-  };
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -63,8 +60,7 @@ const Navbar = () => {
       <div className="nav-left" style={{ 
         display: 'flex', 
         alignItems: 'center', 
-        gap: '1rem',
-        flex: 1
+        gap: '1rem'
       }}>
         <Link
           to="/"
@@ -87,26 +83,26 @@ const Navbar = () => {
         >
           Code Yatra
         </Link>
-
-        {/* Desktop Navigation Links */}
-        {!isMobile && (
-          <ul style={{
-            display: 'flex',
-            flexDirection: 'row',
-            gap: '2rem',
-            listStyle: 'none',
-            margin: 0,
-            padding: 0,
-            marginLeft: 'auto'
-          }}>
-            {user && <li><Link to="/profile" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Profile</Link></li>}
-            <li><Link to="/" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
-            <li><Link to="/lessons" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
-            <li><Link to="/Studyabroad" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Studyabroad</Link></li>
-            <li><Link to="/contact" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Contact</Link></li>
-          </ul>
-        )}
       </div>
+
+      {/* Desktop Navigation Links */}
+      {!isMobile && (
+        <ul style={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: '2rem',
+          listStyle: 'none',
+          margin: 0,
+          padding: 0,
+          marginLeft: 'auto'
+        }}>
+          {user && <li><Link to="/profile" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Profile</Link></li>}
+          <li><Link to="/" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
+          <li><Link to="/lessons" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
+          <li><Link to="/Studyabroad" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Studyabroad</Link></li>
+          <li><Link to="/contact" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Contact</Link></li>
+        </ul>
+      )}
 
       {/* Mobile Hamburger Menu */}
       {isMobile && (
