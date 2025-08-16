@@ -26,7 +26,7 @@ const Navbar = () => {
       <nav className="navbar">
         {/* Left: back button */}
         <button onClick={handleGoBack} className="back-btn" title="Go back">
-          ←
+          Back
         </button>
 
         {/* Center: logo */}
@@ -137,7 +137,7 @@ const Navbar = () => {
 
         /* Nav links */
         .nav-links {
-          display: none;
+          display: flex; /* Show links by default */
           flex-direction: column;
           gap: 1rem;
           list-style: none;
@@ -146,6 +146,17 @@ const Navbar = () => {
           background: rgba(44,62,80,0.98);
           width: 100%;
           text-align: center;
+        }
+
+        @media (min-width: 768px) {
+          .nav-links {
+            display: flex; /* Show links in a row on larger screens */
+            flex-direction: row;
+            justify-content: space-around;
+          }
+          .hamburger {
+            display: none; /* Hide hamburger on larger screens */
+          }
         }
         .nav-links.open {
           display: flex;
