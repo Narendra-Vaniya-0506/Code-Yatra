@@ -30,9 +30,21 @@ export default function App() {
               <Lessons />
             </ProtectedRoute>
           } />
-          <Route path="/studyabroad" element={<AbroadPage />} />
-          <Route path="/studyabroad/english" element={<English />} />
-          <Route path="/studyabroad/visa" element={<Visa />} />
+          <Route path="/studyabroad" element={
+            <ProtectedRoute>
+              <AbroadPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/studyabroad/english" element={
+            <ProtectedRoute>
+              <English />
+            </ProtectedRoute>
+          } />
+          <Route path="/studyabroad/visa" element={
+            <ProtectedRoute>
+              <Visa />
+            </ProtectedRoute>
+          } />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
