@@ -58,6 +58,11 @@ export default function App() {
               <PythonLessons />
             </ProtectedRoute>
           } />
+          <Route path="/lessons/python/:lessonId" element={
+            <ProtectedRoute>
+              <PythonLessons />
+            </ProtectedRoute>
+          } />
         </Routes>
       </Router>
     </AuthProvider>
