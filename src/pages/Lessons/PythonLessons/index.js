@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import LessonLayout from '../../components/LessonLayout';
+import LessonLayout from '../../../components/LessonLayout';
 
 const lessons = [
   { id: 'introduction', title: 'Introduction', path: '/lessons/python/introduction' },
