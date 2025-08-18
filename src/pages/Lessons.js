@@ -17,7 +17,7 @@ const tutorialsData = [
     description:
       "Start your web journey here. Learn HTML to build the fundamental skeleton and content of every website.",
     icon: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
-    path: "/lessons/html",
+    path: null,
   },
   {
     title: "CSS Lessons",
