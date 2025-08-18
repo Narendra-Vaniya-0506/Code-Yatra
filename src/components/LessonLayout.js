@@ -34,21 +34,7 @@ const LessonLayout = ({ children }) => {
         ></div>
       )}
       
-      {/* Header */}
-      <header className="lesson-header">
-        <div className="header-content">
-          <button 
-            className="hamburger-btn"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            aria-label="Toggle sidebar"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          <h1 className="site-title">Code Yatra</h1>
-        </div>
-      </header>
+      
 
       {/* Sidebar */}
       <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
