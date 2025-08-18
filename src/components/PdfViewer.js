@@ -1,46 +1,40 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 
-// Required for pdfjs to work
+// Required worker setup
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.js`;
 
 export default function PdfViewer({ file }) {
-  const [pdfText, setPdfText] = useState('');
-  const canvasRef = useRef(null); // ✅ define canvasRef
+  const canvasRef = useRef(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!file) return;
 
     const loadingTask = pdfjsLib.getDocument(file);
-    console.log(`Loading PDF from: ${file}`);
+    loadingTask.promise.then((pdf) => {
+      pdf.getPage(1).then((page) => {
+        const scale = 1.5;
+        const viewport = page.getViewport({ scale });
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
 
-    loadingTask.promise.then(
-      (pdf) => {
-        console.log('PDF loaded successfully');
-        pdf.getPage(1).then((page) => {
-          const scale = 1.5;
-          const viewport = page.getViewport({ scale });
-          const canvas = canvasRef.current;
-          const context = canvas.getContext('2d');
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
-
-          const renderContext = {
-            canvasContext: context,
-            viewport,
-          };
-          page.render(renderContext);
+        page.render({ canvasContext: context, viewport }).promise.then(() => {
+          setLoading(false);
         });
-      },
-      (reason) => {
-        console.error('Error loading PDF:', reason);
-      }
-    );
+      });
+    }).catch((err) => {
+      console.error("Error loading PDF:", err);
+      setLoading(false);
+    });
   }, [file]);
 
   return (
-    <div>
-      <canvas ref={canvasRef} />
+    <div style={{ marginTop: "20px" }}>
+      {loading ? <p>Loading PDF...</p> : null}
+      <canvas ref={canvasRef} style={{ border: "1px solid #ddd", width: "100%", maxWidth: "800px" }} />
       <br />
       <a
         href={file}
