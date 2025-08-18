@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LessonLayout from '../../../components/LessonLayout';
-import PdfViewer from '../../../components/PdfViewer';
-
-// Import PDFs like normal files
-import introPdf from './Pdfs/Python_Roadmap_CodeYatra.pdf';
-// import tuplesPdf from './Pdfs/tuples.pdf';
 
 const lessons = [
-  { id: 'introduction', title: 'Introduction', path: '/lessons/python/introduction', pdf: introPdf },
-  // { id: 'tuples', title: 'Tuples', path: '/lessons/python/tuples', pdf: tuplesPdf },
+  { id: 'introduction', title: 'Introduction', path: '/lessons/python/introduction' },
+  // { id: 'tuples', title: 'Tuples', path: '/lessons/python/tuples' },
 ];
 
 export default function PythonLessons() {
@@ -49,8 +44,6 @@ export default function PythonLessons() {
               <li>✅ Functions and modules</li>
               <li>✅ Object-oriented programming</li>
             </ul>
-
-            <PdfViewer file={lesson.pdf} />
           </div>
         )
       },
@@ -70,8 +63,6 @@ export default function PythonLessons() {
               <li>Tuple unpacking</li>
               <li>Tuple methods and operations</li>
             </ul>
-            
-            <PdfViewer file={lesson.pdf} />
           </div>
         )
       }
@@ -84,7 +75,6 @@ export default function PythonLessons() {
         <div>
           <h1>{lesson.title}</h1>
           <p>Content for {lesson.title} coming soon...</p>
-          {lesson.pdf && <PdfViewer file={lesson.pdf} />}
         </div>
       )
     };
