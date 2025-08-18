@@ -76,7 +76,7 @@ body {
   position: fixed;
   top: 70px;
   left: 0;
-  width: 280px;
+  width: 300px; /* Adjusted width */
   height: calc(100vh - 70px);
   background: white;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -134,9 +134,8 @@ body {
 }
 
 .sidebar-nav a:hover {
-  background-color: #f8f9fa;
-  color: #667eea;
-  border-left-color: #667eea;
+  background-color: #e9ecef; /* Slightly darker on hover */
+  color: #0056b3; /* Change text color on hover */
 }
 
 .sidebar-nav li.active a {
@@ -148,7 +147,7 @@ body {
 
 /* Main content styles */
 .lesson-content {
-  margin-left: 280px;
+  margin-left: 300px; /* Adjusted margin to match sidebar width */
   margin-top: 70px;
   padding: 2rem;
   min-height: calc(100vh - 70px);
