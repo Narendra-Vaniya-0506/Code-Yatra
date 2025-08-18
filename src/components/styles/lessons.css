@@ -24,7 +24,7 @@ body {
 /* Sidebar - Fixed width on desktop */
 .sidebar {
   width: 250px;
-  z-index: 1000; /* Ensure sidebar is above other elements */
+  z-index: 1; /* Ensure sidebar is below the navbar */
   background: #ffffff;
   border-right: 1px solid #e5e7eb;
   padding: 0;
