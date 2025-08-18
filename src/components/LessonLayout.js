@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './styles/Lessons.css';
+import './styles/lessons.css';
 
 const LessonLayout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
