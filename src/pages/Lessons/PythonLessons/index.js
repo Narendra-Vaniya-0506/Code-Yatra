@@ -119,71 +119,65 @@ export default function PythonLessons() {
   const lessonContent = getLessonContent();
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="lessons-container">
       {/* Sidebar */}
-      <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-30 w-64 bg-gray-800 text-white transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
-        <div className="flex items-center justify-between p-4 border-b border-gray-700">
-          <h2 className="text-lg font-semibold">Python Lessons</h2>
+      <aside className={`sidebar-lessons ${sidebarOpen ? 'open' : ''}`}>
+        <div className="sidebar-header">
+          <h2 className="sidebar-title">Python Lessons</h2>
           {isMobile && (
-            <button onClick={toggleSidebar} className="text-white">
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onClick={toggleSidebar} className="text-white" style={{float: 'right'}}>
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           )}
         </div>
         
-        <nav className="p-4">
-          <ul className="space-y-2">
+        <nav className="sidebar-nav">
+          <ul>
             {lessons.map((lesson) => (
               <li key={lesson.id}>
                 <button
                   onClick={() => handleLessonClick(lesson)}
-                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                    activeLesson === lesson.id
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                  }`}
+                  className={activeLesson === lesson.id ? 'active' : ''}
                 >
-                  <div className="flex items-center justify-between">
-                    <span>{lesson.title}</span>
-                    {activeLesson === lesson.id && (
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    )}
-                  </div>
+                  <span>{lesson.title}</span>
+                  {activeLesson === lesson.id && (
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  )}
                 </button>
               </li>
             ))}
           </ul>
         </nav>
-      </div>
+      </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="lessons-main">
         {/* Header */}
-        <header className="bg-white shadow-sm border-b border-gray-200">
-          <div className="flex items-center justify-between px-4 py-3">
-            <div className="flex items-center">
+        <header className="lessons-header">
+          <div className="lessons-header-content">
+            <div style={{display: 'flex', alignItems: 'center'}}>
               {isMobile && (
                 <button
                   onClick={toggleSidebar}
-                  className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                  className="hamburger-btn"
                 >
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 </button>
               )}
-              <h1 className="ml-2 text-xl font-semibold text-gray-900">{lessonContent?.title || 'Python Lessons'}</h1>
+              <h1 className="lessons-title">{lessonContent?.title || 'Python Lessons'}</h1>
             </div>
           </div>
         </header>
 
         {/* Content Area */}
-        <main className="flex-1 p-6 lg:p-8 overflow-y-auto">
-          <div className="max-w-4xl mx-auto">
+        <main className="lessons-content">
+          <div className="content-wrapper">
             {lessonContent?.content}
           </div>
         </main>
@@ -192,7 +186,7 @@ export default function PythonLessons() {
       {/* Mobile overlay */}
       {isMobile && sidebarOpen && (
         <div
-          className="fixed inset-0 z-20 bg-black bg-opacity-50"
+          className="sidebar-overlay show"
           onClick={toggleSidebar}
         />
       )}
