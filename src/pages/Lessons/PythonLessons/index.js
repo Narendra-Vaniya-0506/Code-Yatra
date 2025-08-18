@@ -4,7 +4,7 @@ import LessonLayout from '../../../components/LessonLayout';
 import PdfViewer from '../../../components/PdfViewer';
 
 // Import PDFs like normal files
-import introPdf from './Pdfs/introduction.pdf';
+import introPdf from './Pdfs/Python_Roadmap_CodeYatra.pdf';
 // import tuplesPdf from './Pdfs/tuples.pdf';
 
 const lessons = [
