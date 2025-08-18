@@ -5,7 +5,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.js`;
 
 export default function PdfViewer({ file }) {
-  const canvasRef = useRef(null);
+  const [pdfText, setPdfText] = useState('');
 
   useEffect(() => {
     if (!file) {
