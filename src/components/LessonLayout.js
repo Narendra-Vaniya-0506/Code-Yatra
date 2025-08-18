@@ -8,20 +8,7 @@ const LessonLayout = ({ children }) => {
 
   const lessonLinks = [
     { path: '/lessons/python/introduction', label: 'Introduction' },
-    { path: '/lessons/python/variables', label: 'Variables & Data Types' },
-    { path: '/lessons/python/strings', label: 'Strings & Methods' },
-    { path: '/lessons/python/lists', label: 'Lists & Tuples' },
-    { path: '/lessons/python/dictionaries', label: 'Dictionaries & Sets' },
-    { path: '/lessons/python/conditionals', label: 'Conditional Statements' },
-    { path: '/lessons/python/loops', label: 'Loops (for & while)' },
-    { path: '/lessons/python/functions', label: 'Functions' },
-    { path: '/lessons/python/oops', label: 'Object-Oriented Programming' },
-    { path: '/lessons/python/file-handling', label: 'File Handling' },
-    { path: '/lessons/python/exceptions', label: 'Exception Handling' },
-    { path: '/lessons/python/modules', label: 'Modules & Packages' },
-    { path: '/lessons/python/regex', label: 'Regular Expressions' },
-    { path: '/lessons/python/database', label: 'Database Connectivity' },
-    { path: '/lessons/python/flask', label: 'Web Development with Flask' }
+    
   ];
 
   return (

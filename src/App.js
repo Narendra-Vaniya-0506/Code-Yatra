@@ -2,18 +2,31 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import HomePage from "./pages/HomePage";
+
+
+import Navbar from "./components/Navbar";
+
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
+import Profile from "./pages/Profile";
+import "./App.css";
+
 import Lessons from "./pages/Lessons";
+import PythonLessons from "./pages/Lessons/PythonLessons";
+import CLessons from "./pages/Lessons/CLessons/c";
+import CppLessons from "./pages/Lessons/CppLessons/cpp";
+import CSSLessons from "./pages/Lessons/CSSLessons/css";
+import HTMLLessons from "./pages/Lessons/HTMLLessons/html";
+import JavaLessons from "./pages/Lessons/JavaLessons/java";
+import JavaScriptLessons from "./pages/Lessons/JavaScriptLessons/javascript";
+import ReactLessons from "./pages/Lessons/ReactJSLessons/react";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 import AbroadPage from "./pages/Studyabroad/AbroadPage";
 import English from "./pages/Studyabroad/English";
 import Visa from "./pages/Studyabroad/Visa";
 import Contact from "./pages/Contact";
-import Navbar from "./components/Navbar";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Profile from "./pages/Profile";
-import "./App.css";
-import PythonLessons from "./pages/Lessons/PythonLessons";
-import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   return (
@@ -61,6 +74,76 @@ export default function App() {
           <Route path="/lessons/python/:lessonId" element={
             <ProtectedRoute>
               <PythonLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/c" element={
+            <ProtectedRoute>
+              <CLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/c/:lessonId" element={
+            <ProtectedRoute>
+              <CLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/cpp" element={
+            <ProtectedRoute>
+              <CppLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/cpp/:lessonId" element={
+            <ProtectedRoute>
+              <CppLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/css" element={
+            <ProtectedRoute>
+              <CSSLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/css/:lessonId" element={
+            <ProtectedRoute>
+              <CSSLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/html" element={
+            <ProtectedRoute>
+              <HTMLLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/html/:lessonId" element={
+            <ProtectedRoute>
+              <HTMLLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/java" element={
+            <ProtectedRoute>
+              <JavaLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/java/:lessonId" element={
+            <ProtectedRoute>
+              <JavaLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/javascript" element={
+            <ProtectedRoute>
+              <JavaScriptLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/javascript/:lessonId" element={
+            <ProtectedRoute>
+              <JavaScriptLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/react" element={
+            <ProtectedRoute>
+              <ReactLessons />
+            </ProtectedRoute>
+          } />
+          <Route path="/lessons/react/:lessonId" element={
+            <ProtectedRoute>
+              <ReactLessons />
             </ProtectedRoute>
           } />
         </Routes>
