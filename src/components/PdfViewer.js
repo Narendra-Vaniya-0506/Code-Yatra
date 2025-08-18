@@ -1,17 +1,31 @@
+import React, { useEffect, useRef } from 'react';
+import { pdfjs } from 'pdfjs-dist';
+
 export default function PdfViewer({ file }) {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const loadingTask = pdfjs.getDocument(file);
+    loadingTask.promise.then((pdf) => {
+      pdf.getPage(1).then((page) => {
+        const viewport = page.getViewport({ scale: 1 });
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport,
+        };
+        page.render(renderContext);
+      });
+    });
+  }, [file]);
+
   return (
     <div>
-      <iframe
-        src={file}
-        width="100%"
-        height="600px"
-        style={{
-          border: "1px solid #ccc",
-          borderRadius: "8px",
-          marginTop: "20px"
-        }}
-        title="Lesson PDF"
-      />
+      <canvas ref={canvasRef} />
       <br />
       <a
         href={file}

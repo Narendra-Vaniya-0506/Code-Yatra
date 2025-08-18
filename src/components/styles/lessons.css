@@ -1,3 +1,5 @@
+/* Lessons.css - Professional Layout for Desktop & Mobile */
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -12,73 +14,38 @@ body {
   line-height: 1.6;
 }
 
-/* Layout container */
-.lesson-layout {
+/* Main container for lessons page */
+.lessons-container {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
+  background: #f9fafb;
 }
 
-
-
-/* Hamburger button */
-.hamburger-btn {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  z-index: 1001;
-}
-
-.hamburger-btn span {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 3px 0;
-  transition: 0.3s;
-  border-radius: 2px;
-}
-
-/* Sidebar styles */
+/* Sidebar - Fixed width on desktop */
 .sidebar {
+  width: 250px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 0;
+  height: 100vh;
   position: fixed;
-  top: 70px;
+  top: 0;
   left: 0;
-  width: 300px;
-  height: calc(100vh - 70px);
-  background: white;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  transition: transform 0.3s ease;
-  z-index: 999;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar-header {
   padding: 1.5rem;
-  border-bottom: 1px solid #e9ecef;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f8fafc;
 }
 
 .sidebar-header h2 {
-  font-size: 1.5rem;
-  color: #333;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
   margin: 0;
-}
-
-.close-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #666;
-  padding: 0;
-  width: 30px;
-  height: 30px;
 }
 
 .sidebar-nav {
@@ -96,55 +63,58 @@ body {
 .sidebar-nav a {
   display: block;
   padding: 0.75rem 1.5rem;
-  color: #495057;
+  color: #475569;
   text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
   transition: all 0.2s ease;
   border-left: 3px solid transparent;
-  font-size: 1rem;
 }
 
 .sidebar-nav a:hover {
-  background-color: #e9ecef;
-  color: #0056b3;
+  background-color: #f1f5f9;
+  color: #3b82f6;
+  border-left-color: #3b82f6;
 }
 
 .sidebar-nav li.active a {
-  background-color: #f8f9fa;
-  color: #667eea;
-  border-left-color: #667eea;
+  background-color: #eff6ff;
+  color: #3b82f6;
+  border-left-color: #3b82f6;
   font-weight: 600;
 }
 
-/* Main content styles */
+/* Main content area */
 .lesson-content {
-  margin-left: 300px;
-  margin-top: 70px;
+  margin-left: 250px;
   padding: 2rem;
-  min-height: calc(100vh - 70px);
+  flex: 1;
+  background: #f9fafb;
+  min-height: 100vh;
 }
 
 .content-wrapper {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem;
 }
 
-/* Typography */
+/* Typography improvements */
 .content-wrapper h1 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: #1e293b;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .content-wrapper h2 {
-  font-size: 2rem;
+  font-size: 1.875rem;
   font-weight: 600;
-  color: #34495e;
+  color: #334155;
   margin: 2rem 0 1rem;
   line-height: 1.3;
 }
@@ -152,7 +122,7 @@ body {
 .content-wrapper h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #34495e;
+  color: #334155;
   margin: 1.5rem 0 0.75rem;
 }
 
@@ -160,64 +130,53 @@ body {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
-  color: #555;
+  color: #475569;
 }
 
 .content-wrapper code {
-  background-color: #f8f9fa;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
+  background-color: #f1f5f9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
   font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
-  font-size: 0.9em;
+  font-size: 0.875em;
+  color: #dc2626;
 }
 
 .content-wrapper pre {
-  background-color: #f8f9fa;
+  background-color: #f8fafc;
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   overflow-x: auto;
   margin: 1.5rem 0;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #3b82f6;
 }
 
 .content-wrapper pre code {
   background: none;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  color: #334155;
 }
 
-/* Overlay for mobile */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 998;
-}
-
-/* Mobile responsive styles */
+/* Responsive design for mobile */
 @media (max-width: 768px) {
-  .hamburger-btn {
-    display: flex;
-  }
-
-  .close-btn {
-    display: block;
+  .lessons-container {
+    flex-direction: column;
   }
 
   .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
     transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
   }
 
   .sidebar.open {
     transform: translateX(0);
-  }
-
-  .overlay {
-    display: block;
   }
 
   .lesson-content {
@@ -227,10 +186,11 @@ body {
 
   .content-wrapper {
     padding: 1.5rem;
+    margin: 0 0.5rem;
   }
 
   .content-wrapper h1 {
-    font-size: 2rem;
+    font-size: 1.875rem;
   }
 
   .content-wrapper h2 {
@@ -243,24 +203,65 @@ body {
 }
 
 @media (max-width: 480px) {
-  .lesson-header {
-    padding: 0.75rem 1rem;
+  .sidebar {
+    width: 100%;
   }
 
-  .site-title {
-    font-size: 1.25rem;
+  .lesson-content {
+    padding: 0.75rem;
   }
 
   .content-wrapper {
     padding: 1rem;
+    margin: 0;
+    border-radius: 0;
   }
 
   .content-wrapper h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   .content-wrapper h2 {
     font-size: 1.25rem;
+  }
+}
+
+/* Hamburger button for mobile */
+.hamburger-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: block;
+  }
+}
+
+/* Overlay for mobile sidebar */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    display: block;
   }
 }
 
@@ -270,26 +271,34 @@ body {
 }
 
 .sidebar::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f5f9;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: #94a3b8;
 }
 
-/* Animation for sidebar */
+/* Animation improvements */
 .sidebar {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Responsive typography */
-@media (min-width: 1200px) {
-  .content-wrapper {
-    max-width: 900px;
-  }
+/* Additional utility classes */
+.lesson-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Ensure proper spacing for nested content */
+.content-wrapper > *:first-child {
+  margin-top: 0;
+}
+
+.content-wrapper > *:last-child {
+  margin-bottom: 0;
 }

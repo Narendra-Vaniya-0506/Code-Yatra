@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './styles/lessons.css';
+import './styles/Lessons.css';
 
 const LessonLayout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -8,11 +8,29 @@ const LessonLayout = ({ children }) => {
 
   const lessonLinks = [
     { path: '/lessons/python/introduction', label: 'Introduction' },
-    
+    { path: '/lessons/python/variables', label: 'Variables & Data Types' },
+    { path: '/lessons/python/control-flow', label: 'Control Flow' },
+    { path: '/lessons/python/functions', label: 'Functions' },
+    { path: '/lessons/python/lists', label: 'Lists & Arrays' },
+    { path: '/lessons/python/dictionaries', label: 'Dictionaries' },
+    { path: '/lessons/python/classes', label: 'Classes & Objects' },
   ];
 
   return (
-    <div className="lesson-layout">
+    <div className="lessons-container">
+      {/* Hamburger button for mobile */}
+      <button 
+        className="hamburger-btn"
+        onClick={() => setIsSidebarOpen(true)}
+        aria-label="Open sidebar"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
       {/* Overlay for mobile */}
       {isSidebarOpen && (
         <div 
@@ -20,20 +38,11 @@ const LessonLayout = ({ children }) => {
           onClick={() => setIsSidebarOpen(false)}
         ></div>
       )}
-      
-      
 
       {/* Sidebar */}
       <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <h2>Python Tutorial</h2>
-          <button 
-            className="close-btn"
-            onClick={() => setIsSidebarOpen(false)}
-            aria-label="Close sidebar"
-          >
-            ×
-          </button>
         </div>
         <nav className="sidebar-nav">
           <ul>
