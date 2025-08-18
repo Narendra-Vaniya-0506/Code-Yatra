@@ -1,14 +1,23 @@
 import React, { useEffect, useRef } from 'react';
-import { pdfjs } from 'pdfjs-dist';
+import * as pdfjsLib from 'pdfjs-dist';
+
+// This line is mandatory for the library to work correctly.
+pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.js`;
 
 export default function PdfViewer({ file }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const loadingTask = pdfjs.getDocument(file);
+    if (!file) {
+      return;
+    }
+
+    // Use the correctly imported 'pdfjsLib' object here
+    const loadingTask = pdfjsLib.getDocument(file);
     loadingTask.promise.then((pdf) => {
       pdf.getPage(1).then((page) => {
-        const viewport = page.getViewport({ scale: 1 });
+        const scale = 1.5;
+        const viewport = page.getViewport({ scale: scale });
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         canvas.height = viewport.height;
@@ -20,6 +29,8 @@ export default function PdfViewer({ file }) {
         };
         page.render(renderContext);
       });
+    }, (reason) => {
+      console.error(reason); // Log any errors from loading the document
     });
   }, [file]);
 

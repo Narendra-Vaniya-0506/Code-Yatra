@@ -13,7 +13,7 @@ import Profile from "./pages/Profile";
 import "./App.css";
 
 import Lessons from "./pages/Lessons";
-import PythonLessons from "./pages/Lessons/PythonLessons";
+import PythonLessons from "./pages/Lessons/PythonLessons/index";
 import CLessons from "./pages/Lessons/CLessons/c";
 import CppLessons from "./pages/Lessons/CppLessons/cpp";
 import CSSLessons from "./pages/Lessons/CSSLessons/css";
