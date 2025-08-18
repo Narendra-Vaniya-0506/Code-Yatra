@@ -33,23 +33,28 @@ export default function PythonLessons() {
       'introduction': {
         title: 'Welcome to Python Programming',
         content: (
-          <div>
-            <h1>Introduction to Python</h1>
-            <p>Python is a versatile programming language known for its simplicity and readability. It's widely used in web development, data science, artificial intelligence, and more.</p>
-            
-            <h2>What you'll learn:</h2>
-            <ul>
-              <li>Basic Python syntax</li>
-              <li>Variables and data types</li>
-              <li>Control structures</li>
-              <li>Functions and modules</li>
-              <li>Object-oriented programming</li>
+          <div className="lesson-card">
+            <h2 className="lesson-heading">Introduction to Python</h2>
+            <p className="lesson-text">
+              Python is a versatile programming language known for its simplicity
+              and readability. It's widely used in web development, data science,
+              artificial intelligence, and more.
+            </p>
+
+            <h3 className="lesson-subheading">📌 What you'll learn:</h3>
+            <ul className="lesson-list">
+              <li>✅ Basic Python syntax</li>
+              <li>✅ Variables and data types</li>
+              <li>✅ Control structures</li>
+              <li>✅ Functions and modules</li>
+              <li>✅ Object-oriented programming</li>
             </ul>
-            
+
             <PdfViewer file={lesson.pdf} />
           </div>
         )
       },
+
       /*
       'tuples': {
         title: 'Python Tuples',
