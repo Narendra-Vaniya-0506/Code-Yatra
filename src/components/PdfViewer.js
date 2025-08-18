@@ -14,6 +14,7 @@ export default function PdfViewer({ file }) {
 
     // Use the correctly imported 'pdfjsLib' object here
     const loadingTask = pdfjsLib.getDocument(file);
+    console.log(`Loading PDF from: ${file}`);
     loadingTask.promise.then((pdf) => {
       pdf.getPage(1).then((page) => {
         const scale = 1.5;
