@@ -160,44 +160,6 @@ body {
   border-left: 4px solid #3b82f6;
 }
 
-.content-wrapper pre code {
-  background: none;
-  padding: 0;
-  font-size: 0.875rem;
-  color: #334155;
-}
-
-/* PDF Viewer styles */
-.pdf-viewer {
-  margin-top: 2rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.pdf-viewer iframe {
-  width: 100%;
-  height: 600px;
-  border: none;
-}
-
-.pdf-download-btn {
-  display: inline-block;
-  padding: 10px 15px;
-  background: #1f2937;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: 15px;
-  transition: background 0.2s ease;
-}
-
-.pdf-download-btn:hover {
-  background: #374151;
-}
-
 /* Responsive design for mobile */
 @media (max-width: 768px) {
   .lessons-container {
@@ -241,45 +203,13 @@ body {
   .content-wrapper p {
     font-size: 1rem;
   }
-
-  .pdf-viewer iframe {
-    height: 400px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sidebar {
-    width: 100%;
-  }
-
-  .lesson-content {
-    padding: 0.75rem;
-  }
-
-  .content-wrapper {
-    padding: 1rem;
-    margin: 0;
-    border-radius: 0;
-  }
-
-  .content-wrapper h1 {
-    font-size: 1.5rem;
-  }
-
-  .content-wrapper h2 {
-    font-size: 1.25rem;
-  }
-
-  .pdf-viewer iframe {
-    height: 300px;
-  }
 }
 
 /* Hamburger button for mobile */
 .hamburger-btn {
   display: none;
   position: fixed;
-  top: 1rem;
+  top: 1.5rem; /* Adjusted to avoid overlap with navbar */
   left: 1rem;
   z-index: 1100; /* higher than sidebar */
   background: #3b82f6;
@@ -312,25 +242,6 @@ body {
   .overlay {
     display: block;
   }
-}
-
-/* Scrollbar styles */
-.sidebar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-
-.sidebar::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
 
 /* Additional utility classes */
 .lesson-layout {
@@ -345,4 +256,5 @@ body {
 
 .content-wrapper > *:last-child {
   margin-bottom: 0;
+}
 }
