@@ -94,22 +94,25 @@ body {
 
 /* Main content area */
 .lesson-content {
-  margin-left: 250px;
+  margin-left: 250px;         /* still accounts for sidebar */
   margin-top: var(--navbar-height);
   padding: 2rem;
   flex: 1;
   background: #f9fafb;
   min-height: calc(100vh - var(--navbar-height));
+
+  display: flex;              /* use flex to center content */
+  justify-content: center; 
 }
 
 /* Center the whole content wrapper */
 .content-wrapper {
+   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 2.5rem;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem;
 }
 
 /* Center the intro card inside wrapper */
@@ -145,12 +148,12 @@ body {
   }
 
   .lesson-content {
-    margin-left: 0;
-    margin-top: var(--navbar-height);
+    margin-left: 0;            /* remove sidebar gap */
     padding: 1rem;
+    display: block;            /* reset flex so it flows naturally */
   }
 
-  .content-wrapper {
+   .content-wrapper {
     padding: 1.5rem;
     margin: 0 0.5rem;
   }
