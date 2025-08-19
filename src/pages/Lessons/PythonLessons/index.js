@@ -326,8 +326,8 @@ export default function PythonLessons() {
 
   return (
     <LessonLayout sidebar={sidebar}>
-      <div className="lesson-content">
-        <h1>Welcome to Python Lessons</h1>
+      <div className="lesson-content" style={{ color: 'white' }}>
+        <h1 style={{ color: 'white' }}>Welcome to Python Lessons</h1>
         <p>Select a topic from the sidebar to get started.</p>
       </div>
     </LessonLayout>
