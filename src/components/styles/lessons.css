@@ -264,8 +264,9 @@ body {
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 2rem;
-  margin: 2rem 0;
+  margin: 2rem auto;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  max-width: 700px;
 }
 
 .intro-card h2 {
@@ -299,4 +300,13 @@ body {
   color: #10b981; /* green checkmark */
   margin-right: 0.5rem;
   font-weight: bold;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .intro-card {
+    max-width: 100%;
+    margin: 1rem auto;
+    padding: 1.5rem;
+  }
 }
