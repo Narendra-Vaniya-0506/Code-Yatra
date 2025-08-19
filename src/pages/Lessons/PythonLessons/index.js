@@ -48,6 +48,10 @@ export default function PythonLessons() {
           className={`lesson-sublist ${
             openSections.introduction ? "expanded" : ""
           }`}
+          style={{
+            maxHeight: openSections.introduction ? "500px" : "0",
+            transition: "max-height 0.25s ease",
+          }}
         >
           <li>
             <a
@@ -112,6 +116,10 @@ export default function PythonLessons() {
           className={`lesson-sublist ${
             openSections.dataTypes ? "expanded" : ""
           }`}
+          style={{
+            maxHeight: openSections.dataTypes ? "500px" : "0",
+            transition: "max-height 0.25s ease",
+          }}
         >
           <li>
             <a
@@ -183,6 +191,10 @@ export default function PythonLessons() {
         </button>
         <ul
           className={`lesson-sublist ${openSections.strings ? "expanded" : ""}`}
+          style={{
+            maxHeight: openSections.strings ? "500px" : "0",
+            transition: "max-height 0.25s ease",
+          }}
         >
           <li>
             <a
@@ -227,6 +239,10 @@ export default function PythonLessons() {
         </button>
         <ul
           className={`lesson-sublist ${openSections.lists ? "expanded" : ""}`}
+          style={{
+            maxHeight: openSections.lists ? "500px" : "0",
+            transition: "max-height 0.25s ease",
+          }}
         >
           <li>
             <a
@@ -271,6 +287,10 @@ export default function PythonLessons() {
         </button>
         <ul
           className={`lesson-sublist ${openSections.tuples ? "expanded" : ""}`}
+          style={{
+            maxHeight: openSections.tuples ? "500px" : "0",
+            transition: "max-height 0.25s ease",
+          }}
         >
           <li>
             <a
