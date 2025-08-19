@@ -226,30 +226,21 @@ body {
   font-weight: 500;
 }
 
-/* Mobile Responsive */
+/* Hide unnecessary UI elements on desktop */
+@media (min-width: 769px) {
+  .skip-link,
+  .hamburger-btn,
+  .lesson-sidebar-close {
+    display: none;
+  }
+}
+
+/* Show elements on mobile */
 @media (max-width: 768px) {
-  .sidebar-lessons {
-    transform: translateX(-100%);
-  }
-
-  .sidebar-lessons.open {
-    transform: translateX(0);
-  }
-
-  .lessons-main {
-    margin-left: 0;
-  }
-
-  .hamburger-btn {
-    display: block;
-  }
-
-  .lessons-content {
-    padding: 1rem;
-  }
-
-  .content-title {
-    font-size: 1.5rem;
+  .skip-link,
+  .hamburger-btn,
+  .lesson-sidebar-close {
+    display: block; /* or inline-block, depending on your layout */
   }
 }
 
