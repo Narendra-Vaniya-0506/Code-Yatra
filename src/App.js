@@ -2,17 +2,15 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import HomePage from "./pages/HomePage";
-
-
 import Navbar from "./components/Navbar";
-
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-
 import Profile from "./pages/Profile";
-import "./App.css";
-
 import Lessons from "./pages/Lessons";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Contact from "./pages/Contact";
+
+// Import lesson pages
 import PythonLessons from "./pages/Lessons/PythonLessons/index";
 import CLessons from "./pages/Lessons/CLessons/c";
 import CppLessons from "./pages/Lessons/CppLessons/cpp";
@@ -21,130 +19,70 @@ import HTMLLessons from "./pages/Lessons/HTMLLessons/html";
 import JavaLessons from "./pages/Lessons/JavaLessons/java";
 import JavaScriptLessons from "./pages/Lessons/JavaScriptLessons/javascript";
 import ReactLessons from "./pages/Lessons/ReactJSLessons/react";
-import ProtectedRoute from "./components/ProtectedRoute";
 
+// Study abroad pages
 import AbroadPage from "./pages/Studyabroad/AbroadPage";
 import English from "./pages/Studyabroad/English";
 import Visa from "./pages/Studyabroad/Visa";
-import Contact from "./pages/Contact";
+
+import "./App.css";
 
 export default function App() {
   return (
     <AuthProvider>
       <Router>
-        {/* Navbar */}
         <Navbar />
-
-        {/* Routes */}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/lessons" element={
-            <ProtectedRoute>
-              <Lessons />
-            </ProtectedRoute>
-          } />
-          <Route path="/studyabroad" element={
-            <ProtectedRoute>
-              <AbroadPage />
-            </ProtectedRoute>
-          } />
-          <Route path="/studyabroad/english" element={
-            <ProtectedRoute>
-              <English />
-            </ProtectedRoute>
-          } />
-          <Route path="/studyabroad/visa" element={
-            <ProtectedRoute>
-              <Visa />
-            </ProtectedRoute>
-          } />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/contact" element={<Contact />} />
+          
+          {/* Protected routes */}
           <Route path="/profile" element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
+            <ProtectedRoute><Profile /></ProtectedRoute>
           } />
-          <Route path="/lessons/python" element={
-            <ProtectedRoute>
-              <PythonLessons />
-            </ProtectedRoute>
+          
+          {/* Lessons routes */}
+          <Route path="/lessons" element={
+            <ProtectedRoute><Lessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/python/:lessonId" element={
-            <ProtectedRoute>
-              <PythonLessons />
-            </ProtectedRoute>
+          
+          {/* Individual lesson routes */}
+          <Route path="/lessons/python/*" element={
+            <ProtectedRoute><PythonLessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/c" element={
-            <ProtectedRoute>
-              <CLessons />
-            </ProtectedRoute>
+          <Route path="/lessons/c/*" element={
+            <ProtectedRoute><CLessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/c/:lessonId" element={
-            <ProtectedRoute>
-              <CLessons />
-            </ProtectedRoute>
+          <Route path="/lessons/cpp/*" element={
+            <ProtectedRoute><CppLessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/cpp" element={
-            <ProtectedRoute>
-              <CppLessons />
-            </ProtectedRoute>
+          <Route path="/lessons/css/*" element={
+            <ProtectedRoute><CSSLessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/cpp/:lessonId" element={
-            <ProtectedRoute>
-              <CppLessons />
-            </ProtectedRoute>
+          <Route path="/lessons/html/*" element={
+            <ProtectedRoute><HTMLLessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/css" element={
-            <ProtectedRoute>
-              <CSSLessons />
-            </ProtectedRoute>
+          <Route path="/lessons/java/*" element={
+            <ProtectedRoute><JavaLessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/css/:lessonId" element={
-            <ProtectedRoute>
-              <CSSLessons />
-            </ProtectedRoute>
+          <Route path="/lessons/javascript/*" element={
+            <ProtectedRoute><JavaScriptLessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/html" element={
-            <ProtectedRoute>
-              <HTMLLessons />
-            </ProtectedRoute>
+          <Route path="/lessons/react/*" element={
+            <ProtectedRoute><ReactLessons /></ProtectedRoute>
           } />
-          <Route path="/lessons/html/:lessonId" element={
-            <ProtectedRoute>
-              <HTMLLessons />
-            </ProtectedRoute>
+          
+          {/* Study abroad routes */}
+          <Route path="/studyabroad" element={
+            <ProtectedRoute><AbroadPage /></ProtectedRoute>
           } />
-          <Route path="/lessons/java" element={
-            <ProtectedRoute>
-              <JavaLessons />
-            </ProtectedRoute>
+          <Route path="/studyabroad/english" element={
+            <ProtectedRoute><English /></ProtectedRoute>
           } />
-          <Route path="/lessons/java/:lessonId" element={
-            <ProtectedRoute>
-              <JavaLessons />
-            </ProtectedRoute>
-          } />
-          <Route path="/lessons/javascript" element={
-            <ProtectedRoute>
-              <JavaScriptLessons />
-            </ProtectedRoute>
-          } />
-          <Route path="/lessons/javascript/:lessonId" element={
-            <ProtectedRoute>
-              <JavaScriptLessons />
-            </ProtectedRoute>
-          } />
-          <Route path="/lessons/react" element={
-            <ProtectedRoute>
-              <ReactLessons />
-            </ProtectedRoute>
-          } />
-          <Route path="/lessons/react/:lessonId" element={
-            <ProtectedRoute>
-              <ReactLessons />
-            </ProtectedRoute>
+          <Route path="/studyabroad/visa" element={
+            <ProtectedRoute><Visa /></ProtectedRoute>
           } />
         </Routes>
       </Router>

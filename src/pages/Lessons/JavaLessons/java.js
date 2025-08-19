@@ -1,101 +1,76 @@
-import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import LessonLayout from '../../../components/LessonLayout';
-
-const lessons = [
-  { id: 'introduction', title: 'Introduction', path: '/lessons/java/introduction' },
-  { id: 'data-types', title: 'Java Data Types & Operators', path: '/lessons/java/data-types' },
-  { id: 'classes-objects', title: 'Classes & Objects', path: '/lessons/java/classes-objects' },
-  { id: 'inheritance', title: 'Inheritance', path: '/lessons/java/inheritance' },
-  { id: 'polymorphism', title: 'Polymorphism', path: '/lessons/java/polymorphism' },
-  { id: 'interfaces', title: 'Interfaces', path: '/lessons/java/interfaces' },
-  { id: 'collections', title: 'Java Collections', path: '/lessons/java/collections' },
-  { id: 'exceptions', title: 'Exception Handling', path: '/lessons/java/exceptions' },
-  { id: 'file-handling', title: 'File Handling', path: '/lessons/java/file-handling' },
-  { id: 'multithreading', title: 'Multithreading', path: '/lessons/java/multithreading' },
-  { id: 'advanced', title: 'Advanced Topics', path: '/lessons/java/advanced' },
-];
+import LessonLayout from "../lesson_layout";
+import "../lessons.css";
 
 export default function JavaLessons() {
-  const [activeLesson, setActiveLesson] = useState('introduction');
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const pathParts = location.pathname.split('/');
-    const lessonId = pathParts[pathParts.length - 1];
-    if (lessonId && lessons.find(l => l.id === lessonId)) {
-      setActiveLesson(lessonId);
-    }
-  }, [location.pathname]);
-
-  const getLessonContent = () => {
-    const lesson = lessons.find(l => l.id === activeLesson);
-    if (!lesson) return null;
-
-    const contentMap = {
-      'introduction': {
-        title: 'Welcome to Java Programming',
-        content: (
-          <div>
-            <h1>Introduction to Java</h1>
-            <p>Java is a powerful, object-oriented programming language known for its "write once, run anywhere" philosophy.</p>
-            <h2>What you'll learn:</h2>
-            <ul>
-              <li>Java syntax and fundamentals</li>
-              <li>Object-oriented programming concepts</li>
-              <li>Java Collections Framework</li>
-              <li>Exception handling</li>
-              <li>Multithreading and concurrency</li>
-            </ul>
-            <div className="tip-box">
-              <p><strong>Pro Tip:</strong> Java is essential for enterprise applications and Android development!</p>
-            </div>
-          </div>
-        )
-      },
-      'data-types': {
-        title: 'Java Data Types & Operators',
-        content: (
-          <div>
-            <h1>Data Types & Operators</h1>
-            <p>Java has two categories of data types: primitive and reference types.</p>
-            <h2>Primitive Data Types:</h2>
-            <ul>
-              <li><strong>int:</strong> Integer numbers (-2^31 to 2^31-1)</li>
-              <li><strong>double:</strong> Double-precision floating point</li>
-              <li><strong>boolean:</strong> true or false</li>
-              <li><strong>char:</strong> Single Unicode character</li>
-            </ul>
-            <h2>Operators:</h2>
-            <ul>
-              <li><strong>+</strong> Addition</li>
-              <li><strong>-</strong> Subtraction</li>
-              <li><strong>*</strong> Multiplication</li>
-              <li><strong>/</strong> Division</li>
-              <li><strong>%</strong> Modulus</li>
-            </ul>
-          </div>
-        )
-      }
-    };
-
-    return contentMap[lesson.id] || {
-      title: lesson.title,
-      content: <p>Content for {lesson.title} coming soon...</p>
-    };
-  };
-
-  const lessonContent = getLessonContent();
+  const sidebar = (
+    <nav className="lesson-sidebar-nav">
+      <h3>Java Tutorial</h3>
+      <ul>
+        <li><a href="#introduction">Introduction to Java</a></li>
+        <li><a href="#datatypes">Data Types & Variables</a></li>
+        <li><a href="#conditionals">Conditionals & Logic</a></li>
+        <li><a href="#loops">Loops & Iteration</a></li>
+        <li><a href="#classes">Classes & Objects</a></li>
+        <li><a href="#inheritance">Inheritance & Polymorphism</a></li>
+        <li><a href="#advanced">Advanced Topics</a></li>
+      </ul>
+    </nav>
+  );
 
   return (
-    <LessonLayout>
-      <div className="lesson-content-wrapper">
-        <h1>{lessonContent?.title || 'Java Lessons'}</h1>
-        <div className="lesson-content">
-          {lessonContent?.content}
-        </div>
-      </div>
+    <LessonLayout
+      title="Java Tutorial"
+      subtitle="Master Java programming from fundamentals to enterprise applications"
+      breadcrumbs={[
+        { label: "Tutorials", href: "/tutorials" },
+        { label: "Java" }
+      ]}
+      sidebar={sidebar}
+      prev={{ label: "Python Lessons", href: "/pages/PythonLessons" }}
+      next={{ label: "HTML Lessons", href: "/pages/HTMLLessons/html" }}
+      toc={true}
+    >
+      <section id="introduction">
+        <h2>Introduction to Java</h2>
+        <p>Java is a powerful, object-oriented programming language designed for portability and platform independence. Created by James Gosling at Sun Microsystems in 1995, Java follows the "write once, run anywhere" principle through the Java Virtual Machine (JVM).</p>
+        <p>This comprehensive tutorial will take you from Java basics to advanced enterprise development, covering everything you need to build robust, scalable applications.</p>
+      </section>
+
+      <section id="datatypes">
+        <h2>Data Types & Variables</h2>
+        <p>Java is a statically-typed language with two main categories of data types: primitive types (int, double, boolean, etc.) and reference types (objects, arrays, strings). Understanding type safety and memory management is crucial for Java development.</p>
+        <p>Learn how to declare variables, understand type casting, and work with Java's wrapper classes to bridge the gap between primitives and objects in your applications.</p>
+      </section>
+
+      <section id="conditionals">
+        <h2>Conditionals & Logic</h2>
+        <p>Control flow in Java is managed through conditional statements like if-else, switch-case, and the ternary operator. These constructs allow your programs to make decisions based on different conditions and inputs.</p>
+        <p>Master logical operators, comparison methods, and best practices for writing clean, readable conditional logic that handles edge cases effectively in your Java applications.</p>
+      </section>
+
+      <section id="loops">
+        <h2>Loops & Iteration</h2>
+        <p>Java provides several loop constructs including for, while, and do-while loops for repetitive tasks. The enhanced for-loop (for-each) simplifies iteration over collections and arrays.</p>
+        <p>Explore loop control statements like break and continue, understand loop optimization techniques, and learn when to use each type of loop for maximum code clarity and performance.</p>
+      </section>
+
+      <section id="classes">
+        <h2>Classes & Objects</h2>
+        <p>Classes are blueprints for creating objects in Java, encapsulating data (fields) and behavior (methods). Object-oriented programming in Java revolves around the concepts of encapsulation, inheritance, and polymorphism.</p>
+        <p>Learn to design effective classes, understand constructors, implement encapsulation with access modifiers, and create objects that model real-world entities in your applications.</p>
+      </section>
+
+      <section id="inheritance">
+        <h2>Inheritance & Polymorphism</h2>
+        <p>Inheritance allows classes to inherit properties and methods from parent classes, promoting code reuse and establishing hierarchical relationships. Polymorphism enables objects to take multiple forms through method overriding and interface implementation.</p>
+        <p>Master abstract classes, interfaces, method overriding, and dynamic method dispatch to build flexible, extensible Java applications that can evolve with changing requirements.</p>
+      </section>
+
+      <section id="advanced">
+        <h2>Advanced Topics</h2>
+        <p>Delve into advanced Java concepts including generics, collections framework, exception handling, multithreading, and Java 8+ features like lambda expressions and streams. Explore Java's memory model and garbage collection mechanisms.</p>
+        <p>Discover enterprise Java technologies like Spring Framework, Hibernate ORM, and build RESTful web services. Learn about Java's role in microservices architecture and cloud-native applications.</p>
+      </section>
     </LessonLayout>
   );
 }
