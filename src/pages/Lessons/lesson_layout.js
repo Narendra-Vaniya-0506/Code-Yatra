@@ -231,9 +231,7 @@ export default function LessonLayout({
               aria-label="Toggle lessons sidebar"
             >
               <span className="sr-only">Toggle Sidebar</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              <i className="fas fa-bars"></i>
             </button>
             <h1>{title}</h1>
             {subtitle && <p className="lesson-subtitle">{subtitle}</p>}
