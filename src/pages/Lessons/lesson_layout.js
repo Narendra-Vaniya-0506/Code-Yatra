@@ -18,7 +18,8 @@ export default function LessonLayout({
   const sidebarRef = useRef(null);
 
   // Handle mobile drawer
-  const toggleSidebar = useCallback(() => {
+    const toggleSidebar = useCallback(() => {
+        console.log("Toggling sidebar"); // Log the toggle action
     setIsSidebarOpen(prev => !prev);
   }, []);
 
