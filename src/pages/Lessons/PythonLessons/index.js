@@ -105,6 +105,10 @@ export default function PythonLessons() {
       <div className="lesson-hero">
         <h1>Python Tutorial</h1>
         <p>Python is a high-level, interpreted, general-purpose programming language.</p>
+      </div>
+
+      {/* Main Content */}
+      <div id="overview">
         <h2>Get Started</h2>
         <p>Welcome to the Python Tutorial series! To begin learning:</p>
         <ol>
@@ -112,13 +116,6 @@ export default function PythonLessons() {
           <li>Work through the lessons in order for the best learning experience.</li>
           <li>Each lesson contains detailed explanations and examples.</li>
         </ol>
-      </div>
-
-      {/* Main Content */}
-      <div id="overview">
-        <h2>Overview</h2>
-        <p>Content about overview Python goes here...</p>
-        
       </div>
 
       <div id="installation" style={{ paddingTop: '60px', marginTop: '-60px' }}>
