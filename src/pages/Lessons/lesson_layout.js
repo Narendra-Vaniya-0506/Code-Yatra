@@ -177,20 +177,6 @@ export default function LessonLayout({
         />
       )}
 
-      {/* Mobile toggle button moved below the navbar */}
-      <button 
-        className="lesson-sidebar-toggle"
-        onClick={toggleSidebar}
-        aria-expanded={isSidebarOpen}
-        aria-controls="lesson-sidebar"
-        aria-label="Toggle lessons sidebar"
-      >
-        <span className="sr-only">Lessons</span>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-
       <div className="lesson-container">
         <aside 
           id="lesson-sidebar"
@@ -237,22 +223,21 @@ export default function LessonLayout({
           )}
 
           <header className="lesson-header">
+            <button 
+              className="lesson-sidebar-toggle"
+              onClick={toggleSidebar}
+              aria-expanded={isSidebarOpen}
+              aria-controls="lesson-sidebar"
+              aria-label="Toggle lessons sidebar"
+            >
+              <span className="sr-only">Toggle Sidebar</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
             <h1>{title}</h1>
             {subtitle && <p className="lesson-subtitle">{subtitle}</p>}
           </header>
-
-          <button 
-            className="lesson-sidebar-toggle"
-            onClick={toggleSidebar}
-            aria-expanded={isSidebarOpen}
-            aria-controls="lesson-sidebar"
-            aria-label="Toggle lessons sidebar"
-          >
-            <span className="sr-only">Lessons</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
 
           <div className="lesson-content">
             {children}
