@@ -1,49 +1,91 @@
 import React, { useState } from "react";
-import LessonLayout from "./lessons_layout";
+import LessonLayout from "../lesson_layout"; // Correct import
 
 export default function PythonLessons() {
+  // State to manage which accordion section is open
   const [openSections, setOpenSections] = useState({
-    introduction: true,
+    introduction: true, // Keep the first section open by default
     dataTypes: false,
+    strings: false,
+    lists: false,
+    tuples: false,
   });
+
+  // State to track the currently active link for styling
   const [activeLink, setActiveLink] = useState("overview");
 
+  // Toggles an accordion section open or closed
   const toggleSection = (section) => {
-    setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
   };
 
-  const handleLinkClick = (e, sectionId) => {
-    e.preventDefault();
+  // Handles link clicks for smooth scrolling and setting active state
+  const handleLinkClick = (sectionId) => {
     setActiveLink(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      // The 80px offset accounts for the sticky header on mobile
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
-  const sidebarContent = (
+  // Define the sidebar content with the new accordion structure
+  const sidebar = (
     <nav className="lesson-sidebar-nav">
       <h3>Python Tutorial</h3>
+
       {/* Introduction Section */}
       <div className="lesson-section">
-        <button className={`lesson-section-toggle ${openSections.introduction ? "open" : ""}`} onClick={() => toggleSection("introduction")} aria-expanded={openSections.introduction}>
+        <button
+          className={`lesson-section-toggle ${openSections.introduction ? "open" : ""}`}
+          onClick={() => toggleSection("introduction")}
+          aria-expanded={openSections.introduction}
+        >
           Introduction
         </button>
-        <ul style={{ maxHeight: openSections.introduction ? "200px" : "0" }} className="lesson-sublist">
-          <li><a href="#overview" onClick={(e) => handleLinkClick(e, "overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
-          <li><a href="#installation" onClick={(e) => handleLinkClick(e, "installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.introduction ? "500px" : "0" }}
+        >
+          <li><a href="#overview" onClick={() => handleLinkClick("overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
+          <li><a href="#installation" onClick={() => handleLinkClick("installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
+          <li><a href="#syntax" onClick={() => handleLinkClick("syntax")} className={activeLink === "syntax" ? "active" : ""}>Syntax</a></li>
         </ul>
       </div>
+
       {/* Data Types Section */}
       <div className="lesson-section">
-        <button className={`lesson-section-toggle ${openSections.dataTypes ? "open" : ""}`} onClick={() => toggleSection("dataTypes")} aria-expanded={openSections.dataTypes}>
+        <button
+          className={`lesson-section-toggle ${openSections.dataTypes ? "open" : ""}`}
+          onClick={() => toggleSection("dataTypes")}
+          aria-expanded={openSections.dataTypes}
+        >
           Data Types & Operators
         </button>
-        <ul style={{ maxHeight: openSections.dataTypes ? "200px" : "0" }} className="lesson-sublist">
-          <li><a href="#datatypes" onClick={(e) => handleLinkClick(e, "datatypes")} className={activeLink === "datatypes" ? "active" : ""}>Data Types</a></li>
-          <li><a href="#numbers" onClick={(e) => handleLinkClick(e, "numbers")} className={activeLink === "numbers" ? "active" : ""}>Numbers</a></li>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.dataTypes ? "500px" : "0" }}
+        >
+          <li><a href="#datatypes" onClick={() => handleLinkClick("datatypes")} className={activeLink === "datatypes" ? "active" : ""}>Data Types</a></li>
+          <li><a href="#numbers" onClick={() => handleLinkClick("numbers")} className={activeLink === "numbers" ? "active" : ""}>Numbers</a></li>
+          <li><a href="#operators" onClick={() => handleLinkClick("operators")} className={activeLink === "operators" ? "active" : ""}>Operators</a></li>
         </ul>
       </div>
+      
+      {/* Add other sections here following the same pattern... */}
+
     </nav>
   );
 
@@ -51,35 +93,40 @@ export default function PythonLessons() {
     <LessonLayout
       title="Python Tutorial"
       breadcrumbs={[
-        { label: "Tutorials", href: "#" },
+        { label: "Tutorials", href: "/tutorials" },
         { label: "Python Tutorial" },
       ]}
-      sidebar={sidebarContent}
+      sidebar={sidebar}
     >
+      {/* Hero Section */}
       <div className="lesson-hero">
         <h1>Python Tutorial</h1>
         <p>Python is a high-level, interpreted, general-purpose programming language.</p>
       </div>
 
+      {/* Main Content */}
       <div id="overview">
         <h2>Get Started</h2>
-        <p>Welcome to the Python Tutorial series! To begin learning, select a lesson from the sidebar. Work through the lessons in order for the best learning experience.</p>
+        <p>Welcome to the Python Tutorial series! To begin learning:</p>
+        <ol>
+          <li>Select a lesson from the sidebar on the left.</li>
+          <li>Work through the lessons in order for the best learning experience.</li>
+          <li>Each lesson contains detailed explanations and examples.</li>
+        </ol>
       </div>
 
-      <div id="installation">
+      <div id="installation" style={{ paddingTop: '60px', marginTop: '-60px' }}>
         <h2>Installation</h2>
         <p>Content about installing Python goes here...</p>
       </div>
 
-      <div id="datatypes">
-        <h2>Data Types</h2>
-        <p>Content about Python data types goes here...</p>
+      <div id="syntax" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Syntax</h2>
+        <p>Content about Python syntax goes here...</p>
       </div>
       
-      <div id="numbers">
-        <h2>Numbers</h2>
-        <p>Content about Python numbers goes here...</p>
-      </div>
+      {/* Add other content sections here corresponding to the sidebar links */}
+
     </LessonLayout>
   );
 }
