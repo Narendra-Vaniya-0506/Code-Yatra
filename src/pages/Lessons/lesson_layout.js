@@ -308,7 +308,12 @@ export default function LessonLayout({
       {isSidebarOpen && <div className="lesson-drawer-backdrop" onClick={closeSidebar} />}
       <div className="lesson-container">
         <aside id="lesson-sidebar" ref={sidebarRef} className="lesson-sidebar">
-          <div className="lesson-sidebar-content">{sidebar}</div>
+    <div className="lesson-sidebar-content">
+      <h3>Lessons</h3>
+      <div className="lesson-sidebar-nav">
+        {sidebar}
+      </div>
+    </div>
         </aside>
         <main id="lesson-main-content" className="lesson-main">
           <header className="lesson-header">
