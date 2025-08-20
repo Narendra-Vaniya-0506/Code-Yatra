@@ -318,7 +318,7 @@ body {
 .lesson-header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between; /* Adjusted for better spacing */
   padding: var(--spacing-lg) var(--spacing-xl);
   border-bottom: var(--border-width) solid var(--color-border);
   margin: 0;
