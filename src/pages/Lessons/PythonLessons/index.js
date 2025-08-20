@@ -93,7 +93,7 @@ export default function PythonLessons() {
     <LessonLayout
       title="Python Tutorial"
       breadcrumbs={[
-        { label: "Tutorials", href: "/tutorials" },
+        { label: "Lessons", href: "/lessons" }, // Update link to Code Lessons page
         { label: "Python Tutorial" },
       ]}
       sidebar={sidebar}
