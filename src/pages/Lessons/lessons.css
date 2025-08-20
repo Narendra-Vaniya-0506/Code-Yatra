@@ -135,8 +135,9 @@ body {
 /* --- Main Content Area --- */
 .lesson-main {
   overflow-y: auto;
-  height: 100vh;
+height: auto; /* Allow height to adjust based on content */
 padding: var(--spacing-lg) var(--spacing-md);
+max-width: none; /* Remove max-width to fill the space */
 }
 
 /* --- Sticky Header (Mobile) --- */
