@@ -18,8 +18,7 @@ export default function LessonLayout({
   const sidebarRef = useRef(null);
 
   // Handle mobile drawer
-    const toggleSidebar = useCallback(() => {
-    console.log("Toggling sidebar"); // Log the toggle action
+  const toggleSidebar = useCallback(() => {
     setIsSidebarOpen(prev => !prev);
   }, []);
 
@@ -142,6 +141,9 @@ export default function LessonLayout({
 
   return (
     <div className="lesson-layout">
+      {/* Skip to content link for accessibility */}
+      <a href="#lesson-main-content" className="skip-link">Skip to content</a>
+
       {/* Reading progress bar */}
       <div 
         className="lesson-progress-bar" 
@@ -160,6 +162,20 @@ export default function LessonLayout({
           aria-hidden="true"
         />
       )}
+
+      {/* Mobile toggle button */}
+      <button 
+        className="lesson-sidebar-toggle"
+        onClick={toggleSidebar}
+        aria-expanded={isSidebarOpen}
+        aria-controls="lesson-sidebar"
+        aria-label="Toggle lessons sidebar"
+      >
+        <span className="sr-only">Lessons</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
 
       <div className="lesson-container">
         <aside 
@@ -206,18 +222,9 @@ export default function LessonLayout({
             </nav>
           )}
 
-          {/* This header now contains the toggle and the dynamic title */}
           <header className="lesson-header">
-            <button 
-              className="lesson-sidebar-toggle"
-              onClick={toggleSidebar}
-              aria-expanded={isSidebarOpen}
-              aria-controls="lesson-sidebar"
-              aria-label="Toggle lessons sidebar"
-            >
-              <i className="fas fa-bars"></i>
-            </button>
-            <span className="lesson-header-title">{title}</span>
+            <h1>{title}</h1>
+            {subtitle && <p className="lesson-subtitle">{subtitle}</p>}
           </header>
 
           <div className="lesson-content">

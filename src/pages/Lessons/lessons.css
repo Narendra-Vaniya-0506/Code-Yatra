@@ -96,10 +96,6 @@ body {
   z-index: 999;
 }
 
-.lesson-sidebar-toggle {
-  z-index: 1000; /* Ensure the toggle button is above other elements */
-}
-
 .lesson-sidebar-content {
   padding: var(--spacing-xl);
 }
@@ -342,15 +338,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-primary); /* Ensure background is visible */
+  background: none;
   border: none;
-  color: white; /* Change text color for visibility */
+  color: var(--color-text);
   cursor: pointer;
   padding: var(--spacing-sm);
   margin-right: var(--spacing-md);
   font-size: var(--font-size-lg);
   transition: color var(--transition-fast);
-  z-index: 1000; /* Ensure the toggle button is above other elements */
 }
 
 .lesson-sidebar-toggle:hover {
