@@ -177,7 +177,12 @@ export default function LessonLayout({
         />
       )}
 
-      {/* Mobile toggle button */}
+      <header className="lesson-header">
+        <h1>{title}</h1>
+        {subtitle && <p className="lesson-subtitle">{subtitle}</p>}
+      </header>
+
+      {/* Mobile toggle button moved below the navbar */}
       <button 
         className="lesson-sidebar-toggle"
         onClick={toggleSidebar}
