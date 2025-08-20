@@ -1,76 +1,132 @@
-import LessonLayout from "../lesson_layout";
-import "../lessons.css";
+import React, { useState } from "react";
+import LessonLayout from "../lesson_layout"; // Correct import
 
-export default function JavaLessons() {
+export default function PythonLessons() {
+  // State to manage which accordion section is open
+  const [openSections, setOpenSections] = useState({
+    introduction: true, // Keep the first section open by default
+    dataTypes: false,
+    strings: false,
+    lists: false,
+    tuples: false,
+  });
+
+  // State to track the currently active link for styling
+  const [activeLink, setActiveLink] = useState("overview");
+
+  // Toggles an accordion section open or closed
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  // Handles link clicks for smooth scrolling and setting active state
+  const handleLinkClick = (sectionId) => {
+    setActiveLink(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // The 80px offset accounts for the sticky header on mobile
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Define the sidebar content with the new accordion structure
   const sidebar = (
     <nav className="lesson-sidebar-nav">
-      <h3>Java Tutorial</h3>
-      <ul>
-        <li><a href="#introduction">Introduction to Java</a></li>
-        <li><a href="#datatypes">Data Types & Variables</a></li>
-        <li><a href="#conditionals">Conditionals & Logic</a></li>
-        <li><a href="#loops">Loops & Iteration</a></li>
-        <li><a href="#classes">Classes & Objects</a></li>
-        <li><a href="#inheritance">Inheritance & Polymorphism</a></li>
-        <li><a href="#advanced">Advanced Topics</a></li>
-      </ul>
+      <h3>Python Tutorial</h3>
+
+      {/* Introduction Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.introduction ? "open" : ""}`}
+          onClick={() => toggleSection("introduction")}
+          aria-expanded={openSections.introduction}
+        >
+          Introduction
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.introduction ? "500px" : "0" }}
+        >
+          <li><a href="#overview" onClick={() => handleLinkClick("overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
+          <li><a href="#installation" onClick={() => handleLinkClick("installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
+          <li><a href="#syntax" onClick={() => handleLinkClick("syntax")} className={activeLink === "syntax" ? "active" : ""}>Syntax</a></li>
+        </ul>
+      </div>
+
+      {/* Data Types Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.dataTypes ? "open" : ""}`}
+          onClick={() => toggleSection("dataTypes")}
+          aria-expanded={openSections.dataTypes}
+        >
+          Data Types & Operators
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.dataTypes ? "500px" : "0" }}
+        >
+          <li><a href="#datatypes" onClick={() => handleLinkClick("datatypes")} className={activeLink === "datatypes" ? "active" : ""}>Data Types</a></li>
+          <li><a href="#numbers" onClick={() => handleLinkClick("numbers")} className={activeLink === "numbers" ? "active" : ""}>Numbers</a></li>
+          <li><a href="#operators" onClick={() => handleLinkClick("operators")} className={activeLink === "operators" ? "active" : ""}>Operators</a></li>
+        </ul>
+      </div>
+      
+      {/* Add other sections here following the same pattern... */}
+
     </nav>
   );
 
   return (
     <LessonLayout
-      title="Java Tutorial"
-      subtitle="Master Java programming from fundamentals to enterprise applications"
+      title="Python Tutorial"
       breadcrumbs={[
-        { label: "Tutorials", href: "/tutorials" },
-        { label: "Java" }
+        { label: "Lessons", href: "/lessons" }, // Update link to Code Lessons page
+        { label: "Python Tutorial" },
       ]}
       sidebar={sidebar}
-      prev={{ label: "Python Lessons", href: "/pages/PythonLessons" }}
-      next={{ label: "HTML Lessons", href: "/pages/HTMLLessons/html" }}
-      toc={true}
     >
-      <section id="introduction">
-        <h2>Introduction to Java</h2>
-        <p>Java is a powerful, object-oriented programming language designed for portability and platform independence. Created by James Gosling at Sun Microsystems in 1995, Java follows the "write once, run anywhere" principle through the Java Virtual Machine (JVM).</p>
-        <p>This comprehensive tutorial will take you from Java basics to advanced enterprise development, covering everything you need to build robust, scalable applications.</p>
-      </section>
+      {/* Hero Section */}
+      <div className="lesson-hero">
+        <h1>Python Tutorial</h1>
+        <p>Python is a high-level, interpreted, general-purpose programming language.</p>
+      </div>
 
-      <section id="datatypes">
-        <h2>Data Types & Variables</h2>
-        <p>Java is a statically-typed language with two main categories of data types: primitive types (int, double, boolean, etc.) and reference types (objects, arrays, strings). Understanding type safety and memory management is crucial for Java development.</p>
-        <p>Learn how to declare variables, understand type casting, and work with Java's wrapper classes to bridge the gap between primitives and objects in your applications.</p>
-      </section>
+      {/* Main Content */}
+      <div id="overview">
+        <h2>Get Started</h2>
+        <p>Welcome to the Python Tutorial series! To begin learning:</p>
+        <ol>
+          <li>Select a lesson from the sidebar on the left.</li>
+          <li>Work through the lessons in order for the best learning experience.</li>
+          <li>Each lesson contains detailed explanations and examples.</li>
+        </ol>
+      </div>
 
-      <section id="conditionals">
-        <h2>Conditionals & Logic</h2>
-        <p>Control flow in Java is managed through conditional statements like if-else, switch-case, and the ternary operator. These constructs allow your programs to make decisions based on different conditions and inputs.</p>
-        <p>Master logical operators, comparison methods, and best practices for writing clean, readable conditional logic that handles edge cases effectively in your Java applications.</p>
-      </section>
+      <div id="installation" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Installation</h2>
+        <p>Content about installing Python goes here...</p>
+      </div>
 
-      <section id="loops">
-        <h2>Loops & Iteration</h2>
-        <p>Java provides several loop constructs including for, while, and do-while loops for repetitive tasks. The enhanced for-loop (for-each) simplifies iteration over collections and arrays.</p>
-        <p>Explore loop control statements like break and continue, understand loop optimization techniques, and learn when to use each type of loop for maximum code clarity and performance.</p>
-      </section>
+      <div id="syntax" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Syntax</h2>
+        <p>Content about Python syntax goes here...</p>
+      </div>
+      
+      {/* Add other content sections here corresponding to the sidebar links */}
 
-      <section id="classes">
-        <h2>Classes & Objects</h2>
-        <p>Classes are blueprints for creating objects in Java, encapsulating data (fields) and behavior (methods). Object-oriented programming in Java revolves around the concepts of encapsulation, inheritance, and polymorphism.</p>
-        <p>Learn to design effective classes, understand constructors, implement encapsulation with access modifiers, and create objects that model real-world entities in your applications.</p>
-      </section>
-
-      <section id="inheritance">
-        <h2>Inheritance & Polymorphism</h2>
-        <p>Inheritance allows classes to inherit properties and methods from parent classes, promoting code reuse and establishing hierarchical relationships. Polymorphism enables objects to take multiple forms through method overriding and interface implementation.</p>
-        <p>Master abstract classes, interfaces, method overriding, and dynamic method dispatch to build flexible, extensible Java applications that can evolve with changing requirements.</p>
-      </section>
-
-      <section id="advanced">
-        <h2>Advanced Topics</h2>
-        <p>Delve into advanced Java concepts including generics, collections framework, exception handling, multithreading, and Java 8+ features like lambda expressions and streams. Explore Java's memory model and garbage collection mechanisms.</p>
-        <p>Discover enterprise Java technologies like Spring Framework, Hibernate ORM, and build RESTful web services. Learn about Java's role in microservices architecture and cloud-native applications.</p>
-      </section>
     </LessonLayout>
   );
 }

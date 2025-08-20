@@ -1,76 +1,132 @@
-import LessonLayout from "../lesson_layout";
-import "../lessons.css";
+import React, { useState } from "react";
+import LessonLayout from "../lesson_layout"; // Correct import
 
-export default function HTMLLessons() {
+export default function PythonLessons() {
+  // State to manage which accordion section is open
+  const [openSections, setOpenSections] = useState({
+    introduction: true, // Keep the first section open by default
+    dataTypes: false,
+    strings: false,
+    lists: false,
+    tuples: false,
+  });
+
+  // State to track the currently active link for styling
+  const [activeLink, setActiveLink] = useState("overview");
+
+  // Toggles an accordion section open or closed
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  // Handles link clicks for smooth scrolling and setting active state
+  const handleLinkClick = (sectionId) => {
+    setActiveLink(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // The 80px offset accounts for the sticky header on mobile
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Define the sidebar content with the new accordion structure
   const sidebar = (
     <nav className="lesson-sidebar-nav">
-      <h3>HTML Tutorial</h3>
-      <ul>
-        <li><a href="#introduction">Introduction to HTML</a></li>
-        <li><a href="#elements">HTML Elements</a></li>
-        <li><a href="#attributes">HTML Attributes</a></li>
-        <li><a href="#forms">HTML Forms</a></li>
-        <li><a href="#media">Media Elements</a></li>
-        <li><a href="#semantic">Semantic HTML</a></li>
-        <li><a href="#advanced">Advanced Topics</a></li>
-      </ul>
+      <h3>Python Tutorial</h3>
+
+      {/* Introduction Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.introduction ? "open" : ""}`}
+          onClick={() => toggleSection("introduction")}
+          aria-expanded={openSections.introduction}
+        >
+          Introduction
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.introduction ? "500px" : "0" }}
+        >
+          <li><a href="#overview" onClick={() => handleLinkClick("overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
+          <li><a href="#installation" onClick={() => handleLinkClick("installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
+          <li><a href="#syntax" onClick={() => handleLinkClick("syntax")} className={activeLink === "syntax" ? "active" : ""}>Syntax</a></li>
+        </ul>
+      </div>
+
+      {/* Data Types Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.dataTypes ? "open" : ""}`}
+          onClick={() => toggleSection("dataTypes")}
+          aria-expanded={openSections.dataTypes}
+        >
+          Data Types & Operators
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.dataTypes ? "500px" : "0" }}
+        >
+          <li><a href="#datatypes" onClick={() => handleLinkClick("datatypes")} className={activeLink === "datatypes" ? "active" : ""}>Data Types</a></li>
+          <li><a href="#numbers" onClick={() => handleLinkClick("numbers")} className={activeLink === "numbers" ? "active" : ""}>Numbers</a></li>
+          <li><a href="#operators" onClick={() => handleLinkClick("operators")} className={activeLink === "operators" ? "active" : ""}>Operators</a></li>
+        </ul>
+      </div>
+      
+      {/* Add other sections here following the same pattern... */}
+
     </nav>
   );
 
   return (
     <LessonLayout
-      title="HTML Tutorial"
-      subtitle="Build the structure of the web with modern HTML"
+      title="Python Tutorial"
       breadcrumbs={[
-        { label: "Tutorials", href: "/tutorials" },
-        { label: "HTML" }
+        { label: "Lessons", href: "/lessons" }, // Update link to Code Lessons page
+        { label: "Python Tutorial" },
       ]}
       sidebar={sidebar}
-      prev={{ label: "Java Lessons", href: "/pages/JavaLessons/java" }}
-      next={{ label: "CSS Lessons", href: "/pages/CSSLessons/css" }}
-      toc={true}
     >
-      <section id="introduction">
-        <h2>Introduction to HTML</h2>
-        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages and web applications. It describes the structure and content of web documents using a system of elements and tags.</p>
-        <p>This comprehensive tutorial will teach you modern HTML5, covering everything from basic tags to advanced semantic elements, helping you create well-structured, accessible web content.</p>
-      </section>
+      {/* Hero Section */}
+      <div className="lesson-hero">
+        <h1>Python Tutorial</h1>
+        <p>Python is a high-level, interpreted, general-purpose programming language.</p>
+      </div>
 
-      <section id="elements">
-        <h2>HTML Elements</h2>
-        <p>HTML elements are the building blocks of web pages, consisting of opening tags, content, and closing tags. Elements can be nested and have specific purposes in defining document structure.</p>
-        <p>Master essential HTML elements including headings, paragraphs, links, images, lists, tables, and structural elements to create meaningful web content that works across all browsers and devices.</p>
-      </section>
+      {/* Main Content */}
+      <div id="overview">
+        <h2>Get Started</h2>
+        <p>Welcome to the Python Tutorial series! To begin learning:</p>
+        <ol>
+          <li>Select a lesson from the sidebar on the left.</li>
+          <li>Work through the lessons in order for the best learning experience.</li>
+          <li>Each lesson contains detailed explanations and examples.</li>
+        </ol>
+      </div>
 
-      <section id="attributes">
-        <h2>HTML Attributes</h2>
-        <p>Attributes provide additional information about HTML elements, modifying their behavior or appearance. Common attributes include id, class, src, href, alt, and style, among many others.</p>
-        <p>Learn how to use attributes effectively for accessibility, SEO, and styling purposes. Understand global attributes versus element-specific attributes and best practices for attribute naming and values.</p>
-      </section>
+      <div id="installation" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Installation</h2>
+        <p>Content about installing Python goes here...</p>
+      </div>
 
-      <section id="forms">
-        <h2>HTML Forms</h2>
-        <p>HTML forms enable user interaction through input fields, buttons, checkboxes, radio buttons, and other controls. Forms are essential for collecting user data and enabling web applications.</p>
-        <p>Explore form elements, input types, validation attributes, and form submission methods. Learn to create accessible, user-friendly forms that work seamlessly with backend processing.</p>
-      </section>
+      <div id="syntax" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Syntax</h2>
+        <p>Content about Python syntax goes here...</p>
+      </div>
+      
+      {/* Add other content sections here corresponding to the sidebar links */}
 
-      <section id="media">
-        <h2>Media Elements</h2>
-        <p>Modern HTML provides native support for embedding audio, video, and images without requiring plugins. The img, audio, and video elements make it easy to include rich media content.</p>
-        <p>Master responsive images with srcset and picture elements, optimize media for different devices, and ensure accessibility with proper alt text and captions for all media content.</p>
-      </section>
-
-      <section id="semantic">
-        <h2>Semantic HTML</h2>
-        <p>Semantic HTML uses elements that clearly describe their meaning to both browsers and developers. Elements like header, nav, main, article, section, and footer provide better document structure.</p>
-        <p>Understand how semantic elements improve accessibility, SEO, and code maintainability. Learn to structure documents logically and create meaningful content hierarchies that benefit all users.</p>
-      </section>
-
-      <section id="advanced">
-        <h2>Advanced Topics</h2>
-        <p>Explore advanced HTML features including custom data attributes, microdata for semantic markup, web components, and progressive web app capabilities. Learn about HTML templating and dynamic content generation.</p>
-        <p>Discover HTML5 APIs like geolocation, local storage, and web workers. Understand how HTML integrates with CSS and JavaScript to create modern, interactive web applications and progressive web apps.</p>
-      </section>
     </LessonLayout>
   );
 }

@@ -1,83 +1,132 @@
-import LessonLayout from "../lesson_layout";
-import "../lessons.css";
+import React, { useState } from "react";
+import LessonLayout from "../lesson_layout"; // Correct import
 
-export default function CSSLessons() {
+export default function PythonLessons() {
+  // State to manage which accordion section is open
+  const [openSections, setOpenSections] = useState({
+    introduction: true, // Keep the first section open by default
+    dataTypes: false,
+    strings: false,
+    lists: false,
+    tuples: false,
+  });
+
+  // State to track the currently active link for styling
+  const [activeLink, setActiveLink] = useState("overview");
+
+  // Toggles an accordion section open or closed
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  // Handles link clicks for smooth scrolling and setting active state
+  const handleLinkClick = (sectionId) => {
+    setActiveLink(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // The 80px offset accounts for the sticky header on mobile
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Define the sidebar content with the new accordion structure
   const sidebar = (
     <nav className="lesson-sidebar-nav">
-      <h3>CSS Tutorial</h3>
-      <ul>
-        <li><a href="#introduction">Introduction to CSS</a></li>
-        <li><a href="#selectors">CSS Selectors</a></li>
-        <li><a href="#boxmodel">Box Model & Layout</a></li>
-        <li><a href="#flexbox">Flexbox</a></li>
-        <li><a href="#grid">CSS Grid</a></li>
-        <li><a href="#animations">Animations & Transitions</a></li>
-        <li><a href="#responsive">Responsive Design</a></li>
-        <li><a href="#advanced">Advanced CSS</a></li>
-      </ul>
+      <h3>Python Tutorial</h3>
+
+      {/* Introduction Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.introduction ? "open" : ""}`}
+          onClick={() => toggleSection("introduction")}
+          aria-expanded={openSections.introduction}
+        >
+          Introduction
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.introduction ? "500px" : "0" }}
+        >
+          <li><a href="#overview" onClick={() => handleLinkClick("overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
+          <li><a href="#installation" onClick={() => handleLinkClick("installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
+          <li><a href="#syntax" onClick={() => handleLinkClick("syntax")} className={activeLink === "syntax" ? "active" : ""}>Syntax</a></li>
+        </ul>
+      </div>
+
+      {/* Data Types Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.dataTypes ? "open" : ""}`}
+          onClick={() => toggleSection("dataTypes")}
+          aria-expanded={openSections.dataTypes}
+        >
+          Data Types & Operators
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.dataTypes ? "500px" : "0" }}
+        >
+          <li><a href="#datatypes" onClick={() => handleLinkClick("datatypes")} className={activeLink === "datatypes" ? "active" : ""}>Data Types</a></li>
+          <li><a href="#numbers" onClick={() => handleLinkClick("numbers")} className={activeLink === "numbers" ? "active" : ""}>Numbers</a></li>
+          <li><a href="#operators" onClick={() => handleLinkClick("operators")} className={activeLink === "operators" ? "active" : ""}>Operators</a></li>
+        </ul>
+      </div>
+      
+      {/* Add other sections here following the same pattern... */}
+
     </nav>
   );
 
   return (
     <LessonLayout
-      title="CSS Tutorial"
-      subtitle="Master modern CSS from basics to advanced styling techniques"
+      title="Python Tutorial"
       breadcrumbs={[
-        { label: "Tutorials", href: "/tutorials" },
-        { label: "CSS" }
+        { label: "Lessons", href: "/lessons" }, // Update link to Code Lessons page
+        { label: "Python Tutorial" },
       ]}
       sidebar={sidebar}
-      prev={{ label: "HTML Lessons", href: "/pages/HTMLLessons/html" }}
-      next={{ label: "JavaScript Lessons", href: "/pages/JavaScriptLessons/javascript" }}
-      toc={true}
     >
-      <section id="introduction">
-        <h2>Introduction to CSS</h2>
-        <p>CSS (Cascading Style Sheets) is the language used to style and layout web pages. It controls colors, fonts, spacing, positioning, and responsive design, making websites visually appealing and user-friendly.</p>
-        <p>This tutorial will guide you through modern CSS techniques, from basic styling to advanced layout methods like Flexbox and Grid, helping you create beautiful, responsive web designs.</p>
-      </section>
+      {/* Hero Section */}
+      <div className="lesson-hero">
+        <h1>Python Tutorial</h1>
+        <p>Python is a high-level, interpreted, general-purpose programming language.</p>
+      </div>
 
-      <section id="selectors">
-        <h2>CSS Selectors</h2>
-        <p>CSS selectors are patterns used to select and style HTML elements. Master various selector types including element, class, ID, attribute, pseudo-class, and pseudo-element selectors to target elements precisely.</p>
-        <p>Learn specificity rules, selector combinations, and best practices for writing efficient, maintainable CSS that scales with your project requirements.</p>
-      </section>
+      {/* Main Content */}
+      <div id="overview">
+        <h2>Get Started</h2>
+        <p>Welcome to the Python Tutorial series! To begin learning:</p>
+        <ol>
+          <li>Select a lesson from the sidebar on the left.</li>
+          <li>Work through the lessons in order for the best learning experience.</li>
+          <li>Each lesson contains detailed explanations and examples.</li>
+        </ol>
+      </div>
 
-      <section id="boxmodel">
-        <h2>Box Model & Layout</h2>
-        <p>The CSS box model is fundamental to understanding how elements are rendered on the page. It includes content, padding, border, and margin areas that determine element dimensions and spacing.</p>
-        <p>Master display properties, positioning techniques, and layout strategies to create complex page structures with proper spacing and alignment.</p>
-      </section>
+      <div id="installation" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Installation</h2>
+        <p>Content about installing Python goes here...</p>
+      </div>
 
-      <section id="flexbox">
-        <h2>Flexbox</h2>
-        <p>Flexbox is a powerful one-dimensional layout system that makes it easy to align and distribute space among items in a container, even when their size is unknown or dynamic.</p>
-        <p>Learn flex container properties, flex item properties, and practical examples for creating responsive navigation bars, card layouts, and complex component arrangements.</p>
-      </section>
+      <div id="syntax" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Syntax</h2>
+        <p>Content about Python syntax goes here...</p>
+      </div>
+      
+      {/* Add other content sections here corresponding to the sidebar links */}
 
-      <section id="grid">
-        <h2>CSS Grid</h2>
-        <p>CSS Grid is a two-dimensional layout system that revolutionizes web design by providing precise control over rows and columns, enabling complex layouts that were previously difficult to achieve.</p>
-        <p>Master grid container properties, grid item placement, and advanced techniques like grid areas and auto-fit/auto-fill for creating sophisticated, responsive layouts.</p>
-      </section>
-
-      <section id="animations">
-        <h2>Animations & Transitions</h2>
-        <p>CSS animations and transitions bring web pages to life by adding smooth, engaging visual effects. Create hover effects, loading animations, and interactive elements that enhance user experience.</p>
-        <p>Learn keyframe animations, transition properties, timing functions, and performance optimization techniques for creating smooth, efficient animations that work across all modern browsers.</p>
-      </section>
-
-      <section id="responsive">
-        <h2>Responsive Design</h2>
-        <p>Responsive design ensures websites look great on all devices, from mobile phones to desktop computers. Use media queries, flexible units, and modern layout techniques to create adaptive designs.</p>
-        <p>Master mobile-first design principles, breakpoint strategies, and responsive patterns for navigation, images, and content that provide optimal viewing experiences across all screen sizes.</p>
-      </section>
-
-      <section id="advanced">
-        <h2>Advanced CSS</h2>
-        <p>Explore advanced CSS concepts including CSS variables, custom properties, CSS modules, and preprocessors like Sass. Learn about CSS architecture patterns and methodologies like BEM and SMACSS.</p>
-        <p>Discover CSS Houdini, container queries, and upcoming CSS features. Understand performance optimization, critical CSS, and modern tooling for large-scale CSS projects.</p>
-      </section>
     </LessonLayout>
   );
 }

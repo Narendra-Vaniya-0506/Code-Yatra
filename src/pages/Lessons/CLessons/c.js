@@ -1,83 +1,132 @@
-import LessonLayout from "../lesson_layout";
-import "../lessons.css";
+import React, { useState } from "react";
+import LessonLayout from "../lesson_layout"; // Correct import
 
-export default function CLessons() {
+export default function PythonLessons() {
+  // State to manage which accordion section is open
+  const [openSections, setOpenSections] = useState({
+    introduction: true, // Keep the first section open by default
+    dataTypes: false,
+    strings: false,
+    lists: false,
+    tuples: false,
+  });
+
+  // State to track the currently active link for styling
+  const [activeLink, setActiveLink] = useState("overview");
+
+  // Toggles an accordion section open or closed
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  // Handles link clicks for smooth scrolling and setting active state
+  const handleLinkClick = (sectionId) => {
+    setActiveLink(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // The 80px offset accounts for the sticky header on mobile
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Define the sidebar content with the new accordion structure
   const sidebar = (
     <nav className="lesson-sidebar-nav">
-      <h3>C Tutorial</h3>
-      <ul>
-        <li><a href="#introduction">Introduction to C</a></li>
-        <li><a href="#basics">C Basics</a></li>
-        <li><a href="#arrays">Arrays & Strings</a></li>
-        <li><a href="#pointers">Pointers & Memory</a></li>
-        <li><a href="#structs">Structures</a></li>
-        <li><a href="#files">File I/O</a></li>
-        <li><a href="#dynamic">Dynamic Memory</a></li>
-        <li><a href="#advanced">Advanced C</a></li>
-      </ul>
+      <h3>Python Tutorial</h3>
+
+      {/* Introduction Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.introduction ? "open" : ""}`}
+          onClick={() => toggleSection("introduction")}
+          aria-expanded={openSections.introduction}
+        >
+          Introduction
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.introduction ? "500px" : "0" }}
+        >
+          <li><a href="#overview" onClick={() => handleLinkClick("overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
+          <li><a href="#installation" onClick={() => handleLinkClick("installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
+          <li><a href="#syntax" onClick={() => handleLinkClick("syntax")} className={activeLink === "syntax" ? "active" : ""}>Syntax</a></li>
+        </ul>
+      </div>
+
+      {/* Data Types Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.dataTypes ? "open" : ""}`}
+          onClick={() => toggleSection("dataTypes")}
+          aria-expanded={openSections.dataTypes}
+        >
+          Data Types & Operators
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.dataTypes ? "500px" : "0" }}
+        >
+          <li><a href="#datatypes" onClick={() => handleLinkClick("datatypes")} className={activeLink === "datatypes" ? "active" : ""}>Data Types</a></li>
+          <li><a href="#numbers" onClick={() => handleLinkClick("numbers")} className={activeLink === "numbers" ? "active" : ""}>Numbers</a></li>
+          <li><a href="#operators" onClick={() => handleLinkClick("operators")} className={activeLink === "operators" ? "active" : ""}>Operators</a></li>
+        </ul>
+      </div>
+      
+      {/* Add other sections here following the same pattern... */}
+
     </nav>
   );
 
   return (
     <LessonLayout
-      title="C Tutorial"
-      subtitle="Learn C programming from fundamentals to systems development"
+      title="Python Tutorial"
       breadcrumbs={[
-        { label: "Tutorials", href: "/tutorials" },
-        { label: "C" }
+        { label: "Lessons", href: "/lessons" }, // Update link to Code Lessons page
+        { label: "Python Tutorial" },
       ]}
       sidebar={sidebar}
-      prev={{ label: "C++ Lessons", href: "/pages/CppLessons/cpp" }}
-      next={{ label: "Python Lessons", href: "/pages/PythonLessons" }}
-      toc={true}
     >
-      <section id="introduction">
-        <h2>Introduction to C</h2>
-        <p>C is a powerful, efficient programming language that has been the foundation of modern computing for over 50 years. Created by Dennis Ritchie in 1972, C is used for system programming, embedded systems, and high-performance applications.</p>
-        <p>This comprehensive tutorial will guide you through C fundamentals, from basic syntax to advanced systems programming concepts, helping you build a solid foundation for understanding how computers work at a low level.</p>
-      </section>
+      {/* Hero Section */}
+      <div className="lesson-hero">
+        <h1>Python Tutorial</h1>
+        <p>Python is a high-level, interpreted, general-purpose programming language.</p>
+      </div>
 
-      <section id="basics">
-        <h2>C Basics</h2>
-        <p>Learn the fundamental building blocks of C including data types, variables, operators, control structures, and functions. Understand how to write efficient, portable C code that can run on any system with a C compiler.</p>
-        <p>Master C syntax, header files, compilation process, and how to use the standard library effectively to build robust applications and understand the underlying system architecture.</p>
-      </section>
+      {/* Main Content */}
+      <div id="overview">
+        <h2>Get Started</h2>
+        <p>Welcome to the Python Tutorial series! To begin learning:</p>
+        <ol>
+          <li>Select a lesson from the sidebar on the left.</li>
+          <li>Work through the lessons in order for the best learning experience.</li>
+          <li>Each lesson contains detailed explanations and examples.</li>
+        </ol>
+      </div>
 
-      <section id="arrays">
-        <h2>Arrays & Strings</h2>
-        <p>Arrays and strings are fundamental data structures in C that allow you to work with collections of data. Learn about static and dynamic arrays, multidimensional arrays, and C-style strings.</p>
-        <p>Understand memory layout, array manipulation techniques, and string handling functions from the C standard library for efficient data processing and storage.</p>
-      </section>
+      <div id="installation" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Installation</h2>
+        <p>Content about installing Python goes here...</p>
+      </div>
 
-      <section id="pointers">
-        <h2>Pointers & Memory</h2>
-        <p>Pointers are one of the most powerful features of C, providing direct memory access and manipulation capabilities. Learn about pointer arithmetic, memory addresses, and dynamic memory management.</p>
-        <p>Master pointer operations, memory allocation with malloc and free, and understand how pointers enable efficient data structures and system-level programming.</p>
-      </section>
+      <div id="syntax" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Syntax</h2>
+        <p>Content about Python syntax goes here...</p>
+      </div>
+      
+      {/* Add other content sections here corresponding to the sidebar links */}
 
-      <section id="structs">
-        <h2>Structures</h2>
-        <p>C structures allow you to create custom data types by grouping related data together. Learn how to define and use structures to model complex data and create more sophisticated programs.</p>
-        <p>Understand structure declaration, initialization, member access, and how structures enable modular programming and data organization in C applications.</p>
-      </section>
-
-      <section id="files">
-        <h2>File I/O</h2>
-        <p>C provides powerful file handling capabilities for reading and writing data to files. Learn about file operations, file pointers, and various I/O functions from the C standard library.</p>
-        <p>Master file opening modes, reading and writing operations, error handling, and how to work with different file formats for data persistence and exchange.</p>
-      </section>
-
-      <section id="dynamic">
-        <h2>Dynamic Memory</h2>
-        <p>Dynamic memory allocation allows you to manage memory at runtime using malloc, calloc, realloc, and free. Learn about heap memory management and memory leaks prevention.</p>
-        <p>Understand memory allocation strategies, memory debugging techniques, and best practices for efficient memory usage in C programs.</p>
-      </section>
-
-      <section id="advanced">
-        <h2>Advanced C</h2>
-        <p>Explore advanced C concepts including preprocessor directives, bitwise operations, function pointers, and advanced data structures. Learn about performance optimization and system programming techniques.</p>
-        <p>Discover how C is used in system programming, embedded systems, and performance-critical applications. Understand the relationship between C and assembly language.</p>
-      </section>
     </LessonLayout>
   );
 }

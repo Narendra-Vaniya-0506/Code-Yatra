@@ -1,83 +1,132 @@
-import LessonLayout from "../lesson_layout";
-import "../lessons.css";
+import React, { useState } from "react";
+import LessonLayout from "../lesson_layout"; // Correct import
 
-export default function CppLessons() {
+export default function PythonLessons() {
+  // State to manage which accordion section is open
+  const [openSections, setOpenSections] = useState({
+    introduction: true, // Keep the first section open by default
+    dataTypes: false,
+    strings: false,
+    lists: false,
+    tuples: false,
+  });
+
+  // State to track the currently active link for styling
+  const [activeLink, setActiveLink] = useState("overview");
+
+  // Toggles an accordion section open or closed
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  // Handles link clicks for smooth scrolling and setting active state
+  const handleLinkClick = (sectionId) => {
+    setActiveLink(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // The 80px offset accounts for the sticky header on mobile
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Define the sidebar content with the new accordion structure
   const sidebar = (
     <nav className="lesson-sidebar-nav">
-      <h3>C++ Tutorial</h3>
-      <ul>
-        <li><a href="#introduction">Introduction to C++</a></li>
-        <li><a href="#basics">C++ Basics</a></li>
-        <li><a href="#functions">Functions & Classes</a></li>
-        <li><a href="#pointers">Pointers & Memory</a></li>
-        <li><a href="#stl">STL Containers</a></li>
-        <li><a href="#templates">Templates & Generics</a></li>
-        <li><a href="#oop">OOP in C++</a></li>
-        <li><a href="#advanced">Advanced C++</a></li>
-      </ul>
+      <h3>Python Tutorial</h3>
+
+      {/* Introduction Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.introduction ? "open" : ""}`}
+          onClick={() => toggleSection("introduction")}
+          aria-expanded={openSections.introduction}
+        >
+          Introduction
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.introduction ? "500px" : "0" }}
+        >
+          <li><a href="#overview" onClick={() => handleLinkClick("overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
+          <li><a href="#installation" onClick={() => handleLinkClick("installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
+          <li><a href="#syntax" onClick={() => handleLinkClick("syntax")} className={activeLink === "syntax" ? "active" : ""}>Syntax</a></li>
+        </ul>
+      </div>
+
+      {/* Data Types Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${openSections.dataTypes ? "open" : ""}`}
+          onClick={() => toggleSection("dataTypes")}
+          aria-expanded={openSections.dataTypes}
+        >
+          Data Types & Operators
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.dataTypes ? "500px" : "0" }}
+        >
+          <li><a href="#datatypes" onClick={() => handleLinkClick("datatypes")} className={activeLink === "datatypes" ? "active" : ""}>Data Types</a></li>
+          <li><a href="#numbers" onClick={() => handleLinkClick("numbers")} className={activeLink === "numbers" ? "active" : ""}>Numbers</a></li>
+          <li><a href="#operators" onClick={() => handleLinkClick("operators")} className={activeLink === "operators" ? "active" : ""}>Operators</a></li>
+        </ul>
+      </div>
+      
+      {/* Add other sections here following the same pattern... */}
+
     </nav>
   );
 
   return (
     <LessonLayout
-      title="C++ Tutorial"
-      subtitle="Master C++ programming from fundamentals to advanced systems development"
+      title="Python Tutorial"
       breadcrumbs={[
-        { label: "Tutorials", href: "/tutorials" },
-        { label: "C++" }
+        { label: "Lessons", href: "/lessons" }, // Update link to Code Lessons page
+        { label: "Python Tutorial" },
       ]}
       sidebar={sidebar}
-      prev={{ label: "C Lessons", href: "/pages/CLessons/c" }}
-      next={{ label: "Python Lessons", href: "/pages/PythonLessons" }}
-      toc={true}
     >
-      <section id="introduction">
-        <h2>Introduction to C++</h2>
-        <p>C++ is a powerful, high-performance programming language that builds upon C with object-oriented features. Created by Bjarne Stroustrup in 1985, C++ is used for system programming, game development, and performance-critical applications.</p>
-        <p>This comprehensive tutorial will take you from C++ fundamentals to advanced concepts, covering everything you need to build efficient, robust applications and systems.</p>
-      </section>
+      {/* Hero Section */}
+      <div className="lesson-hero">
+        <h1>Python Tutorial</h1>
+        <p>Python is a high-level, interpreted, general-purpose programming language.</p>
+      </div>
 
-      <section id="basics">
-        <h2>C++ Basics</h2>
-        <p>Learn the fundamental building blocks of C++ including data types, variables, operators, control structures, and input/output operations. Understand the differences between C and C++ and how to write modern, safe C++ code.</p>
-        <p>Master C++ syntax, namespaces, references, and the standard library basics to build a solid foundation for more advanced topics.</p>
-      </section>
+      {/* Main Content */}
+      <div id="overview">
+        <h2>Get Started</h2>
+        <p>Welcome to the Python Tutorial series! To begin learning:</p>
+        <ol>
+          <li>Select a lesson from the sidebar on the left.</li>
+          <li>Work through the lessons in order for the best learning experience.</li>
+          <li>Each lesson contains detailed explanations and examples.</li>
+        </ol>
+      </div>
 
-      <section id="functions">
-        <h2>Functions & Classes</h2>
-        <p>Explore C++ functions including overloading, default arguments, and inline functions. Learn about classes and objects, constructors, destructors, and member functions that form the basis of object-oriented programming in C++.</p>
-        <p>Understand encapsulation, access specifiers, and how to design effective class hierarchies for reusable, maintainable code.</p>
-      </section>
+      <div id="installation" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Installation</h2>
+        <p>Content about installing Python goes here...</p>
+      </div>
 
-      <section id="pointers">
-        <h2>Pointers & Memory</h2>
-        <p>Master C++ memory management including pointers, references, dynamic memory allocation, and smart pointers. Understand RAII (Resource Acquisition Is Initialization) and how to avoid memory leaks and dangling pointers.</p>
-        <p>Learn about memory management best practices, resource handling, and modern C++ techniques for safe, efficient memory usage.</p>
-      </section>
+      <div id="syntax" style={{ paddingTop: '60px', marginTop: '-60px' }}>
+        <h2>Syntax</h2>
+        <p>Content about Python syntax goes here...</p>
+      </div>
+      
+      {/* Add other content sections here corresponding to the sidebar links */}
 
-      <section id="stl">
-        <h2>STL Containers</h2>
-        <p>The Standard Template Library (STL) provides powerful, generic containers and algorithms. Learn about vectors, lists, maps, sets, and other containers along with their usage patterns and performance characteristics.</p>
-        <p>Master iterators, algorithms, and how to choose the right container for your specific use case while writing efficient, generic code.</p>
-      </section>
-
-      <section id="templates">
-        <h2>Templates & Generics</h2>
-        <p>C++ templates enable generic programming by allowing you to write code that works with different data types without duplication. Learn about function templates, class templates, and template specialization.</p>
-        <p>Understand template metaprogramming, variadic templates, and how to create flexible, reusable code components that adapt to different types and requirements.</p>
-      </section>
-
-      <section id="oop">
-        <h2>OOP in C++</h2>
-        <p>Master object-oriented programming concepts in C++ including inheritance, polymorphism, virtual functions, and abstract classes. Learn about multiple inheritance, interfaces, and design patterns.</p>
-        <p>Explore advanced OOP features like operator overloading, friend functions, and how to design robust class hierarchies for complex software systems.</p>
-      </section>
-
-      <section id="advanced">
-        <h2>Advanced C++</h2>
-        <p>Delve into advanced C++ features including move semantics, lambda expressions, concurrency with threads, and the latest C++20/23 features. Learn about performance optimization and modern C++ idioms.</p>
-        <p>Discover advanced topics like custom allocators, reflection, and how to write high-performance, modern C++ code that leverages the full power of the language.</p>
-      </section>
     </LessonLayout>
   );
 }

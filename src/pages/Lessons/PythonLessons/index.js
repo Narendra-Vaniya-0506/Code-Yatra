@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import LessonLayout from "../lesson_layout"; // Correct import
 
 export default function PythonLessons() {
+  // State to manage which section is currently visible
+  const [activeSection, setActiveSection] = useState("overview"); // Default to overview
+
   // State to manage which accordion section is open
   const [openSections, setOpenSections] = useState({
     introduction: true, // Keep the first section open by default
