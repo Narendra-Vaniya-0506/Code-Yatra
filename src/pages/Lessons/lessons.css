@@ -58,12 +58,12 @@
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: #0f172a;
-    --color-surface: #1e293b;
-    --color-border: #334155;
-    --color-text: #f1f5f9;
-    --color-text-muted: #94a3b8;
-    --color-text-light: #64748b;
+    --color-background: #ffffff;
+    --color-surface: #f8fafc;
+    --color-border: #e2e8f0;
+    --color-text: #000000;
+    --color-text-muted: #333333;
+    --color-text-light: #666666;
   }
 }
 
@@ -83,24 +83,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Skip link for accessibility */
+/* Skip link for accessibility - HIDDEN */
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: var(--color-primary);
-  color: white;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  z-index: 1000;
-  transition: top var(--transition-fast);
-}
-
-.skip-link:focus {
-  top: 6px;
+  display: none;
 }
 
 /* Progress bar */
@@ -530,27 +515,30 @@ body {
   }
 
   .lesson-sidebar-toggle {
-    position: fixed;
-    bottom: var(--spacing-lg);
-    left: var(--spacing-lg);
+    position: relative;
+    top: 0;
+    left: 0;
     z-index: 1001;
-    background-color: var(--color-primary);
-    color: white;
+    background: none;
+    color: var(--color-text);
     border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
+    border-radius: 0;
+    width: auto;
+    height: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-lg);
+    justify-content: flex-start;
+    box-shadow: none;
     cursor: pointer;
     transition: all var(--transition-fast);
+    margin: var(--spacing-lg) 0 var(--spacing-md) var(--spacing-xl);
+    padding: var(--spacing-sm);
   }
 
   .lesson-sidebar-toggle:hover {
-    background-color: var(--color-primary-dark);
-    transform: scale(1.05);
+    background: none;
+    transform: none;
+    color: var(--color-primary);
   }
 
   .lesson-sidebar-close {
