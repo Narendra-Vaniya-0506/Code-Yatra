@@ -405,7 +405,7 @@
 /* Desktop (screens 1024px or wider) */
 @media (min-width: 1024px) {
   .lesson-sidebar-toggle {
-    display: none !important;
+    display: flex !important; /* Make it visible on all screen sizes */
   }
 
   .lesson-header {
