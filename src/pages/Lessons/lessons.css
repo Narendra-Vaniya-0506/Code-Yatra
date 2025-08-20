@@ -502,6 +502,13 @@ body {
   font-weight: 500;
 }
 
+/* Hide hamburger menu on desktop screens */
+@media (min-width: 768px) {
+  .lesson-sidebar-toggle {
+    display: none;
+  }
+}
+
 /* Mobile styles */
 @media (max-width: 1024px) {
   .lesson-container {
