@@ -1,254 +1,336 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import './lessons.css';
+
+// --- Styles Component ---
+// To resolve the build error, the CSS styles are included directly within the layout component.
+const LessonStyles = () => (
+  <style>{`
+    /* --- CSS Variables for Theming --- */
+    :root {
+      --color-primary: #2563eb;
+      --color-background: #ffffff;
+      --color-surface: #f8fafc;
+      --color-border: #e2e8f0;
+      --color-text: #1e293b;
+      --color-text-muted: #64748b;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 1.5rem;
+      --spacing-xl: 2rem;
+      --spacing-2xl: 3rem;
+      --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-size-sm: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-lg: 1.125rem;
+      --font-size-2xl: 1.5rem;
+      --font-size-3xl: 1.875rem;
+      --font-size-4xl: 2.25rem;
+      --sidebar-width: 280px;
+      --content-max-width: 800px;
+      --header-height: 60px;
+      --border-radius: 0.375rem;
+      --transition-normal: 250ms ease;
+    }
+
+    /* Prevents background scroll when mobile sidebar is open */
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    /* --- Base Layout --- */
+    .lesson-container {
+      display: grid;
+      grid-template-columns: 1fr; /* Mobile-first: single column */
+    }
+
+    /* --- Sidebar --- */
+    .lesson-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background-color: var(--color-background);
+      border-right: 1px solid var(--color-border);
+      transform: translateX(-100%);
+      transition: transform var(--transition-normal);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    .lesson-layout.sidebar-open .lesson-sidebar {
+      transform: translateX(0);
+    }
+    .lesson-sidebar-content {
+      padding: var(--spacing-lg);
+    }
+
+    /* --- Main Content Area --- */
+    .lesson-main {
+      width: 100%;
+    }
+    .lesson-header {
+      display: flex;
+      align-items: center;
+      padding: 0 var(--spacing-md);
+      border-bottom: 1px solid var(--color-border);
+      height: var(--header-height);
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    .lesson-header h2 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      margin: 0;
+    }
+    .lesson-sidebar-toggle {
+      display: flex;
+      background: none;
+      border: none;
+      color: var(--color-text);
+      cursor: pointer;
+      padding: var(--spacing-sm);
+      margin-right: var(--spacing-sm);
+      border-radius: var(--border-radius);
+    }
+    .lesson-sidebar-toggle:hover {
+      background-color: var(--color-surface);
+    }
+
+    .lesson-content-wrapper {
+      max-width: var(--content-max-width);
+      margin: 0 auto;
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    /* --- Breadcrumbs --- */
+    .lesson-breadcrumbs {
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--spacing-xl);
+    }
+    .lesson-breadcrumbs ol {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: var(--spacing-sm);
+    }
+    .lesson-breadcrumbs li:not(:last-child)::after {
+      content: '›';
+      margin-left: var(--spacing-sm);
+      color: var(--color-text-muted);
+    }
+    .lesson-breadcrumbs a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+    .lesson-breadcrumbs a:hover {
+      color: var(--color-primary);
+    }
+
+    /* --- Accordion Sidebar Navigation --- */
+    .lesson-sidebar-nav h3 {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      padding: 0 var(--spacing-md);
+      margin: 0 0 var(--spacing-lg) 0;
+    }
+    .lesson-section {
+      margin-bottom: var(--spacing-sm);
+    }
+    .lesson-section-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: none;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-align: left;
+      cursor: pointer;
+      transition: 150ms ease;
+    }
+    .lesson-section-toggle:hover {
+      background-color: var(--color-surface);
+      color: var(--color-text);
+    }
+    .lesson-section-toggle::after {
+      content: '›';
+      font-size: 1.5em;
+      font-weight: 400;
+      transition: transform var(--transition-normal);
+      transform: rotate(0deg);
+    }
+    .lesson-section-toggle.open::after {
+      transform: rotate(90deg);
+    }
+    .lesson-sublist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .lesson-sublist li a {
+      display: block;
+      padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) var(--spacing-xl);
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: var(--font-size-sm);
+      transition: 150ms ease;
+    }
+    .lesson-sublist li a:hover {
+      color: var(--color-text);
+    }
+    .lesson-sublist li a.active {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* --- Hero Section --- */
+    .lesson-hero {
+      text-align: center;
+      padding: var(--spacing-2xl) var(--spacing-md);
+      background-color: var(--color-surface);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--spacing-2xl);
+      border: 1px solid var(--color-border);
+    }
+    .lesson-hero h1 {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      margin: 0 0 var(--spacing-sm) 0;
+    }
+    .lesson-hero p {
+      font-size: var(--font-size-lg);
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* --- General Content Styles --- */
+    .lesson-content h2 {
+      font-size: var(--font-size-2xl);
+      font-weight: 600;
+      margin: var(--spacing-2xl) 0 var(--spacing-lg);
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: var(--spacing-sm);
+      scroll-margin-top: 80px; /* Offset for sticky header */
+    }
+
+    /* --- Mobile Drawer Backdrop --- */
+    .lesson-drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* --- Desktop Layout (1024px and wider) --- */
+    @media (min-width: 1024px) {
+      .lesson-container {
+        grid-template-columns: var(--sidebar-width) 1fr;
+      }
+      .lesson-sidebar {
+        position: sticky;
+        transform: translateX(0);
+        z-index: 10;
+      }
+      .lesson-sidebar-toggle, .lesson-header, .lesson-drawer-backdrop {
+        display: none;
+      }
+      .lesson-hero h1 {
+        font-size: var(--font-size-4xl);
+      }
+      .lesson-content h2 {
+        font-size: var(--font-size-3xl);
+      }
+    }
+  `}</style>
+);
+
+
+// SVG icon for the mobile sidebar toggle
+const MenuIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+);
 
 export default function LessonLayout({
   title,
-  subtitle,
   breadcrumbs = [],
   sidebar,
-  prev = null,
-  next = null,
-  toc = true,
   children
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const mainRef = useRef(null);
   const sidebarRef = useRef(null);
 
-  // Handle mobile drawer
-  const toggleSidebar = useCallback(() => {
-    setIsSidebarOpen(prev => !prev);
-  }, []);
+  const toggleSidebar = useCallback(() => setIsSidebarOpen(prev => !prev), []);
+  const closeSidebar = useCallback(() => setIsSidebarOpen(false), []);
 
-  const closeSidebar = useCallback(() => {
-    setIsSidebarOpen(false);
-  }, []);
-
-  // Handle navigation link clicks to close sidebar on mobile
-  const handleNavLinkClick = useCallback((e) => {
-    const isMobile = window.innerWidth <= 1024;
-    if (isMobile && isSidebarOpen) {
-      closeSidebar();
-    }
-  }, [isSidebarOpen, closeSidebar]);
-
-  // Handle escape key to close drawer
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && isSidebarOpen) {
         closeSidebar();
       }
     };
+
     document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [isSidebarOpen, closeSidebar]);
 
-  // Handle focus trap in drawer
-  useEffect(() => {
-    if (isSidebarOpen && sidebarRef.current) {
-      const focusableElements = sidebarRef.current.querySelectorAll(
-        'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
-      );
-      if (focusableElements.length > 0) {
-        focusableElements[0].focus();
-      }
+    if (isSidebarOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
     }
-  }, [isSidebarOpen]);
 
-  // Scroll progress tracking
-  useEffect(() => {
-    const handleScroll = () => {
-      if (mainRef.current) {
-        const { scrollTop, scrollHeight, clientHeight } = mainRef.current;
-        const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
-        setScrollProgress(Math.min(100, Math.max(0, progress)));
-      }
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.classList.remove('no-scroll');
     };
-
-    const mainElement = mainRef.current;
-    if (mainElement) {
-      mainElement.addEventListener('scroll', handleScroll);
-      return () => mainElement.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
-
-  // Scrollspy for active sections
-  useEffect(() => {
-    if (!toc) return;
-
-    const headings = Array.from(mainRef.current?.querySelectorAll('h2[id], h3[id]') || []);
-    if (headings.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: 0.1
-      }
-    );
-
-    headings.forEach(heading => observer.observe(heading));
-    return () => headings.forEach(heading => observer.unobserve(heading));
-  }, [toc, children]);
-
-  // Smooth scrolling for anchor links and auto-close sidebar
-  useEffect(() => {
-    const handleClick = (e) => {
-      const target = e.target.closest('a[href^="#"], .lesson-sidebar-nav a, .lesson-toc a');
-      if (!target) return;
-
-      const href = target.getAttribute('href');
-      if (!href || href === '#') return;
-
-      // Handle internal anchor links
-      if (href.startsWith('#')) {
-        const element = document.getElementById(href.slice(1));
-        if (element) {
-          e.preventDefault();
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          element.style.scrollMargin = '16px';
-        }
-      }
-
-      // Auto-close sidebar on mobile when clicking any navigation link
-      const isMobile = window.innerWidth <= 1024;
-      if (isMobile && isSidebarOpen) {
-        closeSidebar();
-      }
-    };
-
-    document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
   }, [isSidebarOpen, closeSidebar]);
-
-  // Auto-generated TOC
-  const generateToc = () => {
-    if (!toc || !mainRef.current) return null;
-
-    const headings = Array.from(mainRef.current.querySelectorAll('h2[id], h3[id]'));
-    if (headings.length === 0) return null;
-
-    return (
-      <nav className="lesson-toc" aria-label="Table of contents">
-        <h4>On this page</h4>
-        <ul>
-          {headings.map(heading => (
-            <li key={heading.id} className={heading.tagName === 'H3' ? 'sub-item' : ''}>
-              <a 
-                href={`#${heading.id}`}
-                className={activeSection === heading.id ? 'active' : ''}
-                aria-current={activeSection === heading.id ? 'true' : undefined}
-              >
-                {heading.textContent}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    );
-  };
 
   return (
-    <div className="lesson-layout">
-      {/* Reading progress bar */}
-      <div 
-        className="lesson-progress-bar" 
-        style={{ '--progress': `${scrollProgress}%` }}
-        role="progressbar"
-        aria-valuenow={scrollProgress}
-        aria-valuemin="0"
-        aria-valuemax="100"
-      />
-
-      {/* Mobile drawer backdrop */}
-      {isSidebarOpen && (
-        <div 
-          className="lesson-drawer-backdrop" 
-          onClick={closeSidebar}
-          aria-hidden="true"
-        />
-      )}
-
+    <div className={`lesson-layout ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+      <LessonStyles />
+      {isSidebarOpen && <div className="lesson-drawer-backdrop" onClick={closeSidebar} />}
       <div className="lesson-container">
-        <aside 
-          id="lesson-sidebar"
-          ref={sidebarRef}
-          className={`lesson-sidebar ${isSidebarOpen ? 'open' : ''}`}
-          aria-label="Lesson navigation"
-        >
-          <div className="lesson-sidebar-content">
-            {sidebar}
-            {generateToc()}
-          </div>
-          
-          {/* Remove the separate "Hide Sidebar" button */}
+        <aside id="lesson-sidebar" ref={sidebarRef} className="lesson-sidebar">
+          <div className="lesson-sidebar-content">{sidebar}</div>
         </aside>
-
-        <main 
-          id="lesson-main-content"
-          ref={mainRef}
-          className="lesson-main"
-          tabIndex="-1"
-        >
-          {breadcrumbs.length > 0 && (
-            <nav className="lesson-breadcrumbs" aria-label="Breadcrumb">
-              <ol>
-                {breadcrumbs.map((crumb, index) => (
-                  <li key={index}>
-                    {crumb.href ? (
-                      <a href={crumb.href}>{crumb.label}</a>
-                    ) : (
-                      <span aria-current="page">{crumb.label}</span>
-                    )}
-                  </li>
-                ))}
-              </ol>
-            </nav>
-          )}
-
+        <main id="lesson-main-content" className="lesson-main">
           <header className="lesson-header">
-            <button 
-              className="lesson-sidebar-toggle"
-              onClick={toggleSidebar}
-              aria-expanded={isSidebarOpen}
-              aria-controls="lesson-sidebar"
-              aria-label="Toggle lessons sidebar"
-            >
-              <span className="sr-only">Toggle Sidebar</span>
-              <i className="fas fa-bars"></i>
+            <button className="lesson-sidebar-toggle" onClick={toggleSidebar} aria-expanded={isSidebarOpen} aria-controls="lesson-sidebar" aria-label="Toggle sidebar">
+              <MenuIcon />
             </button>
-            <h1>{title}</h1>
-            {subtitle && <p className="lesson-subtitle">{subtitle}</p>}
+            <div className="lesson-header-content">
+              <h2>{title}</h2>
+            </div>
           </header>
-
-          <div className="lesson-content">
-            {children}
+          <div className="lesson-content-wrapper">
+            {breadcrumbs.length > 0 && (
+              <nav className="lesson-breadcrumbs">
+                <ol>
+                  {breadcrumbs.map((crumb, index) => (
+                    <li key={index}>
+                      {crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span>{crumb.label}</span>}
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
+            <div className="lesson-content">{children}</div>
           </div>
-
-          {(prev || next) && (
-            <nav className="lesson-pagination" aria-label="Lesson navigation">
-              {prev && (
-                <a href={prev.href} className="lesson-prev">
-                  <span className="lesson-nav-label">Previous</span>
-                  <span className="lesson-nav-title">{prev.label}</span>
-                </a>
-              )}
-              {next && (
-                <a href={next.href} className="lesson-next">
-                  <span className="lesson-nav-label">Next</span>
-                  <span className="lesson-nav-title">{next.label}</span>
-                </a>
-              )}
-            </nav>
-          )}
         </main>
       </div>
     </div>

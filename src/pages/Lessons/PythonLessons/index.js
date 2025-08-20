@@ -1,343 +1,84 @@
-// src/pages/Lessons/PythonLessons/index.js
 import React, { useState } from "react";
-import LessonLayout from "../lesson_layout";
-import "../lessons.css";
+import LessonLayout from "./lessons_layout";
 
 export default function PythonLessons() {
   const [openSections, setOpenSections] = useState({
     introduction: true,
     dataTypes: false,
-    strings: false,
-    lists: false,
-    tuples: false,
   });
-
-  const [activeLink, setActiveLink] = useState("introduction");
-  const [sidebarVisible, setSidebarVisible] = useState(true);
+  const [activeLink, setActiveLink] = useState("overview");
 
   const toggleSection = (section) => {
-    console.log(`Toggling section: ${section}`);
-    setOpenSections((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }));
+    setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
   };
 
-  const toggleSidebar = () => {
-    setSidebarVisible(!sidebarVisible);
-  };
-
-  const handleLinkClick = (sectionId) => {
+  const handleLinkClick = (e, sectionId) => {
+    e.preventDefault();
     setActiveLink(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  const sidebar = (
+  const sidebarContent = (
     <nav className="lesson-sidebar-nav">
       <h3>Python Tutorial</h3>
-
-      {/* ---------------- Introduction ---------------- */}
+      {/* Introduction Section */}
       <div className="lesson-section">
-        <button
-          className={`lesson-section-toggle ${
-            openSections.introduction ? "open" : ""
-          }`}
-          onClick={() => toggleSection("introduction")}
-          aria-expanded={openSections.introduction}
-        >
+        <button className={`lesson-section-toggle ${openSections.introduction ? "open" : ""}`} onClick={() => toggleSection("introduction")} aria-expanded={openSections.introduction}>
           Introduction
         </button>
-        <ul
-          className={`lesson-sublist ${
-            openSections.introduction ? "expanded" : ""
-          }`}
-          style={{
-            maxHeight: openSections.introduction ? "500px" : "0",
-            transition: "max-height 0.25s ease",
-          }}
-        >
-          <li>
-            <a
-              href="#overview"
-              onClick={() => handleLinkClick("overview")}
-              className={activeLink === "overview" ? "active" : ""}
-            >
-              Python Overview
-            </a>
-          </li>
-          <li>
-            <a
-              href="#installation"
-              onClick={() => handleLinkClick("installation")}
-              className={activeLink === "installation" ? "active" : ""}
-            >
-              Installation & Getting Started
-            </a>
-          </li>
-          <li>
-            <a
-              href="#syntax"
-              onClick={() => handleLinkClick("syntax")}
-              className={activeLink === "syntax" ? "active" : ""}
-            >
-              What is Syntax?
-            </a>
-          </li>
-          <li>
-            <a
-              href="#comments"
-              onClick={() => handleLinkClick("comments")}
-              className={activeLink === "comments" ? "active" : ""}
-            >
-              Python Comments
-            </a>
-          </li>
-          <li>
-            <a
-              href="#variables"
-              onClick={() => handleLinkClick("variables")}
-              className={activeLink === "variables" ? "active" : ""}
-            >
-              Python Variables
-            </a>
-          </li>
+        <ul style={{ maxHeight: openSections.introduction ? "200px" : "0" }} className="lesson-sublist">
+          <li><a href="#overview" onClick={(e) => handleLinkClick(e, "overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
+          <li><a href="#installation" onClick={(e) => handleLinkClick(e, "installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
         </ul>
       </div>
-
-      {/* ---------------- Data Types & Operators ---------------- */}
+      {/* Data Types Section */}
       <div className="lesson-section">
-        <button
-          className={`lesson-section-toggle ${
-            openSections.dataTypes ? "open" : ""
-          }`}
-          onClick={() => toggleSection("dataTypes")}
-          aria-expanded={openSections.dataTypes}
-        >
-          Python Data Types & Operators
+        <button className={`lesson-section-toggle ${openSections.dataTypes ? "open" : ""}`} onClick={() => toggleSection("dataTypes")} aria-expanded={openSections.dataTypes}>
+          Data Types & Operators
         </button>
-        <ul
-          className={`lesson-sublist ${
-            openSections.dataTypes ? "expanded" : ""
-          }`}
-          style={{
-            maxHeight: openSections.dataTypes ? "500px" : "0",
-            transition: "max-height 0.25s ease",
-          }}
-        >
-          <li>
-            <a
-              href="#datatypes"
-              onClick={() => handleLinkClick("datatypes")}
-              className={activeLink === "datatypes" ? "active" : ""}
-            >
-              Data Types
-            </a>
-          </li>
-          <li>
-            <a
-              href="#numbers"
-              onClick={() => handleLinkClick("numbers")}
-              className={activeLink === "numbers" ? "active" : ""}
-            >
-              Python Numbers
-            </a>
-          </li>
-          <li>
-            <a
-              href="#conversion"
-              onClick={() => handleLinkClick("conversion")}
-              className={activeLink === "conversion" ? "active" : ""}
-            >
-              Data Conversion
-            </a>
-          </li>
-          <li>
-            <a
-              href="#casting"
-              onClick={() => handleLinkClick("casting")}
-              className={activeLink === "casting" ? "active" : ""}
-            >
-              Type Casting
-            </a>
-          </li>
-          <li>
-            <a
-              href="#operators"
-              onClick={() => handleLinkClick("operators")}
-              className={activeLink === "operators" ? "active" : ""}
-            >
-              Python Operators
-            </a>
-          </li>
-          <li>
-            <a
-              href="#booleans"
-              onClick={() => handleLinkClick("booleans")}
-              className={activeLink === "booleans" ? "active" : ""}
-            >
-              Python Booleans
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      {/* ---------------- Strings ---------------- */}
-      <div className="lesson-section">
-        <button
-          className={`lesson-section-toggle ${
-            openSections.strings ? "open" : ""
-          }`}
-          onClick={() => toggleSection("strings")}
-          aria-expanded={openSections.strings}
-        >
-          Python Strings
-        </button>
-        <ul
-          className={`lesson-sublist ${openSections.strings ? "expanded" : ""}`}
-          style={{
-            maxHeight: openSections.strings ? "500px" : "0",
-            transition: "max-height 0.25s ease",
-          }}
-        >
-          <li>
-            <a
-              href="#strings"
-              onClick={() => handleLinkClick("strings")}
-              className={activeLink === "strings" ? "active" : ""}
-            >
-              String Basics
-            </a>
-          </li>
-          <li>
-            <a
-              href="#string-methods"
-              onClick={() => handleLinkClick("string-methods")}
-              className={activeLink === "string-methods" ? "active" : ""}
-            >
-              String Methods
-            </a>
-          </li>
-          <li>
-            <a
-              href="#formatting"
-              onClick={() => handleLinkClick("formatting")}
-              className={activeLink === "formatting" ? "active" : ""}
-            >
-              String Formatting
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      {/* ---------------- Lists ---------------- */}
-      <div className="lesson-section">
-        <button
-          className={`lesson-section-toggle ${
-            openSections.lists ? "open" : ""
-          }`}
-          onClick={() => toggleSection("lists")}
-          aria-expanded={openSections.lists}
-        >
-          Python Lists
-        </button>
-        <ul
-          className={`lesson-sublist ${openSections.lists ? "expanded" : ""}`}
-          style={{
-            maxHeight: openSections.lists ? "500px" : "0",
-            transition: "max-height 0.25s ease",
-          }}
-        >
-          <li>
-            <a
-              href="#lists"
-              onClick={() => handleLinkClick("lists")}
-              className={activeLink === "lists" ? "active" : ""}
-            >
-              List Basics
-            </a>
-          </li>
-          <li>
-            <a
-              href="#list-methods"
-              onClick={() => handleLinkClick("list-methods")}
-              className={activeLink === "list-methods" ? "active" : ""}
-            >
-              List Methods
-            </a>
-          </li>
-          <li>
-            <a
-              href="#slicing"
-              onClick={() => handleLinkClick("slicing")}
-              className={activeLink === "slicing" ? "active" : ""}
-            >
-              List Slicing
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      {/* ---------------- Tuples ---------------- */}
-      <div className="lesson-section">
-        <button
-          className={`lesson-section-toggle ${
-            openSections.tuples ? "open" : ""
-          }`}
-          onClick={() => toggleSection("tuples")}
-          aria-expanded={openSections.tuples}
-        >
-          Python Tuples
-        </button>
-        <ul
-          className={`lesson-sublist ${openSections.tuples ? "expanded" : ""}`}
-          style={{
-            maxHeight: openSections.tuples ? "500px" : "0",
-            transition: "max-height 0.25s ease",
-          }}
-        >
-          <li>
-            <a
-              href="#tuples"
-              onClick={() => handleLinkClick("tuples")}
-              className={activeLink === "tuples" ? "active" : ""}
-            >
-              Tuple Basics
-            </a>
-          </li>
-          <li>
-            <a
-              href="#tuple-methods"
-              onClick={() => handleLinkClick("tuple-methods")}
-              className={activeLink === "tuple-methods" ? "active" : ""}
-            >
-              Tuple Methods
-            </a>
-          </li>
-          <li>
-            <a
-              href="#immutability"
-              onClick={() => handleLinkClick("immutability")}
-              className={activeLink === "immutability" ? "active" : ""}
-            >
-              Immutability
-            </a>
-          </li>
+        <ul style={{ maxHeight: openSections.dataTypes ? "200px" : "0" }} className="lesson-sublist">
+          <li><a href="#datatypes" onClick={(e) => handleLinkClick(e, "datatypes")} className={activeLink === "datatypes" ? "active" : ""}>Data Types</a></li>
+          <li><a href="#numbers" onClick={(e) => handleLinkClick(e, "numbers")} className={activeLink === "numbers" ? "active" : ""}>Numbers</a></li>
         </ul>
       </div>
     </nav>
   );
 
   return (
-    <LessonLayout sidebar={sidebar}>
-      <div className="lesson-content">
-        <h1>Welcome to Python Lessons</h1>
-<button onClick={toggleSidebar} className="toggle-sidebar-button">
-  {sidebarVisible ? "Hide Sidebar" : "Show Sidebar"}
-</button>
-<p>Select a topic from the sidebar to get started.</p>
+    <LessonLayout
+      title="Python Tutorial"
+      breadcrumbs={[
+        { label: "Tutorials", href: "#" },
+        { label: "Python Tutorial" },
+      ]}
+      sidebar={sidebarContent}
+    >
+      <div className="lesson-hero">
+        <h1>Python Tutorial</h1>
+        <p>Python is a high-level, interpreted, general-purpose programming language.</p>
+      </div>
+
+      <div id="overview">
+        <h2>Get Started</h2>
+        <p>Welcome to the Python Tutorial series! To begin learning, select a lesson from the sidebar. Work through the lessons in order for the best learning experience.</p>
+      </div>
+
+      <div id="installation">
+        <h2>Installation</h2>
+        <p>Content about installing Python goes here...</p>
+      </div>
+
+      <div id="datatypes">
+        <h2>Data Types</h2>
+        <p>Content about Python data types goes here...</p>
+      </div>
+      
+      <div id="numbers">
+        <h2>Numbers</h2>
+        <p>Content about Python numbers goes here...</p>
       </div>
     </LessonLayout>
   );
