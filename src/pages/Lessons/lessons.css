@@ -478,6 +478,7 @@ body {
     transform: translateX(-100%);
     z-index: 1000;
     box-shadow: var(--shadow-xl);
+    transition: transform 0.3s ease-in-out;
   }
 
   .lesson-sidebar.open {
@@ -486,6 +487,22 @@ body {
 
   .lesson-sidebar-toggle {
     display: flex !important;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1001;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+  }
+
+  .lesson-sidebar-toggle:hover {
+    background: var(--color-primary-dark);
+    transform: scale(1.05);
   }
 
   .lesson-header {
@@ -516,6 +533,46 @@ body {
   .lesson-pagination a {
     width: 100%;
     text-align: center;
+  }
+
+  /* Enhanced mobile drawer backdrop */
+  .lesson-drawer-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .lesson-drawer-backdrop.show {
+    opacity: 1;
+  }
+
+  /* Smooth transitions for sidebar */
+  .lesson-sidebar {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Enhanced close button */
+  .lesson-sidebar-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .lesson-sidebar-close:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
 }
 

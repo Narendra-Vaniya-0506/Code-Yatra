@@ -26,6 +26,14 @@ export default function LessonLayout({
     setIsSidebarOpen(false);
   }, []);
 
+  // Handle navigation link clicks to close sidebar on mobile
+  const handleNavLinkClick = useCallback((e) => {
+    const isMobile = window.innerWidth <= 1024;
+    if (isMobile && isSidebarOpen) {
+      closeSidebar();
+    }
+  }, [isSidebarOpen, closeSidebar]);
+
   // Handle escape key to close drawer
   useEffect(() => {
     const handleEscape = (e) => {
@@ -91,26 +99,35 @@ export default function LessonLayout({
     return () => headings.forEach(heading => observer.unobserve(heading));
   }, [toc, children]);
 
-  // Smooth scrolling for anchor links
+  // Smooth scrolling for anchor links and auto-close sidebar
   useEffect(() => {
     const handleClick = (e) => {
-      const target = e.target.closest('a[href^="#"]');
+      const target = e.target.closest('a[href^="#"], .lesson-sidebar-nav a, .lesson-toc a');
       if (!target) return;
 
       const href = target.getAttribute('href');
       if (!href || href === '#') return;
 
-      const element = document.getElementById(href.slice(1));
-      if (element) {
-        e.preventDefault();
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        element.style.scrollMargin = '16px';
+      // Handle internal anchor links
+      if (href.startsWith('#')) {
+        const element = document.getElementById(href.slice(1));
+        if (element) {
+          e.preventDefault();
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          element.style.scrollMargin = '16px';
+        }
+      }
+
+      // Auto-close sidebar on mobile when clicking any navigation link
+      const isMobile = window.innerWidth <= 1024;
+      if (isMobile && isSidebarOpen) {
+        closeSidebar();
       }
     };
 
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, []);
+  }, [isSidebarOpen, closeSidebar]);
 
   // Auto-generated TOC
   const generateToc = () => {
@@ -141,9 +158,6 @@ export default function LessonLayout({
 
   return (
     <div className="lesson-layout">
-      {/* Skip to content link for accessibility */}
-      <a href="#lesson-main-content" className="skip-link">Skip to content</a>
-
       {/* Reading progress bar */}
       <div 
         className="lesson-progress-bar" 
