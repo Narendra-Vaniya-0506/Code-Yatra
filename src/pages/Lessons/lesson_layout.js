@@ -160,18 +160,6 @@ export default function LessonLayout({
         />
       )}
 
-      {/* Mobile toggle button */}
-      <button 
-        className="lesson-sidebar-toggle"
-        onClick={toggleSidebar}
-        aria-expanded={isSidebarOpen}
-        aria-controls="lesson-sidebar"
-        aria-label="Toggle lessons sidebar"
-      >
-        <span className="sr-only">Lessons</span>
-<i className="fas fa-bars"></i>
-      </button>
-
       <div className="lesson-container">
         <aside 
           id="lesson-sidebar"
@@ -217,18 +205,19 @@ export default function LessonLayout({
             </nav>
           )}
 
-<header className="lesson-header">
-  <button 
-    className="lesson-sidebar-toggle"
-    onClick={toggleSidebar}
-    aria-expanded={isSidebarOpen}
-    aria-controls="lesson-sidebar"
-    aria-label="Toggle lessons sidebar"
-  >
-    <i className="fas fa-bars"></i>
-  </button>
-  <h1>Python Tutorial</h1>
-</header>
+          {/* This header now contains the toggle and the dynamic title */}
+          <header className="lesson-header">
+            <button 
+              className="lesson-sidebar-toggle"
+              onClick={toggleSidebar}
+              aria-expanded={isSidebarOpen}
+              aria-controls="lesson-sidebar"
+              aria-label="Toggle lessons sidebar"
+            >
+              <i className="fas fa-bars"></i>
+            </button>
+            <span className="lesson-header-title">{title}</span>
+          </header>
 
           <div className="lesson-content">
             {children}
