@@ -15,6 +15,7 @@ export default function PythonLessons() {
   const [activeLink, setActiveLink] = useState("introduction");
 
   const toggleSection = (section) => {
+    console.log(`Toggling section: ${section}`); // Log the section being toggled
     setOpenSections((prev) => ({
       ...prev,
       [section]: !prev[section],
