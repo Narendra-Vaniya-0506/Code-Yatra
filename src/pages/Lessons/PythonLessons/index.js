@@ -1,100 +1,113 @@
 import React, { useState } from "react";
-import LessonLayout from "../lesson_layout";
+import LessonLayout from "../lesson_layout"; // Layout component for lessons
 
-// Reusable component for displaying code blocks
+// A simple component for displaying code blocks
 const CodeBlock = ({ children }) => (
   <pre className="code-block">
     <code>{children}</code>
   </pre>
 );
 
-// Accordion Section Component
-const AccordionSection = ({ title, sectionKey, isOpen, toggle, children }) => (
-  <div className="lesson-section">
-    <button
-      className={`lesson-section-toggle ${isOpen ? "open" : ""}`}
-      onClick={() => toggle(sectionKey)}
-      aria-expanded={isOpen}
-    >
-      {title}
-    </button>
-    <ul
-      className="lesson-sublist"
-      style={{ maxHeight: isOpen ? "500px" : "0" }}
-    >
-      {children}
-    </ul>
-  </div>
-);
-
-// Sidebar Link Component
-const SidebarLink = ({ id, activeContent, handleContentChange, children }) => (
-  <li>
-    <a
-      href={`#${id}`}
-      onClick={(e) => {
-        e.preventDefault();
-        handleContentChange(id);
-      }}
-      className={activeContent === id ? "active" : ""}
-    >
-      {children}
-    </a>
-  </li>
-);
-
 export default function PythonLessons() {
+  // State to manage which accordion section is open
   const [openSections, setOpenSections] = useState({
-    introduction: true,
+    introduction: true, // Start with the introduction section open
     dataTypes: false,
   });
 
-  const [activeContent, setActiveContent] = useState("overview");
+  // State to manage which content section is currently visible
+  const [activeContent, setActiveContent] = useState("overview"); // Default to overview
 
-  const toggleSection = (section) =>
-    setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
+  // Toggles an accordion section open or closed
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
 
+  // Handles link clicks to show the correct content
+  const handleContentChange = (contentId) => {
+    setActiveContent(contentId);
+  };
+
+  // Define the sidebar content
   const sidebar = (
     <nav className="lesson-sidebar-nav">
       <h3>Python Tutorial</h3>
 
-      <AccordionSection
-        title="Introduction"
-        sectionKey="introduction"
-        isOpen={openSections.introduction}
-        toggle={toggleSection}
-      >
-        <SidebarLink
-          id="overview"
-          activeContent={activeContent}
-          handleContentChange={setActiveContent}
+      {/* Introduction Section */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${
+            openSections.introduction ? "open" : ""
+          }`}
+          onClick={() => toggleSection("introduction")}
+          aria-expanded={openSections.introduction}
         >
-          Python Overview
-        </SidebarLink>
-        <SidebarLink
-          id="installation"
-          activeContent={activeContent}
-          handleContentChange={setActiveContent}
+          Introduction
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.introduction ? "500px" : "0" }}
         >
-          Installation & Getting Started
-        </SidebarLink>
-        <SidebarLink
-          id="syntax"
-          activeContent={activeContent}
-          handleContentChange={setActiveContent}
-        >
-          What is Syntax?
-        </SidebarLink>
-      </AccordionSection>
+          <li>
+            <a
+              href="#overview"
+              onClick={(e) => {
+                e.preventDefault(); // Prevent page jump
+                handleContentChange("overview");
+              }}
+              className={activeContent === "overview" ? "active" : ""}
+            >
+              Python Overview
+            </a>
+          </li>
+          <li>
+            <a
+              href="#installation"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("installation");
+              }}
+              className={activeContent === "installation" ? "active" : ""}
+            >
+              Installation & Getting Started
+            </a>
+          </li>
+          <li>
+            <a
+              href="#syntax"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("syntax");
+              }}
+              className={activeContent === "syntax" ? "active" : ""}
+            >
+              What is Syntax?
+            </a>
+          </li>
+        </ul>
+      </div>
 
-      <AccordionSection
-        title="Data Types & Operators"
-        sectionKey="dataTypes"
-        isOpen={openSections.dataTypes}
-        toggle={toggleSection}
-      >
-        {/* Future links go here */}
-      </AccordionSection>
+      {/* Data Types Section (Add more links as needed) */}
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${
+            openSections.dataTypes ? "open" : ""
+          }`}
+          onClick={() => toggleSection("dataTypes")}
+          aria-expanded={openSections.dataTypes}
+        >
+          Data Types & Operators
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.dataTypes ? "500px" : "0" }}
+        >
+          {/* Add links for this section here */}
+        </ul>
+      </div>
     </nav>
   );
 
@@ -107,113 +120,80 @@ export default function PythonLessons() {
       ]}
       sidebar={sidebar}
     >
-      {/* Hero Section */}
-      <section className="lesson-hero">
+      {/* Hero Section - This will always be visible */}
+      <div className="lesson-hero">
         <h1>Python Tutorial</h1>
         <p>
           Python is a high-level, interpreted, general-purpose programming
           language.
         </p>
-      </section>
+      </div>
 
-      {/* Dynamic Content */}
+      {/* --- Main Content Area: Renders content based on state --- */}
+
+      {/* Show Overview Content */}
       {activeContent === "overview" && (
-        <section id="overview">
+        <div id="overview">
           <h2>Python Overview</h2>
           <h3>What is Python?</h3>
           <ul>
-            <li>
-              Python is a dynamically typed, general-purpose programming
-              language that supports both object-oriented and functional
-              approaches.
-            </li>
+            <li>Python is a dynamically typed, general-purpose programming language that supports an object-oriented programming approach as well as a functional programming approach.</li>
             <li>It is also an interpreted and high-level programming language.</li>
-            <li>Created by Guido van Rossum in 1989.</li>
+            <li>It was created by Guido van Rossum in 1989.</li>
           </ul>
-
           <h3>Features of Python</h3>
           <ul>
-            <li>
-              <b>Simple and easy to understand:</b> Python's clean syntax reads
-              almost like plain English.
-            </li>
-            <li>
-              <b>Interpreted & cross-platform:</b> Runs line by line, making
-              debugging easier, and works across Windows, macOS, and Linux.
-            </li>
-            <li>
-              <b>Open-source:</b> Free to use, modify, and distribute.
-            </li>
-            <li>
-              <b>Rich ecosystem:</b> Massive standard library + frameworks like
-              NumPy, TensorFlow, Django.
-            </li>
+            <li><b>Simple and easy to understand:</b> Python's clean syntax reads almost like plain English.</li>
+            <li><b>Interpreted and platform-independent:</b> Python code is executed line by line, which makes debugging very easy. It can also run on various operating systems like Windows, macOS, and Linux.</li>
+            <li><b>Open-source:</b> Python is free to use, modify, and distribute for both personal and commercial purposes.</li>
+            <li><b>Large standard library:</b> Python provides a vast library of pre-written code for tasks ranging from web development to data science. Some popular libraries include NumPy, TensorFlow, and Django.</li>
           </ul>
-
           <h3>Get Started</h3>
+          <p>Welcome to the Python Tutorial series! To begin learning:</p>
           <ol>
-            <li>Select a lesson from the sidebar.</li>
-            <li>Work through them in order for the best experience.</li>
-            <li>Each lesson has detailed explanations and examples.</li>
+            <li>Select a lesson from the sidebar on the left.</li>
+            <li>Work through the lessons in order for the best learning experience.</li>
+            <li>Each lesson contains detailed explanations and examples.</li>
           </ol>
-        </section>
+        </div>
       )}
 
+      {/* Show Installation Content */}
       {activeContent === "installation" && (
-        <section id="installation">
+        <div id="installation">
           <h2>Installation & Getting Started</h2>
           <h3>Steps to Install Python:</h3>
           <ol type="a">
-            <li>
-              Visit:{" "}
-              <a
-                href="https://www.python.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                python.org
-              </a>
-            </li>
-            <li>
-              Download the latest installer for your OS (Windows, macOS, etc.).
-            </li>
-            <li>
-              Run installer → <b>Important:</b> On Windows, check{" "}
-              <i>"Add Python to PATH"</i>.
-            </li>
+            <li>Visit the official Python website: <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">https://www.python.org/</a></li>
+            <li>Download the latest executable installer based on your Operating System (e.g., Windows, macOS).</li>
+            <li>Run the installer. <b>Important:</b> On Windows, make sure to check the box that says "Add Python to PATH" during installation.</li>
           </ol>
-
           <h4>Version Check</h4>
-          <p>Run this in terminal/command prompt:</p>
+          <p>After installation, you can check the version of Python by opening your terminal or command prompt and typing the following command:</p>
           <CodeBlock>python --version</CodeBlock>
-
           <h3>Starting Python</h3>
-          <p>
-            Use Python <b>IDLE</b> or your favorite editor. Try this classic
-            example:
-          </p>
-          <CodeBlock>{`print("Hello, World!")`}</CodeBlock>
-        </section>
+          <p>You can start writing Python code by opening the Python <b>IDLE</b> (which comes with the installation) or any text editor of your choice. Let's understand Python code execution with the simplest print statement. Type the following in your editor or Python shell and press Enter:</p>
+          <CodeBlock>{'print("Hello, World!")'}</CodeBlock>
+        </div>
       )}
 
+      {/* Show Syntax Content */}
       {activeContent === "syntax" && (
-        <section id="syntax">
+        <div id="syntax">
           <h2>What is Syntax?</h2>
-          <p>
-            <b>Syntax</b> is the set of rules that define valid code structure.
-            In Python, indentation is crucial.
-          </p>
-
+          <p>In simplest terms, <b>syntax</b> is the set of rules that defines the combinations of symbols that are considered to be correctly structured programs in a language. In the case of a computer language, the syntax helps us understand the meaning or semantics of the code.</p>
+          <p>For example, a comment is used to explain a block of code. It starts with a <b>#</b>. A block of code itself is identified by its <b>indentation</b>.</p>
           <h3>Indentation</h3>
-          <p>
-            Unlike other languages that use braces, Python uses indentation to
-            define blocks. Example:
-          </p>
-          <CodeBlock>{`# This loop runs 5 times
+          <p>Unlike many other languages that use curly braces `{"{}"}` to define blocks of code, Python uses indentation. A block of code (like the body of a function, loop, or conditional statement) must be indented. It is a strict rule and is central to Python's design. Have a look at the following code, where `print(i)` is said to be indented with respect to the `for` loop.</p>
+          <CodeBlock>
+            {`# This loop will run 5 times
 for i in range(5):
-    print(i)  # inside the loop`}</CodeBlock>
-        </section>
+    print(i) # This line is inside the for loop block`}
+          </CodeBlock>
+          <p>In simple words, indentation is the addition of spaces or tabs before the line of code.</p>
+        </div>
       )}
+      
     </LessonLayout>
   );
 }
