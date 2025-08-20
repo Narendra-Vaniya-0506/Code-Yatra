@@ -66,6 +66,8 @@ const LessonStyles = () => (
     /* --- Main Content Area --- */
     .lesson-main {
       width: 100%;
+      max-width: none; /* Allow it to fill the available space */
+      padding: var(--spacing-lg) var(--spacing-md); /* Adjust padding as needed */
     }
     .lesson-header {
       display: flex;
