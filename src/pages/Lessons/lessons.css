@@ -350,6 +350,7 @@ body {
   margin-right: var(--spacing-md);
   font-size: var(--font-size-lg);
   transition: color var(--transition-fast);
+  z-index: 1000; /* Ensure the toggle button is above other elements */
 }
 
 .lesson-sidebar-toggle:hover {
