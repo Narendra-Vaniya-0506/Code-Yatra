@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import clsx from "clsx";
 
 // --- Styles Component ---
-// To resolve the build error, the CSS styles are included directly within the layout component.
 const LessonStyles = () => (
   <style>{`
-    /* --- CSS Variables for Theming --- */
     :root {
       --color-primary: #2563eb;
       --color-background: #ffffff;
@@ -32,14 +31,19 @@ const LessonStyles = () => (
     }
 
     /* Prevents background scroll when mobile sidebar is open */
-    body.no-scroll {
+    .no-scroll {
       overflow: hidden;
+      height: 100vh;
     }
 
     /* --- Base Layout --- */
     .lesson-container {
       display: grid;
-      grid-template-columns: 1fr; /* Mobile-first: single column */
+      grid-template-columns: 1fr;
+      min-height: 100vh;
+      font-family: var(--font-family-base);
+      color: var(--color-text);
+      background: var(--color-background);
     }
 
     /* --- Sidebar --- */
@@ -48,8 +52,8 @@ const LessonStyles = () => (
       top: 0;
       left: 0;
       width: var(--sidebar-width);
-      height: 100vh;
-      background-color: var(--color-background);
+      height: 100%;
+      background: var(--color-background);
       border-right: 1px solid var(--color-border);
       transform: translateX(-100%);
       transition: transform var(--transition-normal);
@@ -66,8 +70,7 @@ const LessonStyles = () => (
     /* --- Main Content Area --- */
     .lesson-main {
       width: 100%;
-      max-width: none; /* Allow it to fill the available space */
-      padding: var(--spacing-lg) var(--spacing-md); /* Adjust padding as needed */
+      padding: var(--spacing-lg) var(--spacing-md);
     }
     .lesson-header {
       display: flex;
@@ -77,7 +80,7 @@ const LessonStyles = () => (
       height: var(--header-height);
       position: sticky;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
       z-index: 100;
     }
@@ -117,6 +120,7 @@ const LessonStyles = () => (
       padding: 0;
       margin: 0;
       gap: var(--spacing-sm);
+      flex-wrap: wrap;
     }
     .lesson-breadcrumbs li:not(:last-child)::after {
       content: '›';
@@ -127,102 +131,12 @@ const LessonStyles = () => (
       color: var(--color-text-muted);
       text-decoration: none;
     }
+    .lesson-breadcrumbs a[aria-current="page"] {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
     .lesson-breadcrumbs a:hover {
       color: var(--color-primary);
-    }
-
-    /* --- Accordion Sidebar Navigation --- */
-    .lesson-sidebar-nav h3 {
-      font-size: var(--font-size-base);
-      font-weight: 600;
-      padding: 0 var(--spacing-md);
-      margin: 0 0 var(--spacing-lg) 0;
-    }
-    .lesson-section {
-      margin-bottom: var(--spacing-sm);
-    }
-    .lesson-section-toggle {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: var(--spacing-sm) var(--spacing-md);
-      background: none;
-      border: none;
-      border-radius: var(--border-radius);
-      font-size: var(--font-size-sm);
-      font-weight: 500;
-      color: var(--color-text-muted);
-      text-align: left;
-      cursor: pointer;
-      transition: 150ms ease;
-    }
-    .lesson-section-toggle:hover {
-      background-color: var(--color-surface);
-      color: var(--color-text);
-    }
-    .lesson-section-toggle::after {
-      content: '›';
-      font-size: 1.5em;
-      font-weight: 400;
-      transition: transform var(--transition-normal);
-      transform: rotate(0deg);
-    }
-    .lesson-section-toggle.open::after {
-      transform: rotate(90deg);
-    }
-    .lesson-sublist {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    .lesson-sublist li a {
-      display: block;
-      padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) var(--spacing-xl);
-      color: var(--color-text-muted);
-      text-decoration: none;
-      font-size: var(--font-size-sm);
-      transition: 150ms ease;
-    }
-    .lesson-sublist li a:hover {
-      color: var(--color-text);
-    }
-    .lesson-sublist li a.active {
-      color: var(--color-primary);
-      font-weight: 600;
-    }
-
-    /* --- Hero Section --- */
-    .lesson-hero {
-      text-align: center;
-      padding: var(--spacing-2xl) var(--spacing-md);
-      background-color: var(--color-surface);
-      border-radius: var(--border-radius);
-      margin-bottom: var(--spacing-2xl);
-      border: 1px solid var(--color-border);
-    }
-    .lesson-hero h1 {
-      font-size: var(--font-size-3xl);
-      font-weight: 700;
-      margin: 0 0 var(--spacing-sm) 0;
-    }
-    .lesson-hero p {
-      font-size: var(--font-size-lg);
-      color: var(--color-text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* --- General Content Styles --- */
-    .lesson-content h2 {
-      font-size: var(--font-size-2xl);
-      font-weight: 600;
-      margin: var(--spacing-2xl) 0 var(--spacing-lg);
-      border-bottom: 1px solid var(--color-border);
-      padding-bottom: var(--spacing-sm);
-      scroll-margin-top: 80px; /* Offset for sticky header */
     }
 
     /* --- Mobile Drawer Backdrop --- */
@@ -232,11 +146,11 @@ const LessonStyles = () => (
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 999;
     }
 
-    /* --- Desktop Layout (1024px and wider) --- */
+    /* --- Desktop Layout (>=1024px) --- */
     @media (min-width: 1024px) {
       .lesson-container {
         grid-template-columns: var(--sidebar-width) 1fr;
@@ -246,35 +160,27 @@ const LessonStyles = () => (
         transform: translateX(0);
         z-index: 10;
       }
-      .lesson-sidebar-toggle, .lesson-header, .lesson-drawer-backdrop {
+      .lesson-sidebar-toggle,
+      .lesson-header,
+      .lesson-drawer-backdrop {
         display: none;
-      }
-      .lesson-hero h1 {
-        font-size: var(--font-size-4xl);
-      }
-      .lesson-content h2 {
-        font-size: var(--font-size-3xl);
       }
     }
   `}</style>
 );
 
-
 // SVG icon for the mobile sidebar toggle
-const MenuIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+const MenuIcon = React.memo(() => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="3" y1="12" x2="21" y2="12"></line>
     <line x1="3" y1="6" x2="21" y2="6"></line>
     <line x1="3" y1="18" x2="21" y2="18"></line>
   </svg>
-);
+));
 
-export default function LessonLayout({
-  title,
-  breadcrumbs = [],
-  sidebar,
-  children
-}) {
+export default function LessonLayout({ title, breadcrumbs = [], sidebar, children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
 
@@ -283,49 +189,68 @@ export default function LessonLayout({
 
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape' && isSidebarOpen) {
-        closeSidebar();
-      }
+      if (e.key === "Escape" && isSidebarOpen) closeSidebar();
     };
-
-    document.addEventListener('keydown', handleEscape);
-
-    if (isSidebarOpen) {
-      document.body.classList.add('no-scroll');
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
-
+    document.addEventListener("keydown", handleEscape);
+    document.body.classList.toggle("no-scroll", isSidebarOpen);
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.classList.remove('no-scroll');
+      document.removeEventListener("keydown", handleEscape);
+      document.body.classList.remove("no-scroll");
     };
   }, [isSidebarOpen, closeSidebar]);
 
   return (
-    <div className={`lesson-layout ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+    <div className={clsx("lesson-layout", { "sidebar-open": isSidebarOpen })}>
       <LessonStyles />
-      {isSidebarOpen && <div className="lesson-drawer-backdrop" onClick={closeSidebar} />}
+      {isSidebarOpen && (
+        <div className="lesson-drawer-backdrop" onClick={closeSidebar} aria-hidden="true" />
+      )}
       <div className="lesson-container">
-        <aside id="lesson-sidebar" ref={sidebarRef} className="lesson-sidebar">
+        {/* Sidebar */}
+        <aside
+          id="lesson-sidebar"
+          ref={sidebarRef}
+          className="lesson-sidebar"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Lesson navigation"
+        >
           <div className="lesson-sidebar-content">{sidebar}</div>
         </aside>
+
+        {/* Main */}
         <main id="lesson-main-content" className="lesson-main">
           <header className="lesson-header">
-            <button className="lesson-sidebar-toggle" onClick={toggleSidebar} aria-expanded={isSidebarOpen} aria-controls="lesson-sidebar" aria-label="Toggle sidebar">
+            <button
+              className="lesson-sidebar-toggle"
+              onClick={toggleSidebar}
+              aria-expanded={isSidebarOpen}
+              aria-controls="lesson-sidebar"
+              aria-label="Toggle sidebar"
+            >
               <MenuIcon />
             </button>
             <div className="lesson-header-content">
               <h2>{title}</h2>
             </div>
           </header>
+
           <div className="lesson-content-wrapper">
             {breadcrumbs.length > 0 && (
-              <nav className="lesson-breadcrumbs">
+              <nav className="lesson-breadcrumbs" aria-label="Breadcrumb">
                 <ol>
                   {breadcrumbs.map((crumb, index) => (
                     <li key={index}>
-                      {crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span>{crumb.label}</span>}
+                      {crumb.href ? (
+                        <a
+                          href={crumb.href}
+                          aria-current={index === breadcrumbs.length - 1 ? "page" : undefined}
+                        >
+                          {crumb.label}
+                        </a>
+                      ) : (
+                        <span>{crumb.label}</span>
+                      )}
                     </li>
                   ))}
                 </ol>
