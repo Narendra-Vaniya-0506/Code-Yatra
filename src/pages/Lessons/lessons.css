@@ -96,6 +96,10 @@ body {
   z-index: 999;
 }
 
+.lesson-sidebar-toggle {
+  z-index: 1000; /* Ensure the toggle button is above other elements */
+}
+
 .lesson-sidebar-content {
   padding: var(--spacing-xl);
 }
