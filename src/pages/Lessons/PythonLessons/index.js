@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LessonLayout from "../lesson_layout"; // Assuming this is your layout component
+import LessonLayout from "../lesson_layout"; // Layout component for lessons
 
 // A simple component for displaying code blocks
 const CodeBlock = ({ children }) => (
