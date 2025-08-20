@@ -177,11 +177,6 @@ export default function LessonLayout({
         />
       )}
 
-      <header className="lesson-header">
-        <h1>{title}</h1>
-        {subtitle && <p className="lesson-subtitle">{subtitle}</p>}
-      </header>
-
       {/* Mobile toggle button moved below the navbar */}
       <button 
         className="lesson-sidebar-toggle"
@@ -195,6 +190,52 @@ export default function LessonLayout({
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
+
+      <div className="lesson-container">
+        <aside 
+          id="lesson-sidebar"
+          ref={sidebarRef}
+          className={`lesson-sidebar ${isSidebarOpen ? 'open' : ''}`}
+          aria-label="Lesson navigation"
+        >
+          <div className="lesson-sidebar-content">
+            {sidebar}
+            {generateToc()}
+          </div>
+          
+          <button 
+            className="lesson-sidebar-close"
+            onClick={closeSidebar}
+            aria-label="Close sidebar"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </aside>
+
+        <main 
+          id="lesson-main-content"
+          ref={mainRef}
+          className="lesson-main"
+          tabIndex="-1"
+        >
+          {breadcrumbs.length > 0 && (
+            <nav className="lesson-breadcrumbs" aria-label="Breadcrumb">
+              <ol>
+                {breadcrumbs.map((crumb, index) => (
+                  <li key={index}>
+                    {crumb.href ? (
+                      <a href={crumb.href}>{crumb.label}</a>
+                    ) : (
+                      <span aria-current="page">{crumb.label}</span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+
 
       <div className="lesson-container">
         <aside 

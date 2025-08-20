@@ -12,7 +12,8 @@ export default function PythonLessons() {
     tuples: false,
   });
 
-  const [activeLink, setActiveLink] = useState("introduction");
+const [activeLink, setActiveLink] = useState("introduction");
+const [sidebarVisible, setSidebarVisible] = useState(true); // New state for sidebar visibility
 
   const toggleSection = (section) => {
     console.log(`Toggling section: ${section}`); // Log the section being toggled
@@ -329,7 +330,10 @@ export default function PythonLessons() {
     <LessonLayout sidebar={sidebar}>
       <div className="lesson-content">
         <h1>Welcome to Python Lessons</h1>
-        <p>Select a topic from the sidebar to get started.</p>
+<button onClick={toggleSidebar} className="toggle-sidebar-button">
+  {sidebarVisible ? "Hide Sidebar" : "Show Sidebar"}
+</button>
+<p>Select a topic from the sidebar to get started.</p>
       </div>
     </LessonLayout>
   );
