@@ -217,10 +217,18 @@ export default function LessonLayout({
             </nav>
           )}
 
-          <header className="lesson-header">
-            <h1>{title}</h1>
-            {subtitle && <p className="lesson-subtitle">{subtitle}</p>}
-          </header>
+<header className="lesson-header">
+  <button 
+    className="lesson-sidebar-toggle"
+    onClick={toggleSidebar}
+    aria-expanded={isSidebarOpen}
+    aria-controls="lesson-sidebar"
+    aria-label="Toggle lessons sidebar"
+  >
+    <i className="fas fa-bars"></i>
+  </button>
+  <h1>Python Tutorial</h1>
+</header>
 
           <div className="lesson-content">
             {children}

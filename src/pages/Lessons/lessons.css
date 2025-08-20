@@ -83,8 +83,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Skip link removed */
-
 /* Progress bar */
 .lesson-progress-bar {
   position: fixed;
@@ -620,4 +618,16 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* New styles for header */
+.lesson-header {
+  display: flex;
+  align-items: center;
+  padding: 15px; /* Adjust as needed */
+  border-bottom: 1px solid lightgray; /* Light gray bottom border */
+}
+
+.lesson-sidebar-toggle {
+  margin-right: 15px; /* Space between icon and title */
 }
