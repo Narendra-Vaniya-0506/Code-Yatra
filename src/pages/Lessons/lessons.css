@@ -338,9 +338,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
+  background: var(--color-primary); /* Ensure background is visible */
   border: none;
-  color: var(--color-text);
+  color: white; /* Change text color for visibility */
   cursor: pointer;
   padding: var(--spacing-sm);
   margin-right: var(--spacing-md);
