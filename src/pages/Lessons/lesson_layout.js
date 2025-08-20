@@ -236,52 +236,6 @@ export default function LessonLayout({
             </nav>
           )}
 
-
-      <div className="lesson-container">
-        <aside 
-          id="lesson-sidebar"
-          ref={sidebarRef}
-          className={`lesson-sidebar ${isSidebarOpen ? 'open' : ''}`}
-          aria-label="Lesson navigation"
-        >
-          <div className="lesson-sidebar-content">
-            {sidebar}
-            {generateToc()}
-          </div>
-          
-          <button 
-            className="lesson-sidebar-close"
-            onClick={closeSidebar}
-            aria-label="Close sidebar"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </aside>
-
-        <main 
-          id="lesson-main-content"
-          ref={mainRef}
-          className="lesson-main"
-          tabIndex="-1"
-        >
-          {breadcrumbs.length > 0 && (
-            <nav className="lesson-breadcrumbs" aria-label="Breadcrumb">
-              <ol>
-                {breadcrumbs.map((crumb, index) => (
-                  <li key={index}>
-                    {crumb.href ? (
-                      <a href={crumb.href}>{crumb.label}</a>
-                    ) : (
-                      <span aria-current="page">{crumb.label}</span>
-                    )}
-                  </li>
-                ))}
-              </ol>
-            </nav>
-          )}
-
           <header className="lesson-header">
             <h1>{title}</h1>
             {subtitle && <p className="lesson-subtitle">{subtitle}</p>}
@@ -312,50 +266,3 @@ export default function LessonLayout({
     </div>
   );
 }
-
-/*
-import LessonLayout from "../lesson_layout";
-import "../lessons.css";
-
-export default function JavaScriptLessons() {
-  const sidebar = (
-    <nav className="lesson-sidebar-nav">
-      <h3>JavaScript Lessons</h3>
-      <ul>
-        <li><a href="#intro">Introduction</a></li>
-        <li><a href="#datatypes">Data Types</a></li>
-        <li><a href="#strings">Strings</a></li>
-        <li><a href="#arrays">Arrays</a></li>
-        <li><a href="#functions">Functions</a></li>
-        <li><a href="#modules">Modules</a></li>
-        <li><a href="#oop">OOP</a></li>
-        <li><a href="#advanced">Advanced Topics</a></li>
-      </ul>
-    </nav>
-  );
-
-  return (
-    <LessonLayout
-      title="JavaScript Tutorial"
-      subtitle="Modern JS, step by step"
-      breadcrumbs={[
-        { label: "Tutorials", href: "/tutorials" },
-        { label: "JavaScript" }
-      ]}
-      sidebar={sidebar}
-      prev={{ label: "HTML Lessons", href: "/pages/HTMLLessons/html" }}
-      next={{ label: "CSS Lessons", href: "/pages/CSSLessons/css" }}
-      toc={true}
-    >
-      <section id="intro"><h2>Introduction</h2><p>...</p></section>
-      <section id="datatypes"><h2>Data Types</h2><p>...</p></section>
-      <section id="strings"><h2>Strings</h2><p>...</p></section>
-      <section id="arrays"><h2>Arrays</h2><p>...</p></section>
-      <section id="functions"><h2>Functions</h2><p>...</p></section>
-      <section id="modules"><h2>Modules</h2><p>...</p></section>
-      <section id="oop"><h2>OOP</h2><p>...</p></section>
-      <section id="advanced"><h2>Advanced Topics</h2><p>...</p></section>
-    </LessonLayout>
-  );
-}
-*/

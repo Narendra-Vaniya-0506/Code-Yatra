@@ -12,15 +12,19 @@ export default function PythonLessons() {
     tuples: false,
   });
 
-const [activeLink, setActiveLink] = useState("introduction");
-const [sidebarVisible, setSidebarVisible] = useState(true); // New state for sidebar visibility
+  const [activeLink, setActiveLink] = useState("introduction");
+  const [sidebarVisible, setSidebarVisible] = useState(true);
 
   const toggleSection = (section) => {
-    console.log(`Toggling section: ${section}`); // Log the section being toggled
+    console.log(`Toggling section: ${section}`);
     setOpenSections((prev) => ({
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  const toggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
   };
 
   const handleLinkClick = (sectionId) => {
