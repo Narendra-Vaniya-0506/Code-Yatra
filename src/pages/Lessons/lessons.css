@@ -83,10 +83,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Skip link for accessibility - HIDDEN */
-.skip-link {
-  display: none;
-}
+/* Skip link removed */
 
 /* Progress bar */
 .lesson-progress-bar {
