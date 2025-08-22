@@ -254,19 +254,186 @@ body {
 }
 
 
-/* --- MODIFIED --- Hero Section */
+/* --- 3D Hero Section --- */
 .lesson-hero {
-    text-align: left; /* Changed from center */
-    padding: var(--spacing-2xl) var(--spacing-xl); /* Increased side padding */
-    background-color: var(--color-surface);
-    border-radius: var(--border-radius);
+    text-align: left;
+    padding: var(--spacing-2xl) var(--spacing-xl);
     margin-bottom: var(--spacing-2xl);
-    border: none; /* Removed the old border */
-    border-left: 4px solid var(--color-primary); /* Added a modern accent border */
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* 3D Gradient Background */
+    background: linear-gradient(
+        135deg,
+        var(--color-primary) 0%,
+        #4f46e5 25%,
+        #7c3aed 50%,
+        #a855f7 75%,
+        #c084fc 100%
+    );
+    
+    /* 3D Depth Effect */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.06),
+        inset 0 -4px 8px rgba(255, 255, 255, 0.2),
+        inset 0 4px 8px rgba(255, 255, 255, 0.1);
+    
+    border: none;
+    transform: translateZ(0) rotateX(2deg) rotateY(-1deg);
+}
+
+.lesson-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    border-radius: 16px;
+    animation: shimmer 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+.lesson-hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%
+    );
+    transform: rotate(30deg);
+    animation: rotateBackground 20s linear infinite;
+    z-index: 0;
+}
+
+/* Hover Effects */
+.lesson-hero:hover {
+    transform: translateZ(20px) rotateX(5deg) rotateY(-3deg) scale(1.02);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        0 15px 30px rgba(0, 0, 0, 0.1),
+        inset 0 -6px 12px rgba(255, 255, 255, 0.25),
+        inset 0 6px 12px rgba(255, 255, 255, 0.15);
+}
+
+.lesson-hero:active {
+    transform: translateZ(10px) rotateX(3deg) rotateY(-2deg) scale(0.98);
+    transition: all 0.2s ease;
+}
+
+/* 3D Text Effects */
+.lesson-hero h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    margin: 0 0 var(--spacing-md) 0;
+    color: white;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateZ(30px);
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+}
+
+.lesson-hero p {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 75ch;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transform: translateZ(20px);
+    position: relative;
+    z-index: 2;
+    font-weight: 400;
+}
+
+/* Dark mode adjustments */
+.dark-mode .lesson-hero {
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 -4px 8px rgba(255, 255, 255, 0.1),
+        inset 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .lesson-hero:hover {
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 15px 30px rgba(0, 0, 0, 0.3),
+        inset 0 -6px 12px rgba(255, 255, 255, 0.15),
+        inset 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(-100%);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes rotateBackground {
+    0% {
+        transform: rotate(30deg) translateX(0) translateY(0);
+    }
+    25% {
+        transform: rotate(60deg) translateX(-20px) translateY(20px);
+    }
+    50% {
+        transform: rotate(90deg) translateX(0) translateY(40px);
+    }
+    75% {
+        transform: rotate(120deg) translateX(20px) translateY(20px);
+    }
+    100% {
+        transform: rotate(150deg) translateX(0) translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .lesson-hero {
+        padding: var(--spacing-xl) var(--spacing-lg);
+        transform: translateZ(0) rotateX(1deg) rotateY(-0.5deg);
+    }
+    
+    .lesson-hero:hover {
+        transform: translateZ(15px) rotateX(3deg) rotateY(-2deg) scale(1.01);
+    }
+    
+    .lesson-hero h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .lesson-hero p {
+        font-size: var(--font-size-base);
+    }
 }
 
 /* --- General Content & Code Block Styles --- */
-.lesson-main h1, .lesson-hero h1 {
+.lesson-main h1 {
   font-size: var(--font-size-4xl);
   font-weight: 700;
   margin: 0 0 var(--spacing-sm) 0;
@@ -286,7 +453,7 @@ body {
     margin-top: var(--spacing-lg);
     color: var(--color-text);
 }
-.lesson-main p, .lesson-main li, .lesson-hero p {
+.lesson-main p, .lesson-main li {
     font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--color-text-muted);
