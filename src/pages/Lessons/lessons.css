@@ -1,4 +1,4 @@
-/* --- NEW: Global Resets & Body Styles --- */
+/* --- Global Resets & Body Styles --- */
 *,
 *::before,
 *::after {
@@ -11,7 +11,7 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: var(--color-background); /* This fixes the black bars */
+  background-color: var(--color-background);
   font-family: var(--font-family-base);
 }
 
@@ -21,14 +21,14 @@ body {
   /* Colors */
   --color-primary: #2563eb;
   --color-background: #ffffff;
-  --color-surface: #f8fafc;      /* Light gray for surfaces */
-  --color-border: #e2e8f0;       /* Lighter border color */
+  --color-surface: #f8fafc;
+  --color-border: #e2e8f0;
   --color-text: #1e293b;
   --color-text-muted: #64748b;
   --color-text-light: #94a3b8;
-  --color-focus-ring: #60a5fa;   /* For accessibility outlines */
-  --color-code-bg: #1e293b;      /* Dark background for code */
-  --color-code-text: #e2e8f0;    /* Light text for code */
+  --color-focus-ring: #60a5fa;
+  --color-code-bg: #1e293b;
+  --color-code-text: #e2e8f0;
 
   /* Spacing */
   --spacing-sm: 0.5rem;
@@ -50,7 +50,6 @@ body {
 
   /* Layout */
   --sidebar-width: 280px;
-  --content-max-width: 800px;
   --header-height: 60px;
 
   /* Borders & Radius */
@@ -107,8 +106,6 @@ body {
 .lesson-container {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 1280px; /* Added a max-width for very large screens */
-  margin: 0 auto;
 }
 
 /* --- Sidebar --- */
@@ -135,10 +132,17 @@ body {
 /* --- Main Content Area --- */
 .lesson-main {
   overflow-y: auto;
-height: auto; /* Allow height to adjust based on content */
-padding: var(--spacing-lg) var(--spacing-md);
-max-width: none; /* Remove max-width to fill the space */
+  height: auto;
+  padding: 0; /* Padding will be handled by the wrapper */
 }
+
+/* --- NEW / MODIFIED --- Content Wrapper for Centering and Width */
+.lesson-content-wrapper {
+  max-width: 1100px; /* INCREASED from 800px to make content wider */
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
 
 /* --- Sticky Header (Mobile) --- */
 .lesson-header {
@@ -149,13 +153,13 @@ max-width: none; /* Remove max-width to fill the space */
   height: var(--header-height);
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.85); /* Will be overridden by dark mode */
+  background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  -webkit-backdrop-filter: blur(8px);
   z-index: 100;
 }
 .dark-mode .lesson-header {
-    background-color: rgba(15, 23, 42, 0.85); /* Dark mode header bg */
+    background-color: rgba(15, 23, 42, 0.85);
 }
 
 .lesson-sidebar-toggle {
@@ -250,14 +254,15 @@ max-width: none; /* Remove max-width to fill the space */
 }
 
 
-/* --- Hero Section --- */
+/* --- MODIFIED --- Hero Section */
 .lesson-hero {
-    text-align: center;
-    padding: var(--spacing-2xl) var(--spacing-md);
+    text-align: left; /* Changed from center */
+    padding: var(--spacing-2xl) var(--spacing-xl); /* Increased side padding */
     background-color: var(--color-surface);
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing-2xl);
-    border: 1px solid var(--color-border);
+    border: none; /* Removed the old border */
+    border-left: 4px solid var(--color-primary); /* Added a modern accent border */
 }
 
 /* --- General Content & Code Block Styles --- */
@@ -285,7 +290,7 @@ max-width: none; /* Remove max-width to fill the space */
     font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--color-text-muted);
-    max-width: 75ch; /* Improves readability */
+    max-width: 75ch; /* Improves readability by limiting line length */
 }
 .lesson-main a {
     color: var(--color-primary);

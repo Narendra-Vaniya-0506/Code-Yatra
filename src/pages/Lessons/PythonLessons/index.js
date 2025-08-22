@@ -34,7 +34,7 @@ export default function PythonLessons() {
   // Define the sidebar content
   const sidebar = (
     <nav className="lesson-sidebar-nav">
-      <h3>Python Tutorial</h3>
+      <h3>Python Lesson</h3>
 
       {/* Introduction Section */}
       <div className="lesson-section">
