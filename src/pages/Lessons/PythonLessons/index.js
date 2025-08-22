@@ -360,9 +360,11 @@ export default function PythonLessons() {
 
           <h3 style={{
             color: '#4a5568',
-            fontSize: '1.25rem',
+            fontSize: '1.5rem',
             fontWeight: '600',
-            margin: '1rem 0'
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
           }}>Steps for macOS:</h3>
           <ol style={{marginLeft: '1.5rem'}}>
             <li>Python 2.x may already be installed, but you need Python 3.</li>
@@ -424,9 +426,11 @@ export default function PythonLessons() {
 
           <h3 style={{
             color: '#4a5568',
-            fontSize: '1.25rem',
+            fontSize: '1.5rem',
             fontWeight: '600',
-            margin: '1rem 0'
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
           }}>Steps for Linux:</h3>
           <ol style={{marginLeft: '1.5rem'}}>
             <li>Most Linux systems already have Python.</li>
