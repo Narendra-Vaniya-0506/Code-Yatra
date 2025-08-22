@@ -26,6 +26,14 @@ export default function PythonLessons() {
     setActiveContent(contentId);
   };
 
+  const copyCode = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      console.log('Code copied to clipboard:', text);
+    }).catch(err => {
+      console.error('Failed to copy code:', err);
+    });
+  };
+
   const sidebar = (
     <nav className="lesson-sidebar-nav">
       <h3>Python Lesson</h3>
@@ -191,15 +199,15 @@ export default function PythonLessons() {
             <li style={{
               marginBottom: '0.5rem',
               paddingLeft: '0.5rem'
-            }}>Python is a dynamically typed, general-purpose programming language that supports both object-oriented and functional programming approaches.</li>
+            }}>Python is a <b>high-level, general-purpose programming language.</b></li>
             <li style={{
               marginBottom: '0.5rem',
               paddingLeft: '0.5rem'
-            }}>It is also an interpreted and high-level programming language.</li>
+            }}>In simple terms, it's a way to write instructions that a computer can understand and execute.</li>
             <li style={{
               marginBottom: '0.5rem',
               paddingLeft: '0.5rem'
-            }}>Created by Guido van Rossum in 1989.</li>
+            }}>Think of it as a recipe for your computer; you provide a set of clear steps, and the computer follows them to accomplish a task, like analyzing data, creating a website, or automating a boring job.</li>
           </ul>
           
           <h3 style={{
@@ -249,7 +257,7 @@ export default function PythonLessons() {
             marginBottom: '1rem',
             fontSize: '1.1rem',
             color: '#4a5568'
-          }}>Welcome to the Python Tutorial series! To begin learning:</p>
+          }}>Welcome to the Python Lesson! To begin learning:</p>
           <ol style={{
             listStyleType: 'decimal',
             paddingLeft: '2rem',
@@ -273,20 +281,202 @@ export default function PythonLessons() {
       )}
 
       {activeContent === "installation" && (
-        <div id="installation">
-          <h2>Installation & Getting Started</h2>
-          <h3>Steps to Install Python:</h3>
-          <ol type="a">
-            <li>Visit the official Python website: <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">https://www.python.org/</a></li>
-            <li>Download the latest executable installer based on your Operating System (e.g., Windows, macOS).</li>
-            <li>Run the installer. <b>Important:</b> On Windows, make sure to check the box that says "Add Python to PATH" during installation.</li>
+        <div id="installation" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>
+            Installation & Getting Started
+          </h2>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>
+            Steps for Windows:
+          </h3>
+          <ol style={{marginLeft: '1.5rem'}}>
+            <li>Visit the official Python website: 
+              <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" style={{color: '#3182ce', textDecoration: 'none'}}>https://www.python.org/</a>
+            </li>
+            <li>Download the latest installer for your OS.</li>
+            <li>Run the installer. <b>Important:</b> Check "Add Python to PATH".</li>
+            <li>Click Install Now.</li>
           </ol>
-          <h4>Version Check</h4>
-          <p>After installation, you can check the version of Python by opening your terminal or command prompt and typing the following command:</p>
-          <CodeBlock>python --version</CodeBlock>
-          <h3>Starting Python</h3>
-          <p>You can start writing Python code by opening the Python IDLE (which comes with the installation) or any text editor of your choice. Let's understand Python code execution with the simplest print statement. Type the following in your editor or Python shell and press Enter:</p>
-          <CodeBlock>{'print("Hello, World!")'}</CodeBlock>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Version Check</h4>
+          <p>After installation, open your terminal or command prompt and type:</p>
+
+          {/* Windows Code Block */}
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>python --version</pre>
+            <button onClick={() => copyCode('python --version')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.25rem',
+            fontWeight: '600',
+            margin: '1rem 0'
+          }}>Steps for macOS:</h3>
+          <ol style={{marginLeft: '1.5rem'}}>
+            <li>Python 2.x may already be installed, but you need Python 3.</li>
+            <li>Install Homebrew (a package manager).</li>
+            <li>Run:</li>
+          </ol>
+
+          {/* macOS Code Block */}
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>brew install python</pre>
+            <button onClick={() => copyCode('brew install python')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Check with:</h4>
+
+          {/* macOS Check */}
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>python --version</pre>
+            <button onClick={() => copyCode('python --version')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.25rem',
+            fontWeight: '600',
+            margin: '1rem 0'
+          }}>Steps for Linux:</h3>
+          <ol style={{marginLeft: '1.5rem'}}>
+            <li>Most Linux systems already have Python.</li>
+          </ol>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Check with:</h4>
+
+          {/* Linux Check */}
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>python --version</pre>
+            <button onClick={() => copyCode('python --version')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <p>If not installed, run:</p>
+
+          {/* Linux Install */}
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>sudo apt-get install python3</pre>
+            <button onClick={() => copyCode('sudo apt-get install python3')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
         </div>
       )}
 

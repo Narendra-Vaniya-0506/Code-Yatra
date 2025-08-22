@@ -1,14 +1,12 @@
-# TODO: Add Inline CSS to Python Overview
+# Python Installation Section Update
 
 ## Steps to Complete:
-1. [ ] Add inline CSS to the main overview div with id="overview"
-2. [ ] Style h2 headings with appropriate colors and spacing
-3. [ ] Style h3 headings with appropriate colors and spacing
-4. [ ] Style unordered lists (ul) with proper indentation and bullet styles
-5. [ ] Style ordered lists (ol) with proper numbering and spacing
-6. [ ] Style list items (li) with proper spacing
-7. [ ] Style paragraphs (p) for better readability
-8. [ ] Add hover effects and transitions for better user experience
+1. [ ] Update the installation section in src/pages/Lessons/PythonLessons/index.js
+2. [ ] Replace current inline styles with polished design
+3. [ ] Add copy functionality to code blocks
+4. [ ] Test the implementation
+5. [ ] Verify responsive design
 
-## Completed:
-- [ ] None yet
+## Current Progress:
+- Planning completed
+- Ready to implement changes
