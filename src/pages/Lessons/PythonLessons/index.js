@@ -60,31 +60,67 @@ export default function PythonLessons() {
               }}
               className={activeContent === "overview" ? "active" : ""}
             >
-              Python Overview
+              What is Python?
             </a>
           </li>
           <li>
             <a
-              href="#installation"
+              href="#Why-learn-Python"
               onClick={(e) => {
                 e.preventDefault();
-                handleContentChange("installation");
+                handleContentChange("Why-learn-Python");
               }}
-              className={activeContent === "installation" ? "active" : ""}
+              className={activeContent === "Why-learn-Python" ? "active" : ""}
             >
-              Installation & Getting Started
+               Why learn Python?
             </a>
           </li>
           <li>
             <a
-              href="#syntax"
+              href="#Installing"
               onClick={(e) => {
                 e.preventDefault();
-                handleContentChange("syntax");
+                handleContentChange("Installing");
               }}
-              className={activeContent === "syntax" ? "active" : ""}
+              className={activeContent === "Installing" ? "active" : ""}
             >
-              What is Syntax?
+              Installing Python & IDE
+            </a>
+          </li>
+          <li>
+            <a
+              href="#first-program"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("first-program");
+              }}
+              className={activeContent === "first-program" ? "active" : ""}
+            >
+              Running your first program
+            </a>
+          </li>
+          <li>
+            <a
+              href="#Comments"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("Comments");
+              }}
+              className={activeContent === "Comments" ? "active" : ""}
+            >
+              Comments & Documentation
+            </a>
+          </li>
+          <li>
+            <a
+              href="# Project"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange(" Project");
+              }}
+              className={activeContent === " Project" ? "active" : ""}
+            >
+               Project
             </a>
           </li>
         </ul>
@@ -132,29 +168,33 @@ export default function PythonLessons() {
 
       {/* Show Overview Content */}
       {activeContent === "overview" && (
-        <div id="overview">
-          <h2>Python Overview</h2>
-          <h3>What is Python?</h3>
-          <ul>
-            <li>Python is a dynamically typed, general-purpose programming language that supports an object-oriented programming approach as well as a functional programming approach.</li>
-            <li>It is also an interpreted and high-level programming language.</li>
-            <li>It was created by Guido van Rossum in 1989.</li>
+        <div id="overview" style="max-width:800px;margin:20px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.1);font-family:Arial,sans-serif;line-height:1.6;color:#333;">
+          <h2 style="color:#2c7be5;margin-bottom:10px;">Python Overview</h2>
+
+          <h3 style="color:#444;margin-top:20px;">What is Python?</h3>
+          <ul style="margin:10px 0 20px 20px;">
+            <li style="margin:6px 0;">Python is a dynamically typed, general-purpose programming language that supports both object-oriented and functional programming approaches.</li>
+            <li style="margin:6px 0;">It is also an interpreted and high-level programming language.</li>
+            <li style="margin:6px 0;">Created by Guido van Rossum in 1989.</li>
           </ul>
-          <h3>Features of Python</h3>
-          <ul>
-            <li><b>Simple and easy to understand:</b> Python's clean syntax reads almost like plain English.</li>
-            <li><b>Interpreted and platform-independent:</b> Python code is executed line by line, which makes debugging very easy. It can also run on various operating systems like Windows, macOS, and Linux.</li>
-            <li><b>Open-source:</b> Python is free to use, modify, and distribute for both personal and commercial purposes.</li>
-            <li><b>Large standard library:</b> Python provides a vast library of pre-written code for tasks ranging from web development to data science. Some popular libraries include NumPy, TensorFlow, and Django.</li>
+
+          <h3 style="color:#444;margin-top:20px;">Features of Python</h3>
+          <ul style="margin:10px 0 20px 20px;">
+            <li style="margin:6px 0;"><b style="color:#2c7be5;">Simple and easy to understand:</b> Python's clean syntax reads almost like plain English.</li>
+            <li style="margin:6px 0;"><b style="color:#2c7be5;">Interpreted and platform-independent:</b> Code runs line by line, making debugging easy, and works on Windows, macOS, and Linux.</li>
+            <li style="margin:6px 0;"><b style="color:#2c7be5;">Open-source:</b> Free to use, modify, and distribute for personal or commercial purposes.</li>
+            <li style="margin:6px 0;"><b style="color:#2c7be5;">Large standard library:</b> Comes with extensive modules, plus popular libraries like NumPy, TensorFlow, and Django.</li>
           </ul>
-          <h3>Get Started</h3>
-          <p>Welcome to the Python Tutorial series! To begin learning:</p>
-          <ol>
-            <li>Select a lesson from the sidebar on the left.</li>
-            <li>Work through the lessons in order for the best learning experience.</li>
-            <li>Each lesson contains detailed explanations and examples.</li>
+
+          <h3 style="color:#444;margin-top:20px;">Get Started</h3>
+          <p style="margin:10px 0;">Welcome to the Python Tutorial series! To begin learning:</p>
+          <ol style="margin:10px 0 20px 20px;">
+            <li style="margin:6px 0;">Select a lesson from the sidebar on the left.</li>
+            <li style="margin:6px 0;">Work through the lessons in order for the best learning experience.</li>
+            <li style="margin:6px 0;">Each lesson contains detailed explanations and examples.</li>
           </ol>
         </div>
+
       )}
 
       {/* Show Installation Content */}
