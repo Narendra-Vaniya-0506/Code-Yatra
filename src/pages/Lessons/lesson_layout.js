@@ -309,7 +309,7 @@ export default function LessonLayout({
       <div className="lesson-container">
         <aside id="lesson-sidebar" ref={sidebarRef} className="lesson-sidebar">
     <div className="lesson-sidebar-content">
-      <h3>Lessons</h3>
+      
       <div className="lesson-sidebar-nav">
         {sidebar}
       </div>

@@ -122,10 +122,9 @@ export default function PythonLessons() {
     >
       {/* Hero Section - This will always be visible */}
       <div className="lesson-hero">
-        <h1>Python Tutorial</h1>
+        <h1>Python Lesson</h1>
         <p>
-          Python is a high-level, interpreted, general-purpose programming
-          language.
+          Python is a modern, high-level programming language known for its interpreted execution and broad applicability across domains.
         </p>
       </div>
 
@@ -181,17 +180,8 @@ export default function PythonLessons() {
       {activeContent === "syntax" && (
         <div id="syntax">
           <h2>What is Syntax?</h2>
-          <p>In simplest terms, <b>syntax</b> is the set of rules that defines the combinations of symbols that are considered to be correctly structured programs in a language. In the case of a computer language, the syntax helps us understand the meaning or semantics of the code.</p>
-          <p>For example, a comment is used to explain a block of code. It starts with a <b>#</b>. A block of code itself is identified by its <b>indentation</b>.</p>
-          <h3>Indentation</h3>
-          <p>Unlike many other languages that use curly braces `{"{}"}` to define blocks of code, Python uses indentation. A block of code (like the body of a function, loop, or conditional statement) must be indented. It is a strict rule and is central to Python's design. Have a look at the following code, where `print(i)` is said to be indented with respect to the `for` loop.</p>
-          <CodeBlock>
-            {`# This loop will run 5 times
-for i in range(5):
-    print(i) # This line is inside the for loop block`}
-          </CodeBlock>
-          <p>In simple words, indentation is the addition of spaces or tabs before the line of code.</p>
-        </div>
+          <p>coming soon...</p>
+           </div>
       )}
       
     </LessonLayout>
