@@ -26,10 +26,18 @@ export default function PythonLessons() {
     setActiveContent(contentId);
   };
 
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
   const copyCode = (text) => {
     navigator.clipboard.writeText(text).then(() => {
-      console.log('Code copied to clipboard:', text);
+      setToastMessage("✓ Copied to clipboard!");
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
     }).catch(err => {
+      setToastMessage("❌ Failed to copy");
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
       console.error('Failed to copy code:', err);
     });
   };
@@ -512,6 +520,24 @@ export default function PythonLessons() {
         <div id="Project">
           <h2>Project</h2>
           <p>Content coming soon...</p>
+        </div>
+      )}
+
+      {showToast && (
+        <div style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          backgroundColor: '#48bb78',
+          color: 'white',
+          padding: '12px 20px',
+          borderRadius: '6px',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          zIndex: 1000,
+          fontSize: '14px',
+          fontWeight: '500'
+        }}>
+          {toastMessage}
         </div>
       )}
     </LessonLayout>
