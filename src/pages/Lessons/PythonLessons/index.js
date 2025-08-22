@@ -155,28 +155,118 @@ export default function PythonLessons() {
               Python is a modern, high-level programming language known for its interpreted execution and broad applicability across domains.
             </p>
           </div>
-          <div id="overview">
-          <h2>Python Overview</h2>
-          <h3>What is Python?</h3>
-          <ul>
-            <li>Python is a dynamically typed, general-purpose programming language that supports both object-oriented and functional programming approaches.</li>
-            <li>It is also an interpreted and high-level programming language.</li>
-            <li>Created by Guido van Rossum in 1989.</li>
+          <div id="overview" style={{
+            backgroundColor: '#f8f9fa',
+            padding: '2rem',
+            borderRadius: '12px',
+            border: '1px solid #e9ecef',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+            margin: '2rem 0',
+            fontFamily: 'system-ui, -apple-system, sans-serif',
+            lineHeight: '1.6',
+            color: '#2d3748'
+          }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Python Overview</h2>
+          
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>What is Python?</h3>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Python is a dynamically typed, general-purpose programming language that supports both object-oriented and functional programming approaches.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>It is also an interpreted and high-level programming language.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Created by Guido van Rossum in 1989.</li>
           </ul>
-          <h3>Features of Python</h3>
-          <ul>
-            <li><b>Simple and easy to understand:</b> Python's clean syntax reads almost like plain English.</li>
-            <li><b>Interpreted and platform-independent:</b> Code runs line by line, making debugging easy, and works on Windows, macOS, and Linux.</li>
-            <li><b>Open-source:</b> Free to use, modify, and distribute for personal or commercial purposes.</li>
-            <li><b>Large standard library:</b> Comes with extensive modules, plus popular libraries like NumPy, TensorFlow, and Django.</li>
+          
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Features of Python</h3>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.75rem',
+              paddingLeft: '0.5rem',
+              transition: 'transform 0.2s ease'
+            }}><b style={{color: '#2d3748'}}>Simple and easy to understand:</b> Python's clean syntax reads almost like plain English.</li>
+            <li style={{
+              marginBottom: '0.75rem',
+              paddingLeft: '0.5rem',
+              transition: 'transform 0.2s ease'
+            }}><b style={{color: '#2d3748'}}>Interpreted and platform-independent:</b> Code runs line by line, making debugging easy, and works on Windows, macOS, and Linux.</li>
+            <li style={{
+              marginBottom: '0.75rem',
+              paddingLeft: '0.5rem',
+              transition: 'transform 0.2s ease'
+            }}><b style={{color: '#2d3748'}}>Open-source:</b> Free to use, modify, and distribute for personal or commercial purposes.</li>
+            <li style={{
+              marginBottom: '0.75rem',
+              paddingLeft: '0.5rem',
+              transition: 'transform 0.2s ease'
+            }}><b style={{color: '#2d3748'}}>Large standard library:</b> Comes with extensive modules, plus popular libraries like NumPy, TensorFlow, and Django.</li>
           </ul>
-          <h3>Get Started</h3>
-          <p>Welcome to the Python Tutorial series! To begin learning:</p>
-          <ol>
-            <li>Select a lesson from the sidebar on the left.</li>
-            <li>Work through the lessons in order for the best learning experience.</li>
-            <li>Each lesson contains detailed explanations and极速赛车开奖直播历史记录
- examples.</li>
+          
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #4299e1'
+          }}>Get Started</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Welcome to the Python Tutorial series! To begin learning:</p>
+          <ol style={{
+            listStyleType: 'decimal',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Select a lesson from the sidebar on the left.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Work through the lessons in order for the best learning experience.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Each lesson contains detailed explanations and examples.</li>
           </ol>
         </div>
       </div>
