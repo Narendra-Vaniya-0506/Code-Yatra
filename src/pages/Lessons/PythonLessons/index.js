@@ -147,15 +147,15 @@ export default function PythonLessons() {
       ]}
       sidebar={sidebar}
     >
-      <div className="lesson-hero">
-        <h1>Python Lesson</h1>
-        <p>
-          Python is a modern, high-level programming language known for its interpreted execution and broad applicability across domains.
-        </p>
-      </div>
-
       {activeContent === "overview" && (
-        <div id="overview">
+        <div>
+          <div className="lesson-hero">
+            <h1>Python Lesson</h1>
+            <p>
+              Python is a modern, high-level programming language known for its interpreted execution and broad applicability across domains.
+            </p>
+          </div>
+          <div id="overview">
           <h2>Python Overview</h2>
           <h3>What is Python?</h3>
           <ul>
@@ -175,9 +175,11 @@ export default function PythonLessons() {
           <ol>
             <li>Select a lesson from the sidebar on the left.</li>
             <li>Work through the lessons in order for the best learning experience.</li>
-            <li>Each lesson contains detailed explanations and examples.</li>
+            <li>Each lesson contains detailed explanations and极速赛车开奖直播历史记录
+ examples.</li>
           </ol>
         </div>
+      </div>
       )}
 
       {activeContent === "installation" && (
