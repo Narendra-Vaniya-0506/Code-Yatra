@@ -70,12 +70,12 @@ export default function PythonLessons() {
           </li>
           <li>
             <a
-              href="#Installing"
+              href="#installation"
               onClick={(e) => {
                 e.preventDefault();
-                handleContentChange("Installing");
+                handleContentChange("installation");
               }}
-              className={activeContent === "Installing" ? "active" : ""}
+              className={activeContent === "installation" ? "active" : ""}
             >
               Installing Python & IDE
             </a>
@@ -202,6 +202,34 @@ export default function PythonLessons() {
         <div id="syntax">
           <h2>What is Syntax?</h2>
           <p>coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "Why-learn-Python" && (
+        <div id="Why-learn-Python">
+          <h2>Why Learn Python?</h2>
+          <p>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "first-program" && (
+        <div id="first-program">
+          <h2>Running Your First Program</h2>
+          <p>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "Comments" && (
+        <div id="Comments">
+          <h2>Comments & Documentation</h2>
+          <p>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "Project" && (
+        <div id="Project">
+          <h2>Project</h2>
+          <p>Content coming soon...</p>
         </div>
       )}
     </LessonLayout>
