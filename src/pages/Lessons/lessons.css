@@ -263,6 +263,19 @@ body {
     margin-bottom: var(--spacing-2xl);
     border: none; /* Removed the old border */
     border-left: 4px solid var(--color-primary); /* Added a modern accent border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+}
+
+.lesson-hero:hover {
+  /* Lifts the box up slightly when you hover over it */
+  transform: translateY(-5px);
+
+  /* Makes the shadow larger to enhance the "lifted" effect */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
 /* --- General Content & Code Block Styles --- */
