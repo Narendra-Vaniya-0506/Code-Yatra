@@ -19,7 +19,7 @@ export default function Terms() {
         Terms & Conditions
       </h1>
       <p style={{ fontSize: "14px", textAlign: "center", marginBottom: "30px" }}>
-        Last Updated: April 1, 2025
+        Last Updated: Aug, 2025
       </p>
 
       <h2>1. Acceptance of Terms</h2>
@@ -90,7 +90,9 @@ export default function Terms() {
       <p>
         If you have questions, feel free to reach out at:
         <br /> 📧{" "}
-        <a href="codeyatra0605@gmail.com">codeyatra0605@gmail.com</a>
+        <a href="mailto:codeyatra0605@gmail.com" style={styles.emailLink}>
+            codeyatra0605@gmail.com
+          </a>
         <br /> 📱 YouTube Channel : <a href="https://www.youtube.com/@codeyatra0605">Code Yatra</a>
       </p>
     </div>
