@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { SidebarContext } from "../lesson_layout"; // Import the SidebarContext
-import LessonLayout from "../lesson_layout";
+import { SidebarContext } from "../lesson_layout.js"; // Import the SidebarContext
+import LessonLayout from "../lesson_layout.js";
 
 const CodeBlock = ({ children }) => (
   <pre className="code-block">
