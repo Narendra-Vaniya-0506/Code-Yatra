@@ -141,7 +141,7 @@ export default function HomePage() {
               letterSpacing: "1px",
             }}
           >
-            Learn coding the right way
+            Learn coding in the right way
           </p>
           <h1
             style={{
@@ -226,7 +226,7 @@ export default function HomePage() {
             lineHeight: "1.6",
           }}
         >
-          Learning to code is more than memorizing syntax — it's about developing
+          Learning to code is more than memorizing syntax it's about developing
           a new way to think. We'll guide you through hands-on exercises to help
           you break down problems and build elegant solutions.
         </p>
@@ -375,7 +375,7 @@ export default function HomePage() {
         >
           {[
             { title: "Main", links: ["Home", "Contact"] },
-            { title: "Learn", links: ["Lessons", "Notes"] },
+            { title: "Learn", links: ["Code lessons", "Studyabroad"] },
             { title: "Legal", links: ["Terms", "Privacy"] },
             {
               title: "Social",
@@ -407,24 +407,44 @@ export default function HomePage() {
               >
                 {section.links.map((link, i) => {
                   let href = "#";
+                  let onClickHandler = undefined;
+                  
                   if (section.title === "Social") {
                     if (link === "YouTube") {
                       href = "https://www.youtube.com/@codeyatra0605";
                     } else if (link === "GitHub") {
-                      href = "https://github.com";
+                      href = "https://github.com/codeyatra0605";
                     } else if (link === "Instagram") {
-                      href = "https://instagram.com";
+                      href = "https://www.instagram.com/codeyatra_0605";
                     } else if (link === "Facebook") {
                       href = "https://facebook.com";
                     }
+                  } else if (section.title === "Main") {
+                    if (link === "Home") {
+                      onClickHandler = () => navigate("/");
+                    } else if (link === "Contact") {
+                      onClickHandler = () => navigate("/contact");
+                    }
+                  } else if (section.title === "Learn") {
+                    if (link === "Code lessons") {
+                      onClickHandler = () => navigate("/lessons");
+                    } else if (link === "Studyabroad") {
+                      onClickHandler = () => navigate("/studyabroad");
+                    }
                   }
+                  
                   return (
                     <li key={i} style={{ marginBottom: "0.4rem" }}>
                       <a
                         href={href}
+                        onClick={onClickHandler ? (e) => {
+                          e.preventDefault();
+                          onClickHandler();
+                        } : undefined}
                         style={{
                           color: "#ccc",
                           textDecoration: "none",
+                          cursor: onClickHandler ? "pointer" : "default",
                         }}
                         target={href !== "#" ? "_blank" : undefined}
                         rel={href !== "#" ? "noopener noreferrer" : undefined}
