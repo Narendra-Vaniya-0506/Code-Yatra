@@ -431,6 +431,12 @@ export default function HomePage() {
                     } else if (link === "Studyabroad") {
                       onClickHandler = () => navigate("/studyabroad");
                     }
+                  } else if (section.title === "Legal") {
+                    if (link === "Terms") {
+                      onClickHandler = () => navigate("/terms");
+                    } else if (link === "Privacy") {
+                      onClickHandler = () => navigate("/privacy");
+                    }
                   }
                   
                   return (

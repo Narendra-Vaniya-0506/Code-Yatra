@@ -9,6 +9,8 @@ import Profile from "./pages/Profile";
 import Lessons from "./pages/Lessons";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Contact from "./pages/Contact";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 
 // Import lesson pages
 import PythonLessons from "./pages/Lessons/PythonLessons/index";
@@ -37,6 +39,8 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
           
           {/* Protected routes */}
           <Route path="/profile" element={
