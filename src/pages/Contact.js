@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,16 +17,33 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Message sent successfully!');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    });
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      alert('An error occurred while sending the message. Please try again.');
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -34,7 +51,7 @@ const Contact = () => {
       <div style={styles.leftSection}>
         <h1 style={styles.heading}>Contact Us</h1>
         <p style={styles.paragraph}>
-          Let’s build something great together. Whether you have a question or feedback, we’re ready to connect.
+          Let's build something great together. Whether you have a question or feedback, we're ready to connect.
         </p>
         <p style={styles.paragraph}>
           You can also contact us at{' '}
@@ -196,9 +213,7 @@ const styles = {
     border: 'none',
     borderRadius: '12px',
     cursor: 'pointer',
-    boxShadow: '0 4px 14px rgba(37,99,235,0.4)',
-    transition: 'transform 0.2s ease, box-shadow 0.3s ease',
-  },
+    boxShadow: '0 4px 14px rgba(37,99,235,0.4)',}
 };
 
 export default Contact;
