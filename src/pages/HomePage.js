@@ -374,7 +374,7 @@ export default function HomePage() {
           }}
         >
           {[
-            { title: "Main", links: ["Home", "Contact", "Work With Us"] },
+            { title: "Main", links: ["Home", "Contact"] },
             { title: "Learn", links: ["Lessons", "Notes"] },
             { title: "Legal", links: ["Terms", "Privacy"] },
             {
@@ -405,19 +405,35 @@ export default function HomePage() {
                   margin: 0,
                 }}
               >
-                {section.links.map((link, i) => (
-                  <li key={i} style={{ marginBottom: "0.4rem" }}>
-                    <a
-                      href="#"
-                      style={{
-                        color: "#ccc",
-                        textDecoration: "none",
-                      }}
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {section.links.map((link, i) => {
+                  let href = "#";
+                  if (section.title === "Social") {
+                    if (link === "YouTube") {
+                      href = "https://www.youtube.com/@codeyatra0605";
+                    } else if (link === "GitHub") {
+                      href = "https://github.com";
+                    } else if (link === "Instagram") {
+                      href = "https://instagram.com";
+                    } else if (link === "Facebook") {
+                      href = "https://facebook.com";
+                    }
+                  }
+                  return (
+                    <li key={i} style={{ marginBottom: "0.4rem" }}>
+                      <a
+                        href={href}
+                        style={{
+                          color: "#ccc",
+                          textDecoration: "none",
+                        }}
+                        target={href !== "#" ? "_blank" : undefined}
+                        rel={href !== "#" ? "noopener noreferrer" : undefined}
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
