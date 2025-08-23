@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
@@ -89,6 +90,7 @@ export default function App() {
             <ProtectedRoute><Visa /></ProtectedRoute>
           } />
         </Routes>
+        <Footer />
       </Router>
     </AuthProvider>
   );

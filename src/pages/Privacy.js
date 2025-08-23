@@ -50,7 +50,7 @@ export default function Privacy() {
       <h2>3. How Your Information Is Used</h2>
       <p>Your data may be used for purposes such as:</p>
       <ul style={{ marginLeft: "20px" }}>
-        <li>Providing and improving tutorials, notes, and website features.</li>
+        <li>Providing and improving lessons, notes, and website features.</li>
         <li>Processing payments for any paid resources.</li>
         <li>
           Sending updates, newsletters, or announcements (optional; you can
@@ -74,7 +74,6 @@ export default function Privacy() {
       </p>
       <ul style={{ marginLeft: "20px" }}>
         <li>Payment processors for handling transactions.</li>
-        <li>Service providers that help maintain the website.</li>
         <li>Legal authorities if required by law.</li>
       </ul>
 
