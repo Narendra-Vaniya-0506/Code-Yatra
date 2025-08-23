@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
-import { SidebarContext } from "../lesson_layout.js"; // Import the SidebarContext
-import LessonLayout from "../lesson_layout.js";
+import React, { useState } from "react";
+import LessonLayout from "../lesson_layout";
 
 const CodeBlock = ({ children }) => (
   <pre className="code-block">
@@ -9,7 +8,6 @@ const CodeBlock = ({ children }) => (
 );
 
 export default function PythonLessons() {
-  const { closeSidebar } = useContext(SidebarContext); // Access closeSidebar from context
   const [openSections, setOpenSections] = useState({
     introduction: true,
     dataTypes: false,
@@ -26,7 +24,6 @@ export default function PythonLessons() {
 
   const handleContentChange = (contentId) => {
     setActiveContent(contentId);
-    closeSidebar(); // Close the sidebar when content changes
   };
 
   const [showToast, setShowToast] = useState(false);
