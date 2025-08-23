@@ -1,4 +1,7 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, createContext, useContext } from 'react';
+
+// Create a context for sidebar functionality
+export const SidebarContext = createContext();
 
 // --- Styles Component ---
 // To resolve the build error, the CSS styles are included directly within the layout component.
@@ -303,43 +306,44 @@ export default function LessonLayout({
   }, [isSidebarOpen, closeSidebar]);
 
   return (
-    <div className={`lesson-layout ${isSidebarOpen ? 'sidebar-open' : ''}`}>
-      <LessonStyles />
-      {isSidebarOpen && <div className="lesson-drawer-backdrop" onClick={closeSidebar} />}
-      <div className="lesson-container">
-        <aside id="lesson-sidebar" ref={sidebarRef} className="lesson-sidebar">
-    <div className="lesson-sidebar-content">
-      
-      <div className="lesson-sidebar-nav">
-        {sidebar}
-      </div>
-    </div>
-        </aside>
-        <main id="lesson-main-content" className="lesson-main">
-          <header className="lesson-header">
-            <button className="lesson-sidebar-toggle" onClick={toggleSidebar} aria-expanded={isSidebarOpen} aria-controls="lesson-sidebar" aria-label="Toggle sidebar">
-              <MenuIcon />
-            </button>
-            <div className="lesson-header-content">
-              <h2>{title}</h2>
+    <SidebarContext.Provider value={{ closeSidebar }}>
+      <div className={`lesson-layout ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+        <LessonStyles />
+        {isSidebarOpen && <div className="lesson-drawer-backdrop" onClick={closeSidebar} />}
+        <div className="lesson-container">
+          <aside id="lesson-sidebar" ref={sidebarRef} className="lesson-sidebar">
+            <div className="lesson-sidebar-content">
+              <div className="lesson-sidebar-nav">
+                {sidebar}
+              </div>
             </div>
-          </header>
-          <div className="lesson-content-wrapper">
-            {breadcrumbs.length > 0 && (
-              <nav className="lesson-breadcrumbs">
-                <ol>
-                  {breadcrumbs.map((crumb, index) => (
-                    <li key={index}>
-                      {crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span>{crumb.label}</span>}
-                    </li>
-                  ))}
-                </ol>
-              </nav>
-            )}
-            <div className="lesson-content">{children}</div>
-          </div>
-        </main>
+          </aside>
+          <main id="lesson-main-content" className="lesson-main">
+            <header className="lesson-header">
+              <button className="lesson-sidebar-toggle" onClick={toggleSidebar} aria-expanded={isSidebarOpen} aria-controls="lesson-sidebar" aria-label="Toggle sidebar">
+                <MenuIcon />
+              </button>
+              <div className="lesson-header-content">
+                <h2>{title}</h2>
+              </div>
+            </header>
+            <div className="lesson-content-wrapper">
+              {breadcrumbs.length > 0 && (
+                <nav className="lesson-breadcrumbs">
+                  <ol>
+                    {breadcrumbs.map((crumb, index) => (
+                      <li key={index}>
+                        {crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span>{crumb.label}</span>}
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              )}
+              <div className="lesson-content">{children}</div>
+            </div>
+          </main>
+        </div>
       </div>
-    </div>
+    </SidebarContext.Provider>
   );
 }
