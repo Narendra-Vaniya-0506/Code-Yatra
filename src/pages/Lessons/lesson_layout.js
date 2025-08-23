@@ -292,14 +292,37 @@ export default function LessonLayout({
 
     if (isSidebarOpen) {
       document.body.classList.add('no-scroll');
+      
+      // Add click event listeners to all anchor tags in the sidebar
+      const sidebarLinks = sidebarRef.current?.querySelectorAll('a');
+      const handleLinkClick = () => {
+        closeSidebar();
+      };
+      
+      if (sidebarLinks) {
+        sidebarLinks.forEach(link => {
+          link.addEventListener('click', handleLinkClick);
+        });
+      }
+
+      // Cleanup function
+      return () => {
+        document.removeEventListener('keydown', handleEscape);
+        document.body.classList.remove('no-scroll');
+        
+        // Remove click event listeners from sidebar links
+        if (sidebarLinks) {
+          sidebarLinks.forEach(link => {
+            link.removeEventListener('click', handleLinkClick);
+          });
+        }
+      };
     } else {
       document.body.classList.remove('no-scroll');
+      return () => {
+        document.removeEventListener('keydown', handleEscape);
+      };
     }
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.classList.remove('no-scroll');
-    };
   }, [isSidebarOpen, closeSidebar]);
 
   return (
