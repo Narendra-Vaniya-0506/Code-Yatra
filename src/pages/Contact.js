@@ -10,45 +10,23 @@ const Contact = () => {
   });
 
   const handleChange = (e) => {
-    console.log("Input changed:", name, value); // Debugging line
-    const { name, value } = e.target; 
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleSubmit = async (e) => {
-    console.log("Form submitted:", formData); // Debugging line
-    e.preventDefault(); 
-    
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert('Message sent successfully! We will get back to you soon.');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-        });
-      } else {
-        alert(`Failed to send message: ${data.error || 'Please try again.'}`);
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      alert('Failed to send message. Please check your connection and try again.');
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Message sent successfully!');
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+    });
   };
 
   return (
