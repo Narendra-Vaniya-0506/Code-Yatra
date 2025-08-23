@@ -90,10 +90,10 @@ export default function Terms() {
       <p>
         If you have questions, feel free to reach out at:
         <br /> 📧{" "}
-        <a href="mailto:codeyatra0605@gmail.com" style={styles.emailLink}>
+        <a href="mailto:codeyatra0605@gmail.com" style={{ color: "#007bff", textDecoration: "none" }}>
             codeyatra0605@gmail.com
           </a>
-        <br /> 📱 YouTube Channel : <a href="https://www.youtube.com/@codeyatra0605">Code Yatra</a>
+        <br /> 📱 YouTube Channel : <a href="https://www.youtube.com/@codeyatra0605" style={{ color: "#007bff", textDecoration: "none" }}>Code Yatra</a>
       </p>
     </div>
   );
