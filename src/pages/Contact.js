@@ -1,4 +1,4 @@
-import React, { useState, useRef  } from 'react';
+import React, { useState, useRef } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +9,8 @@ const Contact = () => {
     message: '',
   });
 
-  const [notification, setNotification] = useState({ message: '', visible: false });
+  const [notification, setNotification] = useState({ message: '', visible: false, type: '' });
+  const notificationTimeout = useRef(null); // store timeout id
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,10 +32,15 @@ const Contact = () => {
       });
 
       if (response.ok) {
-       setNotification({ message: 'Message sent successfully!', visible: true });
-        setTimeout(() => {
-          setNotification({ ...notification, visible: false });
-        }, 3000); // Hide after 3 seconds
+        setNotification({ message: 'Message sent successfully!', visible: true, type: 'success' });
+
+        // Clear any existing timeout before setting a new one
+        if (notificationTimeout.current) {
+          clearTimeout(notificationTimeout.current);
+        }
+        notificationTimeout.current = setTimeout(() => {
+          setNotification((prev) => ({ ...prev, visible: false }));
+        }, 3000);
 
         setFormData({
           name: '',
@@ -44,27 +50,39 @@ const Contact = () => {
           message: '',
         });
       } else {
-        setNotification({ message: 'Failed to send message. Please try again.', visible: true });
+        setNotification({ message: 'Failed to send message. Please try again.', visible: true, type: 'error' });
       }
     } catch (error) {
-      setNotification({ message: 'An error occurred while sending the message. Please try again or first login then try.', visible: true });
+      setNotification({
+        message: 'An error occurred while sending the message. Please try again or first login then try.',
+        visible: true,
+        type: 'error',
+      });
       console.error('Error:', error);
     }
   };
 
   const closeNotification = () => {
-     setNotification({ ...notification, visible: false });
-    clearTimeout(notificationTimeout); // Clear timeout if closed manually
-  }
-  
+    setNotification((prev) => ({ ...prev, visible: false }));
+    if (notificationTimeout.current) {
+      clearTimeout(notificationTimeout.current);
+    }
+  };
+
   return (
     <div style={styles.container}>
       {notification.visible && (
-        <div style={styles.notification}>
+        <div
+          style={{
+            ...styles.notification,
+            backgroundColor: notification.type === 'success' ? '#4caf50' : '#e53935',
+          }}
+        >
           <span>{notification.message}</span>
           <button onClick={closeNotification} style={styles.closeButton}>X</button>
         </div>
       )}
+
       <div style={styles.leftSection}>
         <h1 style={styles.heading}>Contact Us</h1>
         <p style={styles.paragraph}>
@@ -166,7 +184,6 @@ const styles = {
     position: 'fixed',
     top: '20px',
     right: '20px',
-    backgroundColor: '#4caf50',
     color: 'white',
     padding: '15px',
     borderRadius: '5px',
