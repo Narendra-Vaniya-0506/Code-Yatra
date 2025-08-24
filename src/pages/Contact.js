@@ -9,6 +9,8 @@ const Contact = () => {
     message: '',
   });
 
+  const [notification, setNotification] = useState({ message: '', visible: false });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -29,7 +31,7 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        alert('Message sent successfully!');
+        setNotification({ message: 'Message sent successfully!', visible: true });
         setFormData({
           name: '',
           email: '',
@@ -38,16 +40,26 @@ const Contact = () => {
           message: '',
         });
       } else {
-        alert('Failed to send message. Please try again.');
+        setNotification({ message: 'Failed to send message. Please try again.', visible: true });
       }
     } catch (error) {
-      alert('An error occurred while sending the message. Please try again.');
+      setNotification({ message: 'An error occurred while sending the message. Please try again.', visible: true });
       console.error('Error:', error);
     }
   };
 
+  const closeNotification = () => {
+    setNotification({ ...notification, visible: false });
+  };
+
   return (
     <div style={styles.container}>
+      {notification.visible && (
+        <div style={styles.notification}>
+          <span>{notification.message}</span>
+          <button onClick={closeNotification} style={styles.closeButton}>X</button>
+        </div>
+      )}
       <div style={styles.leftSection}>
         <h1 style={styles.heading}>Contact Us</h1>
         <p style={styles.paragraph}>
@@ -145,6 +157,30 @@ const styles = {
     boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
     fontFamily: "'Segoe UI', Tahoma, sans-serif",
   },
+  notification: {
+    position: 'fixed',
+    top: '20px',
+    right: '20px',
+    backgroundColor: '#4caf50',
+    color: 'white',
+    padding: '15px',
+    borderRadius: '5px',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+    zIndex: 1000,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    minWidth: '300px',
+  },
+  closeButton: {
+    marginLeft: '10px',
+    background: 'none',
+    border: 'none',
+    color: 'white',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: 'bold',
+  },
   leftSection: {
     flex: 1,
     minWidth: '280px',
@@ -200,7 +236,7 @@ const styles = {
     borderRadius: '10px',
     border: '1.5px solid #cbd5e0',
     outline: 'none',
-    background: '#f9fafb',
+    background: 'white',
     transition: 'all 0.25s ease',
   },
   button: {
@@ -213,7 +249,9 @@ const styles = {
     border: 'none',
     borderRadius: '12px',
     cursor: 'pointer',
-    boxShadow: '0 4px 14px rgba(37,99,235,0.4)',}
+    boxShadow: '0 4px 14px rgba(37,99,235,0.4)',
+    transition: 'all 0.3s ease',
+  }
 };
 
 export default Contact;
