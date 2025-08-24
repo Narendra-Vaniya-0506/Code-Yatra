@@ -31,7 +31,11 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        setNotification({ message: 'Message sent successfully!', visible: true });
+       setNotification({ message: 'Message sent successfully!', visible: true });
+        setTimeout(() => {
+          setNotification({ ...notification, visible: false });
+        }, 3000); // Hide after 3 seconds
+
         setFormData({
           name: '',
           email: '',
@@ -49,9 +53,10 @@ const Contact = () => {
   };
 
   const closeNotification = () => {
-    setNotification({ ...notification, visible: false });
-  };
-
+     setNotification({ ...notification, visible: false });
+    clearTimeout(notificationTimeout); // Clear timeout if closed manually
+  }
+  
   return (
     <div style={styles.container}>
       {notification.visible && (
