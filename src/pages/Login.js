@@ -50,28 +50,8 @@ export default function Login() {
     }
   };
 
-  const handleForgotPassword = async () => {
-    const identifier = prompt("Please enter your email address:");
-    if (identifier) {
-      try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/forgot-password/`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ identifier }),
-        });
-
-        const data = await response.json();
-        if (data.success) {
-          alert("OTP has been sent to your email address.");
-        } else {
-          alert(data.error);
-        }
-      } catch (error) {
-        alert("An error occurred. Please try again later.");
-      }
-    }
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
   };
 
   // 🔹 Loading screen

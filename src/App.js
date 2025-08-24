@@ -12,6 +12,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import ForgotPassword from "./pages/ForgotPassword";
 
 // Import lesson pages
 import PythonLessons from "./pages/Lessons/PythonLessons/index";
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
