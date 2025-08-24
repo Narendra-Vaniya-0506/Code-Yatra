@@ -48,10 +48,10 @@ export default function Signup() {
         }),
       });
       if (response.ok) {
-        setPopupMessage("Signup successful!");
+        setPopupMessage("Signup successful! A welcome email has been sent to your email address.");
         setTimeout(() => {
           navigate("/login");
-        }, 1000);
+        }, 2000);
       } else {
         const errorData = await response.json();
         console.error("Signup Error from Backend:", errorData);
