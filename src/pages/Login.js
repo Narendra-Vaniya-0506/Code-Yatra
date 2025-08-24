@@ -29,7 +29,7 @@ export default function Login() {
     setError(null);
 
     if (!identifier || !password) {
-      setError("Please enter both email/phone and password.");
+      setError("Please enter both email and password.");
       return;
     }
     
@@ -47,6 +47,30 @@ export default function Login() {
       setError("An unexpected error occurred. Please try again later.");
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    const identifier = prompt("Please enter your email address:");
+    if (identifier) {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/forgot-password/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ identifier }),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          alert("OTP has been sent to your email address.");
+        } else {
+          alert(data.error);
+        }
+      } catch (error) {
+        alert("An error occurred. Please try again later.");
+      }
     }
   };
 
@@ -142,8 +166,8 @@ export default function Login() {
           style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
         >
           <input
-            type="text"
-            placeholder="Email or Phone Number"
+            type="email"
+            placeholder="Email Address"
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
             style={{
@@ -180,7 +204,7 @@ export default function Login() {
             </label>
             <button
               type="button"
-              onClick={() => alert("Password reset feature coming soon!")}
+              onClick={() => handleForgotPassword()}
               style={{
                 background: "none",
                 border: "none",

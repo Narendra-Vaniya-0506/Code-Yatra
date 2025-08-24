@@ -193,6 +193,50 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  /**
+   * Send OTP to user's email for password reset
+   * @param {string} identifier - User's email address
+   */
+  const forgotPassword = async (identifier) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/forgot-password/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ identifier }),
+      });
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return { success: false, error: 'An error occurred. Please try again later.' };
+    }
+  };
+
+  /**
+   * Reset user password using OTP sent to email
+   * @param {string} identifier - User's email address
+   * @param {string} otpCode - OTP code received via email
+   * @param {string} newPassword - New password to set
+   */
+  const resetPassword = async (identifier, otpCode, newPassword) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/reset-password/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ identifier, otp_code: otpCode, new_password: newPassword }),
+      });
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return { success: false, error: 'An error occurred. Please try again later.' };
+    }
+  };
+
   const value = {
     user,
     loading,
@@ -203,6 +247,8 @@ export const AuthProvider = ({ children }) => {
     updateUserProfile,
     startLesson,
     completeLesson,
+    forgotPassword,
+    resetPassword,
     isAuthenticated: !!user,
   };
 
