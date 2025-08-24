@@ -43,7 +43,7 @@ const Contact = () => {
         setNotification({ message: 'Failed to send message. Please try again.', visible: true });
       }
     } catch (error) {
-      setNotification({ message: 'An error occurred while sending the message. Please try again.', visible: true });
+      setNotification({ message: 'An error occurred while sending the message. Please try again or first login then try.', visible: true });
       console.error('Error:', error);
     }
   };
