@@ -193,7 +193,7 @@ export default function HomePage() {
                 "0 4px 15px rgba(0,0,0,0.3)";
             }}
           >
-            Explore Courses
+            Explore Lessons
           </button>
         </div>
       </div>
@@ -242,17 +242,17 @@ export default function HomePage() {
             {
               title: "Build for the Web",
               text: "Learn to architect and construct modern websites and apps.",
-              img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+              img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
             },
             {
               title: "Data-Driven Decision Making",
               text: "Master Python, ML, and AI to find insights in data.",
-              img: "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=600&q=80",
+              img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
             },
             {
               title: "Master the Developer's Toolkit",
               text: "Go deep into DSA for writing efficient, scalable code.",
-              img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+              img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
             },
           ].map((card, idx) => (
             <div
