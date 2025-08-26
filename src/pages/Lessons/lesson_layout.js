@@ -278,56 +278,52 @@ export default function LessonLayout({
   lessonId
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const sidebarRef = useRef(null);
   const [isLessonStarted, setIsLessonStarted] = useState(false);
-  const [lessonLoading, setLessonLoading] = useState(false);
-  const { startLesson, completeLesson, user } = useAuth();
-
-  const toggleSidebar = useCallback(() => setIsSidebarOpen(prev => !prev), []);
-  const closeSidebar = useCallback(() => setIsSidebarOpen(false), []);
-
-  // Check if user has already started this lesson
-  useEffect(() => {
-    if (user && user.started_lessons && lessonId) {
-      setIsLessonStarted(user.started_lessons.includes(lessonId));
-    }
-  }, [user, lessonId]);
+  const sidebarRef = useRef(null);
+  const { startLesson, completeLesson, isAuthenticated } = useAuth();
 
   const handleStartLesson = async () => {
-    if (!lessonId) return;
+    if (!isAuthenticated) {
+      alert('Please log in to track your lesson progress');
+      return;
+    }
     
-    setLessonLoading(true);
     try {
       const result = await startLesson(lessonId);
       if (result.success) {
         setIsLessonStarted(true);
+        console.log('Lesson started:', lessonId);
       } else {
-        console.error('Failed to start lesson:', result.error);
+        alert('Failed to start lesson tracking');
       }
     } catch (error) {
       console.error('Error starting lesson:', error);
-    } finally {
-      setLessonLoading(false);
+      alert('Error starting lesson tracking');
     }
   };
 
-  const handleEndLesson = async () => {
-    if (!lessonId) return;
+  const handleCompleteLesson = async () => {
+    if (!isAuthenticated) {
+      alert('Please log in to track your lesson progress');
+      return;
+    }
     
-    setLessonLoading(true);
     try {
       const result = await completeLesson(lessonId);
       if (result.success) {
         setIsLessonStarted(false);
+        console.log('Lesson completed:', lessonId);
       } else {
-        console.error('Failed to end lesson:', result.error);
+        alert('Failed to complete lesson tracking');
       }
     } catch (error) {
-      console.error('Error ending lesson:', error);
-    } finally {
-      setLessonLoading(false);
+      console.error('Error completing lesson:', error);
+      alert('Error completing lesson tracking');
     }
   };
+
+  const toggleSidebar = useCallback(() => setIsSidebarOpen(prev => !prev), []);
+  const closeSidebar = useCallback(() => setIsSidebarOpen(false), []);
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -394,27 +390,22 @@ export default function LessonLayout({
             <div className="lesson-header-content">
               <h2>{title}</h2>
             </div>
-            {lessonId && user && (
-              <div className="lesson-controls">
-                {!isLessonStarted ? (
-                  <button
-                    onClick={handleStartLesson}
-                    disabled={lessonLoading}
-                    className="start-lesson-btn"
-                  >
-                    {lessonLoading ? 'Starting...' : 'Start Lesson'}
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleEndLesson}
-                    disabled={lessonLoading}
-                    className="end-lesson-btn"
-                  >
-                    {lessonLoading ? 'Ending...' : 'End Lesson'}
-                  </button>
-                )}
-              </div>
-            )}
+            <div className="lesson-controls">
+              <button 
+                className="start-lesson-btn" 
+                onClick={handleStartLesson} 
+                disabled={isLessonStarted}
+              >
+                Start Lesson
+              </button>
+              <button 
+                className="end-lesson-btn" 
+                onClick={handleCompleteLesson} 
+                disabled={!isLessonStarted}
+              >
+                End Lesson
+              </button>
+            </div>
           </header>
           <div className="lesson-content-wrapper">
             {breadcrumbs.length > 0 && (
