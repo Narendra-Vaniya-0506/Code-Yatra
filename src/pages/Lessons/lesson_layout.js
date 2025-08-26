@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useAuth } from '../../context/AuthContext';
 
 // --- Styles Component ---
 // To resolve the build error, the CSS styles are included directly within the layout component.
@@ -273,13 +274,60 @@ export default function LessonLayout({
   title,
   breadcrumbs = [],
   sidebar,
-  children
+  children,
+  lessonId
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const [isLessonStarted, setIsLessonStarted] = useState(false);
+  const [lessonLoading, setLessonLoading] = useState(false);
+  const { startLesson, completeLesson, user } = useAuth();
 
   const toggleSidebar = useCallback(() => setIsSidebarOpen(prev => !prev), []);
   const closeSidebar = useCallback(() => setIsSidebarOpen(false), []);
+
+  // Check if user has already started this lesson
+  useEffect(() => {
+    if (user && user.started_lessons && lessonId) {
+      setIsLessonStarted(user.started_lessons.includes(lessonId));
+    }
+  }, [user, lessonId]);
+
+  const handleStartLesson = async () => {
+    if (!lessonId) return;
+    
+    setLessonLoading(true);
+    try {
+      const result = await startLesson(lessonId);
+      if (result.success) {
+        setIsLessonStarted(true);
+      } else {
+        console.error('Failed to start lesson:', result.error);
+      }
+    } catch (error) {
+      console.error('Error starting lesson:', error);
+    } finally {
+      setLessonLoading(false);
+    }
+  };
+
+  const handleEndLesson = async () => {
+    if (!lessonId) return;
+    
+    setLessonLoading(true);
+    try {
+      const result = await completeLesson(lessonId);
+      if (result.success) {
+        setIsLessonStarted(false);
+      } else {
+        console.error('Failed to end lesson:', result.error);
+      }
+    } catch (error) {
+      console.error('Error ending lesson:', error);
+    } finally {
+      setLessonLoading(false);
+    }
+  };
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -346,6 +394,27 @@ export default function LessonLayout({
             <div className="lesson-header-content">
               <h2>{title}</h2>
             </div>
+            {lessonId && user && (
+              <div className="lesson-controls">
+                {!isLessonStarted ? (
+                  <button
+                    onClick={handleStartLesson}
+                    disabled={lessonLoading}
+                    className="start-lesson-btn"
+                  >
+                    {lessonLoading ? 'Starting...' : 'Start Lesson'}
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleEndLesson}
+                    disabled={lessonLoading}
+                    className="end-lesson-btn"
+                  >
+                    {lessonLoading ? 'Ending...' : 'End Lesson'}
+                  </button>
+                )}
+              </div>
+            )}
           </header>
           <div className="lesson-content-wrapper">
             {breadcrumbs.length > 0 && (

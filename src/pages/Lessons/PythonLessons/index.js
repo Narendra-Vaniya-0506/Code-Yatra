@@ -156,12 +156,13 @@ export default function PythonLessons() {
 
   return (
     <LessonLayout
-      title="Python Tutorial"
+      title="Python lesson"
       breadcrumbs={[
         { label: "Lessons", href: "/lessons" },
-        { label: "Python Tutorial" },
+        { label: "Python lesson" },
       ]}
       sidebar={sidebar}
+      lessonId="python-introduction"
     >
       {activeContent === "overview" && (
         <div>

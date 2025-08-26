@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LessonLayout from "../lesson_layout"; // Correct import
 
-export default function PythonLessons() {
+export default function JavaLessons() {
   // State to manage which accordion section is open
   const [openSections, setOpenSections] = useState({
     introduction: true, // Keep the first section open by default
@@ -44,7 +44,7 @@ export default function PythonLessons() {
   // Define the sidebar content with the new accordion structure
   const sidebar = (
     <nav className="lesson-sidebar-nav">
-      <h3>Python Tutorial</h3>
+      <h3>Java Tutorial</h3>
 
       {/* Introduction Section */}
       <div className="lesson-section">
@@ -59,7 +59,7 @@ export default function PythonLessons() {
           className="lesson-sublist"
           style={{ maxHeight: openSections.introduction ? "500px" : "0" }}
         >
-          <li><a href="#overview" onClick={() => handleLinkClick("overview")} className={activeLink === "overview" ? "active" : ""}>Python Overview</a></li>
+          <li><a href="#overview" onClick={() => handleLinkClick("overview")} className={activeLink === "overview" ? "active" : ""}>Java Overview</a></li>
           <li><a href="#installation" onClick={() => handleLinkClick("installation")} className={activeLink === "installation" ? "active" : ""}>Installation</a></li>
           <li><a href="#syntax" onClick={() => handleLinkClick("syntax")} className={activeLink === "syntax" ? "active" : ""}>Syntax</a></li>
         </ul>
@@ -91,23 +91,24 @@ export default function PythonLessons() {
 
   return (
     <LessonLayout
-      title="Python Tutorial"
+      title="Java Tutorial"
       breadcrumbs={[
-        { label: "Lessons", href: "/lessons" }, // Update link to Code Lessons page
-        { label: "Python Tutorial" },
+        { label: "Lessons", href: "/lessons" },
+        { label: "Java Tutorial" },
       ]}
       sidebar={sidebar}
+      lessonId="java-introduction"
     >
       {/* Hero Section */}
       <div className="lesson-hero">
-        <h1>Python Tutorial</h1>
-        <p>Python is a high-level, interpreted, general-purpose programming language.</p>
+        <h1>Java Tutorial</h1>
+        <p>Java is a high-level, class-based, object-oriented programming language.</p>
       </div>
 
       {/* Main Content */}
       <div id="overview">
         <h2>Get Started</h2>
-        <p>Welcome to the Python Tutorial series! To begin learning:</p>
+        <p>Welcome to the Java Tutorial series! To begin learning:</p>
         <ol>
           <li>Select a lesson from the sidebar on the left.</li>
           <li>Work through the lessons in order for the best learning experience.</li>
@@ -117,12 +118,12 @@ export default function PythonLessons() {
 
       <div id="installation" style={{ paddingTop: '60px', marginTop: '-60px' }}>
         <h2>Installation</h2>
-        <p>Content about installing Python goes here...</p>
+        <p>Content about installing Java goes here...</p>
       </div>
 
       <div id="syntax" style={{ paddingTop: '60px', marginTop: '-60px' }}>
         <h2>Syntax</h2>
-        <p>Content about Python syntax goes here...</p>
+        <p>Content about Java syntax goes here...</p>
       </div>
       
       {/* Add other content sections here corresponding to the sidebar links */}

@@ -305,6 +305,66 @@ body {
     font-weight: 600;
 }
 
+/* --- Lesson Control Buttons --- */
+.lesson-controls {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.start-lesson-btn,
+.end-lesson-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  min-width: 120px;
+}
+
+.start-lesson-btn {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.start-lesson-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.end-lesson-btn {
+  background-color: #dc2626;
+  color: white;
+}
+
+.end-lesson-btn:hover:not(:disabled) {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.start-lesson-btn:disabled,
+.end-lesson-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .lesson-controls {
+    margin-left: var(--spacing-md);
+  }
+  
+  .start-lesson-btn,
+  .end-lesson-btn {
+    min-width: 100px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
 .code-block {
   background-color: var(--color-code-bg);
   color: var(--color-code-text);
