@@ -352,17 +352,15 @@ body {
 }
 
 /* Mobile responsive adjustments */
-@media (max-width: 768px) {
-  .lesson-controls {
-    margin-left: var(--spacing-md);
-  }
-  
-  .start-lesson-btn,
-  .end-lesson-btn {
-    min-width: 100px;
-    padding: 6px 12px;
-    font-size: 13px;
-  }
+.lesson-controls {
+  margin-left: var(--spacing-md);
+}
+
+.start-lesson-btn,
+.end-lesson-btn {
+  min-width: 100px;
+  padding: 6px 12px;
+  font-size: 13px;
 }
 
 .code-block {
