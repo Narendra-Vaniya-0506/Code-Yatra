@@ -390,22 +390,6 @@ export default function LessonLayout({
             <div className="lesson-header-content">
               <h2>{title}</h2>
             </div>
-            <div className="lesson-controls">
-              <button 
-                className="start-lesson-btn" 
-                onClick={handleStartLesson} 
-                disabled={isLessonStarted}
-              >
-                Start Lesson
-              </button>
-              <button 
-                className="end-lesson-btn" 
-                onClick={handleCompleteLesson} 
-                disabled={!isLessonStarted}
-              >
-                End Lesson
-              </button>
-            </div>
           </header>
           <div className="lesson-content-wrapper">
             {breadcrumbs.length > 0 && (
