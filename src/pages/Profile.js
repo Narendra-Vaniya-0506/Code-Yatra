@@ -3,7 +3,6 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Profile = () => {
-    // Added 'logout' from useAuth context
     const { user, loading, updateUserProfile, logout } = useAuth();
     const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
@@ -57,7 +56,6 @@ const Profile = () => {
         }
     };
 
-    // Added logout handler
     const handleLogout = async () => {
         try {
             await logout();
@@ -98,8 +96,7 @@ const Profile = () => {
         boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
         transition: 'background-color 0.2s ease, transform 0.2s ease',
     });
-    
-    // Style for the gradient buttons
+
     const gradientBtnStyle = {
         ...buttonStyle(), // Inherit base styles
         background: 'linear-gradient(135deg, #43cea2, #185a9d)',
@@ -263,55 +260,6 @@ const Profile = () => {
                 )}
             </section>
 
-            {/* Learning Progress */}
-            <section style={cardStyle}>
-                <h2 style={{ color: '#333', marginBottom: '1.5rem', fontSize: '1.75rem' }}>Learning Progress</h2>
-
-                <div style={{ marginBottom: '2rem' }}>
-                    <h3 style={{ color: '#495057', marginBottom: '1rem' }}>Lessons Started</h3>
-                    {user.lessons_started?.length ? (
-                        <ul style={{ listStyle: 'none', padding: 0 }}>
-                            {user.lessons_started.map((lesson, index) => (
-                                <li key={index} style={{
-                                    padding: '0.75rem',
-                                    backgroundColor: '#e3f2fd',
-                                    marginBottom: '0.5rem',
-                                    borderRadius: '6px',
-                                    borderLeft: '4px solid #2196f3',
-                                    fontSize: '1rem'
-                                }}>
-                                    {lesson}
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p style={{ color: '#6c757d', fontStyle: 'italic' }}>No lessons started yet.</p>
-                    )}
-                </div>
-
-                <div>
-                    <h3 style={{ color: '#495057', marginBottom: '1rem' }}>Lessons Completed</h3>
-                    {user.lessons_completed?.length ? (
-                        <ul style={{ listStyle: 'none', padding: 0 }}>
-                            {user.lessons_completed.map((lesson, index) => (
-                                <li key={index} style={{
-                                    padding: '0.75rem',
-                                    backgroundColor: '#e8f5e8',
-                                    marginBottom: '0.5rem',
-                                    borderRadius: '6px',
-                                    borderLeft: '4px solid #4caf50',
-                                    fontSize: '1rem'
-                                }}>
-                                    {lesson}
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p style={{ color: '#6c757d', fontStyle: 'italic' }}>No lessons completed yet.</p>
-                    )}
-                </div>
-            </section>
-            
             {/* Logout Section */}
             <section style={{ ...cardStyle, textAlign: 'center' }}>
                  <h2 style={{ color: '#333', marginBottom: '1.5rem', fontSize: '1.75rem' }}>Account Actions</h2>
@@ -335,3 +283,4 @@ const Profile = () => {
 };
 
 export default Profile;
+
