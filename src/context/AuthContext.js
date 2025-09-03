@@ -46,6 +46,26 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const fetchDashboardData = async (token) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/dashboard/`, {
+        headers: {
+          'Authorization': `Token ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) throw new Error('Failed to fetch dashboard data');
+
+      const dashboardData = await response.json();
+      // You can store or use dashboardData.data as needed
+      return dashboardData.data;
+    } catch (error) {
+      console.error('Error fetching dashboard data:', error);
+      return null;
+    }
+  };
+
   const login = async (identifier, password, rememberMe = false) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/login/`, {
@@ -249,6 +269,7 @@ export const AuthProvider = ({ children }) => {
     completeLesson,
     forgotPassword,
     resetPassword,
+    fetchDashboardData,
     isAuthenticated: !!user,
   };
 

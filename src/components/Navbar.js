@@ -97,7 +97,7 @@ const Navbar = () => {
           marginLeft: '0',
           justifyContent: 'flex-start'
         }}>
-          {user && <li><Link to="/profile" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Profile</Link></li>}
+          {user && <li><Link to="/dashboard" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Dashboard</Link></li>}
           <li><Link to="/" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
           <li><Link to="/lessons" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
           <li><Link to="/Studyabroad" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Studyabroad</Link></li>
@@ -183,7 +183,7 @@ const Navbar = () => {
             padding: 0,
             alignItems: 'center'
           }}>
-            {user && <li><Link to="/profile" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Profile</Link></li>}
+            {user && <li><Link to="/dashboard" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Dashboard</Link></li>}
             <li><Link to="/" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
             <li><Link to="/lessons" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
             <li><Link to="/Studyabroad" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Studyabroad</Link></li>
