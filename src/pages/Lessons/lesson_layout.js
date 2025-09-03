@@ -403,7 +403,45 @@ export default function LessonLayout({
                 </ol>
               </nav>
             )}
-            <div className="lesson-content">{children}</div>
+          <div className="lesson-content">{children}</div>
+
+          {/* Start/Complete Lesson Buttons */}
+          {lessonId && (
+            <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+              {!isLessonStarted ? (
+                <button
+                  onClick={handleStartLesson}
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    backgroundColor: '#2563eb',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.375rem',
+                    fontSize: '1rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Start Lesson
+                </button>
+              ) : (
+                <button
+                  onClick={handleCompleteLesson}
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    backgroundColor: '#16a34a',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.375rem',
+                    fontSize: '1rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Complete Lesson
+                </button>
+              )}
+            </div>
+          )}
+
           </div>
         </main>
       </div>

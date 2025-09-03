@@ -100,6 +100,9 @@ export const AuthProvider = ({ children }) => {
       // The user object is now returned directly from the login response.
       // We can set it here to be faster than waiting for fetchUserProfile.
       setUser(data.data.user);
+
+      // Redirect user to dashboard after successful login
+      window.location.href = '/dashboard';
       
       // We no longer need to call fetchUserProfile here since the login
       // response from the backend already contains all the user data.
