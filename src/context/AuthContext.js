@@ -102,11 +102,9 @@ export const AuthProvider = ({ children }) => {
       setUser(data.data.user);
 
       // Redirect user to dashboard after successful login
-      window.location.href = '/dashboard';
-      
-      // We no longer need to call fetchUserProfile here since the login
-      // response from the backend already contains all the user data.
-      // await fetchUserProfile(token); 
+      // Use react-router navigation instead of window.location.href for SPA routing
+      // But since this is context, we can return success and let caller handle navigation
+      // So remove window.location.href here and let caller redirect
 
       return { success: true };
     } catch (error) {
