@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import ForgotPassword from "./pages/ForgotPassword";
+import Dashboard from "./pages/Dashboard";
 
 // Import lesson pages
 import PythonLessons from "./pages/Lessons/PythonLessons/index";
@@ -48,6 +49,9 @@ export default function App() {
           {/* Protected routes */}
           <Route path="/profile" element={
             <ProtectedRoute><Profile /></ProtectedRoute>
+          } />
+          <Route path="/dashboard" element={
+            <ProtectedRoute><Dashboard /></ProtectedRoute>
           } />
           
           {/* Lessons routes */}
