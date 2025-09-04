@@ -197,23 +197,23 @@ export const AuthProvider = ({ children }) => {
         body: JSON.stringify({ lesson_id: lessonId }),
       });
 
+      const text = await response.text();
+
       if (response.ok) {
         try {
-          const updatedUserData = await response.json();
+          const updatedUserData = JSON.parse(text);
           setUser(updatedUserData.data);
           return { success: true };
         } catch (jsonError) {
-          const text = await response.text();
           console.error('Failed to parse JSON response:', jsonError, 'Response text:', text);
           return { success: false, error: 'Invalid JSON response from server' };
         }
       } else {
         try {
-          const errorData = await response.json();
+          const errorData = JSON.parse(text);
           console.error('Start lesson failed:', response.status, errorData);
           return { success: false, error: errorData.detail || 'Failed to start lesson' };
         } catch (jsonError) {
-          const text = await response.text();
           console.error('Failed to parse error JSON:', jsonError, 'Response text:', text);
           return { success: false, error: 'Invalid error response from server' };
         }
