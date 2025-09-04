@@ -212,10 +212,13 @@ export const AuthProvider = ({ children }) => {
         try {
           const errorData = JSON.parse(text);
           console.error('Start lesson failed:', response.status, errorData);
+          // Log full error data for debugging
+          console.error('Full error response:', errorData);
           return { success: false, error: errorData.detail || 'Failed to start lesson' };
         } catch (jsonError) {
           console.error('Failed to parse error JSON:', jsonError, 'Response text:', text);
-          return { success: false, error: 'Invalid error response from server' };
+          // Return raw response text if available for better error info
+          return { success: false, error: text || 'Invalid error response from server' };
         }
       }
     } catch (error) {
