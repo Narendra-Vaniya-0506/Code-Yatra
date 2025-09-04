@@ -76,9 +76,28 @@ const Dashboard = () => {
     <div style={containerStyle}>
       {/* Header Section */}
       <div style={headerStyle}>
-        <h2 style={welcomeStyle}>Welcome back, <span style={usernameStyle}>{dashboardData.user.name}</span>!</h2>
+        <h2 style={welcomeStyle}>Welcome, <span
+          style={{
+            background: "linear-gradient(90deg, #6366f1, #ec4899, #f59e0b)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundSize: "200% auto",
+            animation: "shine 3s ease-in-out infinite",
+            display: "inline-block",
+            fontWeight: '700'
+          }}
+        >{dashboardData.user.name}</span>!</h2>
         <button style={viewProfileBtnStyle} onClick={() => navigate('/profile')}>Profile</button>
       </div>
+      <style>
+        {`
+          @keyframes shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+        `}
+      </style>
 
       {/* Progress Overview Section */}
       <section style={sectionStyle}>
