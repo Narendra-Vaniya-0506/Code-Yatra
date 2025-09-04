@@ -166,53 +166,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const startLesson = async (lessonId) => {
-    try {
-      const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/lessons/start/`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Token ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ lesson_id: lessonId }),
-      });
 
-      if (response.ok) {
-        const updatedUserData = await response.json();
-        // ✅ FIX: Correctly parse the nested data object.
-        setUser(updatedUserData.data);
-        return { success: true };
-      }
-      return { success: false };
-    } catch (error) {
-      return { success: false, error: error.message };
-    }
-  };
-
-  const completeLesson = async (lessonId) => {
-    try {
-      const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/lessons/complete/`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Token ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ lesson_id: lessonId }),
-      });
-
-      if (response.ok) {
-        const updatedUserData = await response.json();
-        // ✅ FIX: Correctly parse the nested data object.
-        setUser(updatedUserData.data);
-        return { success: true };
-      }
-      return { success: false };
-    } catch (error) {
-      return { success: false, error: error.message };
-    }
-  };
 
   /**
    * Send OTP to user's email for password reset
@@ -266,8 +220,6 @@ export const AuthProvider = ({ children }) => {
     signup,
     logout,
     updateUserProfile,
-    startLesson,
-    completeLesson,
     forgotPassword,
     resetPassword,
     fetchDashboardData,

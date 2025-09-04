@@ -278,50 +278,10 @@ export default function LessonLayout({
   lessonId
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isLessonStarted, setIsLessonStarted] = useState(false);
-  const [lessonSessionData, setLessonSessionData] = useState(null);
   const sidebarRef = useRef(null);
-  const { startLesson, completeLesson, fetchLessonSessionData, isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
 
-  const handleStartLesson = async () => {
-    if (!isAuthenticated) {
-      alert('Please log in to track your lesson progress');
-      return;
-    }
-    
-    try {
-      const result = await startLesson(lessonId);
-      if (result.success) {
-        setIsLessonStarted(true);
-        console.log('Lesson started:', lessonId);
-      } else {
-        alert(result.error || 'Failed to start lesson tracking');
-      }
-    } catch (error) {
-      console.error('Error starting lesson:', error);
-      alert(error.message || 'Error starting lesson tracking');
-    }
-  };
 
-  const handleCompleteLesson = async () => {
-    if (!isAuthenticated) {
-      alert('Please log in to track your lesson progress');
-      return;
-    }
-    
-    try {
-      const result = await completeLesson(lessonId);
-      if (result.success) {
-        setIsLessonStarted(false);
-        console.log('Lesson completed:', lessonId);
-      } else {
-        alert(result.error || 'Failed to complete lesson tracking');
-      }
-    } catch (error) {
-      console.error('Error completing lesson:', error);
-      alert(error.message || 'Error completing lesson tracking');
-    }
-  };
 
   const toggleSidebar = useCallback(() => setIsSidebarOpen(prev => !prev), []);
   const closeSidebar = useCallback(() => setIsSidebarOpen(false), []);
@@ -370,19 +330,7 @@ export default function LessonLayout({
     }
   }, [isSidebarOpen, closeSidebar]);
 
-  useEffect(() => {
-    const loadLessonSessionData = async () => {
-      if (isAuthenticated) {
-        const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-        if (token) {
-          const data = await fetchLessonSessionData(token);
-          setLessonSessionData(data);
-        }
-      }
-    };
 
-    loadLessonSessionData();
-  }, [isAuthenticated, fetchLessonSessionData]);
 
   return (
     <div className={`lesson-layout ${isSidebarOpen ? 'sidebar-open' : ''}`}>
@@ -420,56 +368,6 @@ export default function LessonLayout({
             )}
           <div className="lesson-content">{children}</div>
 
-          {/* Start/Complete Lesson Buttons */}
-          {lessonId && (
-            <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-              {!isLessonStarted ? (
-                <button
-                  onClick={async () => {
-                    const result = await handleStartLesson();
-                    if (result && result.success) {
-                      setIsLessonStarted(true);
-                      // Dispatch event to notify dashboard to refresh
-                      window.dispatchEvent(new Event('lessonProgressUpdated'));
-                    }
-                  }}
-                  style={{
-                    padding: '0.75rem 1.5rem',
-                    backgroundColor: '#2563eb',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '0.375rem',
-                    fontSize: '1rem',
-                    cursor: 'pointer',
-                  }}
-                >
-                  Start Lesson
-                </button>
-              ) : (
-                <button
-                  onClick={async () => {
-                    const result = await handleCompleteLesson();
-                    if (result && result.success) {
-                      setIsLessonStarted(false);
-                      // Dispatch event to notify dashboard to refresh
-                      window.dispatchEvent(new Event('lessonProgressUpdated'));
-                    }
-                  }}
-                  style={{
-                    padding: '0.75rem 1.5rem',
-                    backgroundColor: '#16a34a',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '0.375rem',
-                    fontSize: '1rem',
-                    cursor: 'pointer',
-                  }}
-                >
-                  Complete Lesson
-                </button>
-              )}
-            </div>
-          )}
 
           </div>
         </main>
