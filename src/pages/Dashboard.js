@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   // State management: dashboard data, loading boolean, error string
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -74,8 +77,8 @@ const Dashboard = () => {
       {/* Header Section */}
       <div style={headerStyle}>
         <h2 style={welcomeStyle}>Welcome back, <span style={usernameStyle}>{dashboardData.user.name}</span>!</h2>
-        <button style={viewProfileBtnStyle} onClick={() => window.location.href = '/profile'}>Profile</button>
-        <button style={{...viewProfileBtnStyle, marginLeft: '1rem'}} onClick={() => window.location.href = '/dashboard'}>Dashboard</button>
+        <button style={viewProfileBtnStyle} onClick={() => navigate('/profile')}>Profile</button>
+        <button style={{...viewProfileBtnStyle, marginLeft: '1rem'}} onClick={() => navigate('/dashboard')}>Dashboard</button>
       </div>
 
       {/* Progress Overview Section */}
