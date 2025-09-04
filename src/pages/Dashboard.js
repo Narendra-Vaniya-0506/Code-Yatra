@@ -78,7 +78,6 @@ const Dashboard = () => {
       <div style={headerStyle}>
         <h2 style={welcomeStyle}>Welcome back, <span style={usernameStyle}>{dashboardData.user.name}</span>!</h2>
         <button style={viewProfileBtnStyle} onClick={() => navigate('/profile')}>Profile</button>
-        <button style={{...viewProfileBtnStyle, marginLeft: '1rem'}} onClick={() => navigate('/dashboard')}>Dashboard</button>
       </div>
 
       {/* Progress Overview Section */}
@@ -100,11 +99,7 @@ const Dashboard = () => {
             <div style={statMetricStyle}>{dashboardData.progressSummary.lessonsWatched}</div>
             <div style={statLabelStyle}>Lessons Watched</div>
           </div>
-          <div style={statCardStyle}>
-            <div style={statIconStyle} dangerouslySetInnerHTML={{ __html: progressStatsIcons[3] }} />
-            <div style={statMetricStyle}>{dashboardData.progressSummary.experiencePoints}</div>
-            <div style={statLabelStyle}>Experience Points</div>
-          </div>
+
         </div>
       </section>
 
@@ -150,7 +145,8 @@ const Dashboard = () => {
               <button
                 style={{
                   ...courseBtnStyle,
-                  backgroundColor: course.isLocked ? colors.textSecondary : colors.primary,
+                  background: course.isLocked ? colors.textSecondary : `linear-gradient(135deg, ${colors.primary}, ${colors.primaryEnd})`,
+                  color: colors.textButton,
                   cursor: course.isLocked ? 'not-allowed' : 'pointer'
                 }}
                 disabled={course.isLocked}
@@ -166,11 +162,14 @@ const Dashboard = () => {
 };
 
 const colors = {
-  primary: '#FFD700', // Gold
-  background: '#F7F9FB', // Light background
-  cardBackground: '#FFFFFF', // White cards
-  textPrimary: '#333333',
+  primary: '#43cea2', // Gradient start color from Profile.js
+  primaryEnd: '#185a9d', // Gradient end color from Profile.js
+  background: '#f5f7fa', // Background gradient start from Profile.js
+  backgroundEnd: '#e4ebf0', // Background gradient end from Profile.js
+  cardBackground: '#fff', // White cards from Profile.js
+  textPrimary: '#333333', // Dark text for main content
   textSecondary: '#666666',
+  textButton: '#fff', // White text for buttons
   success: '#4CAF50',
   warning: '#FFC107',
   error: '#ff6b6b',
@@ -179,10 +178,10 @@ const colors = {
 
 // Icon definitions for progress stats
 const progressStatsIcons = [
-  '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
-  '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
-  '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
-  '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>'
+  `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="${colors.primary}" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+  `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="${colors.primary}" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+  `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="${colors.primary}" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+  `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="${colors.primary}" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`
 ];
 
 // Inline CSS styles using React style objects
@@ -191,7 +190,7 @@ const containerStyle = {
   maxWidth: '1200px',
   margin: '0 auto',
   fontFamily: '"Inter", sans-serif',
-  backgroundColor: colors.background,
+  background: `linear-gradient(135deg, ${colors.background}, ${colors.backgroundEnd})`,
   minHeight: '100vh'
 };
 
@@ -281,13 +280,13 @@ const usernameStyle = {
 
 const viewProfileBtnStyle = {
   padding: '0.75rem 1.5rem',
-  backgroundColor: colors.primary,
-  color: colors.textPrimary,
+  background: `linear-gradient(135deg, ${colors.primary}, ${colors.primaryEnd})`,
+  color: colors.textButton,
   border: 'none',
   borderRadius: '8px',
   fontWeight: '600',
   cursor: 'pointer',
-  transition: 'background-color 0.3s ease',
+  transition: 'background 0.3s ease',
   fontSize: '0.95rem'
 };
 
@@ -363,13 +362,13 @@ const continueLessonStyle = {
 
 const continueBtnStyle = {
   padding: '0.75rem 1.5rem',
-  backgroundColor: colors.primary,
-  color: colors.textPrimary,
+  background: `linear-gradient(135deg, ${colors.primary}, ${colors.primaryEnd})`,
+  color: colors.textButton,
   border: 'none',
   borderRadius: '8px',
   fontWeight: '600',
   cursor: 'pointer',
-  transition: 'background-color 0.3s ease',
+  transition: 'background 0.3s ease',
   fontSize: '0.95rem',
   marginTop: '1rem'
 };
@@ -412,13 +411,13 @@ const projectStatusStyle = {
 
 const courseBtnStyle = {
   padding: '0.5rem 1rem',
-  backgroundColor: colors.primary,
-  color: colors.textPrimary,
+  background: `linear-gradient(135deg, ${colors.primary}, ${colors.primaryEnd})`,
+  color: colors.textButton,
   border: 'none',
   borderRadius: '6px',
   fontWeight: '600',
   cursor: 'pointer',
-  transition: 'background-color 0.3s ease',
+  transition: 'background 0.3s ease',
   fontSize: '0.9rem',
   width: '100%'
 };

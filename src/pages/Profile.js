@@ -181,6 +181,31 @@ const Profile = () => {
                         {link.name}
                     </Link>
                 ))}
+                <button
+                    onClick={() => navigate('/dashboard')}
+                    style={{
+                        textDecoration: 'none',
+                        color: '#fff',
+                        background: 'linear-gradient(135deg, #43cea2, #185a9d)',
+                        fontWeight: '600',
+                        padding: '0.75rem 1.5rem',
+                        borderRadius: '8px',
+                        border: 'none',
+                        cursor: 'pointer',
+                        transition: 'background 0.3s ease, transform 0.2s ease',
+                        boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+                    }}
+                    onMouseOver={(e) => {
+                        e.target.style.background = 'linear-gradient(135deg, #3aa189, #144b84)';
+                        e.target.style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseOut={(e) => {
+                        e.target.style.background = 'linear-gradient(135deg, #43cea2, #185a9d)';
+                        e.target.style.transform = 'translateY(0)';
+                    }}
+                >
+                    Dashboard
+                </button>
             </nav>
 
             {/* Personal Information */}
