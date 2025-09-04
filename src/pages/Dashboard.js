@@ -8,36 +8,56 @@ const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
   // API logic: Fetch data from backend
-  useEffect(() => {
-    const fetchDashboardData = async () => {
-      try {
-        const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-        if (!token) {
-          setError('User not authenticated');
-          setLoading(false);
-          return;
-        }
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/dashboard/`, {
-          headers: {
-            'Authorization': `Token ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        if (!response.ok) {
-          throw new Error('Failed to fetch dashboard data');
-        }
-        const data = await response.json();
-        setDashboardData(data.data);
+  const fetchDashboardData = async () => {
+    try {
+      const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+      if (!token) {
+        setError('User not authenticated');
         setLoading(false);
-      } catch (err) {
-        setError('Failed to load dashboard data. Please try again.');
-        setLoading(false);
+        return;
       }
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/dashboard/`, {
+        headers: {
+          'Authorization': `Token ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch dashboard data');
+      }
+      const data = await response.json();
+      setDashboardData(data.data);
+      setLoading(false);
+      setError(null);
+    } catch (err) {
+      setError('Failed to load dashboard data. Please try again.');
+      setLoading(false);
+    }
+  };
+
+  // Function to refresh dashboard data
+  const refreshDashboard = () => {
+    setRefreshTrigger(prev => prev + 1);
+  };
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, [refreshTrigger]);
+
+  // Listen for custom events to refresh dashboard data
+  useEffect(() => {
+    const handleLessonProgressUpdate = () => {
+      refreshDashboard();
     };
 
-    fetchDashboardData();
+    window.addEventListener('lessonProgressUpdated', handleLessonProgressUpdate);
+
+    return () => {
+      window.removeEventListener('lessonProgressUpdated', handleLessonProgressUpdate);
+    };
   }, []);
 
   // Loading state: Display spinner

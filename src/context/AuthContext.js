@@ -66,6 +66,25 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const fetchLessonSessionData = async (token) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/lessons/session-data/`, {
+        headers: {
+          'Authorization': `Token ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) throw new Error('Failed to fetch lesson session data');
+
+      const lessonData = await response.json();
+      return lessonData.data;
+    } catch (error) {
+      console.error('Error fetching lesson session data:', error);
+      return null;
+    }
+  };
+
   const login = async (identifier, password, rememberMe = false) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/login/`, {
@@ -183,9 +202,13 @@ export const AuthProvider = ({ children }) => {
         // ✅ FIX: Correctly parse the nested data object.
         setUser(updatedUserData.data);
         return { success: true };
+      } else {
+        const errorData = await response.json();
+        console.error('Start lesson failed:', response.status, errorData);
+        return { success: false, error: errorData.detail || 'Failed to start lesson' };
       }
-      return { success: false };
     } catch (error) {
+      console.error('Start lesson error:', error);
       return { success: false, error: error.message };
     }
   };
@@ -207,9 +230,13 @@ export const AuthProvider = ({ children }) => {
         // ✅ FIX: Correctly parse the nested data object.
         setUser(updatedUserData.data);
         return { success: true };
+      } else {
+        const errorData = await response.json();
+        console.error('Complete lesson failed:', response.status, errorData);
+        return { success: false, error: errorData.detail || 'Failed to complete lesson' };
       }
-      return { success: false };
     } catch (error) {
+      console.error('Complete lesson error:', error);
       return { success: false, error: error.message };
     }
   };
@@ -271,6 +298,7 @@ export const AuthProvider = ({ children }) => {
     forgotPassword,
     resetPassword,
     fetchDashboardData,
+    fetchLessonSessionData,
     isAuthenticated: !!user,
   };
 

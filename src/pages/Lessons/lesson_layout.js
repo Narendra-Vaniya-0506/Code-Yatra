@@ -279,8 +279,9 @@ export default function LessonLayout({
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLessonStarted, setIsLessonStarted] = useState(false);
+  const [lessonSessionData, setLessonSessionData] = useState(null);
   const sidebarRef = useRef(null);
-  const { startLesson, completeLesson, isAuthenticated } = useAuth();
+  const { startLesson, completeLesson, fetchLessonSessionData, isAuthenticated } = useAuth();
 
   const handleStartLesson = async () => {
     if (!isAuthenticated) {
@@ -294,11 +295,11 @@ export default function LessonLayout({
         setIsLessonStarted(true);
         console.log('Lesson started:', lessonId);
       } else {
-        alert('Failed to start lesson tracking');
+        alert(result.error || 'Failed to start lesson tracking');
       }
     } catch (error) {
       console.error('Error starting lesson:', error);
-      alert('Error starting lesson tracking');
+      alert(error.message || 'Error starting lesson tracking');
     }
   };
 
@@ -314,11 +315,11 @@ export default function LessonLayout({
         setIsLessonStarted(false);
         console.log('Lesson completed:', lessonId);
       } else {
-        alert('Failed to complete lesson tracking');
+        alert(result.error || 'Failed to complete lesson tracking');
       }
     } catch (error) {
       console.error('Error completing lesson:', error);
-      alert('Error completing lesson tracking');
+      alert(error.message || 'Error completing lesson tracking');
     }
   };
 
@@ -336,13 +337,13 @@ export default function LessonLayout({
 
     if (isSidebarOpen) {
       document.body.classList.add('no-scroll');
-      
+
       // Add click event listeners to all anchor tags in the sidebar
       const sidebarLinks = sidebarRef.current?.querySelectorAll('a');
       const handleLinkClick = () => {
         closeSidebar();
       };
-      
+
       if (sidebarLinks) {
         sidebarLinks.forEach(link => {
           link.addEventListener('click', handleLinkClick);
@@ -353,7 +354,7 @@ export default function LessonLayout({
       return () => {
         document.removeEventListener('keydown', handleEscape);
         document.body.classList.remove('no-scroll');
-        
+
         // Remove click event listeners from sidebar links
         if (sidebarLinks) {
           sidebarLinks.forEach(link => {
@@ -368,6 +369,20 @@ export default function LessonLayout({
       };
     }
   }, [isSidebarOpen, closeSidebar]);
+
+  useEffect(() => {
+    const loadLessonSessionData = async () => {
+      if (isAuthenticated) {
+        const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+        if (token) {
+          const data = await fetchLessonSessionData(token);
+          setLessonSessionData(data);
+        }
+      }
+    };
+
+    loadLessonSessionData();
+  }, [isAuthenticated, fetchLessonSessionData]);
 
   return (
     <div className={`lesson-layout ${isSidebarOpen ? 'sidebar-open' : ''}`}>
@@ -410,7 +425,14 @@ export default function LessonLayout({
             <div style={{ marginTop: '2rem', textAlign: 'center' }}>
               {!isLessonStarted ? (
                 <button
-                  onClick={handleStartLesson}
+                  onClick={async () => {
+                    const result = await handleStartLesson();
+                    if (result && result.success) {
+                      setIsLessonStarted(true);
+                      // Dispatch event to notify dashboard to refresh
+                      window.dispatchEvent(new Event('lessonProgressUpdated'));
+                    }
+                  }}
                   style={{
                     padding: '0.75rem 1.5rem',
                     backgroundColor: '#2563eb',
@@ -425,7 +447,14 @@ export default function LessonLayout({
                 </button>
               ) : (
                 <button
-                  onClick={handleCompleteLesson}
+                  onClick={async () => {
+                    const result = await handleCompleteLesson();
+                    if (result && result.success) {
+                      setIsLessonStarted(false);
+                      // Dispatch event to notify dashboard to refresh
+                      window.dispatchEvent(new Event('lessonProgressUpdated'));
+                    }
+                  }}
                   style={{
                     padding: '0.75rem 1.5rem',
                     backgroundColor: '#16a34a',
