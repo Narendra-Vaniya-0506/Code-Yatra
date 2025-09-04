@@ -198,14 +198,25 @@ export const AuthProvider = ({ children }) => {
       });
 
       if (response.ok) {
-        const updatedUserData = await response.json();
-        // ✅ FIX: Correctly parse the nested data object.
-        setUser(updatedUserData.data);
-        return { success: true };
+        try {
+          const updatedUserData = await response.json();
+          setUser(updatedUserData.data);
+          return { success: true };
+        } catch (jsonError) {
+          const text = await response.text();
+          console.error('Failed to parse JSON response:', jsonError, 'Response text:', text);
+          return { success: false, error: 'Invalid JSON response from server' };
+        }
       } else {
-        const errorData = await response.json();
-        console.error('Start lesson failed:', response.status, errorData);
-        return { success: false, error: errorData.detail || 'Failed to start lesson' };
+        try {
+          const errorData = await response.json();
+          console.error('Start lesson failed:', response.status, errorData);
+          return { success: false, error: errorData.detail || 'Failed to start lesson' };
+        } catch (jsonError) {
+          const text = await response.text();
+          console.error('Failed to parse error JSON:', jsonError, 'Response text:', text);
+          return { success: false, error: 'Invalid error response from server' };
+        }
       }
     } catch (error) {
       console.error('Start lesson error:', error);
