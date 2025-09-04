@@ -66,25 +66,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const fetchLessonSessionData = async (token) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/lessons/session-data/`, {
-        headers: {
-          'Authorization': `Token ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (!response.ok) throw new Error('Failed to fetch lesson session data');
-
-      const lessonData = await response.json();
-      return lessonData.data;
-    } catch (error) {
-      console.error('Error fetching lesson session data:', error);
-      return null;
-    }
-  };
-
   const login = async (identifier, password, rememberMe = false) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/login/`, {
@@ -197,32 +178,14 @@ export const AuthProvider = ({ children }) => {
         body: JSON.stringify({ lesson_id: lessonId }),
       });
 
-      const text = await response.text();
-
       if (response.ok) {
-        try {
-          const updatedUserData = JSON.parse(text);
-          setUser(updatedUserData.data);
-          return { success: true };
-        } catch (jsonError) {
-          console.error('Failed to parse JSON response:', jsonError, 'Response text:', text);
-          return { success: false, error: 'Invalid JSON response from server' };
-        }
-      } else {
-        try {
-          const errorData = JSON.parse(text);
-          console.error('Start lesson failed:', response.status, errorData);
-          // Log full error data for debugging
-          console.error('Full error response:', errorData);
-          return { success: false, error: errorData.detail || 'Failed to start lesson' };
-        } catch (jsonError) {
-          console.error('Failed to parse error JSON:', jsonError, 'Response text:', text);
-          // Return raw response text if available for better error info
-          return { success: false, error: text || 'Invalid error response from server' };
-        }
+        const updatedUserData = await response.json();
+        // ✅ FIX: Correctly parse the nested data object.
+        setUser(updatedUserData.data);
+        return { success: true };
       }
+      return { success: false };
     } catch (error) {
-      console.error('Start lesson error:', error);
       return { success: false, error: error.message };
     }
   };
@@ -244,13 +207,9 @@ export const AuthProvider = ({ children }) => {
         // ✅ FIX: Correctly parse the nested data object.
         setUser(updatedUserData.data);
         return { success: true };
-      } else {
-        const errorData = await response.json();
-        console.error('Complete lesson failed:', response.status, errorData);
-        return { success: false, error: errorData.detail || 'Failed to complete lesson' };
       }
+      return { success: false };
     } catch (error) {
-      console.error('Complete lesson error:', error);
       return { success: false, error: error.message };
     }
   };
@@ -312,7 +271,6 @@ export const AuthProvider = ({ children }) => {
     forgotPassword,
     resetPassword,
     fetchDashboardData,
-    fetchLessonSessionData,
     isAuthenticated: !!user,
   };
 
