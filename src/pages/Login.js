@@ -39,7 +39,7 @@ export default function Login() {
       const result = await login(identifier, password, rememberMe);
       
       if (result.success) {
-        navigate("/dashboard", { replace: true });
+        navigate("/profile", { replace: true });
       } else {
         setError(result.error || "Invalid credentials. Please try again.");
       }
