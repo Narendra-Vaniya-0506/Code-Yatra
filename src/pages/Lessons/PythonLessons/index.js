@@ -138,16 +138,16 @@ export default function PythonLessons() {
       <div className="lesson-section">
         <button
           className={`lesson-section-toggle ${
-            openSections.dataTypes ? "open" : ""
+            openSections.foundations ? "open" : ""
           }`}
-          onClick={() => toggleSection("Python Foundations")}
-          aria-expanded={openSections.dataTypes}
+          onClick={() => toggleSection("foundations")}
+          aria-expanded={openSections.foundations}
         >
           Python Foundations (Beginner)
         </button>
         <ul
           className="lesson-sublist"
-          style={{ maxHeight: openSections.dataTypes ? "500px" : "0" }}
+          style={{ maxHeight: openSections.foundations ? "500px" : "0" }}
         >
         </ul>
       </div>
