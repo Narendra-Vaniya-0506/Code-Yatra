@@ -149,6 +149,102 @@ export default function PythonLessons() {
           className="lesson-sublist"
           style={{ maxHeight: openSections.foundations ? "500px" : "0" }}
         >
+          <li>
+            <a
+              href="#syntax-indentation"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("syntax-indentation");
+              }}
+              className={activeContent === "syntax-indentation" ? "active" : ""}
+            >
+              Syntax & Indentation
+            </a>
+          </li>
+          <li>
+            <a
+              href="#variables-naming"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("variables-naming");
+              }}
+              className={activeContent === "variables-naming" ? "active" : ""}
+            >
+              Variables & Naming Conventions
+            </a>
+          </li>
+          <li>
+            <a
+              href="#data-types"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("data-types");
+              }}
+              className={activeContent === "data-types" ? "active" : ""}
+            >
+              Data Types
+            </a>
+          </li>
+          <li>
+            <a
+              href="#string-operations"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("string-operations");
+              }}
+              className={activeContent === "string-operations" ? "active" : ""}
+            >
+              String Operations
+            </a>
+          </li>
+          <li>
+            <a
+              href="#input-output"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("input-output");
+              }}
+              className={activeContent === "input-output" ? "active" : ""}
+            >
+              Input & Output
+            </a>
+          </li>
+          <li>
+            <a
+              href="#type-casting"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("type-casting");
+              }}
+              className={activeContent === "type-casting" ? "active" : ""}
+            >
+              Type Casting
+            </a>
+          </li>
+          <li>
+            <a
+              href="#operators"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("operators");
+              }}
+              className={activeContent === "operators" ? "active" : ""}
+            >
+              Operators
+            </a>
+          </li>
+          <li>
+            <a
+              href="#calculator-project"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("calculator-project");
+              }}
+              className={activeContent === "calculator-project" ? "active" : ""}
+            >
+              Project: Simple Calculator
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
