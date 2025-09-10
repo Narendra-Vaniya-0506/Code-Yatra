@@ -1790,7 +1790,7 @@ if age > 18:
               whiteSpace: 'pre-wrap'
             }}>{`age = 20
 
-if age {'>'} 18:
+if age > 18:
 
 print("You are an adult.")`}</pre>
             <button onClick={() => copyCode(`age = 20\n\nif age > 18:\n\nprint("You are an adult.")`)} style={{
@@ -1856,11 +1856,146 @@ print("You are an adult.")`}</pre>
             paddingBottom: '0.5rem',
             borderBottom: '3px solid #4299e1'
           }}>Variables & Naming Conventions</h2>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>1. What is a Variable?</h3>
           <p style={{
             marginBottom: '1rem',
             fontSize: '1.1rem',
             color: '#4a5568'
-          }}>Content coming soon...</p>
+          }}>A variable is a fundamental concept in programming. Think of it as a labeled container or a box where you can store data. You give the container a name, and you can put information inside it. This information can be used, accessed, or changed later in your program.</p>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Analogy:</b> A variable is like a contact in your phone. The name of the contact is the variable's name (e.g., "John Doe"), and the phone number is the value stored in it (e.g., "9876543210").</li>
+          </ul>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>2. How to Create (Declare) a Variable</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>In Python, creating a variable is simple. You just need to choose a name and assign a value to it using the equals sign (=).</p>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}><b>Syntax:</b> variable_name = value</p>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}><b>Examples:</b></p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}># A variable 'name' storing text (string)<br/>name = "CODE YATRA"<br/><br/># A variable 'age' storing a whole number (integer)<br/>age = 25<br/><br/># A variable 'price' storing a decimal number (float)<br/>price = 99.95<br/><br/># A variable 'is_learning' storing a true/false value (boolean)<br/>is_learning = True</pre>
+            <button onClick={() => copyCode('# A variable \'name\' storing text (string)\nname = "CODE YATRA"\n\n# A variable \'age\' storing a whole number (integer)\nage = 25\n\n# A variable \'price\' storing a decimal number (float)\nprice = 99.95\n\n# A variable \'is_learning\' storing a true/false value (boolean)\nis_learning = True')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}><b>Dynamic Typing:</b> Python is a dynamically typed language. This means you don't have to explicitly declare the data type of a variable. Python automatically figures out the type based on the value you assign.</p>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>3. Naming Rules (The "Must-Follow" Rules)</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Python has strict rules for naming variables. If you break these rules, you will get a SyntaxError.</p>
+          <ol style={{
+            listStyleType: 'decimal',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Start with a Letter or Underscore:</b> A variable name must begin with a letter (a-z, A-Z) or an underscore (_). <code>_my_var</code> (Correct) <code>my_var</code> (Correct) <code>9my_var</code> (Incorrect)</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Allowed Characters:</b> A variable name can only contain letters, numbers, and underscores (A-z, 0-9, and _). <code>user_name_1</code> (Correct) <code>user-name</code> (Incorrect, uses a hyphen)</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Case-Sensitive:</b> Variable names are case-sensitive. <code>age</code>, <code>Age</code>, and <code>AGE</code> are three different variables.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>No Keywords:</b> You cannot use Python's reserved keywords as variable names. Keywords are words that have a special meaning in Python, like <code>if</code>, <code>for</code>, <code>def</code>, <code>class</code>, <code>else</code>, etc.</li>
+          </ol>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>4. Naming Conventions (The "Should-Follow" Best Practices)</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>These are not strict rules but are strongly recommended for writing clean, readable, and professional code.</p>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Use snake_case:</b> This is the most common convention in the Python community. Write variable names in all lowercase letters, separating words with underscores. <code>first_name</code>, <code>user_email_address</code>, <code>total_price</code> (Good) <code>firstname</code>, <code>userEmailAddress</code>, <code>TotalPrice</code> (Bad)</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Be Descriptive:</b> Choose names that clearly describe the data they hold. This makes your code much easier to understand for yourself and others. <code>user_name = "Alice"</code> (Good) <code>un = "Alice"</code> or <code>x = "Alice"</code> (Bad)</li>
+          </ul>
         </div>
       )}
 
@@ -1884,11 +2019,285 @@ print("You are an adult.")`}</pre>
             paddingBottom: '0.5rem',
             borderBottom: '3px solid #4299e1'
           }}>Data Types</h2>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>What are Data Types?</h3>
           <p style={{
             marginBottom: '1rem',
             fontSize: '1.1rem',
             color: '#4a5568'
-          }}>Content coming soon...</p>
+          }}>In Python, every value has a data type. Data types are classifications that tell the computer what kind of data a variable is holding. This is important because the data type determines what kind of operations you can perform on that data.</p>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Analogy:</b> Think of data types like different kinds of containers. You use a bottle for water (a liquid), a box for toys (solid objects), and a folder for documents (papers). Each container is designed for a specific type of item.</li>
+          </ul>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Common Python Data Types</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Python has several built-in data types. Here are the most fundamental ones.</p>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Numeric Types</h4>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>These types are used to store numerical values.</p>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Integer (int):</b> Represents positive or negative whole numbers without any decimal points.</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>age = 28<br/>score = -150</pre>
+              <button onClick={() => copyCode('age = 28\nscore = -150')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Float (float):</b> Represents numbers that have a decimal point. They are used for values that require precision.</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>price = 499.99<br/>pi_value = 3.14159</pre>
+              <button onClick={() => copyCode('price = 499.99\npi_value = 3.14159')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Complex (complex):</b> Represents numbers with a real and an imaginary part (e.g., a + bj). These are mainly used in scientific and mathematical applications.</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>complex_number = 5 + 6j</pre>
+              <button onClick={() => copyCode('complex_number = 5 + 6j')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+          </ul>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Text Type</h4>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>String (str):</b> A sequence of characters used to store text. Strings must be enclosed in either single quotes ('...') or double quotes ("...").</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>user_name = "CodeYatra"<br/>message = 'Python is fun!'</pre>
+              <button onClick={() => copyCode('user_name = "CodeYatra"\nmessage = \'Python is fun!\'')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+          </ul>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Boolean Type</h4>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Boolean (bool):</b> Represents one of two possible values: True or False. Booleans are crucial for conditional logic and making decisions in your code.</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>is_active = True<br/>game_over = False</pre>
+              <button onClick={() => copyCode('is_active = True\ngame_over = False')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+          </ul>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>None Type</h4>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>NoneType (None):</b> A special data type that represents the absence of a value. If a variable has no value assigned to it yet, you can assign None as a placeholder. There is only one None value.</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>winner = None</pre>
+              <button onClick={() => copyCode('winner = None')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+          </ul>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>How to Check a Variable's Type</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>You can easily check the data type of any variable using Python's built-in type() function.</p>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}><b>Example:</b></p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>{`user_name = "CODE YATRA"\nscore = 100\nis_learning = True\n\nprint(type(user_name))    # Output: <class 'str'>\nprint(type(score))        \n# Output: <class 'int'>\nprint(type(is_learning))  # Output: <class 'bool'>`}</pre>
+            <button onClick={() => copyCode('user_name = "CODE YATRA"\nscore = 100\nis_learning = True\n\nprint(type(user_name))    # Output: <class \'str\'>\nprint(type(score))        \n# Output: <class \'int\'>\nprint(type(is_learning))  # Output: <class \'bool\'>')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
         </div>
       )}
 
