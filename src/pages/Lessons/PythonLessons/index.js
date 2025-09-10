@@ -1912,7 +1912,8 @@ print("You are an adult.")`}</pre>
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}># A variable 'name' storing text (string)<br/>name = "CODE YATRA"<br/><br/># A variable 'age' storing a whole number (integer)<br/>age = 25<br/><br/># A variable 'price' storing a decimal number (float)<br/>price = 99.95<br/><br/># A variable 'is_learning' storing a true/false value (boolean)<br/>is_learning = True</pre>
             <button onClick={() => copyCode('# A variable \'name\' storing text (string)\nname = "CODE YATRA"\n\n# A variable \'age\' storing a whole number (integer)\nage = 25\n\n# A variable \'price\' storing a decimal number (float)\nprice = 99.95\n\n# A variable \'is_learning\' storing a true/false value (boolean)\nis_learning = True')} style={{
               position: 'absolute',
@@ -2284,7 +2285,7 @@ print("You are an adult.")`}</pre>
               fontFamily: 'monospace',
               overflowX: 'auto',
               margin: '0'
-            }}>{`user_name = "CODE YATRA"\nscore = 100\nis_learning = True\n\nprint(type(user_name))    # Output: <class 'str'>\nprint(type(score))        \n# Output: <class 'int'>\nprint(type(is_learning))  # Output: <class 'bool'>`}</pre>
+            }}>{`user_name = "CODE YATRA"\nscore = 100\nis_learning = True\n\nprint(type(user_name))    # Output: <class 'str'>\nprint(type(score))        # Output: <class 'int'>\nprint(type(is_learning))  # Output: <class 'bool'>`}</pre>
             <button onClick={() => copyCode('user_name = "CODE YATRA"\nscore = 100\nis_learning = True\n\nprint(type(user_name))    # Output: <class \'str\'>\nprint(type(score))        \n# Output: <class \'int\'>\nprint(type(is_learning))  # Output: <class \'bool\'>')} style={{
               position: 'absolute',
               top: '6px',
