@@ -665,23 +665,887 @@ export default function PythonLessons() {
       
 
       {activeContent === "first-program" && (
-        <div id="first-program">
-          <h2>Running Your First Program</h2>
-          <p>Content coming soon...</p>
+        <div id="first-program" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Running Your First Program</h2>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>What "Hello, World!" is (and why it matters)</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>It&apos;s the simplest program that prints a small message. The goal isn&apos;t to be fancy—it&apos;s to prove:</p>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Python is installed correctly,</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>your editor is set up,</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>you know how to run code.</li>
+          </ul>
+          <p style={{
+            marginBottom: '1.5rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Once this works, everything else becomes easier.</p>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Make sure Python is installed</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Open your terminal and try these (you only need one to work)</p>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Windows (CMD/PowerShell):</h4>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>
+              <div style={{position: 'relative', margin: '1rem 0'}}>
+                <pre style={{
+                  background: '#1a202c',
+                  color: '#f8f8f2',
+                  padding: '0.75rem 1rem',
+                  borderRadius: '6px',
+                  fontFamily: 'monospace',
+                  overflowX: 'auto',
+                  margin: '0'
+                }}>py -V</pre>
+                <button onClick={() => copyCode('py -V')} style={{
+                  position: 'absolute',
+                  top: '6px',
+                  right: '6px',
+                  background: '#2d3748',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '4px',
+                  padding: '4px 8px',
+                  cursor: 'pointer',
+                  fontSize: '0.8rem'
+                }}>Copy</button>
+              </div>
+            </li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>
+              <div style={{position: 'relative', margin: '1rem 0'}}>
+                <pre style={{
+                  background: '#1a202c',
+                  color: '#f8f8f2',
+                  padding: '0.75rem 1rem',
+                  borderRadius: '6px',
+                  fontFamily: 'monospace',
+                  overflowX: 'auto',
+                  margin: '0'
+                }}>python --version</pre>
+                <button onClick={() => copyCode('python --version')} style={{
+                  position: 'absolute',
+                  top: '6px',
+                  right: '6px',
+                  background: '#2d3748',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '4px',
+                  padding: '4px 8px',
+                  cursor: 'pointer',
+                  fontSize: '0.8rem'
+                }}>Copy</button>
+              </div>
+            </li>
+          </ul>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>macOS / Linux (Terminal):</h4>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>
+              <div style={{position: 'relative', margin: '1rem 0'}}>
+                <pre style={{
+                  background: '#1a202c',
+                  color: '#f8f8f2',
+                  padding: '0.75rem 1rem',
+                  borderRadius: '6px',
+                  fontFamily: 'monospace',
+                  overflowX: 'auto',
+                  margin: '0'
+                }}>python3 --version</pre>
+                <button onClick={() => copyCode('python3 --version')} style={{
+                  position: 'absolute',
+                  top: '6px',
+                  right: '6px',
+                  background: '#2d3748',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '4px',
+                  padding: '4px 8px',
+                  cursor: 'pointer',
+                  fontSize: '0.8rem'
+                }}>Copy</button>
+              </div>
+            </li>
+          </ul>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Four ways to run Python</h3>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.25rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #4299e1'
+          }}>A) Interactive Prompt (REPL)</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Type python (or py / python3) in your terminal to open the prompt, then:</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>print("Hello, World!")</pre>
+            <button onClick={() => copyCode('print("Hello, World!")')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+          <p style={{
+            marginBottom: '1.5rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Great for quick tests.</p>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.25rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #4299e1'
+          }}>B) As a script (.py file)</h3>
+          <ol style={{
+            listStyleType: 'decimal',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Create a file named hello.py with:</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>print("Hello, World!")</pre>
+              <button onClick={() => copyCode('print("Hello, World!")')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Run it:</li>
+            <p style={{
+              marginBottom: '0.5rem',
+              fontSize: '1.1rem',
+              color: '#4a5568',
+              paddingLeft: '2rem'
+            }}>Windows:</p>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>py hello.py<br/># or: python hello.py</pre>
+              <button onClick={() => copyCode('py hello.py\n# or: python hello.py')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+            <p style={{
+              marginBottom: '0.5rem',
+              fontSize: '1.1rem',
+              color: '#4a5568',
+              paddingLeft: '2rem'
+            }}>macOS/Linux:</p>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0'
+              }}>python3 hello.py</pre>
+              <button onClick={() => copyCode('python3 hello.py')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+          </ol>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.25rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #4299e1'
+          }}>C) Inside an IDE (VS Code / PyCharm)</h3>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Create hello.py, paste the print line, click Run.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>IDEs show output in an output panel and manage the Python interpreter for you.</li>
+          </ul>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.25rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #4299e1'
+          }}>D) In Jupyter Notebook</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Great for learning and data work.</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>pip install notebook</pre>
+            <button onClick={() => copyCode('pip install notebook')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>jupyter notebook</pre>
+            <button onClick={() => copyCode('jupyter notebook')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Create a new notebook and run:</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>print("Hello, World!")</pre>
+            <button onClick={() => copyCode('print("Hello, World!")')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
         </div>
       )}
 
       {activeContent === "Comments" && (
-        <div id="Comments">
-          <h2>Comments & Documentation</h2>
-          <p>Content coming soon...</p>
+        <div id="Comments" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Comments & Documentation</h2>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>What are Comments?</h3>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Comments are text inside your code that Python ignores.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>They are written for humans, not computers.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Purpose: explain what the code does, why you wrote it, or leave notes for yourself/others.</li>
+          </ul>
+          <p style={{
+            marginBottom: '1.5rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Think of comments as &ldquo;sticky notes&rdquo; on your code.</p>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Types of Comments in Python</h3>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Single-line Comment</h4>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Start with # &mdash; everything after it on the same line is ignored.</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}># This is a single-line comment<br/>print("Hello World")  # This prints a message</pre>
+            <button onClick={() => copyCode('# This is a single-line comment\nprint("Hello World")  # This prints a message')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Multi-line Comment (unofficial way)</h4>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Python doesn&apos;t have a &ldquo;true&rdquo; multi-line comment.</p>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Common practice: use # on each line.</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}># This program prints a greeting<br/># It was written as a beginner exercise<br/>print("Hello Python")</pre>
+            <button onClick={() => copyCode('# This program prints a greeting\n# It was written as a beginner exercise\nprint("Hello Python")')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Another trick: use triple quotes (&ldquo;&rdquo;&rdquo; or &apos;&apos;&apos;).</p>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>These are technically strings, but if not assigned to a variable, Python ignores them.</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>"""<br/>This is a multi-line comment<br/>using triple quotes<br/>"""<br/>print("Python is fun")</pre>
+            <button onClick={() => copyCode('"""\nThis is a multi-line comment\nusing triple quotes\n"""\nprint("Python is fun")')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Why Are Comments Important?</h3>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Help beginners understand code logic.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Make teamwork easier &mdash; others can read your code.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Future-you will thank present-you.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Good practice for professional coding standards.</li>
+          </ul>
         </div>
       )}
 
       {activeContent === "Project" && (
-        <div id="Project">
-          <h2>Project</h2>
-          <p>Content coming soon...</p>
+        <div id="Project" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Project</h2>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Goal</h3>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Display a welcome message.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Ask the user to enter their name.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Print a personalized greeting.</li>
+          </ul>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>This project teaches you:</h3>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>How to use print()</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>How to use input()</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>How to join text with variables</li>
+          </ul>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Step 1: Create a new Python file</h3>
+          <ol style={{
+            listStyleType: 'decimal',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Open your IDE (VS Code, PyCharm, or even Notepad).</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Create a file named greet.py.</li>
+          </ol>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Step 2: Write the code</h3>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}># Simple Hello World Greeting Program<br/># Display a welcome message<br/>print("Welcome to Python!")<br/># Ask the user for their name<br/>name = input("What is your name? ")<br/># Print a personalized greeting<br/>print("Hello,", name, "! Nice to meet you.")</pre>
+            <button onClick={() => copyCode('# Simple Hello World Greeting Program\n# Display a welcome message\nprint("Welcome to Python!")\n# Ask the user for their name\nname = input("What is your name? ")\n# Print a personalized greeting\nprint("Hello,", name, "! Nice to meet you.")')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>Step 3: Run the program</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>• Windows: open terminal and type:</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>py greet.py</pre>
+            <button onClick={() => copyCode('py greet.py')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>macOS/Linux:</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>python3 greet.py</pre>
+            <button onClick={() => copyCode('python3 greet.py')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>You&apos;ll see:</p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0'
+            }}>Welcome to Python!<br/>What is your name? BABA<br/>Hello, BABA! Nice to meet you.</pre>
+            <button onClick={() => copyCode('Welcome to Python!\nWhat is your name? BABA\nHello, BABA! Nice to meet you.')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>How it Works</h3>
+          <ol style={{
+            listStyleType: 'decimal',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>print("Welcome to Python!") &rarr; prints text.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>name = input("What is your name? ") &rarr; waits for the user to type something. That value is stored in the variable name.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>print("Hello,", name, "! Nice to meet you.") &rarr; combines text with the variable name and prints the final message.</li>
+          </ol>
         </div>
       )}
 
