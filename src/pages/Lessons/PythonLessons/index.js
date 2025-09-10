@@ -117,7 +117,7 @@ export default function PythonLessons() {
               }}
               className={activeContent === "Comments" ? "active" : ""}
             >
-              Comments & Documentation
+              Comments
             </a>
           </li>
           <li>
@@ -140,10 +140,10 @@ export default function PythonLessons() {
           className={`lesson-section-toggle ${
             openSections.dataTypes ? "open" : ""
           }`}
-          onClick={() => toggleSection("dataTypes")}
+          onClick={() => toggleSection("Python Foundations")}
           aria-expanded={openSections.dataTypes}
         >
-          Data Types & Operators
+          Python Foundations (Beginner)
         </button>
         <ul
           className="lesson-sublist"
@@ -1123,7 +1123,7 @@ export default function PythonLessons() {
             marginBottom: '1.5rem',
             paddingBottom: '0.5rem',
             borderBottom: '3px solid #4299e1'
-          }}>Comments & Documentation</h2>
+          }}>Comments</h2>
 
           <h3 style={{
             color: '#4a5568',
@@ -1335,14 +1335,6 @@ export default function PythonLessons() {
               marginBottom: '0.5rem',
               paddingLeft: '0.5rem'
             }}>Display a welcome message.</li>
-            <li style={{
-              marginBottom: '0.5rem',
-              paddingLeft: '0.5rem'
-            }}>Ask the user to enter their name.</li>
-            <li style={{
-              marginBottom: '0.5rem',
-              paddingLeft: '0.5rem'
-            }}>Print a personalized greeting.</li>
           </ul>
 
           <h3 style={{
@@ -1362,14 +1354,6 @@ export default function PythonLessons() {
               marginBottom: '0.5rem',
               paddingLeft: '0.5rem'
             }}>How to use print()</li>
-            <li style={{
-              marginBottom: '0.5rem',
-              paddingLeft: '0.5rem'
-            }}>How to use input()</li>
-            <li style={{
-              marginBottom: '0.5rem',
-              paddingLeft: '0.5rem'
-            }}>How to join text with variables</li>
           </ul>
 
           <h3 style={{
@@ -1392,7 +1376,7 @@ export default function PythonLessons() {
             <li style={{
               marginBottom: '0.5rem',
               paddingLeft: '0.5rem'
-            }}>Create a file named greet.py.</li>
+            }}>Create a file named Welcome.py.</li>
           </ol>
 
           <h3 style={{
@@ -1412,8 +1396,8 @@ export default function PythonLessons() {
               fontFamily: 'monospace',
               overflowX: 'auto',
               margin: '0'
-            }}># Simple Hello World Greeting Program<br/># Display a welcome message<br/>print("Welcome to Python!")<br/># Ask the user for their name<br/>name = input("What is your name? ")<br/># Print a personalized greeting<br/>print("Hello,", name, "! Nice to meet you.")</pre>
-            <button onClick={() => copyCode('# Simple Hello World Greeting Program\n# Display a welcome message\nprint("Welcome to Python!")\n# Ask the user for their name\nname = input("What is your name? ")\n# Print a personalized greeting\nprint("Hello,", name, "! Nice to meet you.")')} style={{
+            }}># Simple Hello World Welcome Program<br/># Display a welcome message<br/>print("Welcome to Python!")</pre>
+            <button onClick={() => copyCode('# Simple Hello World Greeting Program\n# Display a welcome message\nprint("Welcome to Python!")')} style={{
               position: 'absolute',
               top: '6px',
               right: '6px',
@@ -1505,8 +1489,8 @@ export default function PythonLessons() {
               fontFamily: 'monospace',
               overflowX: 'auto',
               margin: '0'
-            }}>Welcome to Python!<br/>What is your name? BABA<br/>Hello, BABA! Nice to meet you.</pre>
-            <button onClick={() => copyCode('Welcome to Python!\nWhat is your name? BABA\nHello, BABA! Nice to meet you.')} style={{
+            }}>Welcome to Python!</pre>
+            <button onClick={() => copyCode('Welcome to Python!')} style={{
               position: 'absolute',
               top: '6px',
               right: '6px',
@@ -1537,14 +1521,6 @@ export default function PythonLessons() {
               marginBottom: '0.5rem',
               paddingLeft: '0.5rem'
             }}>print("Welcome to Python!") &rarr; prints text.</li>
-            <li style={{
-              marginBottom: '0.5rem',
-              paddingLeft: '0.5rem'
-            }}>name = input("What is your name? ") &rarr; waits for the user to type something. That value is stored in the variable name.</li>
-            <li style={{
-              marginBottom: '0.5rem',
-              paddingLeft: '0.5rem'
-            }}>print("Hello,", name, "! Nice to meet you.") &rarr; combines text with the variable name and prints the final message.</li>
           </ol>
         </div>
       )}
