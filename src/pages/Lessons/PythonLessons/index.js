@@ -1397,7 +1397,7 @@ export default function PythonLessons() {
               overflowX: 'auto',
               margin: '0'
             }}># Simple Hello World Welcome Program<br/># Display a welcome message<br/>print("Welcome to Python!")</pre>
-            <button onClick={() => copyCode('# Simple Hello World Greeting Program\n# Display a welcome message\nprint("Welcome to Python!")')} style={{
+            <button onClick={() => copyCode('# Simple Hello World welcome Program\n# Display a welcome message\nprint("Welcome to Python!")')} style={{
               position: 'absolute',
               top: '6px',
               right: '6px',
@@ -1433,8 +1433,8 @@ export default function PythonLessons() {
               fontFamily: 'monospace',
               overflowX: 'auto',
               margin: '0'
-            }}>py greet.py</pre>
-            <button onClick={() => copyCode('py greet.py')} style={{
+            }}>py Welcome.py</pre>
+            <button onClick={() => copyCode('py Welcome.py')} style={{
               position: 'absolute',
               top: '6px',
               right: '6px',
@@ -1461,8 +1461,8 @@ export default function PythonLessons() {
               fontFamily: 'monospace',
               overflowX: 'auto',
               margin: '0'
-            }}>python3 greet.py</pre>
-            <button onClick={() => copyCode('python3 greet.py')} style={{
+            }}>python3 Welcome.py</pre>
+            <button onClick={() => copyCode('python3 Welcome.py')} style={{
               position: 'absolute',
               top: '6px',
               right: '6px',
@@ -1522,6 +1522,230 @@ export default function PythonLessons() {
               paddingLeft: '0.5rem'
             }}>print("Welcome to Python!") &rarr; prints text.</li>
           </ol>
+        </div>
+      )}
+
+      {activeContent === "syntax-indentation" && (
+        <div id="syntax-indentation" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Syntax & Indentation</h2>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "variables-naming" && (
+        <div id="variables-naming" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Variables & Naming Conventions</h2>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "data-types" && (
+        <div id="data-types" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Data Types</h2>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "string-operations" && (
+        <div id="string-operations" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>String Operations</h2>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "input-output" && (
+        <div id="input-output" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Input & Output</h2>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "type-casting" && (
+        <div id="type-casting" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Type Casting</h2>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "operators" && (
+        <div id="operators" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Operators</h2>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Content coming soon...</p>
+        </div>
+      )}
+
+      {activeContent === "calculator-project" && (
+        <div id="calculator-project" style={{
+          backgroundColor: '#f8f9fa',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e9ecef',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          margin: '2rem 0',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          lineHeight: '1.6',
+          color: '#2d3748'
+        }}>
+          <h2 style={{
+            color: '#2d3748',
+            fontSize: '2rem',
+            fontWeight: '700',
+            marginBottom: '1.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '3px solid #4299e1'
+          }}>Project: Build a Simple Calculator</h2>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Content coming soon...</p>
         </div>
       )}
 
