@@ -607,7 +607,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>python --version</pre>
             <button onClick={() => copyCode('python --version')} style={{
               position: 'absolute',
@@ -646,7 +647,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>brew install python</pre>
             <button onClick={() => copyCode('brew install python')} style={{
               position: 'absolute',
@@ -673,7 +675,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>python --version</pre>
             <button onClick={() => copyCode('python --version')} style={{
               position: 'absolute',
@@ -712,7 +715,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>python --version</pre>
             <button onClick={() => copyCode('python --version')} style={{
               position: 'absolute',
@@ -739,7 +743,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>sudo apt-get install python3</pre>
             <button onClick={() => copyCode('sudo apt-get install python3')} style={{
               position: 'absolute',
@@ -850,7 +855,8 @@ export default function PythonLessons() {
                   borderRadius: '6px',
                   fontFamily: 'monospace',
                   overflowX: 'auto',
-                  margin: '0'
+                  margin: '0',
+                  whiteSpace: 'pre-wrap'
                 }}>py -V</pre>
                 <button onClick={() => copyCode('py -V')} style={{
                   position: 'absolute',
@@ -878,7 +884,8 @@ export default function PythonLessons() {
                   borderRadius: '6px',
                   fontFamily: 'monospace',
                   overflowX: 'auto',
-                  margin: '0'
+                  margin: '0',
+                  whiteSpace: 'pre-wrap'
                 }}>python --version</pre>
                 <button onClick={() => copyCode('python --version')} style={{
                   position: 'absolute',
@@ -914,7 +921,8 @@ export default function PythonLessons() {
                   borderRadius: '6px',
                   fontFamily: 'monospace',
                   overflowX: 'auto',
-                  margin: '0'
+                  margin: '0',
+                  whiteSpace: 'pre-wrap'
                 }}>python3 --version</pre>
                 <button onClick={() => copyCode('python3 --version')} style={{
                   position: 'absolute',
@@ -962,7 +970,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>print("Hello, World!")</pre>
             <button onClick={() => copyCode('print("Hello, World!")')} style={{
               position: 'absolute',
@@ -1008,7 +1017,8 @@ export default function PythonLessons() {
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>print("Hello, World!")</pre>
               <button onClick={() => copyCode('print("Hello, World!")')} style={{
                 position: 'absolute',
@@ -1041,7 +1051,8 @@ export default function PythonLessons() {
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>py hello.py<br/># or: python hello.py</pre>
               <button onClick={() => copyCode('py hello.py\n# or: python hello.py')} style={{
                 position: 'absolute',
@@ -1070,7 +1081,8 @@ export default function PythonLessons() {
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>python3 hello.py</pre>
               <button onClick={() => copyCode('python3 hello.py')} style={{
                 position: 'absolute',
@@ -1131,7 +1143,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>pip install notebook</pre>
             <button onClick={() => copyCode('pip install notebook')} style={{
               position: 'absolute',
@@ -1154,7 +1167,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>jupyter notebook</pre>
             <button onClick={() => copyCode('jupyter notebook')} style={{
               position: 'absolute',
@@ -1182,7 +1196,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>print("Hello, World!")</pre>
             <button onClick={() => copyCode('print("Hello, World!")')} style={{
               position: 'absolute',
@@ -1276,7 +1291,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}># This is a single-line comment<br/>print("Hello World")  # This prints a message</pre>
             <button onClick={() => copyCode('# This is a single-line comment\nprint("Hello World")  # This prints a message')} style={{
               position: 'absolute',
@@ -1311,7 +1327,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}># This program prints a greeting<br/># It was written as a beginner exercise<br/>print("Hello Python")</pre>
             <button onClick={() => copyCode('# This program prints a greeting\n# It was written as a beginner exercise\nprint("Hello Python")')} style={{
               position: 'absolute',
@@ -1344,7 +1361,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>"""<br/>This is a multi-line comment<br/>using triple quotes<br/>"""<br/>print("Python is fun")</pre>
             <button onClick={() => copyCode('"""\nThis is a multi-line comment\nusing triple quotes\n"""\nprint("Python is fun")')} style={{
               position: 'absolute',
@@ -1491,7 +1509,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}># Simple Hello World Welcome Program<br/># Display a welcome message<br/>print("Welcome to Python!")</pre>
             <button onClick={() => copyCode('# Simple Hello World welcome Program\n# Display a welcome message\nprint("Welcome to Python!")')} style={{
               position: 'absolute',
@@ -1528,7 +1547,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>py Welcome.py</pre>
             <button onClick={() => copyCode('py Welcome.py')} style={{
               position: 'absolute',
@@ -1556,7 +1576,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>python3 Welcome.py</pre>
             <button onClick={() => copyCode('python3 Welcome.py')} style={{
               position: 'absolute',
@@ -1584,7 +1605,8 @@ export default function PythonLessons() {
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>Welcome to Python!</pre>
             <button onClick={() => copyCode('Welcome to Python!')} style={{
               position: 'absolute',
@@ -2082,7 +2104,8 @@ print("You are an adult.")`}</pre>
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>age = 28<br/>score = -150</pre>
               <button onClick={() => copyCode('age = 28\nscore = -150')} style={{
                 position: 'absolute',
@@ -2109,7 +2132,8 @@ print("You are an adult.")`}</pre>
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>price = 499.99<br/>pi_value = 3.14159</pre>
               <button onClick={() => copyCode('price = 499.99\npi_value = 3.14159')} style={{
                 position: 'absolute',
@@ -2136,7 +2160,8 @@ print("You are an adult.")`}</pre>
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>complex_number = 5 + 6j</pre>
               <button onClick={() => copyCode('complex_number = 5 + 6j')} style={{
                 position: 'absolute',
@@ -2171,7 +2196,8 @@ print("You are an adult.")`}</pre>
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>user_name = "CodeYatra"<br/>message = 'Python is fun!'</pre>
               <button onClick={() => copyCode('user_name = "CodeYatra"\nmessage = \'Python is fun!\'')} style={{
                 position: 'absolute',
@@ -2206,7 +2232,8 @@ print("You are an adult.")`}</pre>
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>is_active = True<br/>game_over = False</pre>
               <button onClick={() => copyCode('is_active = True\ngame_over = False')} style={{
                 position: 'absolute',
@@ -2241,7 +2268,8 @@ print("You are an adult.")`}</pre>
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 overflowX: 'auto',
-                margin: '0'
+                margin: '0',
+                whiteSpace: 'pre-wrap'
               }}>winner = None</pre>
               <button onClick={() => copyCode('winner = None')} style={{
                 position: 'absolute',
@@ -2284,7 +2312,8 @@ print("You are an adult.")`}</pre>
               borderRadius: '6px',
               fontFamily: 'monospace',
               overflowX: 'auto',
-              margin: '0'
+              margin: '0',
+              whiteSpace: 'pre-wrap'
             }}>{`user_name = "CODE YATRA"\nscore = 100\nis_learning = True\n\nprint(type(user_name))    # Output: <class 'str'>\nprint(type(score))        # Output: <class 'int'>\nprint(type(is_learning))  # Output: <class 'bool'>`}</pre>
             <button onClick={() => copyCode('user_name = "CODE YATRA"\nscore = 100\nis_learning = True\n\nprint(type(user_name))    # Output: <class \'str\'>\nprint(type(score))        \n# Output: <class \'int\'>\nprint(type(is_learning))  # Output: <class \'bool\'>')} style={{
               position: 'absolute',
