@@ -10,7 +10,7 @@ const CodeBlock = ({ children }) => (
 export default function PythonLessons() {
   const [openSections, setOpenSections] = useState({
     introduction: true,
-    dataTypes: false,
+    foundations: false,
   });
 
   const [activeContent, setActiveContent] = useState("overview");
