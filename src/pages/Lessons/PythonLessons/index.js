@@ -376,17 +376,7 @@ export default function PythonLessons() {
       )}
 
       {activeContent === "Why-learn-Python" && (
-        <div id="Why-learn-Python" style={{
-            backgroundColor: '#f8f9fa',
-            padding: '2rem 0',
-            borderRadius: '12px',
-            border: '1px solid #e9ecef',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-            margin: '2rem 0',
-            fontFamily: 'system-ui, -apple-system, sans-serif',
-            lineHeight: '1.6',
-            color: '#2d3748'
-          }}>
+        <div id="Why-learn-Python">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -544,17 +534,7 @@ export default function PythonLessons() {
       )}
 
       {activeContent === "installation" && (
-        <div id="installation" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="installation">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -756,17 +736,7 @@ export default function PythonLessons() {
       
 
       {activeContent === "first-program" && (
-        <div id="first-program" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="first-program">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -1206,17 +1176,7 @@ export default function PythonLessons() {
       )}
 
       {activeContent === "Comments" && (
-        <div id="Comments" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="Comments">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -1402,17 +1362,7 @@ export default function PythonLessons() {
       )}
 
       {activeContent === "Project" && (
-        <div id="Project" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="Project">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -1634,17 +1584,7 @@ export default function PythonLessons() {
       )}
 
       {activeContent === "syntax-indentation" && (
-        <div id="syntax-indentation" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="syntax-indentation">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -1849,17 +1789,7 @@ print("You are an adult.")`}</pre>
       )}
 
       {activeContent === "variables-naming" && (
-        <div id="variables-naming" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="variables-naming">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -2013,17 +1943,7 @@ print("You are an adult.")`}</pre>
       )}
 
       {activeContent === "data-types" && (
-        <div id="data-types" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="data-types">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -2322,17 +2242,7 @@ print("You are an adult.")`}</pre>
       )}
 
       {activeContent === "string-operations" && (
-        <div id="string-operations" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="string-operations">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -2350,17 +2260,7 @@ print("You are an adult.")`}</pre>
       )}
 
       {activeContent === "input-output" && (
-        <div id="input-output" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="input-output">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -2378,17 +2278,7 @@ print("You are an adult.")`}</pre>
       )}
 
       {activeContent === "type-casting" && (
-        <div id="type-casting" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="type-casting">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -2406,17 +2296,7 @@ print("You are an adult.")`}</pre>
       )}
 
       {activeContent === "operators" && (
-        <div id="operators" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="operators">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
@@ -2434,17 +2314,7 @@ print("You are an adult.")`}</pre>
       )}
 
       {activeContent === "calculator-project" && (
-        <div id="calculator-project" style={{
-          backgroundColor: '#f8f9fa',
-          padding: '2rem',
-          borderRadius: '12px',
-          border: '1px solid #e9ecef',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-          margin: '2rem 0',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          lineHeight: '1.6',
-          color: '#2d3748'
-        }}>
+        <div id="calculator-project">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
