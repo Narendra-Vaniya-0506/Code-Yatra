@@ -18,12 +18,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
     console.log('AuthContext useEffect - token:', token);
-    console.log('API URL:', process.env.REACT_APP_API_URL);
-
     if (token) {
       fetchUserProfile(token);
     } else {
-      console.log('No token found, setting loading to false');
       setLoading(false);
     }
   }, []);
@@ -37,18 +34,7 @@ export const AuthProvider = ({ children }) => {
         },
       });
 
-      if (!response.ok) {
-        // If the response is 401 (Unauthorized), the token is invalid
-        if (response.status === 401) {
-          console.log('Token is invalid or expired, clearing storage');
-          localStorage.removeItem('authToken');
-          sessionStorage.removeItem('authToken');
-          setUser(null);
-          setLoading(false);
-          return;
-        }
-        throw new Error(`Failed to fetch user profile: ${response.status}`);
-      }
+      if (!response.ok) throw new Error('Failed to fetch user profile');
 
       const userData = await response.json();
       setUser(userData.data);
