@@ -26,6 +26,32 @@ export default function PythonLessons() {
     setActiveContent(contentId);
   };
 
+  // Function to get dynamic breadcrumbs based on active content
+  const getBreadcrumbs = () => {
+    const contentNames = {
+      "overview": "What is Python?",
+      "Why-learn-Python": "Why learn Python?",
+      "installation": "Installing Python & IDE",
+      "first-program": "Running your first program",
+      "Comments": "Comments",
+      "Project": "Project",
+      "syntax-indentation": "Syntax & Indentation",
+      "variables-naming": "Variables & Naming Conventions",
+      "data-types": "Data Types",
+      "string-operations": "String Operations",
+      "input-output": "Input & Output",
+      "type-casting": "Type Casting",
+      "operators": "Operators",
+      "calculator-project": "Project: Simple Calculator"
+    };
+
+    return [
+      { label: "Lessons", href: "/lessons" },
+      { label: "Python lesson", href: "/lessons/python" },
+      { label: contentNames[activeContent] || "Python lesson" }
+    ];
+  };
+
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
