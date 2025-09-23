@@ -279,10 +279,7 @@ export default function PythonLessons() {
   return (
     <LessonLayout
       title="Python lesson"
-      breadcrumbs={[
-        { label: "Lessons", href: "/lessons" },
-        { label: "Python lesson" },
-      ]}
+      breadcrumbs={getBreadcrumbs()}
       sidebar={sidebar}
       lessonId="python-introduction"
     >
