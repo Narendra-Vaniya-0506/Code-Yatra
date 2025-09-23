@@ -268,17 +268,7 @@ export default function PythonLessons() {
               Python is a modern, high-level programming language known for its interpreted execution and broad applicability across domains.
             </p>
           </div>
-          <div id="overview" style={{
-            backgroundColor: '#f8f9fa',
-            padding: '2rem',
-            borderRadius: '12px',
-            border: '1px solid #e9ecef',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-            margin: '2rem 0',
-            fontFamily: 'system-ui, -apple-system, sans-serif',
-            lineHeight: '1.6',
-            color: '#2d3748'
-          }}>
+          <div id="overview" className="lesson-content">
           <h2 style={{
             color: '#2d3748',
             fontSize: '2rem',
