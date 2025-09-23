@@ -197,12 +197,12 @@ const LessonStyles = () => (
 
     /* --- Hero Section --- */
     .lesson-hero {
-      text-align: center;
+      text-align: left;
       padding: var(--spacing-2xl) var(--spacing-md);
-      background-color: var(--color-surface);
-      border-radius: var(--border-radius);
+      background-color: transparent;
+      border-radius: 0;
       margin-bottom: var(--spacing-2xl);
-      border: 1px solid var(--color-border);
+      border: none;
     }
     .lesson-hero h1 {
       font-size: var(--font-size-3xl);
