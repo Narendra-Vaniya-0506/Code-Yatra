@@ -378,7 +378,7 @@ export default function PythonLessons() {
       {activeContent === "Why-learn-Python" && (
         <div id="Why-learn-Python" style={{
             backgroundColor: '#f8f9fa',
-            padding: '2rem',
+            padding: '2rem 0',
             borderRadius: '12px',
             border: '1px solid #e9ecef',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
