@@ -254,25 +254,25 @@ body {
 }
 
 
-/* --- MODIFIED --- Hero Section */
+/* --- MODIFIED --- Hero Section (Remove card styling, left-align, add bottom border) */
 .lesson-hero {
-    text-align: left; /* Left aligned */
-    padding: var(--spacing-2xl) var(--spacing-xl); /* Increased side padding */
-    background-color: transparent; /* Remove card-like background */
+    text-align: left; /* Ensure left alignment */
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    background-color: transparent; /* Remove card background */
     border-radius: 0; /* Remove border radius */
     margin-bottom: var(--spacing-2xl);
     border: none; /* Remove all borders */
+    border-left: none; /* Remove the accent border */
 }
 
-/* --- General Content & Code Block Styles --- */
+/* Add bottom border to main heading */
 .lesson-main h1, .lesson-hero h1 {
   font-size: var(--font-size-4xl);
   font-weight: 700;
   margin: 0 0 var(--spacing-sm) 0;
   color: var(--color-text);
-  border-bottom: 2px solid var(--color-primary); /* Add bottom border to main heading */
-  padding-bottom: var(--spacing-sm); /* Add spacing below border */
-  margin-bottom: var(--spacing-md); /* Increase bottom margin */
+  border-bottom: 2px solid var(--color-primary); /* Add bottom border */
+  padding-bottom: var(--spacing-sm); /* Add padding below border */
 }
 .lesson-main h2 {
   font-size: var(--font-size-3xl);

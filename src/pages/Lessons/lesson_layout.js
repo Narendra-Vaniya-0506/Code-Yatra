@@ -195,25 +195,28 @@ const LessonStyles = () => (
       font-weight: 600;
     }
 
-    /* --- Hero Section --- */
+    /* --- Hero Section (Remove card styling, left-align, add bottom border) */
     .lesson-hero {
-      text-align: left;
+      text-align: left; /* Change from center to left */
       padding: var(--spacing-2xl) var(--spacing-md);
-      background-color: transparent;
-      border-radius: 0;
+      background-color: transparent; /* Remove card background */
+      border-radius: 0; /* Remove border radius */
       margin-bottom: var(--spacing-2xl);
-      border: none;
+      border: none; /* Remove all borders */
     }
     .lesson-hero h1 {
       font-size: var(--font-size-3xl);
       font-weight: 700;
       margin: 0 0 var(--spacing-sm) 0;
+      border-bottom: 2px solid var(--color-primary); /* Add bottom border */
+      padding-bottom: var(--spacing-sm); /* Add padding below border */
     }
     .lesson-hero p {
       font-size: var(--font-size-lg);
       color: var(--color-text-muted);
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: none; /* Remove center alignment constraint */
+      margin: 0; /* Remove auto margin */
+      text-align: left; /* Ensure left alignment */
     }
 
     /* --- General Content Styles --- */
