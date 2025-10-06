@@ -27,22 +27,6 @@ const Projects = () => {
     content: {
       padding: '20px 0',
     },
-    welcomeSection: {
-      textAlign: 'center',
-      marginBottom: '40px',
-    },
-    welcomeTitle: {
-      fontSize: '2rem',
-      marginBottom: '20px',
-      color: '#333',
-    },
-    welcomeText: {
-      fontSize: '1.1rem',
-      color: '#666',
-      maxWidth: '600px',
-      margin: '0 auto',
-      lineHeight: '1.6',
-    },
     projectList: {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -59,10 +43,6 @@ const Projects = () => {
       textAlign: 'center',
       color: '#333',
     },
-    cardIcon: {
-      fontSize: '3rem',
-      marginBottom: '15px',
-    },
     cardTitle: {
       fontSize: '1.5rem',
       marginBottom: '10px',
@@ -71,39 +51,44 @@ const Projects = () => {
       color: '#666',
       lineHeight: '1.5',
     },
+    projectInfo: {
+      marginTop: '10px',
+      fontSize: '0.9rem',
+      color: '#555',
+      textAlign: 'left',
+    },
+    projectLink: {
+      color: '#1a0dab',
+      textDecoration: 'none',
+    }
   };
 
   const projects = [
     {
-      icon: '💻',
-      title: 'Web Development Projects',
-      description: 'Build responsive websites and web applications using HTML, CSS, JavaScript, and React.'
+      title: 'Project One',
+      technology: 'React, Node.js',
+      github: 'https://github.com/username/project-one',
     },
     {
-      icon: '📊',
-      title: 'Data Analysis Projects',
-      description: 'Analyze datasets, create visualizations, and derive insights using Python and libraries like Pandas and Matplotlib.'
+      title: 'Project Two',
+      technology: 'Python, Flask',
+      github: 'https://github.com/username/project-two',
     },
     {
-      icon: '🤖',
-      title: 'Machine Learning Projects',
-      description: 'Implement ML algorithms, train models, and deploy predictive systems.'
+      title: 'Project Three',
+      technology: 'Java, Spring Boot',
+      github: 'https://github.com/username/project-three',
     },
     {
-      icon: '📱',
-      title: 'Mobile App Projects',
-      description: 'Develop cross-platform mobile applications using React Native or Flutter.'
+      title: 'Project Four',
+      technology: 'React Native',
+      github: 'https://github.com/username/project-four',
     },
     {
-      icon: '🗄️',
-      title: 'Database Projects',
-      description: 'Design and manage databases, write queries, and build backend systems.'
+      title: 'Project Five',
+      technology: 'Django, PostgreSQL',
+      github: 'https://github.com/username/project-five',
     },
-    {
-      icon: '🔧',
-      title: 'API Development',
-      description: 'Create RESTful APIs and integrate third-party services.'
-    }
   ];
 
   return (
@@ -114,20 +99,14 @@ const Projects = () => {
       </div>
 
       <div style={styles.content}>
-        <div style={styles.welcomeSection}>
-          <h2 style={styles.welcomeTitle}>Welcome to Projects</h2>
-          <p style={styles.welcomeText}>
-            This section showcases various project ideas and tutorials to help you build your portfolio.
-            Choose a project that interests you and start coding!
-          </p>
-        </div>
-
         <div style={styles.projectList}>
           {projects.map((project, index) => (
             <div key={index} style={styles.projectCard}>
-              <div style={styles.cardIcon}>{project.icon}</div>
               <h4 style={styles.cardTitle}>{project.title}</h4>
-              <p style={styles.cardText}>{project.description}</p>
+              <div style={styles.projectInfo}>
+                <p><strong>Technology:</strong> {project.technology}</p>
+                <p><strong>GitHub:</strong> <a href={project.github} target="_blank" rel="noopener noreferrer" style={styles.projectLink}>{project.github}</a></p>
+              </div>
             </div>
           ))}
         </div>
