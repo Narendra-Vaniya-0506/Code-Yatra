@@ -119,7 +119,7 @@ export default function Footer() {
           color: "#888",
         }}
       >
-        Code Yatra
+        &copy; © 2025 Code Yatra. All rights reserved.
       </div>
     </footer>
   );
