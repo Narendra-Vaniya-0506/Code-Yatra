@@ -239,6 +239,7 @@ export default function HomePage() {
           }}
         >
           {[
+
             {
               title: "Build for the Web",
               text: "Learn to architect and construct modern websites and apps.",
@@ -293,6 +294,31 @@ export default function HomePage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* About the Developer Section */}
+      <section className="card p-8 mt-16 text-center" style={{maxWidth: "800px", margin: "2rem auto"}}>
+        <h2 className="text-4xl font-semibold text-primary mb-8">About the Developer</h2>
+        <div className="flex justify-center space-x-6 mb-8">
+          <img src="/Image/developer.jpg" alt="Narendra Vaniya" className="w-32 h-32 rounded-full object-cover" />
+          <img src="/Image/developer1.jpg" alt="Shreya Vaghela" className="w-32 h-32 rounded-full object-cover" />
+        </div>
+        <div className="space-y-4 max-w-4xl mx-auto">
+          <p className="text-body">Hi, we're Narendra Vaniya and Shreya Vaghela, the developers behind the Code Yatra. Welcome to Code Yatra, a comprehensive learning platform dedicated to helping aspiring developers master programming languages and modern web technologies. We are passionate about creating engaging, practical lessons that empower learners to build real-world projects and advance their coding skills.</p>
+          
+          <p className="text-body">This project reflects our commitment to delivering high-quality educational content, fostering a supportive community, and continuously innovating to make coding accessible and enjoyable for everyone.</p>
+          <div className="mt-6 text-center">
+            <h3 className="text-2xl font-semibold text-primary mb-4">Connect with us:</h3>
+            <p className="text-body mb-2">Narendra Vaniya: 
+              <a href="https://github.com/Narendra-Vaniya-0506" target="_blank" className="link-secondary hover:underline">GitHub</a> | 
+              <a href="https://www.linkedin.com/in/narendra-vaniya1617" target="_blank" className="link-secondary hover:underline">LinkedIn</a>
+            </p>
+            <p className="text-body">Shreya Vaghela: 
+              <a href="https://github.com/shreyavaghela1826" target="_blank" className="link-secondary hover:underline">GitHub</a> | 
+              <a href="https://www.linkedin.com/in/shreyavaghela65" target="_blank" className="link-secondary hover:underline">LinkedIn</a>
+            </p>
+          </div>
         </div>
       </section>
 
