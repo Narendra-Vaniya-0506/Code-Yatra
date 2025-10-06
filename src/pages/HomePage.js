@@ -298,25 +298,160 @@ export default function HomePage() {
       </section>
 
       {/* About the Developer Section */}
-      <section className="card p-8 mt-16 text-center" style={{maxWidth: "800px", margin: "2rem auto"}}>
-        <h2 className="text-4xl font-semibold text-primary mb-8">About the Developer</h2>
-        <div className="flex justify-center space-x-6 mb-8">
-          <img src="/Image/developer.jpg" alt="Narendra Vaniya" className="w-32 h-32 rounded-full object-cover" />
-          <img src="/Image/developer1.jpg" alt="Shreya Vaghela" className="w-32 h-32 rounded-full object-cover" />
+      <section
+        style={{
+          maxWidth: "800px",
+          margin: "2rem auto",
+          padding: "2rem",
+          textAlign: "center",
+          background: "#fff",
+          borderRadius: "16px",
+          boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "2.5rem",
+            fontWeight: "bold",
+            marginBottom: "2rem",
+            color: "#333",
+          }}
+        >
+          About the Developer
+        </h2>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "2rem",
+            marginBottom: "2rem",
+          }}
+        >
+          <img
+            src="/Image/developer.jpg"
+            alt="Narendra Vaniya"
+            style={{
+              width: "128px",
+              height: "128px",
+              borderRadius: "50%",
+              objectFit: "cover",
+            }}
+          />
+          <img
+            src="/Image/developer1.jpg"
+            alt="Shreya Vaghela"
+            style={{
+              width: "128px",
+              height: "128px",
+              borderRadius: "50%",
+              objectFit: "cover",
+            }}
+          />
         </div>
-        <div className="space-y-4 max-w-4xl mx-auto">
-          <p className="text-body">Hi, we're Narendra Vaniya and Shreya Vaghela, the developers behind the Code Yatra. Welcome to Code Yatra, a comprehensive learning platform dedicated to helping aspiring developers master programming languages and modern web technologies. We are passionate about creating engaging, practical lessons that empower learners to build real-world projects and advance their coding skills.</p>
-          
-          <p className="text-body">This project reflects our commitment to delivering high-quality educational content, fostering a supportive community, and continuously innovating to make coding accessible and enjoyable for everyone.</p>
-          <div className="mt-6 text-center">
-            <h3 className="text-2xl font-semibold text-primary mb-4">Connect with us:</h3>
-            <p className="text-body mb-2">Narendra Vaniya: 
-              <a href="https://github.com/Narendra-Vaniya-0506" target="_blank" className="link-secondary hover:underline">GitHub</a> | 
-              <a href="https://www.linkedin.com/in/narendra-vaniya1617" target="_blank" className="link-secondary hover:underline">LinkedIn</a>
+        <div
+          style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            lineHeight: "1.6",
+          }}
+        >
+          <p
+            style={{
+              marginBottom: "1rem",
+              color: "#555",
+              fontSize: "1.1rem",
+            }}
+          >
+            We are Narendra Vaniya and Shreya Vaghela, developers passionate about building and teaching. We created Code Yatra as a dedicated space for high-quality, practical coding tutorials. Our approach is simple: teach technology through hands-on projects that build real-world skills, making modern development accessible to everyone.
+          </p>
+
+          <p
+            style={{
+              marginBottom: "2rem",
+              color: "#555",
+              fontSize: "1.1rem",
+            }}
+          >
+            This platform serves as a growing library of our work and educational content. From front-end frameworks to machine learning models, every project and lesson is crafted with the clarity we wished for when we were learning. We are excited to share our journey and help you advance yours.
+          </p>
+          <div style={{ marginTop: "2rem", textAlign: "center" }}>
+            <h3
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+                marginBottom: "1rem",
+                color: "#333",
+              }}
+            >
+              Connect with us:
+            </h3>
+            <p
+              style={{
+                marginBottom: "0.5rem",
+                color: "#555",
+                fontSize: "1rem",
+              }}
+            >
+              Narendra Vaniya:{" "}
+              <a
+                href="https://github.com/Narendra-Vaniya-0506"
+                target="_blank"
+                style={{
+                  color: "#007bff",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+              >
+                GitHub
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://www.linkedin.com/in/narendra-vaniya1617"
+                target="_blank"
+                style={{
+                  color: "#007bff",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+              >
+                LinkedIn
+              </a>
             </p>
-            <p className="text-body">Shreya Vaghela: 
-              <a href="https://github.com/shreyavaghela1826" target="_blank" className="link-secondary hover:underline">GitHub</a> | 
-              <a href="https://www.linkedin.com/in/shreyavaghela65" target="_blank" className="link-secondary hover:underline">LinkedIn</a>
+            <p
+              style={{
+                marginBottom: "0",
+                color: "#555",
+                fontSize: "1rem",
+              }}
+            >
+              Shreya Vaghela:{" "}
+              <a
+                href="https://github.com/shreyavaghela1826"
+                target="_blank"
+                style={{
+                  color: "#007bff",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+              >
+                GitHub
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://www.linkedin.com/in/shreyavaghela65"
+                target="_blank"
+                style={{
+                  color: "#007bff",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+              >
+                LinkedIn
+              </a>
             </p>
           </div>
         </div>
