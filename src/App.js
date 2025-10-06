@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
@@ -45,7 +45,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
-          
+          <Route path="/dashboard" element={<Navigate to="/profile" replace />} />
+
           {/* Protected routes */}
           <Route path="/profile" element={
             <ProtectedRoute><Profile /></ProtectedRoute>
