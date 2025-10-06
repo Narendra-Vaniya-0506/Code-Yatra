@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Projects = () => {
+  const navigate = useNavigate();
+
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -55,20 +57,6 @@ const Projects = () => {
       fontSize: '1.5rem',
       marginBottom: '10px',
     },
-    cardText: {
-      color: '#666',
-      lineHeight: '1.5',
-    },
-    projectInfo: {
-      marginTop: '10px',
-      fontSize: '0.9rem',
-      color: '#555',
-      textAlign: 'left',
-    },
-    projectLink: {
-      color: '#1a0dab',
-      textDecoration: 'none',
-    }
   };
 
   const projects = [
@@ -92,11 +80,6 @@ const Projects = () => {
       slug: 'ai',
       image: 'ai.jpg',
     },
-    {
-      name: 'Mobile App Projects',
-      slug: 'mobile-app',
-      image: 'mobile-app.jpg',
-    },
   ];
 
   return (
@@ -109,13 +92,9 @@ const Projects = () => {
       <div style={styles.content}>
         <div style={styles.projectList}>
           {projects.map((project, index) => (
-            <div key={index} style={styles.projectCard}>
+            <div key={index} style={styles.projectCard} onClick={() => navigate(`/projects/${project.slug}`)}>
               <img src={project.image} alt={project.name} style={styles.projectImage} />
-              <h4 style={styles.cardTitle}>Project: {project.name}</h4>
-              <div style={styles.projectInfo}>
-                <p><strong>Technology:</strong> {project.technology}</p>
-                <p><strong>GitHub:</strong> <a href={project.github} target="_blank" rel="noopener noreferrer" style={styles.projectLink}>{project.github}</a></p>
-              </div>
+              <h4 style={styles.cardTitle}>{project.name}</h4>
             </div>
           ))}
         </div>
