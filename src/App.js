@@ -31,6 +31,7 @@ import Fullstack from "./pages/Projects/Fullstack";
 import DataAnalysis from "./pages/Projects/DataAnalysis";
 import MachineLearning from "./pages/Projects/MachineLearning";
 import AI from "./pages/Projects/AI";
+import Games from "./pages/Projects/Games";
 
 import "./App.css";
 

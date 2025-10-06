@@ -1,5 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import fullstackImg from '../../Image/fullstack.jpg';
+import dataAnalysisImg from '../../Image/data-analysis.jpg';
+import machineLearningImg from '../../Image/machine-learning.jpg';
+import aiImg from '../../Image/ai.jpg';
+import gamesImg from '../../Image/games.jpg';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -63,22 +68,27 @@ const Projects = () => {
     {
       name: 'Full-stack Projects',
       slug: 'fullstack',
-      image: 'fullstack.jpg',
+      image: fullstackImg,
     },
     {
       name: 'Data Analysis Projects',
       slug: 'data-analysis',
-      image: 'data-analysis.jpg',
+      image: dataAnalysisImg,
     },
     {
       name: 'Machine Learning Projects',
       slug: 'machine-learning',
-      image: 'machine-learning.jpg',
+      image: machineLearningImg,
     },
     {
       name: 'AI Projects',
       slug: 'ai',
-      image: 'ai.jpg',
+      image: aiImg,
+    },
+    {
+      name: 'Games Projects',
+      slug: 'games',
+      image: gamesImg,
     },
   ];
 
