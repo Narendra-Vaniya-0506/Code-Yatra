@@ -37,11 +37,18 @@ const Projects = () => {
     projectCard: {
       background: 'white',
       borderRadius: '10px',
-      padding: '30px',
+      padding: '20px',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
       transition: 'transform 0.3s ease, box-shadow 0.3s ease',
       textAlign: 'center',
       color: '#333',
+    },
+    projectImage: {
+      width: '100%',
+      height: '200px',
+      objectFit: 'cover',
+      borderRadius: '8px',
+      marginBottom: '15px',
     },
     cardTitle: {
       fontSize: '1.5rem',
@@ -65,29 +72,34 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Project One',
+      name: 'Name of the project',
       technology: 'React, Node.js',
       github: 'https://github.com/username/project-one',
+      image: 'project1.jpg',
     },
     {
-      title: 'Project Two',
+      name: 'Name of the project',
       technology: 'Python, Flask',
       github: 'https://github.com/username/project-two',
+      image: 'project2.jpg',
     },
     {
-      title: 'Project Three',
+      name: 'Name of the project',
       technology: 'Java, Spring Boot',
       github: 'https://github.com/username/project-three',
+      image: 'project3.jpg',
     },
     {
-      title: 'Project Four',
+      name: 'Name of the project',
       technology: 'React Native',
       github: 'https://github.com/username/project-four',
+      image: 'project4.jpg',
     },
     {
-      title: 'Project Five',
+      name: 'Name of the project',
       technology: 'Django, PostgreSQL',
       github: 'https://github.com/username/project-five',
+      image: 'project5.jpg',
     },
   ];
 
@@ -102,7 +114,8 @@ const Projects = () => {
         <div style={styles.projectList}>
           {projects.map((project, index) => (
             <div key={index} style={styles.projectCard}>
-              <h4 style={styles.cardTitle}>{project.title}</h4>
+              <img src={project.image} alt={project.name} style={styles.projectImage} />
+              <h4 style={styles.cardTitle}>Project: {project.name}</h4>
               <div style={styles.projectInfo}>
                 <p><strong>Technology:</strong> {project.technology}</p>
                 <p><strong>GitHub:</strong> <a href={project.github} target="_blank" rel="noopener noreferrer" style={styles.projectLink}>{project.github}</a></p>
