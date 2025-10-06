@@ -100,7 +100,7 @@ const Navbar = () => {
           {user && <li><Link to="/dashboard" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Dashboard</Link></li>}
           <li><Link to="/" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
           <li><Link to="/lessons" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
-          <li><Link to="/Studyabroad" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Studyabroad</Link></li>
+          <li><Link to="/projects" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Projects</Link></li>
           <li><Link to="/contact" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Contact</Link></li>
         </ul>
       )}
@@ -186,7 +186,7 @@ const Navbar = () => {
             {user && <li><Link to="/dashboard" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Dashboard</Link></li>}
             <li><Link to="/" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
             <li><Link to="/lessons" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
-            <li><Link to="/Studyabroad" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Studyabroad</Link></li>
+            <li><Link to="/projects" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Projects</Link></li>
             <li><Link to="/contact" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Contact</Link></li>
             <li style={{ marginTop: '1rem' }}>
               {!user ? (

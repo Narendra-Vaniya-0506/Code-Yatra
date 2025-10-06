@@ -26,9 +26,9 @@ import JavaScriptLessons from "./pages/Lessons/JavaScriptLessons/javascript";
 import ReactLessons from "./pages/Lessons/ReactJSLessons/react";
 
 // Study abroad pages
-import AbroadPage from "./pages/Studyabroad/AbroadPage";
-import English from "./pages/Studyabroad/English";
-import Visa from "./pages/Studyabroad/Visa";
+import AbroadPage from "./pages/Projects/AbroadPage";
+import English from "./pages/Projects/English";
+import Visa from "./pages/Projects/Visa";
 
 import "./App.css";
 
