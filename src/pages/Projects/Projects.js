@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import fullstackImg from '../../Image/fullstack.jpg';
-import dataAnalysisImg from '../../Image/data-analysis.jpg';
-import machineLearningImg from '../../Image/machine-learning.jpg';
-import aiImg from '../../Image/ai.jpg';
-import gamesImg from '../../Image/games.jpg';
+import fullstackImg from '../../Image/Full stack.png';
+import dataAnalysisImg from '../../Image/data.png';
+import machineLearningImg from '../../Image/Machine learning.png';
+import aiImg from '../../Image/AI.png';
+import gamesImg from '../../Image/Game.png';
 
 const Projects = () => {
   const navigate = useNavigate();
