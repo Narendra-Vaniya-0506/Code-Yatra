@@ -328,7 +328,7 @@ export default function HomePage() {
           }}
         >
           <img
-            src="/Image/developer.jpg"
+            src="/Image/Developer.jpg"
             alt="Narendra Vaniya"
             style={{
               width: "128px",
@@ -338,7 +338,7 @@ export default function HomePage() {
             }}
           />
           <img
-            src="/Image/developer1.jpg"
+            src="/Image/Developer1.jpg"
             alt="Shreya Vaghela"
             style={{
               width: "128px",
