@@ -25,10 +25,8 @@ import JavaLessons from "./pages/Lessons/JavaLessons/java";
 import JavaScriptLessons from "./pages/Lessons/JavaScriptLessons/javascript";
 import ReactLessons from "./pages/Lessons/ReactJSLessons/react";
 
-// Study abroad pages
-import AbroadPage from "./pages/Projects/AbroadPage";
-import English from "./pages/Projects/English";
-import Visa from "./pages/Projects/Visa";
+// Projects page
+import Projects from "./pages/Projects/Projects";
 
 import "./App.css";
 
@@ -83,15 +81,9 @@ export default function App() {
             <ProtectedRoute><ReactLessons /></ProtectedRoute>
           } />
           
-          {/* Study abroad routes */}
-          <Route path="/studyabroad" element={
-            <ProtectedRoute><AbroadPage /></ProtectedRoute>
-          } />
-          <Route path="/studyabroad/english" element={
-            <ProtectedRoute><English /></ProtectedRoute>
-          } />
-          <Route path="/studyabroad/visa" element={
-            <ProtectedRoute><Visa /></ProtectedRoute>
+          {/* Projects route */}
+          <Route path="/projects" element={
+            <ProtectedRoute><Projects /></ProtectedRoute>
           } />
         </Routes>
         <Footer />

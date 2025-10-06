@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const AbroadPage = () => {
+const Projects = () => {
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -44,34 +43,19 @@ const AbroadPage = () => {
       margin: '0 auto',
       lineHeight: '1.6',
     },
-    navigationSection: {
-      marginTop: '40px',
-    },
-    navigationTitle: {
-      textAlign: 'center',
-      fontSize: '1.8rem',
-      marginBottom: '30px',
-      color: '#333',
-    },
-    optionCards: {
+    projectList: {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
       gap: '30px',
-      maxWidth: '800px',
+      maxWidth: '1000px',
       margin: '0 auto',
     },
-    optionCard: {
-      display: 'block',
-      textDecoration: 'none',
+    projectCard: {
       background: 'white',
       borderRadius: '10px',
       padding: '30px',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
       transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-      '&:hover': {
-        transform: 'scale(1.05)',
-        boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
-      },
       textAlign: 'center',
       color: '#333',
     },
@@ -89,41 +73,67 @@ const AbroadPage = () => {
     },
   };
 
+  const projects = [
+    {
+      icon: '💻',
+      title: 'Web Development Projects',
+      description: 'Build responsive websites and web applications using HTML, CSS, JavaScript, and React.'
+    },
+    {
+      icon: '📊',
+      title: 'Data Analysis Projects',
+      description: 'Analyze datasets, create visualizations, and derive insights using Python and libraries like Pandas and Matplotlib.'
+    },
+    {
+      icon: '🤖',
+      title: 'Machine Learning Projects',
+      description: 'Implement ML algorithms, train models, and deploy predictive systems.'
+    },
+    {
+      icon: '📱',
+      title: 'Mobile App Projects',
+      description: 'Develop cross-platform mobile applications using React Native or Flutter.'
+    },
+    {
+      icon: '🗄️',
+      title: 'Database Projects',
+      description: 'Design and manage databases, write queries, and build backend systems.'
+    },
+    {
+      icon: '🔧',
+      title: 'API Development',
+      description: 'Create RESTful APIs and integrate third-party services.'
+    }
+  ];
+
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <h1 style={styles.title}>Study Abroad Guide</h1>
-        <p style={styles.subtitle}>Your comprehensive guide to studying abroad</p>
+        <h1 style={styles.title}>Projects</h1>
+        <p style={styles.subtitle}>Explore and build amazing projects</p>
       </div>
-      
+
       <div style={styles.content}>
         <div style={styles.welcomeSection}>
-          <h2 style={styles.welcomeTitle}>Welcome to Study Abroad</h2>
+          <h2 style={styles.welcomeTitle}>Welcome to Projects</h2>
           <p style={styles.welcomeText}>
-            This is your starting point for all information related to studying abroad. 
-            We provide guidance on English language requirements, visa processes, and more.
+            This section showcases various project ideas and tutorials to help you build your portfolio.
+            Choose a project that interests you and start coding!
           </p>
         </div>
 
-        <div style={styles.navigationSection}>
-          <h3 style={styles.navigationTitle}>Explore Your Options</h3>
-          <div style={styles.optionCards}>
-            <Link to="/studyabroad/english" style={styles.optionCard}>
-              <div style={styles.cardIcon}>📚</div>
-              <h4 style={styles.cardTitle}>English Requirements</h4>
-              <p style={styles.cardText}>Learn about English language proficiency requirements</p>
-            </Link>
-            
-            <Link to="/studyabroad/visa" style={styles.optionCard}>
-              <div style={styles.cardIcon}>🛂</div>
-              <h4 style={styles.cardTitle}>Visa Information</h4>
-              <p style={styles.cardText}>Get detailed visa application guidance</p>
-            </Link>
-          </div>
+        <div style={styles.projectList}>
+          {projects.map((project, index) => (
+            <div key={index} style={styles.projectCard}>
+              <div style={styles.cardIcon}>{project.icon}</div>
+              <h4 style={styles.cardTitle}>{project.title}</h4>
+              <p style={styles.cardText}>{project.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default AbroadPage;
+export default Projects;

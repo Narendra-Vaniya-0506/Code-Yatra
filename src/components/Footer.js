@@ -23,7 +23,7 @@ export default function Footer() {
       >
         {[
           { title: "Main", links: ["Home", "Contact"] },
-          { title: "Learn", links: ["Code lessons", "Studyabroad"] },
+          { title: "Learn", links: ["Code lessons", "Projects"] },
           { title: "Legal", links: ["Terms", "Privacy"] },
           {
             title: "Social",
@@ -76,8 +76,8 @@ export default function Footer() {
                 } else if (section.title === "Learn") {
                   if (link === "Code lessons") {
                     onClickHandler = () => navigate("/lessons");
-                  } else if (link === "Studyabroad") {
-                    onClickHandler = () => navigate("/studyabroad");
+                  } else if (link === "Projects") {
+                    onClickHandler = () => navigate("/projects");
                   }
                 } else if (section.title === "Legal") {
                   if (link === "Terms") {

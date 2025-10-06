@@ -153,7 +153,7 @@ const Profile = () => {
                 {[
                     { name: 'Home', path: '/' },
                     { name: 'Code lessons', path: '/lessons' },
-                    { name: 'Studyabroad', path: '/Studyabroad' },
+                    { name: 'Projects', path: '/projects' },
                     { name: 'Contact', path: '/contact' }
                 ].map((link, i) => (
                     <Link
