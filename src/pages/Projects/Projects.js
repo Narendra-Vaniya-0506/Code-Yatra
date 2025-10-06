@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const styles = {
@@ -72,34 +73,29 @@ const Projects = () => {
 
   const projects = [
     {
-      name: 'Name of the project',
-      technology: 'React, Node.js',
-      github: 'https://github.com/username/project-one',
-      image: 'project1.jpg',
+      name: 'Full-stack Projects',
+      slug: 'fullstack',
+      image: 'fullstack.jpg',
     },
     {
-      name: 'Name of the project',
-      technology: 'Python, Flask',
-      github: 'https://github.com/username/project-two',
-      image: 'project2.jpg',
+      name: 'Data Analysis Projects',
+      slug: 'data-analysis',
+      image: 'data-analysis.jpg',
     },
     {
-      name: 'Name of the project',
-      technology: 'Java, Spring Boot',
-      github: 'https://github.com/username/project-three',
-      image: 'project3.jpg',
+      name: 'Machine Learning Projects',
+      slug: 'machine-learning',
+      image: 'machine-learning.jpg',
     },
     {
-      name: 'Name of the project',
-      technology: 'React Native',
-      github: 'https://github.com/username/project-four',
-      image: 'project4.jpg',
+      name: 'AI Projects',
+      slug: 'ai',
+      image: 'ai.jpg',
     },
     {
-      name: 'Name of the project',
-      technology: 'Django, PostgreSQL',
-      github: 'https://github.com/username/project-five',
-      image: 'project5.jpg',
+      name: 'Mobile App Projects',
+      slug: 'mobile-app',
+      image: 'mobile-app.jpg',
     },
   ];
 
