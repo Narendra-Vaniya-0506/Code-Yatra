@@ -394,19 +394,6 @@ export default function HomePage() {
             >
               Narendra Vaniya:{" "}
               <a
-                href="https://github.com/Narendra-Vaniya-0506"
-                target="_blank"
-                style={{
-                  color: "#007bff",
-                  textDecoration: "none",
-                }}
-                onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-              >
-                GitHub
-              </a>{" "}
-              |{" "}
-              <a
                 href="https://www.linkedin.com/in/narendra-vaniya1617"
                 target="_blank"
                 style={{
@@ -427,19 +414,6 @@ export default function HomePage() {
               }}
             >
               Shreya Vaghela:{" "}
-              <a
-                href="https://github.com/shreyavaghela1826"
-                target="_blank"
-                style={{
-                  color: "#007bff",
-                  textDecoration: "none",
-                }}
-                onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-              >
-                GitHub
-              </a>{" "}
-              |{" "}
               <a
                 href="https://www.linkedin.com/in/shreyavaghela65"
                 target="_blank"
