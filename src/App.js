@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Lenis from 'lenis';
 import { AuthProvider } from "./context/AuthContext";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
@@ -36,6 +37,19 @@ import Games from "./pages/Projects/Games";
 import "./App.css";
 
 export default function App() {
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    lenis.start();
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <AuthProvider>
       <Router>
