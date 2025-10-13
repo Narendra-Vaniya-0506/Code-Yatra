@@ -70,7 +70,7 @@ const Contact = () => {
   };
 
   return (
-    <div style={styles.container}>
+    <div className="linear-container with-lines lines-animate" style={styles.container}>
       {notification.visible && (
         <div
           style={{
@@ -97,7 +97,7 @@ const Contact = () => {
         <img src="/Logo.jpeg" alt="Contact" style={styles.image} />
       </div>
 
-      <form style={styles.form} onSubmit={handleSubmit}>
+      <form className="glass-dark on-dark" style={styles.form} onSubmit={handleSubmit}>
         <label style={styles.label}>
           Name
           <input
@@ -159,7 +159,7 @@ const Contact = () => {
             required
           />
         </label>
-        <button type="submit" style={styles.button}>
+        <button type="submit" className="btn-glass-dark btn-lg" style={{ color: '#fff' }}>
           Send Message
         </button>
       </form>
@@ -176,8 +176,8 @@ const styles = {
     padding: '35px',
     gap: '40px',
     borderRadius: '18px',
-    background: 'linear-gradient(135deg, #ffffff, #f8faff)',
-    boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
+    background: 'transparent',
+    boxShadow: 'none',
     fontFamily: "'Segoe UI', Tahoma, sans-serif",
   },
   notification: {
@@ -235,11 +235,11 @@ const styles = {
   form: {
     flex: 1,
     minWidth: '300px',
-    background: 'rgba(255,255,255,0.85)',
+    background: 'rgba(0,0,0,0.4)',
     padding: '30px',
-    borderRadius: '14px',
-    boxShadow: '0 6px 25px rgba(0,0,0,0.06)',
-    backdropFilter: 'blur(8px)',
+    borderRadius: '16px',
+    boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
+    border: '1px solid rgba(255,255,255,0.12)',
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
@@ -249,16 +249,17 @@ const styles = {
     flexDirection: 'column',
     fontWeight: 600,
     fontSize: '0.95rem',
-    color: '#2d3748',
+    color: 'var(--cy-text)',
   },
   input: {
     marginTop: '6px',
     padding: '12px 14px',
     fontSize: '1rem',
     borderRadius: '10px',
-    border: '1.5px solid #cbd5e0',
+    border: '1.5px solid var(--cy-border)',
     outline: 'none',
-    background: 'white',
+    background: 'rgba(255,255,255,0.08)',
+    color: 'var(--cy-text)',
     transition: 'all 0.25s ease',
   },
   button: {

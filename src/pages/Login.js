@@ -106,14 +106,15 @@ export default function Login() {
   return (
     <>
       <div
+        className="linear-container with-lines lines-animate glass-dark on-dark"
         style={{
-          maxWidth: "400px",
+          maxWidth: "420px",
           margin: "4rem auto",
           padding: "2rem",
-          boxShadow: "0 0 20px rgba(0,0,0,0.15)",
-          borderRadius: "12px",
+          borderRadius: "16px",
+          border: "1px solid var(--cy-border)",
+          boxShadow: "var(--cy-elev)",
           fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-          backgroundColor: "#fff",
         }}
       >
         <h2
@@ -122,7 +123,7 @@ export default function Login() {
             marginBottom: "1rem",
             fontWeight: "800",
             fontSize: "2rem",
-            color: "#222",
+            color: "var(--cy-text)",
           }}
         >
           Login to Code Yatra
@@ -153,8 +154,10 @@ export default function Login() {
             style={{
               padding: "1rem",
               fontSize: "1rem",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
             }}
             required
           />
@@ -166,8 +169,10 @@ export default function Login() {
             style={{
               padding: "1rem",
               fontSize: "1rem",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
             }}
             required
           />
@@ -188,7 +193,8 @@ export default function Login() {
               style={{
                 background: "none",
                 border: "none",
-                color: "#000",
+                color: "var(--cy-text)",
+                opacity: 0.9,
                 cursor: "pointer",
                 textDecoration: "underline",
                 fontSize: "0.9rem",
@@ -201,15 +207,11 @@ export default function Login() {
           <button
             type="submit"
             disabled={isLoading}
+            className="btn-glass-dark btn-lg"
             style={{
-              padding: "1rem",
-              fontSize: "1.1rem",
-              borderRadius: "8px",
-              border: "none",
-              backgroundColor: isLoading ? "#666" : "#000",
               color: "#fff",
               cursor: isLoading ? "not-allowed" : "pointer",
-              fontWeight: "bold",
+              opacity: isLoading ? 0.8 : 1,
             }}
           >
             {isLoading ? "Logging in..." : "Login"}
@@ -224,7 +226,7 @@ export default function Login() {
               style={{
                 background: "none",
                 border: "none",
-                color: "#000",
+                color: "var(--cy-text)",
                 fontWeight: "bold",
                 cursor: "pointer",
                 textDecoration: "underline",

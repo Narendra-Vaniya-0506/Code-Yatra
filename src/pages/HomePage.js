@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { MotionSection, MotionText, FloatingBlob, fadeInUp, staggerContainer, ScaleCard } from "../../src/components/MotionPrimitives";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -98,14 +100,15 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section with animated blobs and entrance */}
       <div
-        className="home-wrapper"
+        className="home-wrapper linear-container with-lines lines-animate"
         style={{
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundAttachment: "fixed",
           position: "relative",
           color: "#fff",
           minHeight: "100vh",
@@ -118,7 +121,15 @@ export default function HomePage() {
           overflow: "hidden",
         }}
       >
-        <div
+        {/* floating blobs to emulate soft, layered background animation */}
+        <FloatingBlob color="var(--cy-accent)" size={280} opacity={0.25} x={30} y={20} duration={14} style={{ top: 80, left: -40, zIndex: 1 }} />
+        <FloatingBlob color="var(--cy-primary)" size={220} opacity={0.22} x={40} y={30} duration={12} style={{ bottom: 120, right: -30, zIndex: 1 }} />
+        <FloatingBlob color="var(--cy-primary-2)" size={300} opacity={0.18} x={20} y={40} duration={16} style={{ top: 260, right: 160, zIndex: 1 }} />
+
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
           style={{
             position: "relative",
             zIndex: 2,
@@ -130,7 +141,7 @@ export default function HomePage() {
             boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
           }}
         >
-          <p
+          <motion.p variants={fadeInUp}
             style={{
               fontSize: "0.85rem",
               marginBottom: "1rem",
@@ -142,8 +153,8 @@ export default function HomePage() {
             }}
           >
             Learn coding in the right way
-          </p>
-          <h1
+          </motion.p>
+          <motion.h1 variants={fadeInUp}
             style={{
               fontSize: "3rem",
               fontWeight: "900",
@@ -152,9 +163,9 @@ export default function HomePage() {
             }}
           >
             Welcome to <span style={{ color: "#FFD700" }}>Code Yatra</span>
-          </h1>
+          </motion.h1>
 
-          <p
+          <motion.p variants={fadeInUp}
             style={{
               fontSize: "1rem",
               marginBottom: "2rem",
@@ -165,37 +176,19 @@ export default function HomePage() {
             Something exciting is on the way at <strong>Code Yatra</strong> 🚀
             Very soon, you’ll find in-depth videos, detailed notes, and practical
             resources to make learning easier, faster, and more enjoyable.
-          </p>
+          </motion.p>
 
-          <button
+          <motion.button
+            variants={fadeInUp}
             onClick={() => navigate("/lessons")}
-            style={{
-              background: "linear-gradient(135deg, #ff7e5f, #feb47b)",
-              color: "#fff",
-              border: "none",
-              padding: "0.8rem 1.8rem",
-              marginRight: "1rem",
-              borderRadius: "50px",
-              cursor: "pointer",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.05)";
-              e.currentTarget.style.boxShadow =
-                "0 6px 20px rgba(0,0,0,0.4)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow =
-                "0 4px 15px rgba(0,0,0,0.3)";
-            }}
+            whileHover={{ scale: 1.05, boxShadow: "0 6px 20px rgba(0,0,0,0.4)" }}
+            whileTap={{ scale: 0.98 }}
+            className="btn btn-glass-dark btn-lg"
+            style={{ marginRight: "1rem", color: "#fff" }}
           >
             Explore Lessons
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
 
       {/* Features Section */}
@@ -203,41 +196,77 @@ export default function HomePage() {
         style={{
           padding: "4rem 2rem",
           textAlign: "center",
-          background: "#f5f7fa",
+          background: "var(--cy-surface-2)",
         }}
       >
-        <h2
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: "bold",
-            marginBottom: "1rem",
-            color: "#333",
-          }}
-        >
-          Think Like a Programmer.{" "}
-          <span style={{ color: "#ff7e5f" }}>Solve Real Problems.</span>
-        </h2>
-        <p
-          style={{
-            maxWidth: "700px",
-            margin: "0 auto 3rem",
-            color: "#555",
-            fontSize: "1.1rem",
-            lineHeight: "1.6",
-          }}
-        >
-          Learning to code is more than memorizing syntax it's about developing
-          a new way to think. We'll guide you through hands-on exercises to help
-          you break down problems and build elegant solutions.
-        </p>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "2rem",
-            flexWrap: "wrap",
-          }}
-        >
+        <MotionSection>
+          
+          <motion.h2
+            variants={staggerContainer}
+            style={{
+              position: "relative",
+              display: "inline-block",
+              fontSize: "2.5rem",
+              fontWeight: "bold",
+              marginBottom: "1.25rem",
+              color: "#333",
+            }}
+          >
+            <motion.span variants={fadeInUp} style={{ display: "inline-block", marginRight: 6 }}>
+              Think Like a Programmer.
+            </motion.span>
+            <motion.span
+              variants={fadeInUp}
+              style={{
+                display: "inline-block",
+                background: "linear-gradient(90deg, #ff7e5f, #feb47b)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Solve Real Problems.
+            </motion.span>
+            <motion.span
+              aria-hidden
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+              style={{
+                position: "absolute",
+                left: 0,
+                bottom: -6,
+                height: 3,
+                width: "100%",
+                transformOrigin: "left",
+                borderRadius: 999,
+                background: "linear-gradient(90deg, rgba(255,126,95,0.6), rgba(254,180,123,0.6))",
+              }}
+            />
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            style={{
+              maxWidth: "700px",
+              margin: "0 auto 3rem",
+              color: "#555",
+              fontSize: "1.1rem",
+              lineHeight: "1.6",
+            }}
+          >
+            Learning to code is more than memorizing syntax it's about developing
+            a new way to think. We'll guide you through hands-on exercises to help
+            you break down problems and build elegant solutions.
+          </motion.p>
+          <motion.div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "2rem",
+              flexWrap: "wrap",
+            }}
+          >
           {[
 
             {
@@ -256,28 +285,23 @@ export default function HomePage() {
               img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
             },
           ].map((card, idx) => (
-            <div
+            <motion.div
               key={idx}
-              style={{
-                maxWidth: "300px",
-                borderRadius: "16px",
-                overflow: "hidden",
-                background: "#fff",
-                boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-                transformStyle: "preserve-3d",
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={{
+                hidden: { opacity: 0, x: -100, scale: 0.95 },
+                visible: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.3 } },
               }}
-              onMouseEnter={(e) =>
-                Object.assign(e.currentTarget.style, cardHoverEffect)
-              }
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0) scale(1)";
-                e.currentTarget.style.boxShadow =
-                  "0 5px 20px rgba(0,0,0,0.1)";
-              }}
+              whileHover={{ y: -10, scale: 1.03, boxShadow: "0 12px 30px rgba(0,0,0,0.25)" }}
+              transition={{ duration: 0.25 }}
+              style={{ maxWidth: "300px", borderRadius: "16px", overflow: "hidden", background: "var(--cy-surface)", border: "1px solid var(--cy-border)", boxShadow: "var(--cy-elev)", cursor: "pointer" }}
             >
-              <img
+              <motion.img
+                initial={{ opacity: 0, scale: 1.02 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
                 src={card.img}
                 alt={card.title}
                 style={{
@@ -285,16 +309,18 @@ export default function HomePage() {
                   height: "180px",
                   objectFit: "cover",
                 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               />
               <div style={{ padding: "1.2rem", textAlign: "left" }}>
-                <h3 style={{ marginBottom: "0.5rem", color: "#222" }}>
+                <h3 style={{ marginBottom: "0.5rem", color: "var(--cy-text)" }}>
                   {card.title}
                 </h3>
-                <p style={{ margin: 0, color: "#555" }}>{card.text}</p>
+                <p style={{ margin: 0, color: "var(--cy-muted)" }}>{card.text}</p>
               </div>
-            </div>
-          ))}
-        </div>
+            </motion.div>
+          ))
+        }</motion.div>
+        </MotionSection>
       </section>
 
       {/* About the Developer Section */}
@@ -304,9 +330,10 @@ export default function HomePage() {
           margin: "2rem auto",
           padding: "2rem",
           textAlign: "center",
-          background: "#fff",
+          background: "var(--cy-surface)",
           borderRadius: "16px",
-          boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
+          border: "1px solid var(--cy-border)",
+          boxShadow: "var(--cy-elev)",
         }}
       >
         <h2
@@ -327,9 +354,13 @@ export default function HomePage() {
             marginBottom: "2rem",
           }}
         >
-          <img
+          <motion.img
             src={require("../Image/Developer.jpg")}
             alt="Narendra Vaniya"
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            whileInView={{ filter: "blur(0px)", opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
             style={{
               width: "128px",
               height: "128px",
@@ -337,9 +368,13 @@ export default function HomePage() {
               objectFit: "cover",
             }}
           />
-          <img
+          <motion.img
             src={require("../Image/Developer1.jpg")}
             alt="Shreya Vaghela"
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            whileInView={{ filter: "blur(0px)", opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             style={{
               width: "128px",
               height: "128px",
@@ -358,7 +393,7 @@ export default function HomePage() {
           <p
             style={{
               marginBottom: "1rem",
-              color: "#555",
+              color: "var(--cy-muted)",
               fontSize: "1.1rem",
             }}
           >
@@ -368,7 +403,7 @@ export default function HomePage() {
           <p
             style={{
               marginBottom: "2rem",
-              color: "#555",
+              color: "var(--cy-muted)",
               fontSize: "1.1rem",
             }}
           >
@@ -380,7 +415,7 @@ export default function HomePage() {
                 fontSize: "1.5rem",
                 fontWeight: "bold",
                 marginBottom: "1rem",
-                color: "#333",
+                color: "var(--cy-text)",
               }}
             >
               Connect with us:
@@ -433,11 +468,12 @@ export default function HomePage() {
 
       {/* Footer CTA */}
       <section
-        style={{
+          style={{
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+            backgroundAttachment: "fixed",
           color: "#fff",
           padding: "4rem 2rem",
           textAlign: "center",
@@ -464,22 +500,11 @@ export default function HomePage() {
         </p>
         <button
           onClick={() => navigate("/lessons")}
-          style={{
-            background: "linear-gradient(135deg, #43cea2, #185a9d)",
-            color: "#fff",
-            border: "none",
-            padding: "0.8rem 1.8rem",
-            borderRadius: "50px",
-            cursor: "pointer",
-            fontWeight: "bold",
-            fontSize: "1rem",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
-            transition: "transform 0.3s ease, box-shadow 0.3s ease",
-          }}
+          className="btn btn-glass-dark btn-lg"
+          style={{ color: "#fff" }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "scale(1.05)";
-            e.currentTarget.style.boxShadow =
-              "0 6px 20px rgba(0,0,0,0.4)";
+            e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.4)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = "scale(1)";

@@ -121,17 +121,18 @@ export default function Signup() {
 
   return (
     <>
-      {/* Your original signup form */}
+      {/* Premium glass signup form */}
       <div
+        className="linear-container with-lines lines-animate glass-dark on-dark"
         style={{
-          maxWidth: "400px",
+          maxWidth: "420px",
           margin: "4rem auto",
           padding: "2rem",
-          boxShadow: "0 0 20px rgba(0,0,0,0.15)",
-          borderRadius: "12px",
+          borderRadius: "16px",
+          border: "1px solid var(--cy-border)",
+          boxShadow: "var(--cy-elev)",
           fontFamily:
             "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-          backgroundColor: "#fff",
         }}
       >
         <h2
@@ -140,7 +141,7 @@ export default function Signup() {
             marginBottom: "2rem",
             fontWeight: "800",
             fontSize: "2rem",
-            color: "#222",
+            color: "var(--cy-text)",
           }}
         >
           Sign Up for Code Yatra
@@ -161,14 +162,12 @@ export default function Signup() {
             style={{
               padding: "1rem",
               fontSize: "1rem",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
-              boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
-              transition: "border-color 0.3s ease",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
             }}
             required
-            onFocus={(e) => (e.target.style.borderColor = "#000")}
-            onBlur={(e) => (e.target.style.borderColor = "#ccc")}
           />
           <input
             type="email"
@@ -178,14 +177,12 @@ export default function Signup() {
             style={{
               padding: "1rem",
               fontSize: "1rem",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
-              boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
-              transition: "border-color 0.3s ease",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
             }}
             required
-            onFocus={(e) => (e.target.style.borderColor = "#000")}
-            onBlur={(e) => (e.target.style.borderColor = "#ccc")}
           />
           <input
             type="tel"
@@ -195,14 +192,12 @@ export default function Signup() {
             style={{
               padding: "1rem",
               fontSize: "1rem",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
-              boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
-              transition: "border-color 0.3s ease",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
             }}
             required
-            onFocus={(e) => (e.target.style.borderColor = "#000")}
-            onBlur={(e) => (e.target.style.borderColor = "#ccc")}
           />
           <input
             type="password"
@@ -212,14 +207,12 @@ export default function Signup() {
             style={{
               padding: "1rem",
               fontSize: "1rem",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
-              boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
-              transition: "border-color 0.3s ease",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
             }}
             required
-            onFocus={(e) => (e.target.style.borderColor = "#000")}
-            onBlur={(e) => (e.target.style.borderColor = "#ccc")}
           />
           <input
             type="password"
@@ -229,35 +222,17 @@ export default function Signup() {
             style={{
               padding: "1rem",
               fontSize: "1rem",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
-              boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
-              transition: "border-color 0.3s ease",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
             }}
             required
-            onFocus={(e) => (e.target.style.borderColor = "#000")}
-            onBlur={(e) => (e.target.style.borderColor = "#ccc")}
           />
           <button
             type="submit"
-            style={{
-              padding: "1rem",
-              fontSize: "1.1rem",
-              borderRadius: "8px",
-              border: "none",
-              backgroundColor: "#000",
-              color: "#fff",
-              cursor: "pointer",
-              fontWeight: "bold",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-              transition: "background-color 0.3s ease",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#222")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "#000")
-            }
+            className="btn-glass-dark btn-lg"
+            style={{ color: "#fff" }}
           >
             Sign Up
           </button>
@@ -277,7 +252,7 @@ export default function Signup() {
               style={{
                 background: "none",
                 border: "none",
-                color: "#000",
+                color: "var(--cy-text)",
                 fontWeight: "bold",
                 cursor: "pointer",
                 textDecoration: "underline",
@@ -308,12 +283,12 @@ export default function Signup() {
         >
           <div
             style={{
-              backgroundColor: "#fff",
+              background: "var(--cy-surface)",
               padding: "1.5rem",
               borderRadius: "8px",
               maxWidth: "400px",
               width: "90%",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
+              boxShadow: "var(--cy-elev)",
               textAlign: "center",
             }}
           >
@@ -322,15 +297,8 @@ export default function Signup() {
             </p>
             <button
               onClick={handleClosePopup}
-              style={{
-                padding: "0.5rem 1rem",
-                fontSize: "1rem",
-                borderRadius: "6px",
-                border: "none",
-                backgroundColor: "#000",
-                color: "#fff",
-                cursor: "pointer",
-              }}
+              className="btn btn-glass"
+              style={{ color: "#fff" }}
             >
               OK
             </button>

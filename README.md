@@ -1,31 +1,189 @@
-# Code Yatra Personal Website
+# Code Yatra - Personal Learning Platform
 
-This is the personal website project of Narendra Vaniya and Shreya Vaghela. It serves as a portfolio and learning platform showcasing various programming lessons and projects.
+A comprehensive React-based web application designed as a personal portfolio and educational platform for Narendra Vaniya and Shreya Vaghela. This platform showcases coding projects, provides interactive lessons across multiple programming languages, and serves as a hub for learning resources.
 
-## Overview
+## 🚀 Features
 
-This React application is built to demonstrate coding skills, project showcases, and educational content. It includes sections for different programming domains such as Full-stack development, Data Analysis, Machine Learning, AI, and Games.
+### Core Functionality
+- **Interactive Homepage**: Hero section with animated elements, feature cards, and developer profiles
+- **Authentication System**: Secure login/signup with protected routes
+- **Lesson Modules**: Comprehensive tutorials for multiple programming languages
+- **Project Showcase**: Categorized portfolio of development projects
+- **Responsive Design**: Mobile-first approach with smooth animations
 
-## Purpose
+### Programming Lessons
+- Python Programming
+- C Programming
+- C++ Programming
+- HTML & CSS
+- JavaScript
+- Java
+- React.js
 
-This website is intended for personal use to share knowledge, document learning progress, and present projects in an organized and visually appealing manner. It is not a commercial product but a reflection of personal growth and passion for coding.
+### Project Categories
+- Full-Stack Development
+- Data Analysis
+- Machine Learning
+- Artificial Intelligence
+- Game Development
 
-## Project Structure
+## 🛠️ Technology Stack
 
-- `src/` - Contains all source code including components, pages, and context.
-- `src/pages/Projects/` - Project category pages and main Projects page.
-- `src/pages/HomePage.js` - Homepage with hero, features, and About the Developer sections.
-- `public/` - Static assets such as images and manifest.
-- `credentials.txt` - Sensitive credentials (ignored by Git).
-- `.gitignore` - Git ignore rules.
+### Frontend
+- **React 19.1.1** - Modern React with hooks and concurrent features
+- **React Router DOM 7.8.0** - Client-side routing
+- **Framer Motion 11.18.2** - Animation library for smooth transitions
+- **React Three Fiber & Drei** - 3D graphics and animations
+- **Lenis 1.3.11** - Smooth scrolling library
 
-## Features
+### Styling & UI
+- **Tailwind CSS 4.1.11** - Utility-first CSS framework
+- **Custom CSS** - Component-specific styling
+- **PostCSS & Autoprefixer** - CSS processing
 
-- Interactive project category cards with images and navigation.
-- Dedicated pages for various programming domains.
-- About the Developer section with personal profiles and social links.
-- Responsive and user-friendly design.
+### Development Tools
+- **Create React App** - Build setup and development server
+- **ESLint** - Code linting
+- **Testing Library** - Unit and integration testing
 
-## Contact
+## 📁 Project Structure
 
-For any inquiries, please contact Narendra Vaniya or Shreya Vaghela.
+```
+my-youtube-website/
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   ├── Logo.jpeg
+│   └── models/
+├── src/
+│   ├── components/
+│   │   ├── Footer.js
+│   │   ├── LessonLayout.js
+│   │   ├── MotionPrimitives.js
+│   │   ├── Navbar.js
+│   │   ├── ProtectedRoute.js
+│   │   └── ResetPassword.js
+│   ├── context/
+│   │   └── AuthContext.js
+│   ├── Image/
+│   │   ├── AI.png
+│   │   ├── data.png
+│   │   ├── Developer.jpg
+│   │   ├── Developer1.jpg
+│   │   ├── Full stack.png
+│   │   ├── Game.png
+│   │   └── Machine learning.png
+│   ├── pages/
+│   │   ├── Contact.js
+│   │   ├── ForgotPassword.js
+│   │   ├── HomePage.js
+│   │   ├── Lessons.js
+│   │   ├── Login.js
+│   │   ├── Privacy.js
+│   │   ├── Profile.js
+│   │   ├── Signup.js
+│   │   ├── Terms.js
+│   │   ├── Lessons/
+│   │   │   ├── lesson_layout.js
+│   │   │   ├── lessons.css
+│   │   │   └── [Language]Lessons/
+│   │   └── Projects/
+│   │       ├── AI.js
+│   │       ├── DataAnalysis.js
+│   │       ├── Fullstack.js
+│   │       ├── Games.js
+│   │       ├── MachineLearning.js
+│   │       └── Projects.js
+│   ├── App.css
+│   ├── App.js
+│   ├── index.css
+│   ├── index.js
+│   └── reportWebVitals.js
+├── package.json
+├── README.md
+└── credentials.txt
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn package manager
+
+
+## 📖 Usage
+
+### Navigation
+- **Public Routes**: Homepage, Login, Signup, Contact, Terms, Privacy
+- **Protected Routes**: Profile, Lessons, Projects (require authentication)
+
+### Authentication
+- Register a new account via Signup
+- Login with existing credentials
+- Access protected content after authentication
+
+### Lessons
+- Browse available programming languages
+- Access interactive tutorials and examples
+- Progress through structured learning paths
+
+### Projects
+- Explore different project categories
+- View detailed project descriptions and implementations
+- Navigate between Full-stack, Data Analysis, ML, AI, and Games
+
+## 🎨 Key Components
+
+### MotionPrimitives.js
+Custom animation components using Framer Motion:
+- `MotionSection` - Animated sections
+- `MotionText` - Text animations
+- `FloatingBlob` - Background decorative elements
+- Animation variants: `fadeInUp`, `staggerContainer`, `ScaleCard`
+
+### AuthContext.js
+Authentication state management:
+- User login/logout functionality
+- Protected route logic
+- Token-based authentication
+
+### HomePage.js Features
+- Loading animation with wave loader
+- Hero section with floating blobs
+- Feature cards with hover effects
+- Developer section with animated profile images
+- Call-to-action sections
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env` file in the root directory for sensitive configurations:
+```
+REACT_APP_API_URL=http://127.0.0.1:8000
+```
+
+### Credentials
+Sensitive credentials are stored in `credentials.txt` (gitignored).
+
+
+
+## 📱 Responsive Design
+
+The application is fully responsive and optimized for:
+- Desktop (1200px+)
+- Tablet (768px - 1199px)
+- Mobile (320px - 767px)
+
+## 🤝 Contributing
+
+This is a personal project, but suggestions and feedback are welcome.
+
+## 👥 Authors
+
+- **Narendra Vaniya** - Developer & Creator
+  - LinkedIn:(https://www.linkedin.com/in/narendra-vaniya1617)
+- **Shreya Vaghela** - Developer & Creator
+  - LinkedIn:(https://www.linkedin.com/in/shreyavaghela65)
+
+
+**Code Yatra** - Your journey to mastering code begins here! 🚀

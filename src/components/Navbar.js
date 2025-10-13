@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { motion } from 'framer-motion';
+import { UnderlineLink, fadeInUp, staggerContainer } from './MotionPrimitives';
+import { FaUser, FaSun, FaMoon } from 'react-icons/fa';
 
 const Navbar = () => {
   const [startLearningOpen, setStartLearningOpen] = useState(false);
@@ -8,6 +11,13 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const [darkMode, setDarkMode] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   const handleLogout = () => {
     logout();
@@ -39,16 +49,32 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [startLearningOpen]);
 
+  // Sync global dark class for theme tokens
+  useEffect(() => {
+    const root = document.documentElement;
+    if (darkMode) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   return (
-    <nav
+    <motion.nav
+      className="nav-linear linear-container"
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
       style={{
-        background: 'linear-gradient(135deg, rgba(44,62,80,0.85), rgba(44,62,80,0.95))',
-        backdropFilter: 'blur(12px)',
+        background: darkMode ? 'rgba(17,24,39,0.5)' : 'rgba(255,255,255,0.5)',
+        WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+        backdropFilter: 'saturate(180%) blur(20px)',
         padding: window.innerWidth <= 768 ? '0.8rem 1rem' : '0.8rem 2rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+        borderBottom: darkMode ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(17,24,39,0.06)',
+        boxShadow: '0 0 0 rgba(0,0,0,0)',
         position: 'sticky',
         top: 0,
         zIndex: 1000,
@@ -56,53 +82,58 @@ const Navbar = () => {
         boxSizing: 'border-box',
       }}
     >
-      {/* Left Section */}
+      {/* Left Section - Logo + Brand */}
       <div className="nav-left" style={{ 
         display: 'flex', 
         alignItems: 'center', 
-        gap: '1rem'
+        gap: '0.75rem'
       }}>
-        <Link
-          to="/"
-          style={{
-            color: '#FFD700',
-            fontWeight: '900',
-            fontSize: isMobile ? '1.4rem' : '1.6rem',
-            letterSpacing: '1px',
-            textShadow: '0 2px 5px rgba(0,0,0,0.4)',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            whiteSpace: 'nowrap'
-          }}
-          onClick={(e) => {
-            e.preventDefault();
-            window.open('https://www.youtube.com/@codeyatra0605', '_blank', 'noopener,noreferrer');
-            setStartLearningOpen(false);
-            setTutorialsOpen(false);
-          }}
-        >
-          Code Yatra
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }} onClick={() => setStartLearningOpen(false)}>
+          <img src={process.env.PUBLIC_URL + '/Logo.jpeg'} alt="Code Yatra" style={{ width: 28, height: 28, borderRadius: '50%' }} />
+          <span style={{ color: darkMode ? '#FFD700' : '#111827', fontWeight: 800, fontSize: isMobile ? '1.1rem' : '1.2rem', letterSpacing: '0.2px' }}>Code Yatra</span>
         </Link>
       </div>
 
       {/* Desktop Navigation Links */}
       {!isMobile && (
-        <ul style={{
+        <motion.ul variants={fadeInUp} style={{
           display: 'flex',
           flexDirection: 'row',
-          gap: '2rem',
+          gap: '1.4rem',
           listStyle: 'none',
           margin: 0,
           padding: 0,
           marginLeft: '0',
           justifyContent: 'flex-start'
         }}>
-          {user && <li><Link to="/dashboard" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Dashboard</Link></li>}
-          <li><Link to="/" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
-          <li><Link to="/lessons" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
-          <li><Link to="/projects" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Projects</Link></li>
-          <li><Link to="/contact" style={linkStyle} onClick={() => setStartLearningOpen(false)}>Contact</Link></li>
-        </ul>
+          {user && (
+            <li>
+              <Link to="/dashboard" style={{...linkStyle, color: darkMode ? '#e5e7eb' : '#374151'}} onClick={() => setStartLearningOpen(false)}>
+                <NavItem label="Dashboard" active={isActive('/dashboard')} darkMode={darkMode} />
+              </Link>
+            </li>
+          )}
+          <li>
+            <Link to="/" style={{...linkStyle, color: darkMode ? '#e5e7eb' : '#374151'}} onClick={() => setStartLearningOpen(false)}>
+              <NavItem label="Home" active={isActive('/')} darkMode={darkMode} />
+            </Link>
+          </li>
+          <li>
+            <Link to="/lessons" style={{...linkStyle, color: darkMode ? '#e5e7eb' : '#374151'}} onClick={() => setStartLearningOpen(false)}>
+              <NavItem label="Code lessons" active={isActive('/lessons')} darkMode={darkMode} />
+            </Link>
+          </li>
+          <li>
+            <Link to="/projects" style={{...linkStyle, color: darkMode ? '#e5e7eb' : '#374151'}} onClick={() => setStartLearningOpen(false)}>
+              <NavItem label="Projects" active={isActive('/projects')} darkMode={darkMode} />
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" style={{...linkStyle, color: darkMode ? '#e5e7eb' : '#374151'}} onClick={() => setStartLearningOpen(false)}>
+              <NavItem label="Contact" active={isActive('/contact')} darkMode={darkMode} />
+            </Link>
+          </li>
+        </motion.ul>
       )}
 
       {/* Mobile Hamburger Menu */}
@@ -126,38 +157,60 @@ const Navbar = () => {
           <span style={{
             width: '25px',
             height: '3px',
-            backgroundColor: '#FFD700',
+            backgroundColor: darkMode ? '#fff' : '#111827',
             borderRadius: '2px',
             transition: 'all 0.3s ease'
           }}></span>
           <span style={{
             width: '25px',
             height: '3px',
-            backgroundColor: '#FFD700',
+            backgroundColor: darkMode ? '#fff' : '#111827',
             borderRadius: '2px',
             transition: 'all 0.3s ease'
           }}></span>
           <span style={{
             width: '25px',
             height: '3px',
-            backgroundColor: '#FFD700',
+            backgroundColor: darkMode ? '#fff' : '#111827',
             borderRadius: '2px',
             transition: 'all 0.3s ease'
           }}></span>
         </button>
       )}
 
-      {/* Right Section - Desktop */}
+      {/* Right Section - Desktop icons */}
       {!isMobile && (
-        <div style={{ display: 'flex', gap: '0.8rem' }}>
-          {!user ? (
-            <>
-              <button style={outlineBtnStyle} onClick={() => navigate("/login")}>Login</button>
-              <button style={gradientBtnStyle} onClick={() => navigate("/signup")}>Signup</button>
-            </>
-          ) : (
-            <button style={logoutBtnStyle} onClick={handleLogout}>Logout</button>
-          )}
+        <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+          <button
+            aria-label={user ? 'Profile' : 'Login'}
+            onClick={() => navigate(user ? '/profile' : '/login')}
+            className="btn btn-glass"
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 12,
+              display: 'grid',
+              placeItems: 'center',
+              cursor: 'pointer'
+            }}
+          >
+            <FaUser size={14} />
+          </button>
+          <button
+            aria-label="Toggle theme"
+            onClick={() => setDarkMode(!darkMode)}
+            className="btn btn-glass"
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 12,
+              display: 'grid',
+              placeItems: 'center',
+              cursor: 'pointer'
+            }}
+          >
+            {darkMode ? <FaSun size={14} /> : <FaMoon size={14} />}
+          </button>
         </div>
       )}
 
@@ -168,9 +221,10 @@ const Navbar = () => {
           top: '70px',
           left: 0,
           right: 0,
-          background: 'rgba(44,62,80,0.98)',
-          backdropFilter: 'blur(12px)',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+          background: darkMode ? 'rgba(17,24,39,0.6)' : 'rgba(255,255,255,0.7)',
+          WebkitBackdropFilter: 'saturate(180%) blur(18px)',
+          backdropFilter: 'saturate(180%) blur(18px)',
+          borderBottom: darkMode ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(17,24,39,0.06)',
           zIndex: 1000,
           padding: '1rem 0',
         }}>
@@ -183,36 +237,54 @@ const Navbar = () => {
             padding: 0,
             alignItems: 'center'
           }}>
-            {user && <li><Link to="/dashboard" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Dashboard</Link></li>}
-            <li><Link to="/" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
-            <li><Link to="/lessons" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
-            <li><Link to="/projects" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Projects</Link></li>
-            <li><Link to="/contact" style={mobileLinkStyle} onClick={() => setStartLearningOpen(false)}>Contact</Link></li>
+            {user && <li><Link to="/dashboard" style={{...mobileLinkStyle, color: darkMode ? '#fff' : '#111827'}} onClick={() => setStartLearningOpen(false)}>Dashboard</Link></li>}
+            <li><Link to="/" style={{...mobileLinkStyle, color: darkMode ? '#fff' : '#111827'}} onClick={() => setStartLearningOpen(false)}>Home</Link></li>
+            <li><Link to="/lessons" style={{...mobileLinkStyle, color: darkMode ? '#fff' : '#111827'}} onClick={() => setStartLearningOpen(false)}>Code lessons</Link></li>
+            <li><Link to="/projects" style={{...mobileLinkStyle, color: darkMode ? '#fff' : '#111827'}} onClick={() => setStartLearningOpen(false)}>Projects</Link></li>
+            <li><Link to="/contact" style={{...mobileLinkStyle, color: darkMode ? '#fff' : '#111827'}} onClick={() => setStartLearningOpen(false)}>Contact</Link></li>
             <li style={{ marginTop: '1rem' }}>
               {!user ? (
                 <div style={{ display: 'flex', gap: '0.8rem', flexDirection: 'column', alignItems: 'center' }}>
-                  <button style={{...outlineBtnStyle, width: '120px'}} onClick={() => {navigate("/login"); setStartLearningOpen(false);}}>Login</button>
-                  <button style={{...gradientBtnStyle, width: '120px'}} onClick={() => {navigate("/signup"); setStartLearningOpen(false);}}>Signup</button>
+                  <button className="btn btn-glass" style={{ width: '120px' }} onClick={() => {navigate("/login"); setStartLearningOpen(false);}}>Login</button>
+                  <button className="btn btn-primary" style={{ width: '120px' }} onClick={() => {navigate("/signup"); setStartLearningOpen(false);}}>Signup</button>
                 </div>
               ) : (
-                <button style={{...logoutBtnStyle, width: '120px'}} onClick={() => {handleLogout(); setStartLearningOpen(false);}}>Logout</button>
+                <button className="btn btn-glass" style={{ width: '120px' }} onClick={() => {handleLogout(); setStartLearningOpen(false);}}>Logout</button>
               )}
             </li>
           </ul>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 
 /* 🔹 Reusable Styles */
 const linkStyle = {
-  color: '#fff',
+  color: '#111827',
   textDecoration: 'none',
   fontWeight: '500',
   transition: 'color 0.3s ease',
   padding: '0.3rem 0.6rem',
 };
+
+function NavItem({ label, active, darkMode }) {
+  return (
+    <span
+      style={{
+        position: 'relative',
+        display: 'inline-flex',
+        alignItems: 'center',
+        padding: '0.3rem 0.6rem',
+        borderRadius: 999,
+        transition: 'background 200ms ease, color 200ms ease',
+        background: active ? (darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(17,24,39,0.06)') : 'transparent',
+      }}
+    >
+      {label}
+    </span>
+  );
+}
 const mobileLinkStyle = {
   color: '#fff',
   textDecoration: 'none',
