@@ -183,7 +183,7 @@ export default function HomePage() {
             onClick={() => navigate("/lessons")}
             whileHover={{ scale: 1.05, boxShadow: "0 6px 20px rgba(0,0,0,0.4)" }}
             whileTap={{ scale: 0.98 }}
-            className="btn btn-glass-dark btn-lg"
+            className="btn-glass-dark btn-lg"
             style={{ marginRight: "1rem", color: "#fff" }}
           >
             Explore Lessons
@@ -500,7 +500,7 @@ export default function HomePage() {
         </p>
         <button
           onClick={() => navigate("/lessons")}
-          className="btn btn-glass-dark btn-lg"
+          className="btn-glass-dark btn-lg"
           style={{ color: "#fff" }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "scale(1.05)";

@@ -106,7 +106,7 @@ export default function Login() {
   return (
     <>
       <div
-        className="linear-container with-lines lines-animate glass-dark on-dark"
+        className="linear-container with-lines lines-animate glass"
         style={{
           maxWidth: "420px",
           margin: "4rem auto",

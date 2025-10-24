@@ -50,22 +50,6 @@ button {
   box-shadow: 0 8px 30px rgba(0,0,0,0.12);
 }
 
-/* Dark translucent glass container for forms */
-.glass-dark {
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-}
-
-/* Ensure readable text/borders on dark glass */
-.on-dark {
-  --cy-text: #e6e8eb;
-  --cy-muted: #b0bac5;
-  --cy-border: rgba(255,255,255,0.16);
-}
-
 /* Black translucent glass button */
 .btn-glass-dark {
   background: rgba(0,0,0,0.45);

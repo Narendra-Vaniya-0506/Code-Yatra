@@ -1,9 +1,12 @@
-# TODO: Create Reusable LearningPath Component
+# Remove Night/Day Toggle from Project
 
-- [x] Install react-icons using npm install react-icons
-- [x] Create new folder: src/components/LearningPath
-- [x] Create LearningPath.js with the specified React component code
-- [x] Create LearningPath.css with the provided CSS styles
-
-
-
+## Tasks
+- [x] Remove darkMode state and toggle button from Navbar.js
+- [x] Remove dark mode CSS from App.css
+- [x] Remove dark mode CSS from index.css
+- [x] Remove dark mode CSS from lessons.css
+- [x] Update Contact.js to use light mode classes
+- [x] Update HomePage.js to use light mode classes
+- [x] Update Login.js to use light mode classes
+- [x] Update Signup.js to use light mode classes
+- [x] Test the application in light mode

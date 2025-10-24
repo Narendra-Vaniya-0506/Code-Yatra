@@ -97,7 +97,7 @@ const Contact = () => {
         <img src="/Logo.jpeg" alt="Contact" style={styles.image} />
       </div>
 
-      <form className="glass-dark on-dark" style={styles.form} onSubmit={handleSubmit}>
+      <form className="glass" style={styles.form} onSubmit={handleSubmit}>
         <label style={styles.label}>
           Name
           <input
