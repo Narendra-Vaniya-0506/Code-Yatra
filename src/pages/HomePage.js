@@ -104,11 +104,6 @@ export default function HomePage() {
       <div
         className="home-wrapper linear-container with-lines lines-animate"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
           position: "relative",
           color: "#fff",
           minHeight: "100vh",
@@ -121,6 +116,37 @@ export default function HomePage() {
           overflow: "hidden",
         }}
       >
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            objectFit: "cover",
+            zIndex: 0,
+          }}
+        >
+          <source src={require("../Image/background-vid.mp4")} type="video/mp4" />
+        </video>
+
+        {/* Overlay for text readability */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7))",
+            zIndex: 1,
+          }}
+        />
         {/* floating blobs to emulate soft, layered background animation */}
         <FloatingBlob color="var(--cy-accent)" size={280} opacity={0.25} x={30} y={20} duration={14} style={{ top: 80, left: -40, zIndex: 1 }} />
         <FloatingBlob color="var(--cy-primary)" size={220} opacity={0.22} x={40} y={30} duration={12} style={{ bottom: 120, right: -30, zIndex: 1 }} />
