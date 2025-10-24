@@ -196,7 +196,7 @@ export default function HomePage() {
         style={{
           padding: "4rem 2rem",
           textAlign: "center",
-          background: "var(--cy-surface-2)",
+          background: "var(--cy-surface)",
         }}
       >
         <MotionSection>

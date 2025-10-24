@@ -51,12 +51,17 @@ const Navbar = () => {
 
   // Sync global dark class for theme tokens
   useEffect(() => {
-    const root = document.documentElement;
+    const html = document.documentElement;
+    const body = document.body;
     if (darkMode) {
-      root.classList.add('dark');
+      html.classList.add('dark');
+      body.classList.add('dark');
     } else {
-      root.classList.remove('dark');
+      html.classList.remove('dark');
+      body.classList.remove('dark');
     }
+    // Also hint color-scheme for better browser UI
+    document.body.style.setProperty('color-scheme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
   return (
