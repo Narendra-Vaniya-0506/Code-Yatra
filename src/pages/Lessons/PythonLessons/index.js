@@ -2396,4 +2396,3 @@ print("You are an adult.")`}</pre>
       )}
     </LessonLayout>
   );
-}
