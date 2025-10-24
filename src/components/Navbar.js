@@ -57,17 +57,19 @@ const Navbar = () => {
       animate="visible"
       variants={staggerContainer}
       style={{
-        background: 'rgba(255,255,255,0.5)',
+        background: 'rgba(255,255,255,0.4)',
         WebkitBackdropFilter: 'saturate(180%) blur(20px)',
         backdropFilter: 'saturate(180%) blur(20px)',
         padding: window.innerWidth <= 768 ? '0.8rem 1rem' : '0.8rem 2rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(17,24,39,0.06)',
+        borderBottom: '1px solid rgba(255,255,255,0.1)',
         boxShadow: '0 0 0 rgba(0,0,0,0)',
-        position: 'sticky',
+        position: 'fixed',
         top: 0,
+        left: 0,
+        right: 0,
         zIndex: 1000,
         height: '70px',
         boxSizing: 'border-box',
@@ -221,11 +223,11 @@ const Navbar = () => {
             <li style={{ marginTop: '1rem' }}>
               {!user ? (
                 <div style={{ display: 'flex', gap: '0.8rem', flexDirection: 'column', alignItems: 'center' }}>
-                  <button className="btn btn-glass" style={{ width: '120px' }} onClick={() => {navigate("/login"); setStartLearningOpen(false);}}>Login</button>
-                  <button className="btn btn-primary" style={{ width: '120px' }} onClick={() => {navigate("/signup"); setStartLearningOpen(false);}}>Signup</button>
+                  <button className="btn btn-glass" style={{ width: '120px', color: '#000' }} onClick={() => {navigate("/login"); setStartLearningOpen(false);}}>Login</button>
+                  <button className="btn btn-primary" style={{ width: '120px', color: '#000' }} onClick={() => {navigate("/signup"); setStartLearningOpen(false);}}>Signup</button>
                 </div>
               ) : (
-                <button className="btn btn-glass" style={{ width: '120px' }} onClick={() => {handleLogout(); setStartLearningOpen(false);}}>Logout</button>
+                <button className="btn btn-glass" style={{ width: '120px', color: '#000' }} onClick={() => {handleLogout(); setStartLearningOpen(false);}}>Logout</button>
               )}
             </li>
           </ul>
@@ -242,6 +244,7 @@ const linkStyle = {
   fontWeight: '500',
   transition: 'color 0.3s ease',
   padding: '0.3rem 0.6rem',
+  display: 'block',
 };
 
 function NavItem({ label, active }) {
