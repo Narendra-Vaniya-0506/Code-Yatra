@@ -1,36 +1,13 @@
-import React from 'react';
-import LearningPath from '../../../components/LearningPath/LearningPath';
-import '../../../components/LearningPath/LearningPath.css';
+import React, { useState } from "react";
+import LessonLayout from "../lesson_layout";
 
-const pythonLessonsData = [
-  { id: 1, title: 'Introduction', status: 'completed' },
-  { id: 2, title: 'What is Python?', status: 'completed' },
-  { id: 3, title: 'Why learn Python?', status: 'unlocked' },
-  { id: 4, title: 'Installing Python & IDE', status: 'locked' },
-  { id: 5, title: 'Running your first program', status: 'locked' },
-  { id: 6, title: 'Comments', status: 'locked' },
-  { id: 7, title: 'Project', status: 'locked' },
-  { id: 8, title: 'Python Foundations (Beginner)', status: 'locked' },
-  { id: 9, title: 'Syntax & Indentation', status: 'locked' },
-  { id: 10, title: 'Variables & Naming Conventions', status: 'locked' },
-  { id: 11, title: 'Data Types', status: 'locked' },
-  { id: 12, title: 'String Operations', status: 'locked' },
-  { id: 13, title: 'Input & Output', status: 'locked' },
-  { id: 14, title: 'Type Casting', status: 'locked' },
-  { id: 15, title: 'Operators', status: 'locked' },
-  { id: 16, title: 'Project: Simple Calculator', status: 'locked' }
-];
+const CodeBlock = ({ children }) => (
+  <pre className="code-block">
+    <code>{children}</code>
+  </pre>
+);
 
-const PythonLessons = () => {
-  return (
-    <div>
-      <h1>Python Lesson</h1>
-      <LearningPath lessons={pythonLessonsData} />
-    </div>
-  );
-};
-
-export default PythonLessons;
+export default function PythonLessons() {
   const [openSections, setOpenSections] = useState({
     introduction: true,
     foundations: false,
@@ -2396,3 +2373,4 @@ print("You are an adult.")`}</pre>
       )}
     </LessonLayout>
   );
+}
