@@ -2552,8 +2552,8 @@ print("You are an adult.")`}</pre>
               overflowX: 'auto',
               margin: '0',
               whiteSpace: 'pre-wrap'
-            }}>name = "Code Yatra"<br/>score = 98<br/># Using an f-string<br/>greeting = f"Hello, {name}! Your score is {score}."<br/>print(greeting)<br/># Output: Hello, Code Yatra! Your score is 98.</pre>
-            <button onClick={() => copyCode('name = "Code Yatra"\nscore = 98\n# Using an f-string\ngreeting = f"Hello, {name}! Your score is {score}."\nprint(greeting)\n# Output: Hello, Code Yatra! Your score is 98.')} style={{
+            }}>user_name = "Code Yatra"<br/>user_score = 98<br/># Using an f-string<br/>greeting = f"Hello, {user_name}! Your score is {user_score}."<br/>print(greeting)<br/># Output: Hello, Code Yatra! Your score is 98.</pre>
+            <button onClick={() => copyCode('user_name = "Code Yatra"\nuser_score = 98\n# Using an f-string\ngreeting = f"Hello, {user_name}! Your score is {user_score}."\nprint(greeting)\n# Output: Hello, Code Yatra! Your score is 98.')} style={{
               position: 'absolute',
               top: '6px',
               right: '6px',
