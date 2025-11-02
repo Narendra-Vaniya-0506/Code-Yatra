@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../lessons.css';
 
 const InputOutput = () => {
   const [showToast, setShowToast] = useState(false);
@@ -18,20 +19,75 @@ const InputOutput = () => {
   };
 
   return (
-    <div id="input-output">
-      <h2 style={{
-        color: '#2d3748',
-        fontSize: '2rem',
-        fontWeight: '700',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '3px solid #4299e1'
-      }}>Input & Output</h2>
-      <p style={{
-        marginBottom: '1rem',
-        fontSize: '1.1rem',
-        color: '#4a5568'
-      }}>Content coming soon...</p>
+    <div id="input-output" className="lesson-content">
+      <h2 className="lesson-title">Input & Output</h2>
+
+      <h3 className="section-title">1. What are Input and Output?</h3>
+      <p className="intro-text">To create interactive programs, we need a way to communicate with the user.</p>
+      <ul className="lesson-list">
+        <li><b>Output:</b> This is how a program displays information, results, and messages to the user.</li>
+        <li><b>Input:</b> This is how a program receives data and commands from the user.</li>
+      </ul>
+
+      <h3 className="section-title">2. Output: The print() Function</h3>
+      <p className="intro-text">The print() function is the primary way to display output on the screen in Python. It can be used to show text, the values of variables, or a combination of both.</p>
+      <ul className="lesson-list">
+        <li><b>Basic Usage:</b></li>
+      </ul>
+      <div className="code-container">
+        <pre>{`# Printing a simple text message
+print("Welcome to Python!")`}</pre>
+        <button onClick={() => copyCode(`# Printing a simple text message
+print("Welcome to Python!")`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+      <ul className="lesson-list">
+        <li><b>Printing Variables:</b> You can pass variable names to the print() function to display their stored values.</li>
+      </ul>
+      <div className="code-container">
+        <pre>{`channel_name = "Code Yatra"
+print(channel_name)`}</pre>
+        <button onClick={() => copyCode(`channel_name = "Code Yatra"
+print(channel_name)`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+      <ul className="lesson-list">
+        <li><b>Printing Multiple Items:</b> When you pass multiple items separated by commas, print() automatically adds a space between them.</li>
+      </ul>
+      <div className="code-container">
+        <pre>{`name = "Code Yatra"
+print("Hello,", name, "! Nice to meet you.")`}</pre>
+        <button onClick={() => copyCode(`name = "Code Yatra"
+print("Hello,", name, "! Nice to meet you.")`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+
+      <h3 className="section-title">3. Input: The input() Function</h3>
+      <p className="intro-text">To get data from the user, we use the input() function.</p>
+      <ul className="lesson-list">
+        <li><b>How it Works:</b> The input() function pauses your program's execution and waits for the user to type something and press the Enter key. The text the user enters is then returned by the function.</li>
+        <li><b>Using a Prompt:</b> You should provide a descriptive message, called a prompt, inside the parentheses to tell the user what kind of information to enter.</li>
+      </ul>
+      <div className="code-container">
+        <pre>{`# The string inside input() is the prompt shown to the user.
+name = input("What is your name? ")
+
+# The value entered by the user is stored in the 'name' variable.
+print(f"Welcome, {name}!")`}</pre>
+        <button onClick={() => copyCode(`# The string inside input() is the prompt shown to the user.
+name = input("What is your name? ")
+
+# The value entered by the user is stored in the 'name' variable.
+print(f"Welcome, {name}!")`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+      <ul className="lesson-list">
+        <li><b>Return Value:</b> It is important to remember that the input() function always returns the user's data as a string (str), regardless of what they type.</li>
+      </ul>
 
       {showToast && (
         <div style={{

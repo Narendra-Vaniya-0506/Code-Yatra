@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../lessons.css';
 
 const Project = () => {
   const [showToast, setShowToast] = useState(false);
@@ -18,223 +19,59 @@ const Project = () => {
   };
 
   return (
-    <div id="Project">
-      <h2 style={{
-        color: '#2d3748',
-        fontSize: '2rem',
-        fontWeight: '700',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '3px solid #4299e1'
-      }}>Project</h2>
+    <div id="Project" className="lesson-content">
+      <h2 className="lesson-title">Project</h2>
 
-      <h3 style={{
-        color: '#4a5568',
-        fontSize: '1.5rem',
-        fontWeight: '600',
-        margin: '1.5rem 0 1rem 0',
-        paddingLeft: '0.5rem',
-        borderLeft: '4px solid #48bb78'
-      }}>Goal</h3>
-      <ul style={{
-        listStyleType: 'disc',
-        paddingLeft: '2rem',
-        marginBottom: '1.5rem'
-      }}>
-        <li style={{
-          marginBottom: '0.5rem',
-          paddingLeft: '0.5rem'
-        }}>Display a welcome message.</li>
+      <h3 className="section-title">Goal</h3>
+      <ul className="lesson-list">
+        <li>Display a welcome message.</li>
       </ul>
 
-      <h3 style={{
-        color: '#4a5568',
-        fontSize: '1.5rem',
-        fontWeight: '600',
-        margin: '1.5rem 0 1rem 0',
-        paddingLeft: '0.5rem',
-        borderLeft: '4px solid #48bb78'
-      }}>This project teaches you:</h3>
-      <ul style={{
-        listStyleType: 'disc',
-        paddingLeft: '2rem',
-        marginBottom: '1.5rem'
-      }}>
-        <li style={{
-          marginBottom: '0.5rem',
-          paddingLeft: '0.5rem'
-        }}>How to use print()</li>
+      <h3 className="section-title">This project teaches you:</h3>
+      <ul className="lesson-list">
+        <li>How to use print()</li>
       </ul>
 
-      <h3 style={{
-        color: '#4a5568',
-        fontSize: '1.5rem',
-        fontWeight: '600',
-        margin: '1.5rem 0 1rem 0',
-        paddingLeft: '0.5rem',
-        borderLeft: '4px solid #48bb78'
-      }}>Step 1: Create a new Python file</h3>
-      <ol style={{
-        listStyleType: 'decimal',
-        paddingLeft: '2rem',
-        marginBottom: '1.5rem'
-      }}>
-        <li style={{
-          marginBottom: '0.5rem',
-          paddingLeft: '0.5rem'
-        }}>Open your IDE (VS Code, PyCharm, or even Notepad).</li>
-        <li style={{
-          marginBottom: '0.5rem',
-          paddingLeft: '0.5rem'
-        }}>Create a file named Welcome.py.</li>
+      <h3 className="section-title">Step 1: Create a new Python file</h3>
+      <ol className="steps-list">
+        <li>Open your IDE (VS Code, PyCharm, or even Notepad).</li>
+        <li>Create a file named Welcome.py.</li>
       </ol>
 
-      <h3 style={{
-        color: '#4a5568',
-        fontSize: '1.5rem',
-        fontWeight: '600',
-        margin: '1.5rem 0 1rem 0',
-        paddingLeft: '0.5rem',
-        borderLeft: '4px solid #48bb78'
-      }}>Step 2: Write the code</h3>
-      <div style={{position: 'relative', margin: '1rem 0'}}>
-        <pre style={{
-          background: '#1a202c',
-          color: '#f8f8f2',
-          padding: '0.75rem 1rem',
-          borderRadius: '6px',
-          fontFamily: 'monospace',
-          overflowX: 'auto',
-          margin: '0',
-          whiteSpace: 'pre-wrap'
-        }}># Simple Hello World Welcome Program<br/># Display a welcome message<br/>print("Welcome to Python!")</pre>
-        <button onClick={() => copyCode('# Simple Hello World welcome Program\n# Display a welcome message\nprint("Welcome to Python!")')} style={{
-          position: 'absolute',
-          top: '6px',
-          right: '6px',
-          background: '#2d3748',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '4px',
-          padding: '4px 8px',
-          cursor: 'pointer',
-          fontSize: '0.8rem'
-        }}>Copy</button>
+      <h3 className="section-title">Step 2: Write the code</h3>
+      <div className="code-container">
+        <pre># Simple Hello World Welcome Program<br/># Display a welcome message<br/>print("Welcome to Python!")</pre>
+        <button onClick={() => copyCode('# Simple Hello World welcome Program\n# Display a welcome message\nprint("Welcome to Python!")')} className="copy-button">
+          Copy
+        </button>
       </div>
 
-      <h3 style={{
-        color: '#4a5568',
-        fontSize: '1.5rem',
-        fontWeight: '600',
-        margin: '1.5rem 0 1rem 0',
-        paddingLeft: '0.5rem',
-        borderLeft: '4px solid #48bb78'
-      }}>Step 3: Run the program</h3>
-      <p style={{
-        marginBottom: '1rem',
-        fontSize: '1.1rem',
-        color: '#4a5568'
-      }}>• Windows: open terminal and type:</p>
-      <div style={{position: 'relative', margin: '1rem 0'}}>
-        <pre style={{
-          background: '#1a202c',
-          color: '#f8f8f2',
-          padding: '0.75rem 1rem',
-          borderRadius: '6px',
-          fontFamily: 'monospace',
-          overflowX: 'auto',
-          margin: '0',
-          whiteSpace: 'pre-wrap'
-        }}>py Welcome.py</pre>
-        <button onClick={() => copyCode('py Welcome.py')} style={{
-          position: 'absolute',
-          top: '6px',
-          right: '6px',
-          background: '#2d3748',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '4px',
-          padding: '4px 8px',
-          cursor: 'pointer',
-          fontSize: '0.8rem'
-        }}>Copy</button>
+      <h3 className="section-title">Step 3: Run the program</h3>
+      <p className="intro-text">• Windows: open terminal and type:</p>
+      <div className="code-container">
+        <pre>py Welcome.py</pre>
+        <button onClick={() => copyCode('py Welcome.py')} className="copy-button">
+          Copy
+        </button>
       </div>
-      <p style={{
-        marginBottom: '1rem',
-        fontSize: '1.1rem',
-        color: '#4a5568'
-      }}>macOS/Linux:</p>
-      <div style={{position: 'relative', margin: '1rem 0'}}>
-        <pre style={{
-          background: '#1a202c',
-          color: '#f8f8f2',
-          padding: '0.75rem 1rem',
-          borderRadius: '6px',
-          fontFamily: 'monospace',
-          overflowX: 'auto',
-          margin: '0',
-          whiteSpace: 'pre-wrap'
-        }}>python3 Welcome.py</pre>
-        <button onClick={() => copyCode('python3 Welcome.py')} style={{
-          position: 'absolute',
-          top: '6px',
-          right: '6px',
-          background: '#2d3748',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '4px',
-          padding: '4px 8px',
-          cursor: 'pointer',
-          fontSize: '0.8rem'
-        }}>Copy</button>
+      <p className="intro-text">macOS/Linux:</p>
+      <div className="code-container">
+        <pre>python3 Welcome.py</pre>
+        <button onClick={() => copyCode('python3 Welcome.py')} className="copy-button">
+          Copy
+        </button>
       </div>
-      <p style={{
-        marginBottom: '1rem',
-        fontSize: '1.1rem',
-        color: '#4a5568'
-      }}>You'll see:</p>
-      <div style={{position: 'relative', margin: '1rem 0'}}>
-        <pre style={{
-          background: '#1a202c',
-          color: '#f8f8f2',
-          padding: '0.75rem 1rem',
-          borderRadius: '6px',
-          fontFamily: 'monospace',
-          overflowX: 'auto',
-          margin: '0',
-          whiteSpace: 'pre-wrap'
-        }}>Welcome to Python!</pre>
-        <button onClick={() => copyCode('Welcome to Python!')} style={{
-          position: 'absolute',
-          top: '6px',
-          right: '6px',
-          background: '#2d3748',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '4px',
-          padding: '4px 8px',
-          cursor: 'pointer',
-          fontSize: '0.8rem'
-        }}>Copy</button>
+      <p className="intro-text">You'll see:</p>
+      <div className="code-container">
+        <pre>Welcome to Python!</pre>
+        <button onClick={() => copyCode('Welcome to Python!')} className="copy-button">
+          Copy
+        </button>
       </div>
 
-      <h3 style={{
-        color: '#4a5568',
-        fontSize: '1.5rem',
-        fontWeight: '600',
-        margin: '1.5rem 0 1rem 0',
-        paddingLeft: '0.5rem',
-        borderLeft: '4px solid #48bb78'
-      }}>How it Works</h3>
-      <ol style={{
-        listStyleType: 'decimal',
-        paddingLeft: '2rem',
-        marginBottom: '1.5rem'
-      }}>
-        <li style={{
-          marginBottom: '0.5rem',
-          paddingLeft: '0.5rem'
-        }}>print("Welcome to Python!") &rarr; prints text.</li>
+      <h3 className="section-title">How it Works</h3>
+      <ol className="steps-list">
+        <li>print("Welcome to Python!") &rarr; prints text.</li>
       </ol>
 
       {showToast && (

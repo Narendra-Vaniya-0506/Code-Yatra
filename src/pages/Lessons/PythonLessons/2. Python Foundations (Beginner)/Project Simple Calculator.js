@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../lessons.css';
 
 const ProjectSimpleCalculator = () => {
   const [showToast, setShowToast] = useState(false);
@@ -18,20 +19,9 @@ const ProjectSimpleCalculator = () => {
   };
 
   return (
-    <div id="calculator-project">
-      <h2 style={{
-        color: '#2d3748',
-        fontSize: '2rem',
-        fontWeight: '700',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '3px solid #4299e1'
-      }}>Project: Build a Simple Calculator</h2>
-      <p style={{
-        marginBottom: '1rem',
-        fontSize: '1.1rem',
-        color: '#4a5568'
-      }}>Content coming soon...</p>
+    <div id="calculator-project" className="lesson-content">
+      <h2 className="lesson-title">Project: Build a Simple Calculator</h2>
+      <p className="intro-text">Content coming soon...</p>
 
       {showToast && (
         <div style={{

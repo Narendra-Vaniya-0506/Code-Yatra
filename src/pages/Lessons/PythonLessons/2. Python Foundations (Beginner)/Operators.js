@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../lessons.css';
 
 const Operators = () => {
   const [showToast, setShowToast] = useState(false);
@@ -18,20 +19,135 @@ const Operators = () => {
   };
 
   return (
-    <div id="operators">
-      <h2 style={{
-        color: '#2d3748',
-        fontSize: '2rem',
-        fontWeight: '700',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '3px solid #4299e1'
-      }}>Operators</h2>
-      <p style={{
-        marginBottom: '1rem',
-        fontSize: '1.1rem',
-        color: '#4a5568'
-      }}>Content coming soon...</p>
+    <div id="operators" className="lesson-content">
+      <h2 className="lesson-title">Operators</h2>
+
+      <h3 className="section-title">1. What are Operators?</h3>
+      <p className="intro-text">Operators are special symbols in Python that carry out an operation on one or more values. These values are called operands. For example, in the expression 5 + 3, the + is the operator and 5 and 3 are the operands.</p>
+      <p className="intro-text">Python's operators can be categorized into several groups.</p>
+
+      <h3 className="section-title">2. Arithmetic Operators</h3>
+      <p className="intro-text">These operators are used to perform standard mathematical calculations.</p>
+      <div className="code-container">
+        <pre>{`# Addition: +
+result = 5 + 3  # 8
+
+# Subtraction: -
+result = 10 - 4  # 6
+
+# Multiplication: *
+result = 6 * 7  # 42
+
+# Division: /
+result = 15 / 4  # 3.75
+
+# Floor Division: //
+result = 15 // 4  # 3
+
+# Modulus (Remainder): %
+result = 17 % 5  # 2
+
+# Exponentiation: **
+result = 2 ** 3  # 8`}</pre>
+        <button onClick={() => copyCode(`# Addition: +
+result = 5 + 3  # 8
+
+# Subtraction: -
+result = 10 - 4  # 6
+
+# Multiplication: *
+result = 6 * 7  # 42
+
+# Division: /
+result = 15 / 4  # 3.75
+
+# Floor Division: //
+result = 15 // 4  # 3
+
+# Modulus (Remainder): %
+result = 17 % 5  # 2
+
+# Exponentiation: **
+result = 2 ** 3  # 8`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+      <p className="intro-text"><b>Note on Division:</b> / always results in a float, while // (Floor Division) discards the fractional part and returns an integer.</p>
+
+      <h3 className="section-title">3. Comparison (Relational) Operators</h3>
+      <p className="intro-text">These operators are used to compare two values. They always return a Boolean value: True or False.</p>
+      <div className="code-container">
+        <pre>{`# Equal to: ==
+result = (5 == 5)  # True
+
+# Not equal to: !=
+result = (5 != 3)  # True
+
+# Greater than: >
+result = (10 > 5)  # True
+
+# Less than: <
+result = (3 < 8)  # True
+
+# Greater than or equal to: >=
+result = (7 >= 7)  # True
+
+# Less than or equal to: <=
+result = (4 <= 6)  # True`}</pre>
+        <button onClick={() => copyCode(`# Equal to: ==
+result = (5 == 5)  # True
+
+# Not equal to: !=
+result = (5 != 3)  # True
+
+# Greater than: >
+result = (10 > 5)  # True
+
+# Less than: <
+result = (3 < 8)  # True
+
+# Greater than or equal to: >=
+result = (7 >= 7)  # True
+
+# Less than or equal to: <=
+result = (4 <= 6)  # True`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+
+      <h3 className="section-title">4. Logical Operators</h3>
+      <p className="intro-text">These operators are used to combine or modify conditional statements and boolean values.</p>
+      <ul className="lesson-list">
+        <li><b>and:</b> Returns True only if both operands are true.</li>
+      </ul>
+      <div className="code-container">
+        <pre>{`(5 > 3) and (10 > 5)  # True, because both are true`}</pre>
+        <button onClick={() => copyCode(`(5 > 3) and (10 > 5)  # True, because both are true`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+      <ul className="lesson-list">
+        <li><b>or:</b> Returns True if at least one of the operands is true.</li>
+      </ul>
+      <div className="code-container">
+        <pre>{`(5 > 10) or (10 > 5)  # True, because the second one is true`}</pre>
+        <button onClick={() => copyCode(`(5 > 10) or (10 > 5)  # True, because the second one is true`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+      <ul className="lesson-list">
+        <li><b>not:</b> Inverts the boolean value. It makes True become False and False become True.</li>
+      </ul>
+      <div className="code-container">
+        <pre>{`not (5 > 10)  # True, because (5 > 10) is False`}</pre>
+        <button onClick={() => copyCode(`not (5 > 10)  # True, because (5 > 10) is False`)} className="copy-button">
+          Copy
+        </button>
+      </div>
+
+      <h3 className="section-title">5. Bitwise Operators</h3>
+      <p className="intro-text">Bitwise operators act on operands at the binary level (0s and 1s). These are used in more advanced, low-level programming and are not typically required for general application development.</p>
+      <p className="intro-text">The main bitwise operators are: & (AND), | (OR), ^ (XOR), ~ (NOT), << (left shift), and >> (right shift).</p>
 
       {showToast && (
         <div style={{
