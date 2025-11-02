@@ -1,5 +1,5 @@
 import React from "react";
-import './Lesson.css';
+import '../../lessons.css';
 
 export default function WhatIsPython() {
   return (
