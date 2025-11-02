@@ -2542,6 +2542,7 @@ print("You are an adult.")`}</pre>
             fontSize: '1.1rem',
             color: '#4a5568'
           }}><b>Example:</b></p>
+          {/* eslint-disable-next-line no-undef */}
           <div style={{position: 'relative', margin: '1rem 0'}}>
             <pre style={{
               background: '#1a202c',
