@@ -19,96 +19,440 @@ export default function RunningYourFirstProgram() {
 
   return (
     <div id="first-program">
-      <h2 className="python-lesson-h2">Running Your First Program</h2>
+      <h2 style={{
+        color: '#2d3748',
+        fontSize: '2rem',
+        fontWeight: '700',
+        marginBottom: '1.5rem',
+        paddingBottom: '0.5rem',
+        borderBottom: '3px solid #4299e1'
+      }}>Running Your First Program</h2>
 
-      <h3 className="python-lesson-h3">What "Hello, World!" is (and why it matters)</h3>
-      <p className="python-lesson-p">It&apos;s the simplest program that prints a small message. The goal isn&apos;t to be fancy—it&apos;s to prove:</p>
-      <ul className="python-lesson-ul">
-        <li className="python-lesson-li">Python is installed correctly,</li>
-        <li className="python-lesson-li">your editor is set up,</li>
-        <li className="python-lesson-li">you know how to run code.</li>
+      <h3 style={{
+        color: '#4a5568',
+        fontSize: '1.5rem',
+        fontWeight: '600',
+        margin: '1.5rem 0 1rem 0',
+        paddingLeft: '0.5rem',
+        borderLeft: '4px solid #48bb78'
+      }}>What "Hello, World!" is (and why it matters)</h3>
+      <p style={{
+        marginBottom: '1rem',
+        fontSize: '1.1rem',
+        color: '#4a5568'
+      }}>It&apos;s the simplest program that prints a small message. The goal isn&apos;t to be fancy—it&apos;s to prove:</p>
+      <ul style={{
+        listStyleType: 'disc',
+        paddingLeft: '2rem',
+        marginBottom: '1.5rem'
+      }}>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>Python is installed correctly,</li>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>your editor is set up,</li>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>you know how to run code.</li>
       </ul>
-      <p className="python-lesson-p">Once this works, everything else becomes easier.</p>
+      <p style={{
+        marginBottom: '1.5rem',
+        fontSize: '1.1rem',
+        color: '#4a5568'
+      }}>Once this works, everything else becomes easier.</p>
 
-      <h3 className="python-lesson-h3">Make sure Python is installed</h3>
-      <p className="python-lesson-p">Open your terminal and try these (you only need one to work)</p>
+      <h3 style={{
+        color: '#4a5568',
+        fontSize: '1.5rem',
+        fontWeight: '600',
+        margin: '1.5rem 0 1rem 0',
+        paddingLeft: '0.5rem',
+        borderLeft: '4px solid #48bb78'
+      }}>Make sure Python is installed</h3>
+      <p style={{
+        marginBottom: '1rem',
+        fontSize: '1.1rem',
+        color: '#4a5568'
+      }}>Open your terminal and try these (you only need one to work)</p>
 
-      <h4 className="python-lesson-h4">Windows (CMD/PowerShell):</h4>
-      <ul className="python-lesson-ul">
-        <li className="python-lesson-li">
-          <div className="python-code-wrapper">
-            <pre className="python-code-block">py -V</pre>
-            <button className="python-copy-btn" onClick={() => copyCode('py -V')}>Copy</button>
+      <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>Windows (CMD/PowerShell):</h4>
+      <ul style={{
+        listStyleType: 'disc',
+        paddingLeft: '2rem',
+        marginBottom: '1.5rem'
+      }}>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0',
+              whiteSpace: 'pre-wrap'
+            }}>py -V</pre>
+            <button onClick={() => copyCode('py -V')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
           </div>
         </li>
-        <li className="python-lesson-li">
-          <div className="python-code-wrapper">
-            <pre className="python-code-block">python --version</pre>
-            <button className="python-copy-btn" onClick={() => copyCode('python --version')}>Copy</button>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0',
+              whiteSpace: 'pre-wrap'
+            }}>python --version</pre>
+            <button onClick={() => copyCode('python --version')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
           </div>
         </li>
       </ul>
 
-      <h4 className="python-lesson-h4">macOS / Linux (Terminal):</h4>
-      <ul className="python-lesson-ul">
-        <li className="python-lesson-li">
-          <div className="python-code-wrapper">
-            <pre className="python-code-block">python3 --version</pre>
-            <button className="python-copy-btn" onClick={() => copyCode('python3 --version')}>Copy</button>
+      <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>macOS / Linux (Terminal):</h4>
+      <ul style={{
+        listStyleType: 'disc',
+        paddingLeft: '2rem',
+        marginBottom: '1.5rem'
+      }}>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0',
+              whiteSpace: 'pre-wrap'
+            }}>python3 --version</pre>
+            <button onClick={() => copyCode('python3 --version')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
           </div>
         </li>
       </ul>
 
-      <h3 className="python-lesson-h3">Four ways to run Python</h3>
+      <h3 style={{
+        color: '#4a5568',
+        fontSize: '1.5rem',
+        fontWeight: '600',
+        margin: '1.5rem 0 1rem 0',
+        paddingLeft: '0.5rem',
+        borderLeft: '4px solid #48bb78'
+      }}>Four ways to run Python</h3>
 
-      <h3 className="python-lesson-h3">A) Interactive Prompt (REPL)</h3>
-      <p className="python-lesson-p">Type python (or py / python3) in your terminal to open the prompt, then:</p>
-      <div className="python-code-wrapper">
-        <pre className="python-code-block">print("Hello, World!")</pre>
-        <button className="python-copy-btn" onClick={() => copyCode('print("Hello, World!")')}>Copy</button>
+      <h3 style={{
+        color: '#4a5568',
+        fontSize: '1.25rem',
+        fontWeight: '600',
+        margin: '1.5rem 0 1rem 0',
+        paddingLeft: '0.5rem',
+        borderLeft: '4px solid #4299e1'
+      }}>A) Interactive Prompt (REPL)</h3>
+      <p style={{
+        marginBottom: '1rem',
+        fontSize: '1.1rem',
+        color: '#4a5568'
+      }}>Type python (or py / python3) in your terminal to open the prompt, then:</p>
+      <div style={{position: 'relative', margin: '1rem 0'}}>
+        <pre style={{
+          background: '#1a202c',
+          color: '#f8f8f2',
+          padding: '0.75rem 1rem',
+          borderRadius: '6px',
+          fontFamily: 'monospace',
+          overflowX: 'auto',
+          margin: '0',
+          whiteSpace: 'pre-wrap'
+        }}>print("Hello, World!")</pre>
+        <button onClick={() => copyCode('print("Hello, World!")')} style={{
+          position: 'absolute',
+          top: '6px',
+          right: '6px',
+          background: '#2d3748',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '4px',
+          padding: '4px 8px',
+          cursor: 'pointer',
+          fontSize: '0.8rem'
+        }}>Copy</button>
       </div>
-      <p className="python-lesson-p">Great for quick tests.</p>
+      <p style={{
+        marginBottom: '1.5rem',
+        fontSize: '1.1rem',
+        color: '#4a5568'
+      }}>Great for quick tests.</p>
 
-      <h3 className="python-lesson-h3">B) As a script (.py file)</h3>
-      <ol className="python-lesson-ol">
-        <li className="python-lesson-li">Create a file named hello.py with:</li>
-        <div className="python-code-wrapper">
-          <pre className="python-code-block">print("Hello, World!")</pre>
-          <button className="python-copy-btn" onClick={() => copyCode('print("Hello, World!")')}>Copy</button>
+      <h3 style={{
+        color: '#4a5568',
+        fontSize: '1.25rem',
+        fontWeight: '600',
+        margin: '1.5rem 0 1rem 0',
+        paddingLeft: '0.5rem',
+        borderLeft: '4px solid #4299e1'
+      }}>B) As a script (.py file)</h3>
+      <ol style={{
+        listStyleType: 'decimal',
+        paddingLeft: '2rem',
+        marginBottom: '1.5rem'
+      }}>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>Create a file named hello.py with:</li>
+        <div style={{position: 'relative', margin: '1rem 0'}}>
+          <pre style={{
+            background: '#1a202c',
+            color: '#f8f8f2',
+            padding: '0.75rem 1rem',
+            borderRadius: '6px',
+            fontFamily: 'monospace',
+            overflowX: 'auto',
+            margin: '0',
+            whiteSpace: 'pre-wrap'
+          }}>print("Hello, World!")</pre>
+          <button onClick={() => copyCode('print("Hello, World!")')} style={{
+            position: 'absolute',
+            top: '6px',
+            right: '6px',
+            background: '#2d3748',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '4px',
+            padding: '4px 8px',
+            cursor: 'pointer',
+            fontSize: '0.8rem'
+          }}>Copy</button>
         </div>
-        <li className="python-lesson-li">Run it:</li>
-        <p className="python-lesson-p">Windows:</p>
-        <div className="python-code-wrapper">
-          <pre className="python-code-block">py hello.py<br/># or: python hello.py</pre>
-          <button className="python-copy-btn" onClick={() => copyCode('py hello.py\n# or: python hello.py')}>Copy</button>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>Run it:</li>
+        <p style={{
+          marginBottom: '0.5rem',
+          fontSize: '1.1rem',
+          color: '#4a5568',
+          paddingLeft: '2rem'
+        }}>Windows:</p>
+        <div style={{position: 'relative', margin: '1rem 0'}}>
+          <pre style={{
+            background: '#1a202c',
+            color: '#f8f8f2',
+            padding: '0.75rem 1rem',
+            borderRadius: '6px',
+            fontFamily: 'monospace',
+            overflowX: 'auto',
+            margin: '0',
+            whiteSpace: 'pre-wrap'
+          }}>py hello.py<br/># or: python hello.py</pre>
+          <button onClick={() => copyCode('py hello.py\n# or: python hello.py')} style={{
+            position: 'absolute',
+            top: '6px',
+            right: '6px',
+            background: '#2d3748',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '4px',
+            padding: '4px 8px',
+            cursor: 'pointer',
+            fontSize: '0.8rem'
+          }}>Copy</button>
         </div>
-        <p className="python-lesson-p">macOS/Linux:</p>
-        <div className="python-code-wrapper">
-          <pre className="python-code-block">python3 hello.py</pre>
-          <button className="python-copy-btn" onClick={() => copyCode('python3 hello.py')}>Copy</button>
+        <p style={{
+          marginBottom: '0.5rem',
+          fontSize: '1.1rem',
+          color: '#4a5568',
+          paddingLeft: '2rem'
+        }}>macOS/Linux:</p>
+        <div style={{position: 'relative', margin: '1rem 0'}}>
+          <pre style={{
+            background: '#1a202c',
+            color: '#f8f8f2',
+            padding: '0.75rem 1rem',
+            borderRadius: '6px',
+            fontFamily: 'monospace',
+            overflowX: 'auto',
+            margin: '0',
+            whiteSpace: 'pre-wrap'
+          }}>python3 hello.py</pre>
+          <button onClick={() => copyCode('python3 hello.py')} style={{
+            position: 'absolute',
+            top: '6px',
+            right: '6px',
+            background: '#2d3748',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '4px',
+            padding: '4px 8px',
+            cursor: 'pointer',
+            fontSize: '0.8rem'
+          }}>Copy</button>
         </div>
       </ol>
 
-      <h3 className="python-lesson-h3">C) Inside an IDE (VS Code / PyCharm)</h3>
-      <ul className="python-lesson-ul">
-        <li className="python-lesson-li">Create hello.py, paste the print line, click Run.</li>
-        <li className="python-lesson-li">IDEs show output in an output panel and manage the Python interpreter for you.</li>
+      <h3 style={{
+        color: '#4a5568',
+        fontSize: '1.25rem',
+        fontWeight: '600',
+        margin: '1.5rem 0 1rem 0',
+        paddingLeft: '0.5rem',
+        borderLeft: '4px solid #4299e1'
+      }}>C) Inside an IDE (VS Code / PyCharm)</h3>
+      <ul style={{
+        listStyleType: 'disc',
+        paddingLeft: '2rem',
+        marginBottom: '1.5rem'
+      }}>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>Create hello.py, paste the print line, click Run.</li>
+        <li style={{
+          marginBottom: '0.5rem',
+          paddingLeft: '0.5rem'
+        }}>IDEs show output in an output panel and manage the Python interpreter for you.</li>
       </ul>
 
-      <h3 className="python-lesson-h3">D) In Jupyter Notebook</h3>
-      <p className="python-lesson-p">Great for learning and data work.</p>
-      <div className="python-code-wrapper">
-        <pre className="python-code-block">pip install notebook</pre>
-        <button className="python-copy-btn" onClick={() => copyCode('pip install notebook')}>Copy</button>
+      <h3 style={{
+        color: '#4a5568',
+        fontSize: '1.25rem',
+        fontWeight: '600',
+        margin: '1.5rem 0 1rem 0',
+        paddingLeft: '0.5rem',
+        borderLeft: '4px solid #4299e1'
+      }}>D) In Jupyter Notebook</h3>
+      <p style={{
+        marginBottom: '1rem',
+        fontSize: '1.1rem',
+        color: '#4a5568'
+      }}>Great for learning and data work.</p>
+      <div style={{position: 'relative', margin: '1rem 0'}}>
+        <pre style={{
+          background: '#1a202c',
+          color: '#f8f8f2',
+          padding: '0.75rem 1rem',
+          borderRadius: '6px',
+          fontFamily: 'monospace',
+          overflowX: 'auto',
+          margin: '0',
+          whiteSpace: 'pre-wrap'
+        }}>pip install notebook</pre>
+        <button onClick={() => copyCode('pip install notebook')} style={{
+          position: 'absolute',
+          top: '6px',
+          right: '6px',
+          background: '#2d3748',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '4px',
+          padding: '4px 8px',
+          cursor: 'pointer',
+          fontSize: '0.8rem'
+        }}>Copy</button>
       </div>
-      <div className="python-code-wrapper">
-        <pre className="python-code-block">jupyter notebook</pre>
-        <button className="python-copy-btn" onClick={() => copyCode('jupyter notebook')}>Copy</button>
+      <div style={{position: 'relative', margin: '1rem 0'}}>
+        <pre style={{
+          background: '#1a202c',
+          color: '#f8f8f2',
+          padding: '0.75rem 1rem',
+          borderRadius: '6px',
+          fontFamily: 'monospace',
+          overflowX: 'auto',
+          margin: '0',
+          whiteSpace: 'pre-wrap'
+        }}>jupyter notebook</pre>
+        <button onClick={() => copyCode('jupyter notebook')} style={{
+          position: 'absolute',
+          top: '6px',
+          right: '6px',
+          background: '#2d3748',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '4px',
+          padding: '4px 8px',
+          cursor: 'pointer',
+          fontSize: '0.8rem'
+        }}>Copy</button>
       </div>
-      <p className="python-lesson-p">Create a new notebook and run:</p>
-      <div className="python-code-wrapper">
-        <pre className="python-code-block">print("Hello, World!")</pre>
-        <button className="python-copy-btn" onClick={() => copyCode('print("Hello, World!")')}>Copy</button>
+      <p style={{
+        marginBottom: '1rem',
+        fontSize: '1.1rem',
+        color: '#4a5568'
+      }}>Create a new notebook and run:</p>
+      <div style={{position: 'relative', margin: '1rem 0'}}>
+        <pre style={{
+          background: '#1a202c',
+          color: '#f8f8f2',
+          padding: '0.75rem 1rem',
+          borderRadius: '6px',
+          fontFamily: 'monospace',
+          overflowX: 'auto',
+          margin: '0',
+          whiteSpace: 'pre-wrap'
+        }}>print("Hello, World!")</pre>
+        <button onClick={() => copyCode('print("Hello, World!")')} style={{
+          position: 'absolute',
+          top: '6px',
+          right: '6px',
+          background: '#2d3748',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '4px',
+          padding: '4px 8px',
+          cursor: 'pointer',
+          fontSize: '0.8rem'
+        }}>Copy</button>
       </div>
     </div>
   );
