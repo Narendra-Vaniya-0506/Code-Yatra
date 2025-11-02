@@ -14,6 +14,15 @@ import InputOutput from "./2. Python Foundations (Beginner)/Input & Output";
 import TypeCasting from "./2. Python Foundations (Beginner)/Type Casting";
 import Operators from "./2. Python Foundations (Beginner)/Operators";
 import ProjectSimpleCalculator from "./2. Python Foundations (Beginner)/Project Simple Calculator";
+import ConditionalStatements from "./3. Core Programming Concepts/Conditional Statements";
+import Loops from "./3. Core Programming Concepts/Loops";
+import LoopControl from "./3. Core Programming Concepts/Loop Control";
+import Functions from "./3. Core Programming Concepts/Functions";
+import FunctionArguments from "./3. Core Programming Concepts/Function Arguments";
+import VariableScope from "./3. Core Programming Concepts/Variable Scope";
+import Recursion from "./3. Core Programming Concepts/Recursion";
+import LambdaFunctions from "./3. Core Programming Concepts/Lambda Functions";
+import ProjectNumberGuessingGame from "./3. Core Programming Concepts/Project Number Guessing Game";
 
 const CodeBlock = ({ children }) => (
   <pre className="code-block">
@@ -25,6 +34,7 @@ export default function PythonLessons() {
   const [openSections, setOpenSections] = useState({
     introduction: true,
     foundations: false,
+    core: false,
   });
 
   const [activeContent, setActiveContent] = useState("overview");
@@ -49,6 +59,7 @@ export default function PythonLessons() {
       "first-program": "Running your first program",
       "Comments": "Comments",
       "Project": "Project",
+      
       "syntax-indentation": "Syntax & Indentation",
       "variables-naming": "Variables & Naming Conventions",
       "data-types": "Data Types",
@@ -56,7 +67,17 @@ export default function PythonLessons() {
       "input-output": "Input & Output",
       "type-casting": "Type Casting",
       "operators": "Operators",
-      "calculator-project": "Project: Simple Calculator"
+      "calculator-project": "Project: Simple Calculator",
+      
+      "conditional-statements": "Conditional Statements",
+      "loops": "Loops",
+      "loop-control": "Loop Control",
+      "functions": "Functions",
+      "function-arguments": "Function Arguments",
+      "variable-scope": "Variable Scope",
+      "recursion": "Recursion",
+      "lambda-functions": "Lambda Functions",
+      "guessing-game-project": "Project: Number Guessing Game"
     };
 
     return [
@@ -287,6 +308,131 @@ export default function PythonLessons() {
           </li>
         </ul>
       </div>
+
+      <div className="lesson-section">
+        <button
+          className={`lesson-section-toggle ${
+            openSections.core ? "open" : ""
+          }`}
+          onClick={() => toggleSection("core")}
+          aria-expanded={openSections.core}
+        >
+          Core Programming Concepts
+        </button>
+        <ul
+          className="lesson-sublist"
+          style={{ maxHeight: openSections.core ? "500px" : "0" }}
+        >
+          <li>
+            <a
+              href="#conditional-statements"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("conditional-statements");
+              }}
+              className={activeContent === "conditional-statements" ? "active" : ""}
+            >
+              Conditional Statements
+            </a>
+          </li>
+          <li>
+            <a
+              href="#loops"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("loops");
+              }}
+              className={activeContent === "loops" ? "active" : ""}
+            >
+              Loops
+            </a>
+          </li>
+          <li>
+            <a
+              href="#loop-control"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("loop-control");
+              }}
+              className={activeContent === "loop-control" ? "active" : ""}
+            >
+              Loop Control
+            </a>
+          </li>
+          <li>
+            <a
+              href="#functions"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("functions");
+              }}
+              className={activeContent === "functions" ? "active" : ""}
+            >
+              Functions
+            </a>
+          </li>
+          <li>
+            <a
+              href="#function-arguments"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("function-arguments");
+              }}
+              className={activeContent === "function-arguments" ? "active" : ""}
+            >
+              Function Arguments
+            </a>
+          </li>
+          <li>
+            <a
+              href="#variable-scope"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("variable-scope");
+              }}
+              className={activeContent === "variable-scope" ? "active" : ""}
+            >
+              Variable Scope
+            </a>
+          </li>
+          <li>
+            <a
+              href="#recursion"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("recursion");
+              }}
+              className={activeContent === "recursion" ? "active" : ""}
+            >
+              Recursion
+            </a>
+          </li>
+          <li>
+            <a
+              href="#lambda-functions"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("lambda-functions");
+              }}
+              className={activeContent === "lambda-functions" ? "active" : ""}
+            >
+              Lambda Functions
+            </a>
+          </li>
+          <li>
+            <a
+              href="#guessing-game-project"
+              onClick={(e) => {
+                e.preventDefault();
+                handleContentChange("guessing-game-project");
+              }}
+              className={activeContent === "guessing-game-project" ? "active" : ""}
+            >
+              Project: Number Guessing Game
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 
@@ -325,6 +471,25 @@ export default function PythonLessons() {
       {activeContent === "operators" && <Operators />}
 
       {activeContent === "calculator-project" && <ProjectSimpleCalculator />}
+      
+
+      {activeContent === "conditional-statements" && <ConditionalStatements />}
+
+      {activeContent === "loops" && <Loops />}
+
+      {activeContent === "loop-control" && <LoopControl />}
+
+      {activeContent === "functions" && <Functions />}
+
+      {activeContent === "function-arguments" && <FunctionArguments />}
+
+      {activeContent === "variable-scope" && <VariableScope />}
+
+      {activeContent === "recursion" && <Recursion />}
+
+      {activeContent === "lambda-functions" && <LambdaFunctions />}
+
+      {activeContent === "guessing-game-project" && <ProjectNumberGuessingGame />}
 
       {showToast && (
         <div style={{
