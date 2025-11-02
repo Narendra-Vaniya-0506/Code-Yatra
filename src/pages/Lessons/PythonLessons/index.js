@@ -2274,11 +2274,344 @@ print("You are an adult.")`}</pre>
             paddingBottom: '0.5rem',
             borderBottom: '3px solid #4299e1'
           }}>String Operations</h2>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>1. What are String Operations?</h3>
           <p style={{
             marginBottom: '1rem',
             fontSize: '1.1rem',
             color: '#4a5568'
-          }}>Content coming soon...</p>
+          }}>Strings in Python are more than just static text; they are objects with a rich set of built-in methods (functions) that allow you to manipulate them. These operations let you join, split, change, and analyze strings with ease.</p>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>2. Common String Operations</h3>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Concatenation (+):</b> Joins two or more strings into one.</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0',
+                whiteSpace: 'pre-wrap'
+              }}>first_name = "Code"<br/>last_name = "Yatra"<br/>full_name = first_name + " " + last_name  # Result: "Code Yatra"</pre>
+              <button onClick={() => copyCode('first_name = "Code"\nlast_name = "Yatra"\nfull_name = first_name + " " + last_name  # Result: "Code Yatra"')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Repetition (*):</b> Repeats a string multiple times.</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0',
+                whiteSpace: 'pre-wrap'
+              }}>line = "-_-" * 5  # Result: "-_--_--_--_--_-"</pre>
+              <button onClick={() => copyCode('line = "-_-" * 5  # Result: "-_--_--_--_--_-"')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Length (len()):</b> Returns the number of characters in a string.</li>
+            <div style={{position: 'relative', margin: '1rem 0'}}>
+              <pre style={{
+                background: '#1a202c',
+                color: '#f8f8f2',
+                padding: '0.75rem 1rem',
+                borderRadius: '6px',
+                fontFamily: 'monospace',
+                overflowX: 'auto',
+                margin: '0',
+                whiteSpace: 'pre-wrap'
+              }}>message = "Hello World"<br/>print(len(message))  # Output: 11</pre>
+              <button onClick={() => copyCode('message = "Hello World"\nprint(len(message))  # Output: 11')} style={{
+                position: 'absolute',
+                top: '6px',
+                right: '6px',
+                background: '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '4px 8px',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}>Copy</button>
+            </div>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Case Conversion:</b></li>
+            <ul style={{
+              listStyleType: 'circle',
+              paddingLeft: '2rem',
+              marginBottom: '1rem'
+            }}>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>.lower()</code>: Converts the entire string to lowercase.</li>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>.upper()</code>: Converts the entire string to uppercase.</li>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>.capitalize()</code>: Converts the first character to uppercase and the rest to lowercase.</li>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>.title()</code>: Converts the first character of each word to uppercase.</li>
+            </ul>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}><b>Find & replace:</b></li>
+            <ul style={{
+              listStyleType: 'circle',
+              paddingLeft: '2rem',
+              marginBottom: '1rem'
+            }}>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>.find('substring')</code>: Returns the starting index of the first occurrence of a substring. Returns -1 if not found.</li>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>.replace('old', 'new')</code>: Replaces all occurrences of the 'old' substring with the 'new' substring.</li>
+            </ul>
+          </ul>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>3. String Slicing (Accessing Parts of a String)</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>Strings are sequences, which means you can access their individual parts using an index. Slicing lets you extract a portion (a "slice") of a string.</p>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Indexing starts from 0.</li>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Syntax: <code>my_string[start:stop:step]</code></li>
+            <ul style={{
+              listStyleType: 'circle',
+              paddingLeft: '2rem',
+              marginBottom: '1rem'
+            }}>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>start</code>: The index where the slice begins (inclusive). If omitted, starts from the beginning.</li>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>stop</code>: The index where the slice ends (exclusive). If omitted, goes to the end.</li>
+              <li style={{
+                marginBottom: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}><code>step</code>: The interval between characters. Default is 1.</li>
+            </ul>
+          </ul>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}><b>Examples:</b></p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0',
+              whiteSpace: 'pre-wrap'
+            }}>word = "PythonFun"<br/># Get a single character<br/>print(word[0])        <br/># Output: 'P'<br/># Get the first 6 characters<br/>print(word[:6])       <br/># Output: 'Python'<br/># Get characters from index 6 to the end<br/>print(word[6:])       <br/># Output: 'Fun'<br/># Negative indexing (from the end)<br/>print(word[-1])       <br/># Output: 'n' (the last character)<br/># Reverse the string<br/>print(word[::-1])     <br/># Output: 'nuFnohtyP'</pre>
+            <button onClick={() => copyCode('word = "PythonFun"\n# Get a single character\nprint(word[0])        \n# Output: \'P\'\n# Get the first 6 characters\nprint(word[:6])       \n# Output: \'Python\'\n# Get characters from index 6 to the end\nprint(word[6:])       \n# Output: \'Fun\'\n# Negative indexing (from the end)\nprint(word[-1])       \n# Output: \'n\' (the last character)\n# Reverse the string\nprint(word[::-1])     \n# Output: \'nuFnohtyP\'')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h3 style={{
+            color: '#4a5568',
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            margin: '1.5rem 0 1rem 0',
+            paddingLeft: '0.5rem',
+            borderLeft: '4px solid #48bb78'
+          }}>4. String Formatting (Embedding Variables)</h3>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>String formatting allows you to dynamically create strings by embedding the values of variables.</p>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>f-Strings (Formatted String Literals)</h4>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>This is the modern, most readable, and recommended way to format strings (available since Python 3.6).</p>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Syntax: Start the string with the letter f or F before the opening quote. Place variables or expressions inside curly braces {}.</li>
+          </ul>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}><b>Example:</b></p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0',
+              whiteSpace: 'pre-wrap'
+            }}>name = "Code Yatra"<br/>score = 98<br/># Using an f-string<br/>greeting = f"Hello, {name}! Your score is {score}."<br/>print(greeting)<br/># Output: Hello, Code Yatra! Your score is 98.</pre>
+            <button onClick={() => copyCode('name = "Code Yatra"\nscore = 98\n# Using an f-string\ngreeting = f"Hello, {name}! Your score is {score}."\nprint(greeting)\n# Output: Hello, Code Yatra! Your score is 98.')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
+
+          <h4 style={{margin: '1rem 0 0.5rem 0', color: '#2d3748'}}>The .format() Method</h4>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}>This is an older method but is still widely used in code written before Python 3.6.</p>
+          <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '2rem',
+            marginBottom: '1.5rem'
+          }}>
+            <li style={{
+              marginBottom: '0.5rem',
+              paddingLeft: '0.5rem'
+            }}>Syntax: Use curly braces {} as placeholders in the string and call the .format() method on the string, passing the variables as arguments.</li>
+          </ul>
+          <p style={{
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            color: '#4a5568'
+          }}><b>Example:</b></p>
+          <div style={{position: 'relative', margin: '1rem 0'}}>
+            <pre style={{
+              background: '#1a202c',
+              color: '#f8f8f2',
+              padding: '0.75rem 1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              overflowX: 'auto',
+              margin: '0',
+              whiteSpace: 'pre-wrap'
+            }}>name = "Code Yatra"<br/>score = 98<br/># Using the .format() method<br/>greeting = "Hello, {}! Your score is {}.".format(name, score)<br/>print(greeting)<br/># Output: Hello, Code Yatra! Your score is 98.</pre>
+            <button onClick={() => copyCode('name = "Code Yatra"\nscore = 98\n# Using the .format() method\ngreeting = "Hello, {}! Your score is {}.".format(name, score)\nprint(greeting)\n# Output: Hello, Code Yatra! Your score is 98.')} style={{
+              position: 'absolute',
+              top: '6px',
+              right: '6px',
+              background: '#2d3748',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.8rem'
+            }}>Copy</button>
+          </div>
         </div>
       )}
 
