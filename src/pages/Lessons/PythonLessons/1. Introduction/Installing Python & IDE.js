@@ -35,12 +35,13 @@ export default function InstallingPythonIDE() {
       <h4>Version Check</h4>
       <p>After installation, open your terminal or command prompt and type:</p>
 
-      <div className="code-block">
+      <div className="code-container">
         <pre>python --version</pre>
-        <button onClick={() => copyCode('python --version')} className="copy-btn">
+        <button onClick={() => copyCode('python --version')} className="copy-button">
           Copy
         </button>
       </div>
+
 
       <h3 className="section-title">Steps for macOS:</h3>
       <ol className="steps-list">
@@ -49,18 +50,18 @@ export default function InstallingPythonIDE() {
         <li>Run:</li>
       </ol>
 
-      <div className="code-block">
+      <div className="code-container">
         <pre>brew install python</pre>
-        <button onClick={() => copyCode('brew install python')} className="copy-btn">
+        <button onClick={() => copyCode('brew install python')} className="copy-button">
           Copy
         </button>
       </div>
 
       <h4>Check with:</h4>
 
-      <div className="code-block">
+      <div className="code-container">
         <pre>python --version</pre>
-        <button onClick={() => copyCode('python --version')} className="copy-btn">
+        <button onClick={() => copyCode('python --version')} className="copy-button">
           Copy
         </button>
       </div>
@@ -72,18 +73,18 @@ export default function InstallingPythonIDE() {
 
       <h4>Check with:</h4>
 
-      <div className="code-block">
+      <div className="code-container">
         <pre>python --version</pre>
-        <button onClick={() => copyCode('python --version')} className="copy-btn">
+        <button onClick={() => copyCode('python --version')} className="copy-button">
           Copy
         </button>
       </div>
 
       <p>If not installed, run:</p>
 
-      <div className="code-block">
+      <div className="code-container">
         <pre>sudo apt-get install python3</pre>
-        <button onClick={() => copyCode('sudo apt-get install python3')} className="copy-btn">
+        <button onClick={() => copyCode('sudo apt-get install python3')} className="copy-button">
           Copy
         </button>
       </div>
