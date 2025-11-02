@@ -76,6 +76,8 @@ is_learning = True`)} className="copy-button">
         <li><b>Be Descriptive:</b> Choose names that clearly describe the data they hold. This makes your code much easier to understand for yourself and others. <code>user_name = "Alice"</code> (Good) <code>un = "Alice"</code> or <code>x = "Alice"</code> (Bad)</li>
       </ul>
 
+           <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',

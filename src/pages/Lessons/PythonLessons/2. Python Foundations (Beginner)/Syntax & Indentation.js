@@ -75,6 +75,8 @@ print("You are an adult.")`}</pre>
         <li><b>Avoid Mixing Tabs and Spaces:</b> It's best practice to only use spaces. Most modern code editors like VS Code and PyCharm automatically convert the Tab key into four spaces for you.</li>
       </ol>
 
+           <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',

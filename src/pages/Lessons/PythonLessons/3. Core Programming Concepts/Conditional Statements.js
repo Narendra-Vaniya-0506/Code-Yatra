@@ -138,7 +138,7 @@ else:
           <li>"Zero" if it's equal to 0</li>
         </ul>
 
-        <p>— Created by Code Yatra</p>
+        <p className="created-by">— Created by Code Yatra</p>
 
         {showToast && (
           <div style={{

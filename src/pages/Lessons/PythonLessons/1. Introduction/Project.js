@@ -74,6 +74,8 @@ const Project = () => {
         <li>print("Welcome to Python!") &rarr; prints text.</li>
       </ol>
 
+       <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',

@@ -169,6 +169,8 @@ const Operators = () => {
       <p className="intro-text">Bitwise operators act on operands at the binary level (0s and 1s). These are used in more advanced, low-level programming and are not typically required for general application development.</p>
       <p className="intro-text">The main bitwise operators are: &amp; (AND), | (OR), ^ (XOR), ~ (NOT), {'<<'} (left shift), and {'>>'} (right shift).</p>
 
+     <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',

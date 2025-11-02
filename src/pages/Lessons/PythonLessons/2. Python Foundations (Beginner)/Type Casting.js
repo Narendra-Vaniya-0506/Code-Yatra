@@ -90,6 +90,8 @@ print(f"Your age is {age}.")`)} className="copy-button">
         </button>
       </div>
 
+           <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',

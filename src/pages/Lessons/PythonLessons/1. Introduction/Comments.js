@@ -67,6 +67,8 @@ const Comments = () => {
         <li>Good practice for professional coding standards.</li>
       </ul>
 
+       <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',

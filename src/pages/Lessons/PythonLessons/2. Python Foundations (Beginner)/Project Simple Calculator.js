@@ -142,6 +142,8 @@ else:
         <li><b>Output:</b> Finally, the program prints the formatted result or the error message to the user.</li>
       </ol>
 
+           <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',

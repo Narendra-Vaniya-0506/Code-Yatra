@@ -43,6 +43,8 @@ export default function WhatIsPython() {
           </ol>
 
       </div>
+       <p className="created-by">— Created by Code Yatra</p>
+
     </div>
   );
 }

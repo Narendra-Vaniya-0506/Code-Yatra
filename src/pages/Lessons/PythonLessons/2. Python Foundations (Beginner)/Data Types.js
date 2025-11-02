@@ -111,6 +111,8 @@ print(type(is_learning))  # Output: <class 'bool'>`)} className="copy-button">
           Copy
         </button>
       </div>
+       <p className="created-by">— Created by Code Yatra</p>
+
 
       {showToast && (
         <div style={{

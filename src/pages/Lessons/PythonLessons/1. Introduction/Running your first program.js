@@ -132,6 +132,8 @@ export default function RunningYourFirstProgram() {
         </button>
       </div>
 
+       <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',

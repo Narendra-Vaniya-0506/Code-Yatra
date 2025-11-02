@@ -42,6 +42,8 @@ export default function WhyLearnPython() {
         <li>It's not going away, it's getting more popular.</li>
         <li>Learning it now will help you for years.</li>
       </ul>
+       <p className="created-by">— Created by Code Yatra</p>
+
     </div>
   );
 }

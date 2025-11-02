@@ -168,6 +168,8 @@ print(greeting)  # Output: Hello, Code Yatra! Your score is 98.`)} className="co
         </button>
       </div>
 
+           <p className="created-by">— Created by Code Yatra</p>
+
       {showToast && (
         <div style={{
           position: 'fixed',
