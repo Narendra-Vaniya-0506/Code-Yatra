@@ -53,3 +53,5 @@ const StringOperations = () => {
     </div>
   );
 };
+
+export default StringOperations;

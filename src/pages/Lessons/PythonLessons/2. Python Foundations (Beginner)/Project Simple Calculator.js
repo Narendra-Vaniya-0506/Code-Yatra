@@ -53,3 +53,5 @@ const ProjectSimpleCalculator = () => {
     </div>
   );
 };
+
+export default ProjectSimpleCalculator;

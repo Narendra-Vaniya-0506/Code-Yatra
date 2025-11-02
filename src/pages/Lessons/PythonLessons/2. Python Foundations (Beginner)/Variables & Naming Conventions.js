@@ -210,4 +210,4 @@ is_learning = True`)} style={{
   );
 };
 
-export default VariablesNaming;
+export default VariablesNamingConventions;

@@ -54,3 +54,5 @@ const TypeCasting = () => {
   );
 };
 
+export default TypeCasting;
+

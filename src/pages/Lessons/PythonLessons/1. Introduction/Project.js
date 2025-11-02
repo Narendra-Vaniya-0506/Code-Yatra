@@ -257,3 +257,5 @@ const Project = () => {
     </div>
   );
 };
+
+export default Project;

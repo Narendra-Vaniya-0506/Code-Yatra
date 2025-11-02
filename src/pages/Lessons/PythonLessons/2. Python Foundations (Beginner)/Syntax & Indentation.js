@@ -240,3 +240,5 @@ print("You are an adult.")`}</pre>
     </div>
   );
 };
+
+export default SyntaxIndentation;
