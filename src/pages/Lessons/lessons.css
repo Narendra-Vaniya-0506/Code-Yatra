@@ -15,7 +15,6 @@ body {
   font-family: var(--font-family-base);
 }
 
-
 /* --- CSS Variables for Theming --- */
 :root {
   /* Colors */
@@ -65,8 +64,6 @@ body {
   --transition-normal: 250ms ease;
 }
 
-
-
 /* --- Custom Scrollbar --- */
 ::-webkit-scrollbar {
   width: 10px;
@@ -83,7 +80,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-text-light);
 }
-
 
 /* --- Base Layout --- */
 .lesson-layout {
@@ -131,7 +127,6 @@ body {
   padding: var(--spacing-xl) var(--spacing-lg);
 }
 
-
 /* --- Sticky Header (Mobile) --- */
 .lesson-header {
   display: flex;
@@ -146,7 +141,6 @@ body {
   -webkit-backdrop-filter: blur(8px);
   z-index: 100;
 }
-
 
 .lesson-sidebar-toggle {
   background: none;
@@ -239,7 +233,6 @@ body {
     border-radius: var(--border-radius);
 }
 
-
 /* --- MODIFIED --- Hero Section (Remove card styling, left-align, add bottom border) */
 .lesson-hero {
     text-align: left; /* Ensure left alignment */
@@ -293,7 +286,6 @@ body {
     font-weight: 600;
 }
 
-
 .code-block {
   background-color: var(--color-code-bg);
   color: var(--color-code-text);
@@ -305,7 +297,6 @@ body {
   margin: var(--spacing-md) 0;
   border: 1px solid var(--color-border);
 }
-
 
 /* --- Desktop Layout (1024px and wider) --- */
 @media (min-width: 1024px) {
@@ -320,4 +311,110 @@ body {
   .lesson-sidebar-toggle, .lesson-header, .lesson-drawer-backdrop {
     display: none;
   }
+}
+
+/* --- Python Lessons Specific Styles --- */
+.python-lesson-h2 {
+  color: #2d3748;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #4299e1;
+}
+
+.python-lesson-h3 {
+  color: #4a5568;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
+  padding-left: 0.5rem;
+  border-left: 4px solid #48bb78;
+}
+
+.python-lesson-h4 {
+  margin: 1rem 0 0.5rem 0;
+  color: #2d3748;
+}
+
+.python-lesson-p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.python-lesson-ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.python-lesson-ol {
+  list-style-type: decimal;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.python-lesson-li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.python-lesson-li-transition {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.python-lesson-b {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.python-lesson-a {
+  color: #3182ce;
+  text-decoration: none;
+}
+
+.python-code-block {
+  background: #1a202c;
+  color: #f8f8f2;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-family: monospace;
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.python-code-wrapper {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.python-copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #2d3748;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.python-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #48bb78;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-size: 14px;
+  font-weight: 500;
 }
