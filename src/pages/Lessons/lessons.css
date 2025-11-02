@@ -369,3 +369,37 @@ body {
   margin-bottom: 0.5rem;
   padding-left: 0.5rem;
 }
+
+.code-block {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.code-block pre {
+  background: #1a202c;
+  color: #f8f8f2;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-family: monospace;
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #2d3748;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #4a5568;
+}
