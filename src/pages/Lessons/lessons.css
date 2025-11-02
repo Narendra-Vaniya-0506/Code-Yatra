@@ -321,3 +321,51 @@ body {
     display: none;
   }
 }
+
+
+
+.lesson-title {
+  color: #2d3748;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #4299e1;
+}
+
+.section-title {
+  color: #4a5568;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
+  padding-left: 0.5rem;
+  border-left: 4px solid #48bb78;
+}
+
+.lesson-list {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.lesson-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.intro-text {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.steps-list {
+  list-style-type: decimal;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.steps-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
