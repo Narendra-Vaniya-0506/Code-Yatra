@@ -399,10 +399,4 @@ body {
   font-size: 0.8rem;
 }
 
-.created-by {
-  text-align: right;
-  font-style: italic;
-  color: var(--color-text-muted);
-  margin-top: var(--spacing-lg);
-  font-size: var(--font-size-sm);
-}
+
