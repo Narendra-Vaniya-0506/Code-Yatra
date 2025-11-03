@@ -70,135 +70,155 @@ const Contact = () => {
   };
 
   return (
-    <div className="linear-container with-lines lines-animate" style={styles.container}>
+    <>
       {notification.visible && (
         <div
           style={{
-            ...styles.notification,
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            color: 'white',
+            padding: '15px',
+            borderRadius: '5px',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            minWidth: '300px',
             backgroundColor: notification.type === 'success' ? '#4caf50' : '#e53935',
           }}
         >
           <span>{notification.message}</span>
-          <button onClick={closeNotification} style={styles.closeButton}>X</button>
+          <button onClick={closeNotification} style={{
+            marginLeft: '10px',
+            background: 'none',
+            border: 'none',
+            color: 'white',
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold',
+          }}>X</button>
         </div>
       )}
 
-      <div style={styles.leftSection}>
-        <h1 style={styles.heading}>Contact Us</h1>
-        <p style={styles.paragraph}>
-          Let's build something great together. Whether you have a question or feedback, we're ready to connect.
-        </p>
-        <p style={styles.paragraph}>
-          You can also contact us at{' '}
-          <a href="mailto:codeyatra0605@gmail.com" style={styles.emailLink}>
-            codeyatra0605@gmail.com
-          </a>
-        </p>
-        <img src="/Logo.jpeg" alt="Contact" style={styles.image} />
-      </div>
+      <div className="linear-container with-lines lines-animate" style={styles.container}>
+        <div style={styles.leftSection}>
+          <h1 style={styles.heading}>Contact Us</h1>
+          <p style={styles.paragraph}>
+            Let's build something great together. Whether you have a question or feedback, we're ready to connect.
+          </p>
+          <p style={styles.paragraph}>
+            You can also contact us at{' '}
+            <a href="mailto:codeyatra0605@gmail.com" style={styles.emailLink}>
+              codeyatra0605@gmail.com
+            </a>
+          </p>
+          <img src="/Logo.jpeg" alt="Contact" style={styles.image} />
+        </div>
 
-      <div
-        className="glass"
-        style={{
-          flex: 1,
-          minWidth: '300px',
-          background: 'rgba(0,0,0,0.4)',
-          padding: '30px',
-          borderRadius: '16px',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
-          border: '1px solid rgba(255,255,255,0.12)',
-        }}
-      >
-        <form style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
+        <div
+          className="glass"
           style={{
-            padding: "1rem",
-            fontSize: "1rem",
-            borderRadius: "12px",
-            border: "1px solid var(--cy-border)",
-            background: "rgba(255,255,255,0.08)",
-            color: "var(--cy-text)",
+            flex: 1,
+            minWidth: '300px',
+            padding: '30px',
+            borderRadius: '16px',
+            border: '1px solid var(--cy-border)',
+            boxShadow: 'var(--cy-elev)',
           }}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          style={{
-            padding: "1rem",
-            fontSize: "1rem",
-            borderRadius: "12px",
-            border: "1px solid var(--cy-border)",
-            background: "rgba(255,255,255,0.08)",
-            color: "var(--cy-text)",
-          }}
-          required
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Your 10-digit Indian Number"
-          value={formData.phone}
-          onChange={handleChange}
-          style={{
-            padding: "1rem",
-            fontSize: "1rem",
-            borderRadius: "12px",
-            border: "1px solid var(--cy-border)",
-            background: "rgba(255,255,255,0.08)",
-            color: "var(--cy-text)",
-          }}
-          pattern="[0-9]{10}"
-          title="Please enter a valid 10-digit Indian phone number"
-          required
-        />
-        <input
-          type="text"
-          name="subject"
-          placeholder="Subject"
-          value={formData.subject}
-          onChange={handleChange}
-          style={{
-            padding: "1rem",
-            fontSize: "1rem",
-            borderRadius: "12px",
-            border: "1px solid var(--cy-border)",
-            background: "rgba(255,255,255,0.08)",
-            color: "var(--cy-text)",
-          }}
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Type your message here."
-          value={formData.message}
-          onChange={handleChange}
-          style={{
-            padding: "1rem",
-            fontSize: "1rem",
-            borderRadius: "12px",
-            border: "1px solid var(--cy-border)",
-            background: "rgba(255,255,255,0.08)",
-            color: "var(--cy-text)",
-            height: '100px',
-            resize: 'vertical'
-          }}
-          required
-        />
-        <button type="submit" className="btn-glass-dark btn-lg" style={{ color: '#fff' }}>
-          Send Message
-        </button>
-        </form>
+        >
+          <form style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }} onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              style={{
+                padding: "1rem",
+                fontSize: "1rem",
+                borderRadius: "12px",
+                border: "1px solid var(--cy-border)",
+                background: "rgba(255,255,255,0.08)",
+                color: "var(--cy-text)",
+              }}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              style={{
+                padding: "1rem",
+                fontSize: "1rem",
+                borderRadius: "12px",
+                border: "1px solid var(--cy-border)",
+                background: "rgba(255,255,255,0.08)",
+                color: "var(--cy-text)",
+              }}
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your 10-digit Indian Number"
+              value={formData.phone}
+              onChange={handleChange}
+              style={{
+                padding: "1rem",
+                fontSize: "1rem",
+                borderRadius: "12px",
+                border: "1px solid var(--cy-border)",
+                background: "rgba(255,255,255,0.08)",
+                color: "var(--cy-text)",
+              }}
+              pattern="[0-9]{10}"
+              title="Please enter a valid 10-digit Indian phone number"
+              required
+            />
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+              style={{
+                padding: "1rem",
+                fontSize: "1rem",
+                borderRadius: "12px",
+                border: "1px solid var(--cy-border)",
+                background: "rgba(255,255,255,0.08)",
+                color: "var(--cy-text)",
+              }}
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Type your message here."
+              value={formData.message}
+              onChange={handleChange}
+              style={{
+                padding: "1rem",
+                fontSize: "1rem",
+                borderRadius: "12px",
+                border: "1px solid var(--cy-border)",
+                background: "rgba(255,255,255,0.08)",
+                color: "var(--cy-text)",
+                height: '100px',
+                resize: 'vertical'
+              }}
+              required
+            />
+            <button type="submit" className="btn-glass-dark btn-lg" style={{ color: '#fff' }}>
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -215,29 +235,7 @@ const styles = {
     boxShadow: 'none',
     fontFamily: "'Segoe UI', Tahoma, sans-serif",
   },
-  notification: {
-    position: 'fixed',
-    top: '20px',
-    right: '20px',
-    color: 'white',
-    padding: '15px',
-    borderRadius: '5px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-    zIndex: 1000,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    minWidth: '300px',
-  },
-  closeButton: {
-    marginLeft: '10px',
-    background: 'none',
-    border: 'none',
-    color: 'white',
-    cursor: 'pointer',
-    fontSize: '16px',
-    fontWeight: 'bold',
-  },
+
   leftSection: {
     flex: 1,
     minWidth: '280px',
