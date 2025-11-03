@@ -72,14 +72,6 @@ const Carousel_002 = ({
   loop = true,
   autoplay = false,
   spaceBetween = 40,
-}: {
-  images: { src: string; alt: string }[];
-  className?: string;
-  showPagination?: boolean;
-  showNavigation?: boolean;
-  loop?: boolean;
-  autoplay?: boolean;
-  spaceBetween?: number;
 }) => {
   const css = `
   .Carousal_002 {
