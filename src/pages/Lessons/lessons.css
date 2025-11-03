@@ -357,6 +357,7 @@ body {
   margin-bottom: 1rem;
   font-size: 1.1rem;
   color: #4a5568;
+  text-align: justify;
 }
 
 .steps-list {
