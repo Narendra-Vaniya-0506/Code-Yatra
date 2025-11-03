@@ -353,6 +353,11 @@ body {
   padding-left: 0.5rem;
 }
 
+.lesson-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .intro-text {
   margin-bottom: 1rem;
   font-size: 1.1rem;
@@ -400,13 +405,3 @@ body {
   font-size: 0.8rem;
 }
 
-.lesson-content {
-  margin-right: 0;
-  padding-right: 0;
-}
-
-.code-container pre {
-  max-width: 100%;
-  overflow-x: auto;
-  word-wrap: break-word;
-}
