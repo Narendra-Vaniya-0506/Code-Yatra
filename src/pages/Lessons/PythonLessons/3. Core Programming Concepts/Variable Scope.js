@@ -22,7 +22,7 @@ const VariableScope = () => {
     <div>
       <div className="lesson-hero">
         <h1>Variable Scope</h1>
-        <p>
+        <p className="intro-text">
           Learn about variable scope in Python to understand where variables can be accessed and modified.
         </p>
       </div>

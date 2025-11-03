@@ -22,7 +22,7 @@ const LoopControl = () => {
     <div>
       <div className="lesson-hero">
         <h1>Loop Control</h1>
-        <p>
+        <p className="intro-text">
           Learn how to control the flow of loops using break, continue, and pass statements.
         </p>
       </div>

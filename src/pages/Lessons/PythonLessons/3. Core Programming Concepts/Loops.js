@@ -22,7 +22,7 @@ const Loops = () => {
     <div>
       <div className="lesson-hero">
         <h1>Loops</h1>
-        <p>
+        <p className="intro-text">
           Learn how to repeat code efficiently using loops in Python.
         </p>
       </div>

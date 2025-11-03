@@ -22,7 +22,7 @@ const FunctionArguments = () => {
     <div>
       <div className="lesson-hero">
         <h1>Function Arguments</h1>
-        <p>
+        <p className="intro-text">
           Learn how to pass arguments to functions in Python to make them more flexible and reusable.
         </p>
       </div>
@@ -31,12 +31,12 @@ const FunctionArguments = () => {
         <h2 className="lesson-title">Function Arguments</h2>
 
         <h3 className="section-title">1. What Are Function Arguments?</h3>
-        <p>
+        <p className="intro-text">
           Arguments are the values we pass inside a function when calling it. They allow us to send data into a function so it can perform tasks dynamically. Analogy: Imagine ordering food — you tell the waiter what items you want. Those items are the 'arguments' you pass!
         </p>
 
         <h3 className="section-title">2. Positional Arguments</h3>
-        <p>
+        <p className="intro-text">
           These are the most common type. The order of the arguments matters — Python assigns values based on their position.
         </p>
         <div className="code-container">
@@ -54,7 +54,7 @@ My name is Sara and I am 18 years old.`}</pre>
         </div>
 
         <h3 className="section-title">3. Default Arguments</h3>
-        <p>
+        <p className="intro-text">
           Default arguments are used when you want a parameter to have a pre-set value. If no value is provided, Python uses the default.
         </p>
         <div className="code-container">
@@ -70,12 +70,12 @@ Hello, Guest`}</pre>
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: When no argument is passed, Python uses the default value 'Guest'.
         </p>
 
         <h3 className="section-title">4. Keyword Arguments</h3>
-        <p>
+        <p className="intro-text">
           Here, you assign values to parameters using their names. This way, the order doesn't matter — Python matches them by name.
         </p>
         <div className="code-container">
@@ -91,7 +91,7 @@ Ravi is enrolled in Python`}</pre>
         </div>
 
         <h3 className="section-title">5. *args – Arbitrary Positional Arguments</h3>
-        <p>
+        <p className="intro-text">
           When you don't know how many arguments a function will receive, use `*args`. It collects extra positional arguments into a tuple.
         </p>
         <div className="code-container">
@@ -105,12 +105,12 @@ Fruits list: ('Apple', 'Banana', 'Mango')`}</pre>
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: All items are packed into a tuple called 'fruits'.
         </p>
 
         <h3 className="section-title">6. **kwargs – Arbitrary Keyword Arguments</h3>
-        <p>
+        <p className="intro-text">
           `**kwargs` allows you to pass multiple keyword arguments. It collects them into a dictionary with key-value pairs.
         </p>
         <div className="code-container">
@@ -124,12 +124,12 @@ Details: {'name': 'Aman', 'age': 22, 'city': 'Delhi'}`}</pre>
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: Python stores all keyword arguments inside a dictionary.
         </p>
 
         <h3 className="section-title">7. Combined Example – All in One!</h3>
-        <p>
+        <p className="intro-text">
           Here's how you can mix positional, default, *args, and **kwargs in one function:
         </p>
         <div className="code-container">
@@ -158,7 +158,7 @@ kwargs = {'city': 'Mumbai', 'lang': 'Python'}`}</pre>
         </ul>
 
         <h3 className="section-title">9. Quick Practice</h3>
-        <p>
+        <p className="intro-text">
           Write a function `order_food()` that accepts any number of food items (*args) and any number of details like table_no, waiter_name, etc. (**kwargs). Print all items and details neatly!
         </p>
 

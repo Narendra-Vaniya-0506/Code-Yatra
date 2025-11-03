@@ -22,7 +22,7 @@ const LambdaFunctions = () => {
     <div>
       <div className="lesson-hero">
         <h1>Lambda Functions</h1>
-        <p>
+        <p className="intro-text">
           Learn about lambda functions, Python's way of creating small, anonymous functions for quick operations.
         </p>
       </div>
@@ -31,10 +31,10 @@ const LambdaFunctions = () => {
         <h2 className="lesson-title">Lambda Functions</h2>
 
         <h3 className="section-title">1. What Are Lambda Functions?</h3>
-        <p>
+        <p className="intro-text">
           A <b>Lambda Function</b> in Python is a small, anonymous (nameless) function. It's used when you need a quick, one-line function without using the `def` keyword. Lambda functions are mostly used for short, temporary operations.
         </p>
-        <p>
+        <p className="intro-text">
           Analogy: Think of lambda as a <b>shortcut</b> — instead of writing a full function, you write a one-line quick reply!
         </p>
 
@@ -52,12 +52,12 @@ print(square(5))
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: `lambda x: x * x` creates an anonymous function that returns x squared. We can store it in a variable and use it just like a normal function.
         </p>
 
         <h3 className="section-title">3. Lambda vs Normal Function</h3>
-        <p>
+        <p className="intro-text"> 
           Let's compare both styles side by side
         </p>
         <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
@@ -99,7 +99,7 @@ print(square(5))
         </table>
 
         <h3 className="section-title">4. Using Lambda with map(), filter(), and reduce()</h3>
-        <p>
+        <p className="intro-text">
           Lambda is often used with Python's built-in higher-order functions — `map`, `filter`, and `reduce` — which apply functions to entire lists or sequences.
         </p>
 
@@ -141,7 +141,7 @@ print(total)
         </div>
 
         <h3 className="section-title">5. Real-World Examples</h3>
-        <p>
+        <p className="intro-text">
           Lambda functions are useful in situations like sorting, quick operations, or short transformations.
         </p>
         <div className="code-container">
@@ -154,7 +154,7 @@ print(students)
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Here, we sorted students by age using a one-line lambda function — neat and powerful!
         </p>
 
@@ -166,7 +166,7 @@ print(students)
         </ul>
 
         <h3 className="section-title">7. Quick Practice</h3>
-        <p>
+        <p className="intro-text">
           Write a lambda function to check whether a number is even or odd. Hint: Use a conditional expression like `'Even' if x % 2 == 0 else 'Odd'`
         </p>
 

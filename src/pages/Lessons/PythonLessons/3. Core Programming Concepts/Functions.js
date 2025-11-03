@@ -22,7 +22,7 @@ const Functions = () => {
     <div>
       <div className="lesson-hero">
         <h1>Functions</h1>
-        <p>
+        <p className="intro-text">
           Learn how to create and use functions to make your code reusable and organized.
         </p>
       </div>
@@ -31,7 +31,7 @@ const Functions = () => {
         <h2 className="lesson-title">Functions</h2>
 
         <h3 className="section-title">1. What Are Functions?</h3>
-        <p>
+        <p className="intro-text">
           Functions are reusable blocks of code that perform a specific task. Instead of writing the same logic again and again, you can 'define' it once and call it whenever needed. Analogy: Think of a function as a vending machine — you press a button (call it) and get your desired item (result)!
         </p>
 
@@ -44,7 +44,7 @@ const Functions = () => {
         </ul>
 
         <h3 className="section-title">3. Creating a Function Using def</h3>
-        <p>
+        <p className="intro-text">
           To define a function, use the `def` keyword followed by the function name and parentheses (). The code inside runs only when you call the function.
         </p>
         <div className="code-container">
@@ -61,7 +61,7 @@ Welcome to Code Yatra!`}</pre>
         </div>
 
         <h3 className="section-title">4. Function with Parameters</h3>
-        <p>
+        <p className="intro-text">
           Functions can accept data as input — these are called parameters or arguments. They make your functions dynamic and reusable.
         </p>
         <div className="code-container">
@@ -80,7 +80,7 @@ Hello, Sara`}</pre>
         </div>
 
         <h3 className="section-title">5. Using return – Getting Output from a Function</h3>
-        <p>
+        <p className="intro-text">
           The `return` statement sends data back to the place where the function was called. It allows your function to give results that you can store or use further.
         </p>
         <div className="code-container">
@@ -98,7 +98,7 @@ Sum is: 12`}</pre>
         </div>
 
         <h3 className="section-title">6. Function Without return – Direct Action</h3>
-        <p>
+        <p className="intro-text">
           If a function doesn't have a `return`, it just performs its task (like printing or modifying data) but doesn't send any output back.
         </p>
         <div className="code-container">
@@ -122,7 +122,7 @@ Python functions make life easier!`}</pre>
         </ul>
 
         <h3 className="section-title">8. Quick Practice</h3>
-        <p>
+        <p className="intro-text">
           Write a function named `multiply(a, b)` that returns the product of two numbers. Then call it for different values and print the results.
         </p>
 

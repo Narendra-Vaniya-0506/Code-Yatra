@@ -6,7 +6,7 @@ export default function WhatIsPython() {
     <div>
       <div className="lesson-hero">
         <h1>Python Lesson</h1>
-        <p>
+        <p className="intro-text">
           Python is a modern, high-level programming language known for its interpreted execution and broad applicability across domains.
         </p>
       </div>

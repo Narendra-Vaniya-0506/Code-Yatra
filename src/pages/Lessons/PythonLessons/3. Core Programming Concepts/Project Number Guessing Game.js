@@ -22,7 +22,7 @@ const ProjectNumberGuessingGame = () => {
     <div>
       <div className="lesson-hero">
         <h1>Project: Number Guessing Game</h1>
-        <p>
+        <p className="intro-text">
           Build a fun number guessing game in Python to practice loops, conditionals, and user input.
         </p>
       </div>

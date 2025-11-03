@@ -22,7 +22,7 @@ const ConditionalStatements = () => {
     <div>
       <div className="lesson-hero">
         <h1>Conditional Statements</h1>
-        <p>
+        <p className="intro-text">
           Learn how to make decisions in your Python programs using conditional statements like if, elif, and else.
         </p>
       </div>
@@ -31,12 +31,12 @@ const ConditionalStatements = () => {
         <h2 className="lesson-title">Conditional Statements</h2>
 
         <h3 className="section-title">1. What Are Conditional Statements?</h3>
-        <p>
+        <p className="intro-text">
           Conditional statements allow your program to make decisions based on certain conditions. They enable your code to take different paths depending on whether something is true or false. Analogy: Think of conditional statements like traffic signals — they decide whether cars should stop, go, or wait.
         </p>
 
         <h3 className="section-title">2. The if Statement</h3>
-        <p>
+        <p className="intro-text">
           The `if` statement checks whether a condition is true. If it is, the indented block of code under it runs.
         </p>
         <div className="code-container">
@@ -49,7 +49,7 @@ if age >= 18:
         </div>
 
         <h3 className="section-title">3. The elif Statement</h3>
-        <p>
+        <p className="intro-text">
           `elif` stands for "else if". It allows you to check multiple conditions, one after another. Python runs the first true condition and skips the rest.
         </p>
         <div className="code-container">
@@ -68,7 +68,7 @@ else:
         </div>
 
         <h3 className="section-title">4. The else Statement</h3>
-        <p>
+        <p className="intro-text">
           The `else` statement provides a fallback — it runs only when all previous `if` and `elif` conditions are false.
         </p>
         <div className="code-container">
@@ -83,7 +83,7 @@ else:
         </div>
 
         <h3 className="section-title">5. Nested if Statements</h3>
-        <p>
+        <p className="intro-text">
           You can place one `if` statement inside another — this is called nesting. It allows more specific decision-making.
         </p>
         <div className="code-container">
@@ -102,7 +102,7 @@ else:
         </div>
 
         <h3 className="section-title">6. Real-Life Example – Grading System</h3>
-        <p>
+        <p className="intro-text">
           Let's build a grading system used at Code Yatra for students:
         </p>
         <div className="code-container">
@@ -129,7 +129,7 @@ else:
         </ul>
 
         <h3 className="section-title">8. Quick Practice</h3>
-        <p>
+        <p className="intro-text">
           Write a program that asks for a number and prints:
         </p>
         <ul className="lesson-list">

@@ -22,7 +22,7 @@ const Recursion = () => {
     <div>
       <div className="lesson-hero">
         <h1>Recursion</h1>
-        <p>
+        <p className="intro-text">
           Learn about recursion, a powerful technique where functions call themselves to solve problems.
         </p>
       </div>

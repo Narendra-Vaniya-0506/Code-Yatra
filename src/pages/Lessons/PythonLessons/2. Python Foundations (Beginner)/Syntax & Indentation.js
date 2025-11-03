@@ -23,13 +23,17 @@ const SyntaxIndentation = () => {
       <h2 className="lesson-title">Syntax & Indentation</h2>
 
       <h3 className="section-title">1. What is Syntax?</h3>
-      <p className="intro-text">In any language, syntax refers to the set of rules that dictates the correct structure of sentences. For example, in English, a sentence has a specific grammar. Similarly, in programming, syntax refers to the rules that define how a Python program must be written. If you break these rules, Python won't understand your instructions and will give you a SyntaxError.</p>
+      <p className="intro-text">
+        In any language, syntax refers to the set of rules that dictates the correct structure of sentences. For example, in English, a sentence has a specific grammar. Similarly, in programming, syntax refers to the rules that define how a Python program must be written. If you break these rules, Python won't understand your instructions and will give you a SyntaxError.
+      </p>
       <ul className="lesson-list">
         <li><b>Analogy:</b> Think of syntax as the "grammar" of the Python language.</li>
       </ul>
 
       <h3 className="section-title">2. Python's Basic Syntax Rules</h3>
-      <p className="intro-text">Python is known for its simple and clean syntax. Here are a few key rules:</p>
+      <p className="intro-text">
+        Python is known for its simple and clean syntax. Here are a few key rules:
+      </p>
       <ul className="lesson-list">
         <li><b>Case-Sensitivity:</b> Python is case-sensitive. This means the variables name, Name, and NAME are three different variables.</li>
         <li><b>Statements:</b> A statement is an instruction that the Python interpreter can execute. Typically, you write one statement per line.</li>
