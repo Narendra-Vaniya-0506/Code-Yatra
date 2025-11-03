@@ -126,8 +126,6 @@ body {
 
 /* --- NEW / MODIFIED --- Content Wrapper for Centering and Width */
 .lesson-content-wrapper {
-  max-width: 1100px; /* INCREASED from 800px to make content wider */
-  margin: 0 auto;
   padding: var(--spacing-xl) var(--spacing-lg);
 }
 
@@ -344,7 +342,7 @@ body {
 
 .lesson-list {
   list-style-type: disc;
-  padding-left: var(--spacing-lg);
+  padding-left: var(--spacing-2xl);
   margin-bottom: var(--spacing-xl);
 }
 
