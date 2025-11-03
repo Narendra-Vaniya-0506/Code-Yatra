@@ -13,6 +13,7 @@ body {
   min-height: 100vh;
   background-color: var(--color-background);
   font-family: var(--font-family-base);
+  overflow-x: hidden;
 }
 
 
@@ -343,13 +344,20 @@ body {
 
 .lesson-list {
   list-style-type: disc;
-  padding-left: var(--spacing-2xl);
+  list-style-position: inside; /* Keep bullets within content width */
+  padding-left: 1.25rem;       /* Reduced from var(--spacing-2xl) to reclaim right space */
   margin-bottom: var(--spacing-xl);
+  max-width: 100%;
+  width: 100%;
 }
 
 .lesson-list li {
   margin-bottom: var(--spacing-sm);
-  padding-left: var(--spacing-sm);
+  padding-left: 0; /* Removed extra left padding to align text cleanly */
+  max-width: 100%;
+  width: 100%;
+  word-break: break-word;
+  line-height: 1.7;
 }
 
 .intro-text {
@@ -357,17 +365,28 @@ body {
   font-size: 1.1rem;
   color: var(--color-text-muted);
   text-align: left;
+  max-width: 100%; /* Allow full line width */
+  width: 100%;
+  line-height: 1.7;
+  word-break: break-word;
 }
 
 .steps-list {
   list-style-type: decimal;
-  padding-left: var(--spacing-2xl);
+  list-style-position: inside; /* Prevents hidden overflow from list numbers */
+  padding-left: 1.25rem;       /* Reduced indentation */
   margin-bottom: var(--spacing-xl);
+  max-width: 100%;
+  width: 100%;
 }
 
 .steps-list li {
   margin-bottom: var(--spacing-sm);
-  padding-left: var(--spacing-sm);
+  padding-left: 0;
+  max-width: 100%;
+  width: 100%;
+  word-break: break-word;
+  line-height: 1.7;
 }
 
 .code-container {
