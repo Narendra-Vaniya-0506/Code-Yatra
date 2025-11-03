@@ -325,63 +325,63 @@ body {
 
 
 .lesson-title {
-  color: #2d3748;
-  font-size: 2rem;
+  color: var(--color-text);
+  font-size: var(--font-size-3xl);
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 3px solid #4299e1;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 3px solid var(--color-primary);
 }
 
 .section-title {
-  color: #4a5568;
-  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xl);
   font-weight: 600;
-  margin: 1.5rem 0 1rem 0;
-  padding-left: 0.5rem;
+  margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+  padding-left: var(--spacing-sm);
   border-left: 4px solid #48bb78;
 }
 
 .lesson-list {
   list-style-type: disc;
-  padding-left: 2rem;
-  margin-bottom: 1.5rem;
+  padding-left: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .lesson-list li {
-  margin-bottom: 0.5rem;
-  padding-left: 0.5rem;
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
 }
 
 .intro-text {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
   font-size: 1.1rem;
-  color: #4a5568;
+  color: var(--color-text-muted);
   text-align: justify;
 }
 
 .steps-list {
   list-style-type: decimal;
-  padding-left: 2rem;
-  margin-bottom: 1.5rem;
+  padding-left: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .steps-list li {
-  margin-bottom: 0.5rem;
-  padding-left: 0.5rem;
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
 }
 
 .code-container {
   position: relative;
-  margin: 1rem 0;
+  margin: var(--spacing-md) 0;
 }
 
 .code-container pre {
-  background: #1a202c;
-  color: #f8f8f2;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  font-family: monospace;
+  background: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family-mono);
   overflow-x: auto;
   margin: 0;
   white-space: pre-wrap;
@@ -389,14 +389,14 @@ body {
 
 .copy-button {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  background: #2d3748;
-  color: #fff;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background: var(--color-text);
+  color: var(--color-background);
   border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: var(--font-size-sm);
 }
 
