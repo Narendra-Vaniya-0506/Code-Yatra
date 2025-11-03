@@ -399,14 +399,3 @@ body {
   font-size: var(--font-size-sm);
 }
 
-html, body {
-  overflow-x: hidden;
-}
-
-/* Fix right-side extra space on all lesson pages */
-.lesson-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem; /* Keeps some breathing room */
-  box-sizing: border-box;
-}
