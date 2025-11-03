@@ -31,7 +31,7 @@ const ProjectNumberGuessingGame = () => {
         <h2 className="lesson-title">Project: Number Guessing Game</h2>
 
         <h3 className="section-title">1. Introduction</h3>
-        <p>
+        <p className="intro-text">
           In this project, we'll build a fun and interactive <b>Number Guessing Game</b> using all the concepts we've learned in the Core Programming Concepts section. This game helps you practice conditions, loops, functions, and variable scopes — all in one engaging mini project!
         </p>
 
@@ -47,7 +47,7 @@ const ProjectNumberGuessingGame = () => {
         </ul>
 
         <h3 className="section-title">3. Project Goal</h3>
-        <p>
+        <p className="intro-text">
           We'll create a guessing game where:
         </p>
         <ol className="lesson-list">

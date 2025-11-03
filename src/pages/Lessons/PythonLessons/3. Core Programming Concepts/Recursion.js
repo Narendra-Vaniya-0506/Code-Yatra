@@ -31,19 +31,19 @@ const Recursion = () => {
         <h2 className="lesson-title">Recursion</h2>
 
         <h3 className="section-title">1. What Is Recursion?</h3>
-        <p>
+        <p className="intro-text">
           Recursion is a programming technique where a function calls itself to solve smaller versions of the same problem. It continues until it reaches a condition where it stops — called the <b>base case</b>. Analogy: Think of recursion like standing between two mirrors — you keep seeing reflections of yourself until it fades away!
         </p>
 
         <h3 className="section-title">2. How It Works</h3>
-        <p>
+        <p className="intro-text">
           Every recursive function has two parts:
         </p>
         <ul className="lesson-list">
           <li><b>Base Case:</b> The condition that stops the recursion.</li>
           <li><b>Recursive Case:</b> The part where the function calls itself again.</li>
         </ul>
-        <p>
+        <p className="intro-text">
           Example Template:
         </p>
         <div className="code-container">
@@ -58,12 +58,12 @@ const Recursion = () => {
         </div>
 
         <h3 className="section-title">3. Recursion vs Loop</h3>
-        <p>
+        <p className="intro-text">
           Both recursion and loops repeat actions, but recursion does it by calling itself, whereas loops use iteration keywords like `for` or `while`. Recursion is elegant for problems that can be divided into smaller subproblems, like factorial, Fibonacci, and tree traversal.
         </p>
 
         <h3 className="section-title">4. Example 1 – Factorial Using Recursion</h3>
-        <p>
+        <p className="intro-text">
           Factorial of a number `n` (written as `n!`) is the product of all numbers from 1 to n. For example: 5! = 5 × 4 × 3 × 2 × 1 = 120
         </p>
         <div className="code-container">
@@ -79,7 +79,7 @@ print(factorial(5))
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Step-by-Step Call Stack for factorial(5):
         </p>
         <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
@@ -118,12 +118,12 @@ print(factorial(5))
             </tr>
           </tbody>
         </table>
-        <p>
+        <p className="intro-text">
           When the base case is reached (n == 1), recursion stops and the results start returning back up the stack.
         </p>
 
         <h3 className="section-title">5. Example 2 – Fibonacci Using Recursion</h3>
-        <p>
+        <p className="intro-text">
           Fibonacci sequence is a series where each number is the sum of the two before it: 0, 1, 1, 2, 3, 5, 8, 13...
         </p>
         <div className="code-container">
@@ -149,7 +149,7 @@ for i in range(7):
         </ul>
 
         <h3 className="section-title">7. Quick Practice</h3>
-        <p>
+        <p className="intro-text">
           Write a recursive function `sum_n(n)` that returns the sum of all numbers from 1 to n. Example: sum_n(5) → 15
         </p>
 

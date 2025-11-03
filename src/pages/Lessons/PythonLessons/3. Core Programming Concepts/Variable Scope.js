@@ -31,12 +31,12 @@ const VariableScope = () => {
         <h2 className="lesson-title">Variable Scope</h2>
 
         <h3 className="section-title">1. What Is Variable Scope?</h3>
-        <p>
+        <p className="intro-text">
           Variable scope defines <b>where a variable can be accessed</b> or used in your program. Depending on where you create the variable, Python decides how long it exists and who can use it. Analogy: Think of scope like access cards in a building — some open only your room (local), some open the whole building (global), and some connect inner rooms (nonlocal).
         </p>
 
         <h3 className="section-title">2. Local Variables</h3>
-        <p>
+        <p className="intro-text">
           A local variable is defined inside a function. It can only be used within that function — once the function ends, the variable disappears.
         </p>
         <div className="code-container">
@@ -54,7 +54,7 @@ NameError: name 'msg' is not defined`}</pre>
         </div>
 
         <h3 className="section-title">3. Global Variables</h3>
-        <p>
+        <p className="intro-text">
           A global variable is declared outside any function. It can be used anywhere in the program — inside or outside functions.
         </p>
         <div className="code-container">
@@ -72,7 +72,7 @@ Welcome to Code Yatra!`}</pre>
         </div>
 
         <h3 className="section-title">4. The global Keyword</h3>
-        <p>
+        <p className="intro-text">
           If you want to modify a global variable inside a function, you must use the `global` keyword. Without it, Python treats it as a local variable.
         </p>
         <div className="code-container">
@@ -92,7 +92,7 @@ Counter outside: 1`}</pre>
         </div>
 
         <h3 className="section-title">5. Nonlocal Variables</h3>
-        <p>
+        <p className="intro-text">
           A nonlocal variable is used in nested functions. It connects inner functions to variables of their outer (but not global) scope.
         </p>
         <div className="code-container">
@@ -112,7 +112,7 @@ Outer: Sara`}</pre>
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: 'name' is updated in both inner and outer functions using the nonlocal keyword.
         </p>
 
@@ -146,7 +146,7 @@ Global Scope -> global`}</pre>
         </ul>
 
         <h3 className="section-title">8. Quick Practice</h3>
-        <p>
+        <p className="intro-text">
           Write a program with nested functions to track a score. Use `nonlocal` to update a variable inside the outer function from the inner one.
         </p>
 

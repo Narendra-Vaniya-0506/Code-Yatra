@@ -31,12 +31,12 @@ const LoopControl = () => {
         <h2 className="lesson-title">Loop Control</h2>
 
         <h3 className="section-title">1. What Is Loop Control?</h3>
-        <p>
+        <p className="intro-text">
           Loop control statements allow you to change the flow of loops. They give you the power to stop, skip, or temporarily do nothing inside a loop. Analogy: Imagine driving a car on a circular track. 'break' is like hitting the brakes to stop, 'continue' skips a checkpoint, and 'pass' just keeps the engine running quietly.
         </p>
 
         <h3 className="section-title">2. The break Statement – Stop the Loop</h3>
-        <p>
+        <p className="intro-text">
           The `break` statement is used to exit a loop immediately, even if the condition hasn't finished. When Python encounters a `break`, it jumps out of the loop and continues with the rest of the program.
         </p>
         <div className="code-container">
@@ -54,12 +54,12 @@ Loop ended.`}</pre>
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: When num == 3, the loop stops instantly — it doesn't print 3, 4, or 5.
         </p>
 
         <h3 className="section-title">3. The continue Statement – Skip and Move On</h3>
-        <p>
+        <p className="intro-text">
           The `continue` statement skips the current iteration and moves to the next loop cycle. It doesn't stop the loop — just skips one round!
         </p>
         <div className="code-container">
@@ -77,12 +77,12 @@ for num in range(1, 6):
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: When num == 3, Python skips the print() line and moves to the next number.
         </p>
 
         <h3 className="section-title">4. The pass Statement – Do Nothing (Placeholder)</h3>
-        <p>
+        <p className="intro-text">
           Sometimes you need a statement that does nothing — just to fill space and avoid errors. The `pass` keyword is a no-operation placeholder. It's often used in loops, functions, or classes that are still being built.
         </p>
         <div className="code-container">
@@ -99,12 +99,12 @@ Number: 3`}</pre>
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: When num == 2, Python just moves on without skipping or breaking — it quietly passes.
         </p>
 
         <h3 className="section-title">5. Combined Example – break, continue, pass Together</h3>
-        <p>
+        <p className="intro-text">
           Let's combine all three in one small program to see how they interact:
         </p>
         <div className="code-container">
@@ -127,7 +127,7 @@ Loop finished!`}</pre>
             Copy
           </button>
         </div>
-        <p>
+        <p className="intro-text">
           Explanation: The loop skips 4, ends at 6, and uses pass at 2. Clean, controlled, and easy to manage!
         </p>
 
@@ -140,7 +140,7 @@ Loop finished!`}</pre>
         </ul>
 
         <h3 className="section-title">7. Quick Practice</h3>
-        <p>
+        <p className="intro-text">
           Write a program using a for loop that prints numbers 1 to 10. • Skip number 5 using continue. • Stop the loop completely when number is 8 using break. • Use pass for number 3 as a placeholder. Observe the output carefully!
         </p>
 

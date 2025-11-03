@@ -31,12 +31,12 @@ const Loops = () => {
         <h2 className="lesson-title">Loops</h2>
 
         <h3 className="section-title">1. What Are Loops?</h3>
-        <p>
+        <p className="intro-text">
           Loops are used to repeat a block of code multiple times. They save time and make code shorter. Instead of writing the same line again and again, we tell Python to 'keep doing this' until a condition is met. Analogy: Think of loops like brushing your teeth every morning — same task, done repeatedly!
         </p>
 
         <h3 className="section-title">2. The for Loop</h3>
-        <p>
+        <p className="intro-text">
           The `for` loop runs a block of code for each item in a sequence like a list, tuple, or range of numbers. It's perfect when you know *how many times* you want the loop to run.
         </p>
         <div className="code-container">
@@ -68,7 +68,7 @@ Welcome, Kabir`}</pre>
         </div>
 
         <h3 className="section-title">3. The while Loop</h3>
-        <p>
+        <p className="intro-text">
           A `while` loop runs *as long as* its condition is True. It's useful when you don't know in advance how many times you'll need to repeat something.
         </p>
         <div className="code-container">
@@ -91,7 +91,7 @@ Blast off!`}</pre>
         </div>
 
         <h3 className="section-title">4. Breaking and Continuing Loops</h3>
-        <p>
+        <p className="intro-text">
           Python gives us two powerful tools to control loops:
         </p>
         <ul className="lesson-list">
@@ -116,7 +116,7 @@ for num in range(1, 6):
         </div>
 
         <h3 className="section-title">5. Nested Loops</h3>
-        <p>
+        <p className="intro-text">
           A loop inside another loop is called a nested loop. It's useful when working with grids, tables, or combinations.
         </p>
         <div className="code-container">
@@ -148,7 +148,7 @@ for i in range(1, 4):
         </ul>
 
         <h3 className="section-title">7. Quick Practice</h3>
-        <p>
+        <p className="intro-text">
           Write a program that asks the user for a number (n) and prints all numbers from 1 to n using a for loop. Then modify it to print only even numbers using continue.
         </p>
 
