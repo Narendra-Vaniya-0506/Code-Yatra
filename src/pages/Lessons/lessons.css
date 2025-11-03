@@ -360,12 +360,13 @@ body {
   line-height: 1.7;
 }
 
-.intro-text {
-  margin-bottom: var(--spacing-sm);
-  max-width: 100%; /* allow full available width */
+.lesson-main .intro-text,
+.lesson-content .intro-text {
+  max-width: 100% !important; /* Force full width */
   width: 100%;
   line-height: 1.75;
   word-break: break-word;
+  text-align: left;
   font-size: 1.1rem;
   color: var(--color-text-muted);
 }
