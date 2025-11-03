@@ -344,7 +344,7 @@ body {
 
 .lesson-list {
   list-style-type: disc;
-  padding-left: var(--spacing-2xl);
+  padding-left: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
 
