@@ -25,6 +25,19 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  // Add event listener for storage changes to handle logout across tabs
+  useEffect(() => {
+    const handleStorageChange = (e) => {
+      if (e.key === 'authToken' && !e.newValue) {
+        // Token was removed, logout user
+        setUser(null);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
   const fetchUserProfile = async (token) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/profile/`, {

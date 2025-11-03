@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
 // --- Styles Component ---
@@ -363,7 +364,7 @@ export default function LessonLayout({
                 <ol>
                   {breadcrumbs.map((crumb, index) => (
                     <li key={index}>
-                      {crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span>{crumb.label}</span>}
+                      {crumb.href ? <Link to={crumb.href}>{crumb.label}</Link> : <span>{crumb.label}</span>}
                     </li>
                   ))}
                 </ol>
