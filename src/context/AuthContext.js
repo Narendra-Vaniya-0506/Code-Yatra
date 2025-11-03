@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const error = null;
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+    const token = localStorage.getItem('authToken');
     console.log('AuthContext useEffect - token:', token);
     if (token) {
       // Load user from localStorage immediately for persistence on refresh
@@ -109,11 +109,8 @@ export const AuthProvider = ({ children }) => {
       // ✅ FIX: Correctly access the token from the nested 'data' object.
       const token = data.data.token;
 
-      if (rememberMe) {
-        localStorage.setItem('authToken', token);
-      } else {
-        sessionStorage.setItem('authToken', token);
-      }
+      // Always store in localStorage for persistence, regardless of rememberMe
+      localStorage.setItem('authToken', token);
 
       // The user object is now returned directly from the login response.
       // We can set it here to be faster than waiting for fetchUserProfile.
