@@ -344,8 +344,7 @@ body {
 .lesson-list {
   list-style-type: disc;
   padding-left: var(--spacing-2xl);
-  margin-bottom: var(--spacing-md);
-  text-align: justify;
+  margin-bottom: var(--spacing-xl);
 }
 
 .lesson-list li {
@@ -357,7 +356,7 @@ body {
   margin-bottom: var(--spacing-md);
   font-size: 1.1rem;
   color: var(--color-text-muted);
-  
+  text-align: left;
 }
 
 .steps-list {
