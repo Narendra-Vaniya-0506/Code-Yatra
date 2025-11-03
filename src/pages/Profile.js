@@ -83,24 +83,7 @@ const Profile = () => {
         transition: 'transform 0.2s ease, box-shadow 0.2s ease'
     };
 
-    const buttonStyle = (bg) => ({
-        padding: '0.75rem 1.5rem',
-        backgroundColor: bg,
-        color: 'white',
-        border: 'none',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        fontWeight: '600',
-        fontSize: '1rem',
-        letterSpacing: '0.3px',
-        boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
-        transition: 'background-color 0.2s ease, transform 0.2s ease',
-    });
 
-    const gradientBtnStyle = {
-        ...buttonStyle(), // Inherit base styles
-        background: 'linear-gradient(135deg, #43cea2, #185a9d)',
-    };
 
     return (
         <div style={{
@@ -159,29 +142,16 @@ const Profile = () => {
                     <Link
                         key={i}
                         to={link.path}
+                        className="btn-glass-dark btn-lg"
                         style={{
                             textDecoration: 'none',
                             color: '#fff',
-                            background: 'linear-gradient(135deg, #43cea2, #185a9d)',
-                            fontWeight: '600',
-                            padding: '0.75rem 1.5rem',
-                            borderRadius: '8px',
-                            transition: 'background 0.3s ease, transform 0.2s ease',
-                            boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
-                        }}
-                        onMouseOver={(e) => {
-                            e.target.style.background = 'linear-gradient(135deg, #3aa189, #144b84)';
-                            e.target.style.transform = 'translateY(-2px)';
-                        }}
-                        onMouseOut={(e) => {
-                            e.target.style.background = 'linear-gradient(135deg, #43cea2, #185a9d)';
-                            e.target.style.transform = 'translateY(0)';
                         }}
                     >
                         {link.name}
                     </Link>
                 ))}
-                
+
             </nav>
 
             {/* Personal Information */}
@@ -228,8 +198,8 @@ const Profile = () => {
                             />
                         </div>
                         <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                            <button type="submit" style={buttonStyle('#007bff')}>Save Changes</button>
-                            <button type="button" style={buttonStyle('#6c757d')}
+                            <button type="submit" className="btn-glass-dark btn-lg">Save Changes</button>
+                            <button type="button" className="btn-glass-dark btn-lg"
                                 onClick={() => {
                                     setIsEditing(false);
                                     setFormData({ name: user.name || '', email: user.email || '' });
@@ -243,17 +213,9 @@ const Profile = () => {
                         <p style={{ marginBottom: '1rem', fontSize: '1.1rem' }}><strong>Name:</strong> {user.name || 'Not set'}</p>
                         <p style={{ marginBottom: '1rem', fontSize: '1.1rem' }}><strong>Email:</strong> {user.email}</p>
                         <p style={{ marginBottom: '1rem', fontSize: '1.1rem' }}><strong>Join Date:</strong> {formatDate(user.join_date)}</p>
-                        <button 
-                            style={gradientBtnStyle} 
+                        <button
+                            className="btn-glass-dark btn-lg"
                             onClick={() => setIsEditing(true)}
-                            onMouseOver={(e) => {
-                                e.target.style.background = 'linear-gradient(135deg, #3aa189, #144b84)';
-                                e.target.style.transform = 'translateY(-2px)';
-                            }}
-                            onMouseOut={(e) => {
-                                e.target.style.background = 'linear-gradient(135deg, #43cea2, #185a9d)';
-                                e.target.style.transform = 'translateY(0)';
-                            }}
                         >
                             Edit Profile
                         </button>
@@ -264,17 +226,9 @@ const Profile = () => {
             {/* Logout Section */}
             <section style={{ ...cardStyle, textAlign: 'center' }}>
                  <h2 style={{ color: '#333', marginBottom: '1.5rem', fontSize: '1.75rem' }}>Account Actions</h2>
-                <button 
-                    style={gradientBtnStyle} 
+                <button
+                    className="btn-glass-dark btn-lg"
                     onClick={handleLogout}
-                    onMouseOver={(e) => {
-                        e.target.style.background = 'linear-gradient(135deg, #3aa189, #144b84)';
-                        e.target.style.transform = 'translateY(-2px)';
-                    }}
-                    onMouseOut={(e) => {
-                        e.target.style.background = 'linear-gradient(135deg, #43cea2, #185a9d)';
-                        e.target.style.transform = 'translateY(0)';
-                    }}
                 >
                     Logout
                 </button>
