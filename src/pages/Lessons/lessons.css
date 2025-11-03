@@ -361,14 +361,13 @@ body {
 }
 
 .intro-text {
-  margin-bottom: var(--spacing-md);
+  max-width: 100%; /* allow full available width */
+  width: 100%;
+  line-height: 1.75;
+  word-break: break-word;
+  text-align: left;
   font-size: 1.1rem;
   color: var(--color-text-muted);
-  text-align: left;
-  max-width: 100%; /* Allow full line width */
-  width: 100%;
-  line-height: 1.7;
-  word-break: break-word;
 }
 
 .steps-list {
