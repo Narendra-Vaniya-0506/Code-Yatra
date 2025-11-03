@@ -97,7 +97,19 @@ const Contact = () => {
         <img src="/Logo.jpeg" alt="Contact" style={styles.image} />
       </div>
 
-      <form style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }} onSubmit={handleSubmit}>
+      <div
+        className="glass"
+        style={{
+          flex: 1,
+          minWidth: '300px',
+          background: 'rgba(0,0,0,0.4)',
+          padding: '30px',
+          borderRadius: '16px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
+          border: '1px solid rgba(255,255,255,0.12)',
+        }}
+      >
+        <form style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }} onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -184,7 +196,8 @@ const Contact = () => {
         <button type="submit" className="btn-glass-dark btn-lg" style={{ color: '#fff' }}>
           Send Message
         </button>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };
