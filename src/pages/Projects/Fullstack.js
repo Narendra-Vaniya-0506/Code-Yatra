@@ -12,48 +12,36 @@ import { cn } from "../../lib/utils";
 const Fullstack = () => {
   const images = [
     {
-      src: "/images/x.com/13.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
+      src: "https://picsum.photos/400/600?random=1",
+      alt: "Random Image 1",
     },
     {
-      src: "/images/x.com/32.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
+      src: "https://picsum.photos/400/600?random=2",
+      alt: "Random Image 2",
     },
     {
-      src: "/images/x.com/20.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
+      src: "https://picsum.photos/400/600?random=3",
+      alt: "Random Image 3",
     },
     {
-      src: "/images/x.com/21.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
+      src: "https://picsum.photos/400/600?random=4",
+      alt: "Random Image 4",
     },
     {
-      src: "/images/x.com/19.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
+      src: "https://picsum.photos/400/600?random=5",
+      alt: "Random Image 5",
     },
     {
-      src: "/images/x.com/1.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
+      src: "https://picsum.photos/400/600?random=6",
+      alt: "Random Image 6",
     },
     {
-      src: "/images/x.com/2.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
+      src: "https://picsum.photos/400/600?random=7",
+      alt: "Random Image 7",
     },
     {
-      src: "/images/x.com/3.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-    },
-    {
-      src: "/images/x.com/4.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-    },
-    {
-      src: "/images/x.com/5.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-    },
-    {
-      src: "/images/x.com/6.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
+      src: "https://picsum.photos/400/600?random=8",
+      alt: "Random Image 8",
     },
   ];
 
