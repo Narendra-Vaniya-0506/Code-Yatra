@@ -348,8 +348,8 @@ body {
 }
 
 .lesson-list li {
-  margin-bottom: var(--spacing-sm);
-  padding-left: var(--spacing-sm);
+  padding-left: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .intro-text {
