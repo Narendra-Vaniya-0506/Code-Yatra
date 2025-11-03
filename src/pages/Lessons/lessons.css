@@ -400,4 +400,13 @@ body {
   font-size: 0.8rem;
 }
 
+.lesson-content {
+  margin-right: 0;
+  padding-right: 0;
+}
 
+.code-container pre {
+  max-width: 100%;
+  overflow-x: auto;
+  word-wrap: break-word;
+}
