@@ -1,46 +1,155 @@
 import React from 'react';
+import { motion } from "framer-motion";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { Autoplay, EffectCards, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/effect-cards";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css";
+import { cn } from "../../lib/utils";
 
 const Fullstack = () => {
-  const styles = {
-    container: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '20px',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+  const images = [
+    {
+      src: "/images/x.com/13.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
     },
-    header: {
-      textAlign: 'center',
-      marginBottom: '40px',
-      padding: '40px 0',
-      background: 'linear-gradient(135deg, rgba(75, 109, 139, 0.85), rgba(67, 89, 112, 0.95))',
-      color: 'white',
-      borderRadius: '10px',
+    {
+      src: "/images/x.com/32.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
     },
-    title: {
-      fontSize: '2.5rem',
-      marginBottom: '10px',
+    {
+      src: "/images/x.com/20.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
     },
-    subtitle: {
-      fontSize: '1.2rem',
-      opacity: '0.9',
+    {
+      src: "/images/x.com/21.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
     },
-    content: {
-      padding: '20px 0',
-      textAlign: 'center',
+    {
+      src: "/images/x.com/19.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
     },
-  };
+    {
+      src: "/images/x.com/1.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+    },
+    {
+      src: "/images/x.com/2.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+    },
+    {
+      src: "/images/x.com/3.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+    },
+    {
+      src: "/images/x.com/4.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+    },
+    {
+      src: "/images/x.com/5.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+    },
+    {
+      src: "/images/x.com/6.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+    },
+  ];
 
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>
-        <h1 style={styles.title}>Full-stack Projects</h1>
-        <p style={styles.subtitle}>Build end-to-end web applications</p>
-      </div>
-
-      <div style={styles.content}>
-        <p>Projects coming soon...</p>
-      </div>
+    <div className="flex h-full w-full items-center justify-center overflow-hidden bg-[#f5f4f3]">
+      <Carousel_002 className="" images={images} loop />
     </div>
+  );
+};
+
+const Carousel_002 = ({
+  images,
+  className,
+  showPagination = false,
+  showNavigation = false,
+  loop = true,
+  autoplay = false,
+  spaceBetween = 40,
+}: {
+  images: { src: string; alt: string }[];
+  className?: string;
+  showPagination?: boolean;
+  showNavigation?: boolean;
+  loop?: boolean;
+  autoplay?: boolean;
+  spaceBetween?: number;
+}) => {
+  const css = `
+  .Carousal_002 {
+    padding-bottom: 50px !important;
+  }
+  `;
+  return (
+    <motion.div
+      initial={{ opacity: 0, translateY: 20 }}
+      animate={{ opacity: 1, translateY: 0 }}
+      transition={{
+        duration: 0.3,
+        delay: 0.5,
+      }}
+      className={cn("relative w-full max-w-3xl", className)}
+    >
+      <style>{css}</style>
+
+      <Swiper
+        spaceBetween={spaceBetween}
+        autoplay={
+          autoplay
+            ? {
+                delay: 1000,
+                disableOnInteraction: false,
+              }
+            : false
+        }
+        effect="cards"
+        grabCursor={true}
+        loop={loop}
+        pagination={
+          showPagination
+            ? {
+                clickable: true,
+              }
+            : false
+        }
+        navigation={
+          showNavigation
+            ? {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              }
+            : false
+        }
+        className="Carousal_002 h-[380px] w-[260px]"
+        modules={[EffectCards, Autoplay, Pagination, Navigation]}
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index} className="rounded-3xl">
+            <img
+              className="h-full w-full object-cover"
+              src={image.src}
+              alt={image.alt}
+            />
+          </SwiperSlide>
+        ))}
+        {showNavigation && (
+          <div>
+            <div className="swiper-button-next after:hidden">
+              <ChevronRightIcon className="h-6 w-6 text-white" />
+            </div>
+            <div className="swiper-button-prev after:hidden">
+              <ChevronLeftIcon className="h-6 w-6 text-white" />
+            </div>
+          </div>
+        )}
+      </Swiper>
+    </motion.div>
   );
 };
 
