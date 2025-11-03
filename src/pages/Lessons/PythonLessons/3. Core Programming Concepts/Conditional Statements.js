@@ -32,7 +32,7 @@ const ConditionalStatements = () => {
 
         <h3 className="section-title">1. What Are Conditional Statements?</h3>
         <p className="intro-text">
-          Conditional statements allow your program to make decisions based on certain conditions. They enable your code to take different paths depending on whether something is true or false. Analogy: Think of conditional statements like traffic signals — they decide whether cars should stop, go, or wait.
+          Conditional statements allow your program to make decisions based on certain conditions. They enable your code to take different paths depending on whether something is true or false. Analogy: Think of conditional statements like traffic signals they decide whether cars should stop, go, or wait.
         </p>
 
         <h3 className="section-title">2. The if Statement</h3>
@@ -69,7 +69,7 @@ else:
 
         <h3 className="section-title">4. The else Statement</h3>
         <p className="intro-text">
-          The `else` statement provides a fallback — it runs only when all previous `if` and `elif` conditions are false.
+          The `else` statement provides a fallback it runs only when all previous `if` and `elif` conditions are false.
         </p>
         <div className="code-container">
           <pre>{`temperature = 12
@@ -84,7 +84,7 @@ else:
 
         <h3 className="section-title">5. Nested if Statements</h3>
         <p className="intro-text">
-          You can place one `if` statement inside another — this is called nesting. It allows more specific decision-making.
+          You can place one `if` statement inside another this is called nesting. It allows more specific decision-making.
         </p>
         <div className="code-container">
           <pre>{`age = 20
@@ -101,7 +101,7 @@ else:
           </button>
         </div>
 
-        <h3 className="section-title">6. Real-Life Example – Grading System</h3>
+        <h3 className="section-title">6. Real-Life Example Grading System</h3>
         <p className="intro-text">
           Let's build a grading system used at Code Yatra for students:
         </p>
@@ -123,7 +123,7 @@ else:
         <h3 className="section-title">7. Common Mistakes</h3>
         <ul className="lesson-list">
           <li>Forgetting the colon (:) after `if`, `elif`, or `else`.</li>
-          <li>Misaligned indentation — Python requires consistent spacing.</li>
+          <li>Misaligned indentation Python requires consistent spacing.</li>
           <li>Using `=` instead of `==` when comparing values.</li>
           <li>Writing unrelated statements inside an `if` block without indentation.</li>
         </ul>

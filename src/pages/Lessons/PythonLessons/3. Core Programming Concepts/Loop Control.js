@@ -55,12 +55,12 @@ Loop ended.`}</pre>
           </button>
         </div>
         <p className="intro-text">
-          Explanation: When num == 3, the loop stops instantly — it doesn't print 3, 4, or 5.
+          Explanation: When num == 3, the loop stops instantly it doesn't print 3, 4, or 5.
         </p>
 
-        <h3 className="section-title">3. The continue Statement – Skip and Move On</h3>
+        <h3 className="section-title">3. The continue Statement Skip and Move On</h3>
         <p className="intro-text">
-          The `continue` statement skips the current iteration and moves to the next loop cycle. It doesn't stop the loop — just skips one round!
+          The `continue` statement skips the current iteration and moves to the next loop cycle. It doesn't stop the loop just skips one round!
         </p>
         <div className="code-container">
           <pre>{`# Example: Skip number 3
@@ -83,7 +83,7 @@ for num in range(1, 6):
 
         <h3 className="section-title">4. The pass Statement – Do Nothing (Placeholder)</h3>
         <p className="intro-text">
-          Sometimes you need a statement that does nothing — just to fill space and avoid errors. The `pass` keyword is a no-operation placeholder. It's often used in loops, functions, or classes that are still being built.
+          Sometimes you need a statement that does nothing just to fill space and avoid errors. The `pass` keyword is a no-operation placeholder. It's often used in loops, functions, or classes that are still being built.
         </p>
         <div className="code-container">
           <pre>{`# Example: Using pass inside a loop
@@ -100,7 +100,7 @@ Number: 3`}</pre>
           </button>
         </div>
         <p className="intro-text">
-          Explanation: When num == 2, Python just moves on without skipping or breaking — it quietly passes.
+          Explanation: When num == 2, Python just moves on without skipping or breaking it quietly passes.
         </p>
 
         <h3 className="section-title">5. Combined Example – break, continue, pass Together</h3>
@@ -133,10 +133,10 @@ Loop finished!`}</pre>
 
         <h3 className="section-title">6. Common Mistakes</h3>
         <ul className="lesson-list">
-          <li>Forgetting to use `break` wisely — can exit too early.</li>
+          <li>Forgetting to use `break` wisely can exit too early.</li>
           <li>Using `continue` incorrectly may skip essential code.</li>
-          <li>Misunderstanding `pass` — it doesn't skip or stop; it just 'does nothing'.</li>
-          <li>Indentation errors inside loops are common — stay consistent!</li>
+          <li>Misunderstanding `pass` it doesn't skip or stop; it just 'does nothing'.</li>
+          <li>Indentation errors inside loops are common stay consistent!</li>
         </ul>
 
         <h3 className="section-title">7. Quick Practice</h3>

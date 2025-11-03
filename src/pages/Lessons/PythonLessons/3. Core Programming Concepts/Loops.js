@@ -32,7 +32,7 @@ const Loops = () => {
 
         <h3 className="section-title">1. What Are Loops?</h3>
         <p className="intro-text">
-          Loops are used to repeat a block of code multiple times. They save time and make code shorter. Instead of writing the same line again and again, we tell Python to 'keep doing this' until a condition is met. Analogy: Think of loops like brushing your teeth every morning — same task, done repeatedly!
+          Loops are used to repeat a block of code multiple times. They save time and make code shorter. Instead of writing the same line again and again, we tell Python to 'keep doing this' until a condition is met. Analogy: Think of loops like brushing your teeth every morning same task, done repeatedly!
         </p>
 
         <h3 className="section-title">2. The for Loop</h3>
@@ -144,7 +144,7 @@ for i in range(1, 4):
         <ul className="lesson-list">
           <li>Forgetting to update the variable in a while loop (causes an infinite loop!).</li>
           <li>Using `break` incorrectly can stop the loop too early.</li>
-          <li>Mixing up indentation – make sure your loop body is indented properly.</li>
+          <li>Mixing up indentation make sure your loop body is indented properly.</li>
         </ul>
 
         <h3 className="section-title">7. Quick Practice</h3>
