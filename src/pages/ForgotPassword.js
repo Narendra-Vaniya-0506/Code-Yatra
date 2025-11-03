@@ -71,49 +71,131 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "4rem auto", padding: "2rem", boxShadow: "0 0 20px rgba(0,0,0,0.15)", borderRadius: "12px", backgroundColor: "#fff" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "1rem", fontWeight: "800", fontSize: "2rem", color: "#222" }}>
-        Forgot Password
-      </h2>
+    <>
+      <div
+        className="linear-container with-lines lines-animate glass"
+        style={{
+          maxWidth: "420px",
+          margin: "4rem auto",
+          padding: "2rem",
+          borderRadius: "16px",
+          border: "1px solid var(--cy-border)",
+          boxShadow: "var(--cy-elev)",
+          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        }}
+      >
+        <h2
+          style={{
+            textAlign: "center",
+            marginBottom: "1rem",
+            fontWeight: "800",
+            fontSize: "2rem",
+            color: "var(--cy-text)",
+          }}
+        >
+          Forgot Password
+        </h2>
 
-      {error && <p style={{ color: '#D8000C', backgroundColor: '#FFD2D2', padding: '10px', borderRadius: '8px', textAlign: 'center', marginBottom: '1rem' }}>{error}</p>}
-      {successMessage && <p style={{ color: '#4CAF50', backgroundColor: '#DFF2BF', padding: '10px', borderRadius: '8px', textAlign: 'center', marginBottom: '1rem' }}>{successMessage}</p>}
+        {error && (
+          <p style={{
+            color: '#D8000C',
+            backgroundColor: '#FFD2D2',
+            padding: '10px',
+            borderRadius: '8px',
+            textAlign: 'center',
+            marginBottom: '1rem',
+          }}>
+            {error}
+          </p>
+        )}
+        {successMessage && (
+          <p style={{
+            color: '#4CAF50',
+            backgroundColor: '#DFF2BF',
+            padding: '10px',
+            borderRadius: '8px',
+            textAlign: 'center',
+            marginBottom: '1rem',
+          }}>
+            {successMessage}
+          </p>
+        )}
 
-      <form onSubmit={handleSendOtp} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-        <input
-          type="email"
-          placeholder="Email Address"
-          value={identifier}
-          onChange={(e) => setIdentifier(e.target.value)}
-          style={{ padding: "1rem", fontSize: "1rem", borderRadius: "8px", border: "1px solid #ccc" }}
-          required
-        />
-        <button type="submit" style={{ padding: "1rem", fontSize: "1.1rem", borderRadius: "8px", border: "none", backgroundColor: "#000", color: "#fff", cursor: "pointer", fontWeight: "bold" }}>
-          Send OTP
-        </button>
-      </form>
+        <form
+          onSubmit={handleSendOtp}
+          style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+        >
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
+            style={{
+              padding: "1rem",
+              fontSize: "1rem",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
+            }}
+            required
+          />
+          <button
+            type="submit"
+            className="btn-glass-dark btn-lg"
+            style={{
+              color: "#fff",
+            }}
+          >
+            Send OTP
+          </button>
+        </form>
 
-      <form onSubmit={handleResetPassword} style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginTop: "2rem" }}>
-        <input
-          type="text"
-          placeholder="Enter OTP"
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
-          style={{ padding: "1rem", fontSize: "1rem", borderRadius: "8px", border: "1px solid #ccc" }}
-          required
-        />
-        <input
-          type="password"
-          placeholder="New Password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          style={{ padding: "1rem", fontSize: "1rem", borderRadius: "8px", border: "1px solid #ccc" }}
-          required
-        />
-        <button type="submit" style={{ padding: "1rem", fontSize: "1.1rem", borderRadius: "8px", border: "none", backgroundColor: "#000", color: "#fff", cursor: "pointer", fontWeight: "bold" }}>
-          Reset Password
-        </button>
-      </form>
-    </div>
+        <form
+          onSubmit={handleResetPassword}
+          style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginTop: "2rem" }}
+        >
+          <input
+            type="text"
+            placeholder="Enter OTP"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            style={{
+              padding: "1rem",
+              fontSize: "1rem",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
+            }}
+            required
+          />
+          <input
+            type="password"
+            placeholder="New Password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            style={{
+              padding: "1rem",
+              fontSize: "1rem",
+              borderRadius: "12px",
+              border: "1px solid var(--cy-border)",
+              background: "rgba(255,255,255,0.08)",
+              color: "var(--cy-text)",
+            }}
+            required
+          />
+          <button
+            type="submit"
+            className="btn-glass-dark btn-lg"
+            style={{
+              color: "#fff",
+            }}
+          >
+            Reset Password
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

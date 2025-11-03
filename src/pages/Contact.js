@@ -97,68 +97,90 @@ const Contact = () => {
         <img src="/Logo.jpeg" alt="Contact" style={styles.image} />
       </div>
 
-      <form className="glass" style={styles.form} onSubmit={handleSubmit}>
-        <label style={styles.label}>
-          Name
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </label>
-        <label style={styles.label}>
-          Email
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </label>
-        <label style={styles.label}>
-          Phone Number
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Your 10-digit Indian Number"
-            value={formData.phone}
-            onChange={handleChange}
-            style={styles.input}
-            pattern="[0-9]{10}"
-            title="Please enter a valid 10-digit Indian phone number"
-            required
-          />
-        </label>
-        <label style={styles.label}>
-          Subject
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </label>
-        <label style={styles.label}>
-          Message
-          <textarea
-            name="message"
-            placeholder="Type your message here."
-            value={formData.message}
-            onChange={handleChange}
-            style={{ ...styles.input, height: '100px', resize: 'vertical' }}
-            required
-          />
-        </label>
+      <form style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          style={{
+            padding: "1rem",
+            fontSize: "1rem",
+            borderRadius: "12px",
+            border: "1px solid var(--cy-border)",
+            background: "rgba(255,255,255,0.08)",
+            color: "var(--cy-text)",
+          }}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          style={{
+            padding: "1rem",
+            fontSize: "1rem",
+            borderRadius: "12px",
+            border: "1px solid var(--cy-border)",
+            background: "rgba(255,255,255,0.08)",
+            color: "var(--cy-text)",
+          }}
+          required
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Your 10-digit Indian Number"
+          value={formData.phone}
+          onChange={handleChange}
+          style={{
+            padding: "1rem",
+            fontSize: "1rem",
+            borderRadius: "12px",
+            border: "1px solid var(--cy-border)",
+            background: "rgba(255,255,255,0.08)",
+            color: "var(--cy-text)",
+          }}
+          pattern="[0-9]{10}"
+          title="Please enter a valid 10-digit Indian phone number"
+          required
+        />
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          value={formData.subject}
+          onChange={handleChange}
+          style={{
+            padding: "1rem",
+            fontSize: "1rem",
+            borderRadius: "12px",
+            border: "1px solid var(--cy-border)",
+            background: "rgba(255,255,255,0.08)",
+            color: "var(--cy-text)",
+          }}
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Type your message here."
+          value={formData.message}
+          onChange={handleChange}
+          style={{
+            padding: "1rem",
+            fontSize: "1rem",
+            borderRadius: "12px",
+            border: "1px solid var(--cy-border)",
+            background: "rgba(255,255,255,0.08)",
+            color: "var(--cy-text)",
+            height: '100px',
+            resize: 'vertical'
+          }}
+          required
+        />
         <button type="submit" className="btn-glass-dark btn-lg" style={{ color: '#fff' }}>
           Send Message
         </button>
@@ -231,36 +253,6 @@ const styles = {
     width: '100%',
     borderRadius: '14px',
     boxShadow: '0 6px 20px rgba(0,0,0,0.1)',
-  },
-  form: {
-    flex: 1,
-    minWidth: '300px',
-    background: 'rgba(0,0,0,0.4)',
-    padding: '30px',
-    borderRadius: '16px',
-    boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
-    border: '1px solid rgba(255,255,255,0.12)',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '16px',
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    fontWeight: 600,
-    fontSize: '0.95rem',
-    color: 'var(--cy-text)',
-  },
-  input: {
-    marginTop: '6px',
-    padding: '12px 14px',
-    fontSize: '1rem',
-    borderRadius: '10px',
-    border: '1.5px solid var(--cy-border)',
-    outline: 'none',
-    background: 'rgba(255,255,255,0.08)',
-    color: 'var(--cy-text)',
-    transition: 'all 0.25s ease',
   },
   button: {
     marginTop: '18px',
