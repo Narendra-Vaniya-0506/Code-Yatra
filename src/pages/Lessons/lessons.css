@@ -417,3 +417,27 @@ body {
   font-size: var(--font-size-sm);
 }
 
+.return-to-top-btn {
+  display: block;
+  margin: var(--spacing-xl) auto 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.return-to-top-btn:hover {
+  background-color: #1d4ed8; /* Darker shade of primary */
+  transform: translateY(-2px);
+}
+
+.return-to-top-btn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
