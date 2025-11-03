@@ -139,10 +139,12 @@ else:
             <li>The final else acts as a catch-all: if the operator is none of the above, it sets an error message.</li>
           </ul>
         </li>
-        <li><b>Output:</b> Finally, the program prints the formatted result or the error message to the user.</li>
       </ol>
 
            <p className="created-by">— Created by Code Yatra</p>
+           <button className="return-to-top-btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+             Return to Top
+           </button>
 
       {showToast && (
         <div style={{

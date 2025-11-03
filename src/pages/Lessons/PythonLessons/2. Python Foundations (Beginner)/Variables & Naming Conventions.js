@@ -77,6 +77,9 @@ is_learning = True`)} className="copy-button">
       </ul>
 
            <p className="created-by">— Created by Code Yatra</p>
+           <button className="return-to-top-btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+             Return to Top
+           </button>
 
       {showToast && (
         <div style={{

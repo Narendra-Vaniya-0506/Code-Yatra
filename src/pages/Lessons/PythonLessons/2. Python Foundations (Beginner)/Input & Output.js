@@ -88,8 +88,11 @@ print(f"Welcome, {name}!")`)} className="copy-button">
       <ul className="lesson-list">
         <li><b>Return Value:</b> It is important to remember that the input() function always returns the user's data as a string (str), regardless of what they type.</li>
       </ul>
-      
+
        <p className="created-by">— Created by Code Yatra</p>
+       <button className="return-to-top-btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+         Return to Top
+       </button>
 
       {showToast && (
         <div style={{
