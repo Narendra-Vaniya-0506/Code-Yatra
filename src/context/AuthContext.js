@@ -19,6 +19,11 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
     console.log('AuthContext useEffect - token:', token);
     if (token) {
+      // Load user from localStorage immediately for persistence on refresh
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
       fetchUserProfile(token);
     } else {
       setLoading(false);
@@ -113,6 +118,8 @@ export const AuthProvider = ({ children }) => {
       // The user object is now returned directly from the login response.
       // We can set it here to be faster than waiting for fetchUserProfile.
       setUser(data.data.user);
+      // Store user in localStorage for persistence on refresh
+      localStorage.setItem('user', JSON.stringify(data.data.user));
 
       // Redirect user to dashboard after successful login
       // Use react-router navigation instead of window.location.href for SPA routing
@@ -151,6 +158,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('authToken');
     sessionStorage.removeItem('authToken');
+    localStorage.removeItem('user');
     setUser(null);
   };
 
