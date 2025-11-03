@@ -7,7 +7,7 @@ import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
-import { cn } from "../../lib/utils";
+import { cn } from "../../../lib/utils";
 
 const Fullstack = () => {
   const images = [
