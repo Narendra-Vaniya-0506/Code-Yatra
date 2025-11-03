@@ -46,8 +46,15 @@ const Fullstack = () => {
   ];
 
   return (
-    <div className="flex h-full w-full items-center justify-center overflow-hidden bg-[#f5f4f3]">
-      <Carousel_002 className="" images={images} loop />
+    <div className="max-w-6xl mx-auto p-6">
+      <div className="text-center mb-8 p-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg">
+        <h1 className="text-4xl font-bold mb-2">Full-stack Projects</h1>
+        <p className="text-xl opacity-90">Build end-to-end web applications</p>
+      </div>
+
+      <div className="flex justify-center">
+        <Carousel_002 className="" images={images} loop />
+      </div>
     </div>
   );
 };
