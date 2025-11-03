@@ -52,13 +52,21 @@ export const AuthProvider = ({ children }) => {
         },
       });
 
-      if (!response.ok) throw new Error('Failed to fetch user profile');
-
-      const userData = await response.json();
-      setUser(userData.data);
+      if (response.ok) {
+        const userData = await response.json();
+        setUser(userData.data);
+      } else if (response.status === 401) {
+        // Token is invalid, logout
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('user');
+        setUser(null);
+      } else {
+        // Other errors (server down, etc.), keep the stored user
+        console.error('Failed to fetch user profile:', response.status);
+      }
     } catch (error) {
       console.error('Error fetching user profile:', error);
-      setUser(null);
+      // Network error, keep stored user
     } finally {
       setLoading(false);
     }
