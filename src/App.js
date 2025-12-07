@@ -28,11 +28,6 @@ import ReactLessons from "./pages/Lessons/ReactJSLessons/react";
 
 // Projects page
 import Projects from "./pages/Projects/Projects";
-import Fullstack from "./pages/Projects/Fullstack";
-import DataAnalysis from "./pages/Projects/DataAnalysis";
-import MachineLearning from "./pages/Projects/MachineLearning";
-import AI from "./pages/Projects/AI";
-import Games from "./pages/Projects/Games";
 
 import "./App.css";
 
@@ -114,18 +109,7 @@ function AppContent() {
         <Route path="/projects" element={
           <ProtectedRoute><Projects /></ProtectedRoute>
         } />
-        <Route path="/projects/fullstack" element={
-          <ProtectedRoute><Fullstack /></ProtectedRoute>
-        } />
-        <Route path="/projects/data-analysis" element={
-          <ProtectedRoute><DataAnalysis /></ProtectedRoute>
-        } />
-        <Route path="/projects/machine-learning" element={
-          <ProtectedRoute><MachineLearning /></ProtectedRoute>
-        } />
-        <Route path="/projects/ai" element={
-          <ProtectedRoute><AI /></ProtectedRoute>
-        } />
+
       </Routes>
       <Footer />
     </AuthProvider>
