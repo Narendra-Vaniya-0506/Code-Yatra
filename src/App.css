@@ -1,0 +1,282 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f8fafc;
+  padding-top: 70px; /* Account for fixed navbar height */
+}
+
+/* Homepage should not have padding-top to allow full-screen content */
+body.homepage {
+  padding-top: 0;
+}
+
+
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Lessons Page Sidebar Layout - Professional CodeWithHarry Style */
+.lessons-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar-lessons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 280px;
+  background: linear-gradient(180deg, #1e293b 0%, #334155 100%);
+  color: white;
+  z-index: 1000;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-lessons::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-lessons::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.sidebar-lessons::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #475569;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.sidebar-nav {
+  padding: 1rem 0;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+}
+
+.sidebar-nav li {
+  margin: 0.25rem 0;
+}
+
+.sidebar-nav button {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.sidebar-nav button.active {
+  background: rgba(59, 130, 246, 0.2);
+  color: white;
+  border-left-color: #3b82f6;
+}
+
+.lessons-main {
+  flex: 1;
+  margin-left: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lessons-header {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.lessons-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lessons-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #475569;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+}
+
+.hamburger-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.lessons-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.content-text {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.content-section {
+  margin-bottom: 2rem;
+}
+
+.content-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+
+.content-list {
+  list-style: disc;
+  margin-left: 1.5rem;
+  color: #475569;
+}
+
+.content-list li {
+  margin-bottom: 0.5rem;
+}
+
+.pro-tip {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-left: 4px solid #3b82f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.pro-tip p {
+  color: #1e40af;
+  font-weight: 500;
+}
+
+/* Hide unnecessary UI elements on desktop */
+@media (min-width: 769px) {
+  .skip-link,
+  .hamburger-btn,
+  .lesson-sidebar-close {
+    display: none;
+  }
+}
+
+/* Show elements on mobile */
+@media (max-width: 768px) {
+  .skip-link,
+  .hamburger-btn,
+  .lesson-sidebar-close {
+    display: block; /* or inline-block, depending on your layout */
+  }
+}
+
+/* Overlay for mobile */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar-overlay.show {
+    display: block;
+  }
+}
+
+/* Error and Success Messages */
+.error-message {
+  color: #ef4444;
+  background: #fee2e2;
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.success-message {
+  color: #10b981;
+  background: #d1fae5;
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+}

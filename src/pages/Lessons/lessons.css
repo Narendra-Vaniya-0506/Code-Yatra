@@ -1,0 +1,446 @@
+/* --- Global Resets & Body Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  font-family: var(--font-family-base);
+  overflow-x: hidden;
+}
+
+
+/* --- CSS Variables for Theming --- */
+:root {
+  /* Colors */
+  --color-primary: #2563eb;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-text-light: #94a3b8;
+  --color-focus-ring: #60a5fa;
+  --color-code-bg: #1e293b;
+  --color-code-text: #e2e8f0;
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Typography */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --header-height: 60px;
+
+  /* Borders & Radius */
+  --border-radius: 0.375rem;
+  --border-width: 1px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 10px;
+  border: 2px solid var(--color-background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-light);
+}
+
+
+/* --- Base Layout --- */
+.lesson-layout {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.lesson-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* --- Sidebar --- */
+.lesson-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--color-background);
+  border-right: var(--border-width) solid var(--color-border);
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal);
+  z-index: 1000;
+  overflow-y: auto;
+}
+.lesson-layout.sidebar-open .lesson-sidebar {
+  transform: translateX(0);
+}
+.lesson-sidebar-content {
+  padding: var(--spacing-lg);
+}
+
+/* --- Main Content Area --- */
+.lesson-main {
+  overflow-y: auto;
+  height: auto;
+  padding: 0; /* Padding will be handled by the wrapper */
+}
+
+/* --- NEW / MODIFIED --- Content Wrapper for Centering and Width */
+.lesson-content-wrapper {
+  max-width: 1100px; /* INCREASED from 800px to make content wider */
+  margin: 0 auto;
+}
+
+
+/* --- Sticky Header (Mobile) --- */
+.lesson-header {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-md);
+  border-bottom: var(--border-width) solid var(--color-border);
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+}
+
+
+.lesson-sidebar-toggle {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  margin-right: var(--spacing-sm);
+  border-radius: var(--border-radius);
+}
+.lesson-sidebar-toggle:hover {
+  background-color: var(--color-surface);
+}
+.lesson-sidebar-toggle:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* --- Accordion Sidebar Navigation --- */
+.lesson-sidebar-nav h3 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  padding: 0 var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+.lesson-section-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: none;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+.lesson-section-toggle:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.lesson-section-toggle.open {
+    color: var(--color-text);
+}
+.lesson-section-toggle::after {
+  content: '›';
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: transform var(--transition-normal);
+}
+.lesson-section-toggle.open::after {
+  transform: rotate(90deg);
+}
+.lesson-section-toggle:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+.lesson-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal);
+}
+.lesson-sublist li a {
+  display: block;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) var(--spacing-xl);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+.lesson-sublist li a:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.lesson-sublist li a.active {
+  color: var(--color-primary);
+  font-weight: 600;
+  background-color: var(--color-surface);
+}
+.lesson-sublist li a:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: -2px;
+    border-radius: var(--border-radius);
+}
+
+
+/* --- MODIFIED --- Hero Section (Remove card styling, left-align, add bottom border) */
+.lesson-hero {
+    text-align: left; /* Ensure left alignment */
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    background-color: transparent; /* Remove card background */
+    border-radius: 0; /* Remove border radius */
+    margin-bottom: var(--spacing-2xl);
+    border: none; /* Remove all borders */
+    border-left: none; /* Remove the accent border */
+}
+
+/* Add bottom border to main heading */
+.lesson-main h1, .lesson-hero h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-primary); /* Add bottom border */
+  padding-bottom: var(--spacing-sm); /* Add padding below border */
+}
+.lesson-main h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  margin: var(--spacing-2xl) 0 var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+.lesson-main h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-top: var(--spacing-lg);
+    color: var(--color-text);
+}
+.lesson-main p, .lesson-main li, .lesson-hero p {
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 75ch; /* Improves readability by limiting line length */
+}
+.lesson-main a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+.lesson-main a:hover {
+    text-decoration: underline;
+}
+.lesson-main b, .lesson-main strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+
+.code-block {
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  overflow-x: auto;
+  margin: var(--spacing-md) 0;
+  border: 1px solid var(--color-border);
+}
+
+
+/* --- Desktop Layout (1024px and wider) --- */
+@media (min-width: 1024px) {
+  .lesson-container {
+    grid-template-columns: var(--sidebar-width) 1fr;
+  }
+  .lesson-sidebar {
+    position: sticky;
+    transform: translateX(0);
+    z-index: 10;
+  }
+  .lesson-sidebar-toggle, .lesson-header, .lesson-drawer-backdrop {
+    display: none;
+  }
+}
+
+
+
+.lesson-title {
+  color: var(--color-text);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+.section-title {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+  padding-left: var(--spacing-sm);
+  border-left: 4px solid #48bb78;
+}
+
+.lesson-list {
+  list-style-type: disc;
+  list-style-position: inside; /* Keep bullets within content width */
+  padding-left: 1.25rem;       /* Reduced from var(--spacing-2xl) to reclaim right space */
+  margin-bottom: var(--spacing-xl);
+  max-width: 100%;
+  width: 100%;
+}
+
+.lesson-list li {
+  margin-bottom: var(--spacing-sm);
+  padding-left: 0; /* Removed extra left padding to align text cleanly */
+  max-width: 100%;
+  width: 100%;
+  word-break: break-word;
+  line-height: 1.7;
+}
+
+.lesson-main .intro-text,
+.lesson-content .intro-text {
+  max-width: 100% !important; /* Force full width */
+  width: 100%;
+  line-height: 1.75;
+  word-break: break-word;
+  text-align: left;
+  color: var(--color-text-muted);
+}
+
+.steps-list {
+  list-style-type: decimal;
+  list-style-position: inside; /* Prevents hidden overflow from list numbers */
+  padding-left: 1.25rem;       /* Reduced indentation */
+  margin-bottom: var(--spacing-xl);
+  max-width: 100%;
+  width: 100%;
+}
+
+.steps-list li {
+  margin-bottom: var(--spacing-sm);
+  padding-left: 0;
+  max-width: 100%;
+  width: 100%;
+  word-break: break-word;
+  line-height: 1.7;
+}
+
+.code-container {
+  position: relative;
+  margin: var(--spacing-md) 0;
+}
+
+.code-container pre {
+  background: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family-mono);
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.copy-button {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background: var(--color-text);
+  color: var(--color-background);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+}
+
+.return-to-top-btn {
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.15) inset, 0 -1px 0 rgba(0,0,0,0.2) inset;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+  margin: var(--spacing-xl) auto 0;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.return-to-top-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.45);
+}
+
+.return-to-top-btn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
