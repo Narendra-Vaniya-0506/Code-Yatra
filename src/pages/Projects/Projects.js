@@ -1,5 +1,4 @@
 import React from 'react';
-import './Projects.css';
 
 const AI = () => {
   const projects = [
@@ -86,13 +85,43 @@ const AI = () => {
 
       <div style={styles.grid}>
         {projects.map((project, index) => (
-          <div key={index} style={styles.card} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+          <div
+            key={index}
+            style={styles.card}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-10px)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.querySelector('img').style.transform = 'scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'none';
+              e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.querySelector('img').style.transform = 'none';
+            }}
+          >
             <img src={project.photo} alt={project.name} style={styles.image} />
             <div style={styles.content}>
               <h3 style={styles.name}>{project.name}</h3>
-              <p style={styles.tech}><strong>Technologies:</strong> {project.technologies.join(', ')}</p>
-              <p style={styles.purpose}><strong>Purpose:</strong> {project.purpose}</p>
-              <a href={project.github} style={styles.link} target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              <p style={styles.tech}><strong style={{color: '#34495e'}}>Technologies:</strong> {project.technologies.join(', ')}</p>
+              <p style={styles.purpose}><strong style={{color: '#34495e'}}>Purpose:</strong> {project.purpose}</p>
+              <a
+                href={project.github}
+                style={styles.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #0056b3 0%, #004085 100%)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 123, 255, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #007bff 0%, #0056b3 100%)';
+                  e.currentTarget.style.transform = 'none';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                View on GitHub
+              </a>
             </div>
           </div>
         ))}
