@@ -1,9 +1,9 @@
 import React from 'react';
-import StudentGrievance from '../Image/Student_grievance_system.png';
-import BankingApp from '../Image/Banking App.png';
-import GamesPython from '../Image/Game.png';
-import MERNStack from '../Image/MERN stack.png';
-import ProjectPluse from '../Image/Projectpluse.png';
+import StudentGrievance from '../../Image/Student_grievance_system.png';
+import BankingApp from '../../Image/Banking App.png';
+import GamesPython from '../../Image/Game.png';
+import MERNStack from '../../Image/MERN stack.png';
+import ProjectPluse from '../../Image/Projectpluse.png';
 
 const project = () => {
   const projects = [
