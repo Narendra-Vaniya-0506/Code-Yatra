@@ -9,14 +9,14 @@ const project = () => {
   const projects = [
     {
       photo: StudentGrievance,
-      name: 'Student Grievance System By Code Yatra',
+      name: 'Student Grievance System',
       technologies: ['Python', 'Django'],
       purpose: 'A student portal built with Python and Django, designed to allow students to register grievances so administrators can review and resolve them efficiently.',
       github: 'https://github.com/Narendra-Vaniya-0506/Student_grievance_system'
     },
     {
       photo: BankingApp,
-      name: 'Banking application By Code Yatra',
+      name: 'Banking application',
       technologies: ['Python', 'Flask ', 'MongoDB ', 'JavaScript', 'HTML5, CSS3, Bootstrap 5'],
       purpose: 'The purpose of this project is to create a functional banking application.',
       github: 'https://github.com/Narendra-Vaniya-0506/Banking_application'
@@ -25,7 +25,7 @@ const project = () => {
       photo: GamesPython,
       name: 'Games Using Python',
       technologies: ['Python'],
-      purpose: 'Games Using Python.',
+      purpose: 'Games Using Python (In this file there are 41 Games).',
       github: 'https://github.com/Narendra-Vaniya-0506/Games-Using-Python'
     },
     {
