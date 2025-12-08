@@ -3,39 +3,39 @@ import React from 'react';
 const AI = () => {
   const projects = [
     {
-      photo: '/src/Image/AI.png',
-      name: 'Chatbot Assistant',
-      technologies: ['Python', 'TensorFlow', 'NLP'],
-      purpose: 'An AI-powered chatbot for customer support automation.',
-      github: 'https://github.com/example/chatbot'
+      photo: '/src/Image/Student_grievance_system.png"',
+      name: 'Student Grievance System By Code Yatra',
+      technologies: ['Python', 'Django'],
+      purpose: 'A student portal built with Python and Django, designed to allow students to register grievances so administrators can review and resolve them efficiently.',
+      github: 'https://github.com/Narendra-Vaniya-0506/Student_grievance_system'
     },
     {
-      photo: '/src/Image/Machine learning.png',
-      name: 'Image Classifier',
-      technologies: ['Python', 'Keras', 'CNN'],
-      purpose: 'Classifies images into categories using deep learning.',
-      github: 'https://github.com/example/image-classifier'
-    },
-    {
-      photo: '/src/Image/Full stack.png',
-      name: 'Recommendation System',
-      technologies: ['Python', 'Pandas', 'Scikit-learn'],
-      purpose: 'Recommends products based on user behavior.',
-      github: 'https://github.com/example/recommendation'
+      photo: '/src/Image/Banking App.png',
+      name: 'Banking application By Code Yatra',
+      technologies: ['Python', 'Flask ', 'MongoDB ', 'JavaScript', 'HTML5, CSS3, Bootstrap 5'],
+      purpose: 'The purpose of this project is to create a functional banking application.',
+      github: 'https://github.com/Narendra-Vaniya-0506/Banking_application'
     },
     {
       photo: '/src/Image/Game.png',
-      name: 'AI Game Agent',
-      technologies: ['Python', 'Reinforcement Learning', 'Unity'],
-      purpose: 'An AI agent that learns to play games autonomously.',
-      github: 'https://github.com/example/game-agent'
+      name: 'Games Using Python',
+      technologies: ['Python'],
+      purpose: 'Games Using Python.',
+      github: 'https://github.com/Narendra-Vaniya-0506/Games-Using-Python'
     },
     {
-      photo: '/src/Image/data.png',
-      name: 'Data Analyzer',
-      technologies: ['Python', 'Jupyter', 'Matplotlib'],
-      purpose: 'Analyzes large datasets for insights and visualizations.',
-      github: 'https://github.com/example/data-analyzer'
+      photo: '/src/Image/MERN stack.png',
+      name: 'MERN Stack application',
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+      purpose: 'This project is a full-stack MERN For School or tutioan Management.',
+      github: 'https://github.com/Narendra-Vaniya-0506/MERN-stack-Star_Academy_System'
+    },
+    {
+      photo: '/src/Image/Projectpluse.png',
+      name: 'ProjectPluse',
+      technologies: ['React + Vite', 'Node.js', 'Express', 'MongoDB'],
+      purpose: 'A comprehensive project management application built with React and Node.js, designed to streamline team collaboration, task management, and project tracking for organizations of all sizes.',
+      github: 'https://github.com/Narendra-Vaniya-0506/ProjectPluse'
     },
     {
       photo: '/src/Image/Developer.jpg',
@@ -164,8 +164,8 @@ const AI = () => {
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <h1 style={styles.title}>AI Projects</h1>
-        <p style={styles.subtitle}>Explore artificial intelligence applications</p>
+        <h1 style={styles.title}>Projects</h1>
+        <p style={styles.subtitle}>Explore Our Full Project Library and Build Your Expertise</p>
       </div>
 
       <div style={styles.grid}>
