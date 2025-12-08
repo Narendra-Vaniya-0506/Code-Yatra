@@ -74,7 +74,92 @@ const AI = () => {
     }
   ];
 
-
+  const styles = {
+    container: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '20px',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+      backgroundColor: '#f8f9fa',
+      minHeight: '100vh',
+    },
+    header: {
+      textAlign: 'center',
+      marginBottom: '40px',
+      padding: '40px 20px',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      color: 'white',
+      borderRadius: '15px',
+      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+    },
+    title: {
+      fontSize: '2.5rem',
+      marginBottom: '10px',
+      fontWeight: '700',
+      textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+    },
+    subtitle: {
+      fontSize: '1.2rem',
+      opacity: '0.9',
+      fontWeight: '300',
+    },
+    grid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+      gap: '25px',
+      padding: '20px 0',
+    },
+    card: {
+      background: 'white',
+      borderRadius: '15px',
+      boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
+      overflow: 'hidden',
+      transition: 'all 0.3s ease',
+      cursor: 'pointer',
+      position: 'relative',
+    },
+    image: {
+      width: '100%',
+      height: '200px',
+      objectFit: 'cover',
+      transition: 'transform 0.3s ease',
+    },
+    content: {
+      padding: '25px',
+    },
+    name: {
+      fontSize: '1.5rem',
+      marginBottom: '15px',
+      color: '#2c3e50',
+      fontWeight: '600',
+      lineHeight: '1.3',
+    },
+    tech: {
+      fontSize: '0.95rem',
+      marginBottom: '15px',
+      color: '#7f8c8d',
+      fontWeight: '500',
+    },
+    purpose: {
+      fontSize: '1rem',
+      marginBottom: '20px',
+      color: '#555',
+      lineHeight: '1.5',
+    },
+    link: {
+      display: 'inline-block',
+      padding: '12px 20px',
+      background: 'linear-gradient(135deg, #007bff 0%, #0056b3 100%)',
+      color: 'white',
+      textDecoration: 'none',
+      borderRadius: '8px',
+      fontSize: '1rem',
+      fontWeight: '500',
+      transition: 'all 0.3s ease',
+      border: 'none',
+      cursor: 'pointer',
+    },
+  };
 
   return (
     <div style={styles.container}>
