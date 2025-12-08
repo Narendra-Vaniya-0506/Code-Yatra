@@ -1,4 +1,5 @@
 import React from 'react';
+import './Projects.css';
 
 const AI = () => {
   const projects = [
@@ -74,75 +75,7 @@ const AI = () => {
     }
   ];
 
-  const styles = {
-    container: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '20px',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-    },
-    header: {
-      textAlign: 'center',
-      marginBottom: '40px',
-      padding: '40px 0',
-      background: 'linear-gradient(135deg, rgba(75, 109, 139, 0.85), rgba(67, 89, 112, 0.95))',
-      color: 'white',
-      borderRadius: '10px',
-    },
-    title: {
-      fontSize: '2.5rem',
-      marginBottom: '10px',
-    },
-    subtitle: {
-      fontSize: '1.2rem',
-      opacity: '0.9',
-    },
-    grid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-      gap: '20px',
-      padding: '20px 0',
-    },
-    card: {
-      background: 'white',
-      borderRadius: '10px',
-      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-      overflow: 'hidden',
-      transition: 'transform 0.3s',
-    },
-    image: {
-      width: '100%',
-      height: '200px',
-      objectFit: 'cover',
-    },
-    content: {
-      padding: '20px',
-    },
-    name: {
-      fontSize: '1.5rem',
-      marginBottom: '10px',
-      color: '#333',
-    },
-    tech: {
-      fontSize: '1rem',
-      marginBottom: '10px',
-      color: '#666',
-    },
-    purpose: {
-      fontSize: '1rem',
-      marginBottom: '15px',
-      color: '#555',
-    },
-    link: {
-      display: 'inline-block',
-      padding: '10px 15px',
-      background: '#007bff',
-      color: 'white',
-      textDecoration: 'none',
-      borderRadius: '5px',
-      fontSize: '1rem',
-    },
-  };
+
 
   return (
     <div style={styles.container}>
