@@ -1,76 +1,46 @@
 import React from 'react';
+import StudentGrievance from '../Image/Student_grievance_system.png';
+import BankingApp from '../Image/Banking App.png';
+import GamesPython from '../Image/Game.png';
+import MERNStack from '../Image/MERN stack.png';
+import ProjectPluse from '../Image/Projectpluse.png';
 
-const AI = () => {
+const project = () => {
   const projects = [
     {
-      photo: '/src/Image/Student_grievance_system.png"',
+      photo: StudentGrievance,
       name: 'Student Grievance System By Code Yatra',
       technologies: ['Python', 'Django'],
       purpose: 'A student portal built with Python and Django, designed to allow students to register grievances so administrators can review and resolve them efficiently.',
       github: 'https://github.com/Narendra-Vaniya-0506/Student_grievance_system'
     },
     {
-      photo: '/src/Image/Banking App.png',
+      photo: BankingApp,
       name: 'Banking application By Code Yatra',
       technologies: ['Python', 'Flask ', 'MongoDB ', 'JavaScript', 'HTML5, CSS3, Bootstrap 5'],
       purpose: 'The purpose of this project is to create a functional banking application.',
       github: 'https://github.com/Narendra-Vaniya-0506/Banking_application'
     },
     {
-      photo: '/src/Image/Game.png',
+      photo: GamesPython,
       name: 'Games Using Python',
       technologies: ['Python'],
       purpose: 'Games Using Python.',
       github: 'https://github.com/Narendra-Vaniya-0506/Games-Using-Python'
     },
     {
-      photo: '/src/Image/MERN stack.png',
+      photo: MERNStack,
       name: 'MERN Stack application',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
       purpose: 'This project is a full-stack MERN For School or tutioan Management.',
       github: 'https://github.com/Narendra-Vaniya-0506/MERN-stack-Star_Academy_System'
     },
     {
-      photo: '/src/Image/Projectpluse.png',
+      photo: ProjectPluse,
       name: 'ProjectPluse',
       technologies: ['React + Vite', 'Node.js', 'Express', 'MongoDB'],
       purpose: 'A comprehensive project management application built with React and Node.js, designed to streamline team collaboration, task management, and project tracking for organizations of all sizes.',
       github: 'https://github.com/Narendra-Vaniya-0506/ProjectPluse'
-    },
-    {
-      photo: '/src/Image/Developer.jpg',
-      name: 'Code Generator',
-      technologies: ['JavaScript', 'Node.js', 'OpenAI API'],
-      purpose: 'Generates code snippets based on natural language prompts.',
-      github: 'https://github.com/example/code-generator'
-    },
-    {
-      photo: '/src/Image/Developer1.jpg',
-      name: 'Voice Assistant',
-      technologies: ['Python', 'Speech Recognition', 'Flask'],
-      purpose: 'A voice-controlled assistant for home automation.',
-      github: 'https://github.com/example/voice-assistant'
-    },
-    {
-      photo: '/src/Image/Gemini_Generated_Image_f0gn5lf0gn5lf0gn.png',
-      name: 'Predictive Model',
-      technologies: ['R', 'Caret', 'Random Forest'],
-      purpose: 'Predicts future trends using historical data.',
-      github: 'https://github.com/example/predictive-model'
-    },
-    {
-      photo: '/src/Image/background-1.png',
-      name: 'Sentiment Analyzer',
-      technologies: ['Python', 'NLTK', 'SVM'],
-      purpose: 'Analyzes text sentiment for social media monitoring.',
-      github: 'https://github.com/example/sentiment-analyzer'
-    },
-    {
-      photo: '/src/Image/background-2.png',
-      name: 'Autonomous Drone',
-      technologies: ['Python', 'OpenCV', 'ROS'],
-      purpose: 'Controls a drone for autonomous navigation.',
-      github: 'https://github.com/example/autonomous-drone'
     }
   ];
 
@@ -215,4 +185,4 @@ const AI = () => {
   );
 };
 
-export default AI;
+export default project;
